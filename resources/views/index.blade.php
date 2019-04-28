@@ -1,4 +1,4 @@
-@extends('navbar')
+{{-- @extends('navbar')
 
 @section('content')
   <div class="showcase">
@@ -119,4 +119,11 @@
     </div>
   </div>
   <subscribe-component></subscribe-component>
+@endsection --}}
+@extends('template')
+
+@section('content')
+  <div id="index">
+    <index-component></index-component>
+  </div>
 @endsection
