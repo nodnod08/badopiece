@@ -1988,48 +1988,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
@@ -2619,7 +2577,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.showcase {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new1.jpg */ "./storage/app/public/img/bg-img/bg-new1.jpg")) + ");\n    background-repeat: no-repeat;\n    background-size:100% auto;\n    position: relative;\n    width: 100%;\n    min-height: 100vh;\n    margin: 0;\n    padding: 0;\n    background-attachment: fixed;\n}\n.offer-intro {\n    margin-top: 150px;\n}\nli {\n    list-style: none;\n}\n.showcase-second {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new4.jpg */ "./storage/app/public/img/bg-img/bg-new4.jpg")) + ");\n    background-repeat: no-repeat;\n    background-size:100% auto;\n    position: relative;\n    width: 100%;\n    min-height: 100vh;\n    margin: 0;\n    padding: 0;\n    background-attachment: fixed;\n}\n.jumbotron {\n    margin-bottom: 0;\n}\n", ""]);
+exports.push([module.i, "\n.showcase {\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3.jpg */ "./storage/app/public/img/bg-img/bg-new3.jpg")) + ");\n    background-repeat: no-repeat;\n    background-size:100% auto;\n    position: relative;\n    width: 100%;\n    min-height: 100vh;\n    margin: 0;\n    padding: 0;\n}\n@media(max-width: 1000px) {\n.showcase {\n        min-height: 70vh;\n        margin-top: 70px;\n}\n}\n@media(max-width: 540px) {\n.showcase {\n        background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3-center.jpg */ "./storage/app/public/img/bg-img/bg-new3-center.jpg")) + ");\n}\n}\n.message-intro {\n    margin-top: 250px;\n    background: transparent;\n    padding: 0;\n    margin-bottom: 50px;\n}\n@media(max-width: 690px) {\n.message-intro {\n        margin-top: 250px;\n        background: rgba(64, 64, 64, 0.7);\n        padding: 2%;\n        border-radius: 5px;\n}\n}\nli {\n    list-style: none;\n}\n.jumbotron {\n    margin-bottom: 0;\n}\n.fa-medal {\n    color: #fcff63;\n}\n.get-touch {\n    margin-top: 50px;\n}\n.choose-us {\n    margin-bottom: 50px;\n}\n.button-social, .button-social:focus {\n    background: #DB4437;\n    color: #fff;\n    outline: none;\n    border: none;\n}\n.touch-box {\n    background: #404040;\n    padding: 2%;\n}\n.touch-box .title {\n    color: #fff;\n}\n.touch-box button {\n    border: none;\n    outline: none;\n    width: 70%;\n}\n\n", ""]);
 
 // exports
 
@@ -26443,7 +26401,7 @@ var render = function() {
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row text-black text-center" }, [
             _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-12" }, [
-              _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card choose-us" }, [
                 _c("div", { staticClass: "text-center" }, [
                   _c("img", {
                     attrs: {
@@ -26463,7 +26421,7 @@ var render = function() {
               "div",
               { staticClass: "col-lg-4 col-md-4 col-sm-12 text-center" },
               [
-                _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card choose-us" }, [
                   _c("div", { staticClass: "text-center" }, [
                     _c("img", {
                       attrs: {
@@ -26483,7 +26441,7 @@ var render = function() {
               "div",
               { staticClass: "col-lg-4 col-md-4 col-sm-12 text-center" },
               [
-                _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card choose-us" }, [
                   _c("div", { staticClass: "text-center" }, [
                     _c("img", {
                       attrs: {
@@ -26501,12 +26459,12 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "container" })
+        _vm._m(5)
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "jumbotron client" }, [
         _c("div", { staticClass: "container" }, [
-          _vm._m(5),
+          _vm._m(6),
           _vm._v(" "),
           _c("div", { staticClass: "row text-center" }, [
             _c("div", { staticClass: "col-lg-3" }, [
@@ -26648,157 +26606,32 @@ var staticRenderFns = [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-6" }, [
-            _c("div", { staticClass: "card offer-intro bg-dark" }, [
-              _c("div", { staticClass: "card-body text-white" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v("Gives you a lot of Choice")
-                ]),
-                _vm._v(" "),
-                _c("h6", { staticClass: "card-subtitle mb-2 text-muted" }, [
-                  _vm._v("We make your business comportable on our products.")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _vm._v("WE OFFER SERVICES AND PRODUCTS:")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-6" }, [
-                    _c("ul", { staticClass: "offer-ul" }, [
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Multifuntion Printers")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Colored And Monochrome")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Lan, USB And WI-FI Connected")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Fast And Reliable Printers")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Good Quality Printout")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-6" }, [
-                    _c("ul", { staticClass: "offer-ul" }, [
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Preventive Maintenance")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Good Support And Downtime Blocker")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Technical Support")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Guide And Installation Instruction")
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "i",
-                          {
-                            staticClass: "material-icons prefix cyan accent-2",
-                            staticStyle: { "font-size": "11px" }
-                          },
-                          [_vm._v("adjust")]
-                        ),
-                        _vm._v(" Good Customer Assist")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-                  _vm._v("Card link")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-                  _vm._v("Another link")
-                ])
+            _c("div", { staticClass: "message-intro text-white" }, [
+              _c("h1", [_vm._v("Gives you a lot of Choice")]),
+              _vm._v(" "),
+              _c("h3", [
+                _vm._v("We make your business comportable on our products.")
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "#" } }, [
+                _c(
+                  "button",
+                  { staticClass: "button-social", attrs: { type: "button" } },
+                  [
+                    _c("i", { staticClass: "fab fa-google-plus-g" }),
+                    _vm._v(" Sign in with Google")
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Easily sign in with your google.")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v("Register "),
+                _c("a", { attrs: { href: "#" } }, [_vm._v("here")]),
+                _vm._v(" to get updated about new products.")
               ])
             ])
           ])
@@ -26869,6 +26702,42 @@ var staticRenderFns = [
         _vm._v(
           "Will give you an immediate support and information, also a fast support for avoiding downtime."
         )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container get-touch" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-6 col-md-6 text-center" }, [
+          _c("div", { staticClass: "touch-box" }, [
+            _c("h3", { staticClass: "title" }, [_vm._v("GET IN TOUCH")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("textarea", {
+              staticClass: "form-control",
+              attrs: {
+                name: "",
+                id: "",
+                placeholder: "Leave a message or question"
+              }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "email", placeholder: "Your Email" }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("button", { attrs: { type: "button" } }, [_vm._v("Submit")])
+          ])
+        ])
       ])
     ])
   },
@@ -26997,7 +26866,7 @@ var staticRenderFns = [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-outline-primary btn-sm my-2 my-sm-0",
+                  staticClass: "btn btn-outline-dark btn-sm my-2 my-sm-0",
                   attrs: { type: "submit" }
                 },
                 [_vm._v("Signin")]
@@ -27010,7 +26879,7 @@ var staticRenderFns = [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-outline-primary btn-sm my-2 my-sm-0",
+                  staticClass: "btn btn-outline-dark btn-sm my-2 my-sm-0",
                   attrs: { type: "submit" }
                 },
                 [_vm._v("Register")]
@@ -27818,25 +27687,25 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ "./storage/app/public/img/bg-img/bg-new1.jpg":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/bg-img/bg-new1.jpg ***!
-  \***************************************************/
+/***/ "./storage/app/public/img/bg-img/bg-new3-center.jpg":
+/*!**********************************************************!*\
+  !*** ./storage/app/public/img/bg-img/bg-new3-center.jpg ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bg-new1.jpg?f61917d4b6c79b6882eb4a311d5ca648";
+module.exports = "/images/bg-new3-center.jpg?562c2774a0fcdee00f3e4ae85ac14048";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/bg-img/bg-new4.jpg":
+/***/ "./storage/app/public/img/bg-img/bg-new3.jpg":
 /*!***************************************************!*\
-  !*** ./storage/app/public/img/bg-img/bg-new4.jpg ***!
+  !*** ./storage/app/public/img/bg-img/bg-new3.jpg ***!
   \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bg-new4.jpg?8438f6b304ba15db301fd7bf156929b4";
+module.exports = "/images/bg-new3.jpg?6156307abdd52d52ad01824e4515aacc";
 
 /***/ }),
 

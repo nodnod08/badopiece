@@ -5,64 +5,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- <div class="mt-500">
-                            <div class="card-content">
-                                <span class="card-title">Give you a lot of Choice</span>
-                                <p>We make your business comportable on our products.</p>
-                                <br>
-                                <p>WE OFFER SERVICES AND PRODUCTS:</p>
-                                <div class="row">
-                                <div class="col-lg-6">
-                                    <ul class="offer-ul">
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Multifuntion Printers</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Colored And Monochrome</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Lan, USB And WI-FI Connected</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Fast And Reliable Printers</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Good Quality Printout</li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-6">
-                                    <ul class="offer-ul">
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Preventive Maintenance</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Good Support And Downtime Blocker</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Technical Support</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Guide And Installation Instruction</li>
-                                    <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Good Customer Assist</li>
-                                    </ul>
-                                </div>
-                                </div>
-                            </div>
-                            <hr style="margin: 0 5%;">
+                        <div class="message-intro text-white">
+                            <h1>Gives you a lot of Choice</h1>
+                            <h3>We make your business comportable on our products.</h3>
                             <br>
-                        </div> -->
-                        <div class="card offer-intro bg-dark">
-                            <div class="card-body text-white">
-                                <h5 class="card-title">Gives you a lot of Choice</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">We make your business comportable on our products.</h6>
-                                <p class="card-text">WE OFFER SERVICES AND PRODUCTS:</p>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <ul class="offer-ul">
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Multifuntion Printers</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Colored And Monochrome</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Lan, USB And WI-FI Connected</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Fast And Reliable Printers</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Good Quality Printout</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <ul class="offer-ul">
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Preventive Maintenance</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Good Support And Downtime Blocker</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Technical Support</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Guide And Installation Instruction</li>
-                                            <li><i style="font-size: 11px;" class="material-icons prefix cyan accent-2">adjust</i> Good Customer Assist</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
+                            <a href="#"><button class="button-social" type="button"><i class="fab fa-google-plus-g"></i> Sign in with Google</button></a>
+                            <p>Easily sign in with your google.</p>
+                            <p>Register <a href="#">here</a> to get updated about new products.</p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +31,7 @@
             <div class="container">
                 <div class="row text-black text-center">
                     <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card">
+                        <div class="card choose-us">
                             <div class="text-center">
                                 <img height="150" width="160" :src="'storage/img/bg-img/save.png'" alt="">
                             </div>
@@ -93,7 +42,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                        <div class="card">
+                        <div class="card choose-us">
                             <div class="text-center">
                                 <img height="150" class="" :src="'storage/img/bg-img/durable.png'" alt="">
                             </div>
@@ -104,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                        <div class="card">
+                        <div class="card choose-us">
                             <div class="text-center">
                                 <img height="150" class="" :src="'storage/img/bg-img/support.png'" alt="">
                             </div>
@@ -116,13 +65,22 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-
+            <div class="container get-touch">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 text-center">
+                        <div class="touch-box">
+                            <h3 class="title">GET IN TOUCH</h3>
+                            <br>
+                            <textarea name="" id="" class="form-control" placeholder="Leave a message or question"></textarea>
+                            <br>
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <br>
+                            <button class="" type="button">Submit</button>
+                            </div>
+                        </div>
+                </div>
             </div>
         </div>
-        <!-- <div class="showcase-second">
-            
-        </div> -->
         <div class="jumbotron client">
             <div class="container">
                 <div class="row">
@@ -199,7 +157,7 @@
 </script>
 <style>
     .showcase {
-        background-image: url('../../../public/storage/img/bg-img/bg-new1.jpg');
+        background-image: url('../../../public/storage/img/bg-img/bg-new3.jpg');
         background-repeat: no-repeat;
         background-size:100% auto;
         position: relative;
@@ -207,26 +165,75 @@
         min-height: 100vh;
         margin: 0;
         padding: 0;
-        background-attachment: fixed;
     }
-    .offer-intro {
-        margin-top: 150px;
+
+    @media(max-width: 1000px) {
+        .showcase {
+            min-height: 70vh;
+            margin-top: 70px;
+        }
     }
+
+    @media(max-width: 540px) {
+        .showcase {
+            background-image: url('../../../public/storage/img/bg-img/bg-new3-center.jpg');
+        }
+    }
+
+    .message-intro {
+        margin-top: 250px;
+        background: transparent;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+
+    @media(max-width: 690px) {
+        .message-intro {
+            margin-top: 250px;
+            background: rgba(64, 64, 64, 0.7);
+            padding: 2%;
+            border-radius: 5px;
+        }
+    }
+
     li {
         list-style: none;
     }
-    .showcase-second {
-        background-image: url('../../../public/storage/img/bg-img/bg-new4.jpg');
-        background-repeat: no-repeat;
-        background-size:100% auto;
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-        background-attachment: fixed;
-    }
+
     .jumbotron {
         margin-bottom: 0;
     }
+    .fa-medal {
+        color: #fcff63;
+    }
+    .get-touch {
+        margin-top: 50px;
+    }
+
+    .choose-us {
+        margin-bottom: 50px;
+    }
+
+    .button-social, .button-social:focus {
+        background: #DB4437;
+        color: #fff;
+        outline: none;
+        border: none;
+    }
+
+    .touch-box {
+        background: #404040;
+        padding: 2%;
+    }
+
+    .touch-box .title {
+        color: #fff;
+    }
+
+    .touch-box button {
+        border: none;
+        outline: none;
+        width: 70%;
+    }
+    
 </style>

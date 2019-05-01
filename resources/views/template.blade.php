@@ -16,7 +16,9 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link rel="icon" type="image/png" href="{{ asset('storage/img/core-img/logo3.png') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
+      </head>
     <body>
 
       {{-- <div id="app"> --}}

@@ -27,12 +27,12 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <button class="btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Signin</button>
+                                <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit">Signin</button>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <button class="btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Register</button>
+                                <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit">Register</button>
                             </a>
                         </li>
                     </ul>
