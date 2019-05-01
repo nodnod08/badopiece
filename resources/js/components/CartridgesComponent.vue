@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="row">
-            <div v-for="item in cartridgesItem.data" class="items card col l4 m6 white">
+            <div v-for="item in cartridgesItem.data" v-bind:key="item.id" class="items card col l4 m6 white">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="img activator" :src="'/storage/img/offer-img/'+item.cartridge_image">
                 </div>
