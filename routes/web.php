@@ -19,22 +19,28 @@ Route::get('/about-us', function () {
     return view('about');
 })->name('about-us');
 
-Route::get('/login', function () {
+Route::get('/signin', function () {
     return view('signin');
-})->name('login');
+})->name('signin');
 
 Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
+
+Route::get('/shop/printers', function () {
+    return view('shop');
+})->name('shop');
+
+Route::get('/shop/cartridges', function () {
+    return view('shop');
+})->name('shop');
 
 Route::get('/logout_user_sesion_destroy', function () {
     Auth::logout();
     return redirect('/');
 })->name('logout_user_sesion_destroy');
 
-Route::get('/shop/printers', 'ShopController@printers')->name('printers');
 Route::get('/shop/printers/{id}', 'ShopController@showPrinter')->name('view');
-Route::get('/shop/cartridges', 'ShopController@cartridges')->name('cartridges');
 Route::get('/shop/cartridges/{id}', 'ShopController@showCartridge')->name('view');
 
 Route::get('/getPrinters/{search}', 'ShopController@getPrinters');
@@ -43,9 +49,8 @@ Route::get('/getCartridges/{search}', 'ShopController@getCartridges');
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 
 Route::post('/subscribe', 'SubscribeController@subscribe')->name('subscribe');
-
-
-Auth::routes();
+Route::post('/login', 'AccountController@login')->name('login');
+Route::post('/register', 'AccountController@login')->name('register');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

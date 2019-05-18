@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Printers;
 use App\Cartridges;
+use App\User;
 use DB;
 
 class ShopController extends Controller
@@ -66,4 +68,5 @@ class ShopController extends Controller
 
         return $item;
     }
+    
 }

@@ -4,10 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
-
-window.Vue = require("vue");
-window.axios = require("axios").default;
+// require("./bootstrap");
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,19 +16,32 @@ window.axios = require("axios").default;
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-// Vue.component('printers-component', require('./components/PrintersComponent.vue').default);
-// Vue.component('cartridges-component', require('./components/CartridgesComponent.vue').default);
-// Vue.component('view-component', require('./components/ViewComponent.vue').default);
-// Vue.component('subscribe-component', require('./components/SubscribeComponent.vue').default);
-// Vue.component('cart-component', require('./components/CartComponent.vue').default);
-
-import VeeValidate from "vee-validate";
-Vue.use(VeeValidate, {
-    events: "blur"
-});
+Vue.component(
+    "navbar-component",
+    require("./components/NavbarComponent.vue").default
+);
+Vue.component(
+    "shop-component",
+    require("./components/ShopComponent.vue").default
+);
+// Vue.component(
+//     "printers-component",
+//     require("./components/PrintersComponent.vue").default
+// );
+// Vue.component(
+//     "cartridges-component",
+//     require("./components/CartridgesComponent.vue").default
+// );
+Vue.component(
+    "footer-component",
+    require("./components/FooterComponent.vue").default
+);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+const shop = new Vue({
+    el: "#shop"
+});

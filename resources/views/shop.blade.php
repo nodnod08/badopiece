@@ -1,11 +1,7 @@
-@extends(Route::currentRouteName() == 'printers' ? 'navbar' : 'template')
+@extends('template')
 
-    @if (Route::currentRouteName() == 'printers')
-        @section('content')
-            <printers-component></printers-component>
-        @endsection    
-    @else
-        @section('cartridges-content')
-            <cartridges-component></cartridges-component>
-        @endsection
-    @endif
+@section('content')
+<div id="shop">
+    <shop-component></shop-component>
+</div>
+@endsection
