@@ -19,4 +19,6 @@ mix.js("resources/js/app.js", "public/js").sass(
 mix.js(["resources/js/index.js"], "public/js/index.js");
 mix.js(["resources/js/signin.js"], "public/js/signin.js");
 mix.js(["resources/js/signup.js"], "public/js/signup.js");
-mix.js(["resources/js/shop.js"], "public/js/shop.js");
+mix.js(["resources/js/shop_cartridges.js"], "public/js/shop_cartridges.js");
+mix.js(["resources/js/shop_printers.js"], "public/js/shop_printers.js");
+mix.js(["resources/js/view.js"], "public/js/view.js");

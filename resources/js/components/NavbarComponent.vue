@@ -25,11 +25,11 @@
             <li :class="path_name == '/about-us' ? 'nav-item active' : 'nav-item'">
               <a class="nav-link" href="#">ABOUT US</a>
             </li>
-            <li :class="path_name == '/shop/cartridges' ? 'nav-item active' : 'nav-item'">
-              <a class="nav-link" :href="'/shop/cartridges'">CARTRIDGES</a>
+            <li :class="path_name == '/cartridges' ? 'nav-item active' : 'nav-item'">
+              <a class="nav-link" :href="'/cartridges'">CARTRIDGES</a>
             </li>
-            <li :class="path_name == '/shop/printers' ? 'nav-item active' : 'nav-item'">
-              <a class="nav-link" :href="'/shop/printers'">PRINTERS</a>
+            <li :class="path_name == '/printers' ? 'nav-item active' : 'nav-item'">
+              <a class="nav-link" :href="'/printers'">PRINTERS</a>
             </li>
           </ul>
           <ul class="navbar-nav">

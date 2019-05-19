@@ -1,34 +1,66 @@
 <template>
   <div>
     <navbar-component></navbar-component>
-    <h1>cartridge</h1>
+    <div>
+      <div class="container">
+        <div class="cartridges row">
+          <div
+            v-for="item in cartridgesItem.data"
+            v-bind:key="item.id"
+            class="col-lg-4 col-md-6 col-sm-12 card border-secondary mb-3"
+          >
+            <img
+              :src="'storage/img/offer-img/'+item.cartridge_image"
+              class="card-img-top center"
+              alt="..."
+            >
+            <div class="card-header">{{ item.cartridge_name }}</div>
+            <div class="card-body text-secondary">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm 12">
+                  <p>₱ {{ item.cartridge_price.toLocaleString() }}</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm 12">
+                  <a :href="'/shop/cartridges/'+item.id">
+                    <button class="btn btn-outline-dark btn-sm my-2 my-sm-0">View details</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h6>Showing from {{ this.cartridgesItem.from }} to {{ this.cartridgesItem.to }} of {{ this.cartridgesItem.total }}</h6>
+        <pagination :data="cartridgesItem" @pagination-change-page="getCartridges">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+    <footer-component></footer-component>
   </div>
 </template>
 
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
-import { RadarSpinner } from "epic-spinners";
 export default {
-  components: {
-    RadarSpinner
-  },
-  mounted() {
-    // console.log('Printers mounted.')
-  },
+  components: {},
+  mounted() {},
   data() {
     return {
-      cartridgesItem: {},
-      search: "",
-      loading: false
+      path_name: "",
+      cartridgesItem: {}
     };
   },
   created() {
     this.getCartridges();
+    this.path_name = window.location.pathname;
   },
   methods: {
     getCartridges: async function(page = 1) {
       this.loading = true;
-
       if (typeof this.search == "undefined" || this.search == "") {
         var url = "/getCartridges/default?page=";
       } else {
@@ -39,7 +71,6 @@ export default {
         this.cartridgesItem = response.data;
         this.loading = false;
       });
-
       this.loading = false;
     }
   }
@@ -47,25 +78,24 @@ export default {
 </script>
 
 <style>
-.items {
-  margin-top: 30px;
-  /* margin-left: 10px;
-        margin-right: 10px; */
+.shop {
+  min-height: 70vh;
+  margin-top: 100px;
 }
 
-.img {
-  width: 100px;
-  height: 400px;
+.cartridges {
+  margin-top: 150px;
 }
 
-.opener {
-  cursor: pointer;
+.card-img-top {
+  height: 300px;
+  width: 250px;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
-.search {
-  margin-bottom: -40px;
-  margin-top: 20px;
-  margin-left: -15px;
+.card {
+  padding: 0;
 }
 </style>
 

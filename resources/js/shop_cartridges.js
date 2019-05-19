@@ -21,17 +21,9 @@ Vue.component(
     require("./components/NavbarComponent.vue").default
 );
 Vue.component(
-    "shop-component",
-    require("./components/ShopComponent.vue").default
+    "cartridges-component",
+    require("./components/CartridgesComponent.vue").default
 );
-// Vue.component(
-//     "printers-component",
-//     require("./components/PrintersComponent.vue").default
-// );
-// Vue.component(
-//     "cartridges-component",
-//     require("./components/CartridgesComponent.vue").default
-// );
 Vue.component(
     "footer-component",
     require("./components/FooterComponent.vue").default
@@ -42,6 +34,6 @@ Vue.component(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const shop = new Vue({
-    el: "#shop"
+const cartridges = new Vue({
+    el: "#cartridges"
 });

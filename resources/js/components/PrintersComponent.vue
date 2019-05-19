@@ -1,32 +1,61 @@
 <template>
   <div>
     <navbar-component></navbar-component>
-    <h1>printer</h1>
+    <div>
+      <div class="container">
+        <div class="printers row">
+          <div
+            v-for="item in printersItem.data"
+            v-bind:key="item.id"
+            class="col-lg-4 col-md-6 col-sm-12 card border-secondary mb-3"
+          >
+            <img
+              :src="'storage/img/offer-img/'+item.printer_image1"
+              class="card-img-top center"
+              alt="..."
+            >
+            <div class="card-header">{{ item.printer_name }}</div>
+            <div class="card-body text-secondary">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm 12">
+                  <a :href="'/shop/printers/'+item.id"><button class="btn btn-outline-dark btn-sm my-2 my-sm-0">View details</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h6>Showing from {{ this.printersItem.from }} to {{ this.printersItem.to }} of {{ this.printersItem.total }}</h6>
+        <pagination :data="printersItem" @pagination-change-page="getPrinters">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
     <footer-component></footer-component>
   </div>
 </template>
 
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
-import { RadarSpinner } from "epic-spinners";
 export default {
-  components: {
-    RadarSpinner
-  },
+  components: {},
+  mounted() {},
   data() {
     return {
-      printersItem: {},
-      search: "",
-      loading: false
+      path_name: "",
+      printersItem: {}
     };
   },
   created() {
     this.getPrinters();
+    this.path_name = window.location.pathname;
   },
   methods: {
     getPrinters: async function(page = 1) {
       this.loading = true;
-
       if (typeof this.search == "undefined" || this.search == "") {
         var url = "/getPrinters/default?page=";
       } else {
@@ -35,7 +64,6 @@ export default {
       await axios.get(url + page).then(response => {
         this.printersItem = response.data;
       });
-
       this.loading = false;
     }
   }
@@ -43,25 +71,24 @@ export default {
 </script>
 
 <style>
-.items {
-  margin-top: 30px;
-  /* margin-left: 10px;
-        margin-right: 10px; */
+.shop {
+  min-height: 70vh;
+  margin-top: 100px;
 }
 
-.img {
-  width: 100px;
-  height: 400px;
+.printers {
+  margin-top: 150px;
 }
 
-.opener {
-  cursor: pointer;
+.card-img-top {
+  height: 300px;
+  width: 250px;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
-.search {
-  margin-bottom: -40px;
-  margin-top: 20px;
-  margin-left: -15px;
+.card {
+  padding: 0;
 }
 </style>
 

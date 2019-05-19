@@ -2141,7 +2141,7 @@ var render = function() {
                   "li",
                   {
                     class:
-                      _vm.path_name == "/shop/cartridges"
+                      _vm.path_name == "/cartridges"
                         ? "nav-item active"
                         : "nav-item"
                   },
@@ -2150,7 +2150,7 @@ var render = function() {
                       "a",
                       {
                         staticClass: "nav-link",
-                        attrs: { href: "/shop/cartridges" }
+                        attrs: { href: "/cartridges" }
                       },
                       [_vm._v("CARTRIDGES")]
                     )
@@ -2161,17 +2161,14 @@ var render = function() {
                   "li",
                   {
                     class:
-                      _vm.path_name == "/shop/printers"
+                      _vm.path_name == "/printers"
                         ? "nav-item active"
                         : "nav-item"
                   },
                   [
                     _c(
                       "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/shop/printers" }
-                      },
+                      { staticClass: "nav-link", attrs: { href: "/printers" } },
                       [_vm._v("PRINTERS")]
                     )
                   ]
