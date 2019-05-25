@@ -23,7 +23,7 @@
               <a class="nav-link" :href="'/'">HOME</a>
             </li>
             <li :class="path_name == '/about-us' ? 'nav-item active' : 'nav-item'">
-              <a class="nav-link" href="#">ABOUT US</a>
+              <a class="nav-link" href="/about-us">ABOUT US</a>
             </li>
             <li :class="path_name == '/cartridges' ? 'nav-item active' : 'nav-item'">
               <a class="nav-link" :href="'/cartridges'">CARTRIDGES</a>

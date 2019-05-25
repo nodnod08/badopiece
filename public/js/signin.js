@@ -2149,9 +2149,11 @@ var render = function() {
                         : "nav-item"
                   },
                   [
-                    _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                      _vm._v("ABOUT US")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "nav-link", attrs: { href: "/about-us" } },
+                      [_vm._v("ABOUT US")]
+                    )
                   ]
                 ),
                 _vm._v(" "),

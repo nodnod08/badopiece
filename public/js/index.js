@@ -211,6 +211,50 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -437,9 +481,68 @@ __webpack_require__.r(__webpack_exports__);
   props: ["auth"],
   components: {},
   data: function data() {
-    return {};
+    return {
+      message: "",
+      fullname: "",
+      email: ""
+    };
   },
-  methods: {},
+  methods: {
+    inquire: function inquire() {
+      var _this = this;
+
+      this.$validator.validateAll().then(
+      /*#__PURE__*/
+      function () {
+        var _ref = _asyncToGenerator(
+        /*#__PURE__*/
+        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(result) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  if (!result) {
+                    _context.next = 5;
+                    break;
+                  }
+
+                  _context.next = 3;
+                  return axios.post("/inquire", {
+                    fullname: _this.fullname,
+                    email: _this.email,
+                    message: _this.message
+                  }).then(function (response) {
+                    // console.log(response.data);
+                    _this.fullname = "";
+                    _this.email = "";
+                    _this.message = "";
+
+                    if (response.data == "ok") {
+                      swal("", "Your message has been sent", "success");
+                    } else {
+                      swal("", "Something error", "error");
+                    } // console.log(response.data);
+
+                  });
+
+                case 3:
+                  _context.next = 5;
+                  break;
+
+                case 5:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }());
+    }
+  },
   created: function created() {}
 });
 
@@ -7753,7 +7856,152 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(6)
+        _c("div", { staticClass: "container get-touch" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-6 col-md-6 text-center" }, [
+              _c("div", { staticClass: "touch-box" }, [
+                _c("h3", { staticClass: "title" }, [_vm._v("GET IN TOUCH")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message,
+                      expression: "message"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  class: _vm.errors.first("message")
+                    ? "is-invalid form-control"
+                    : "form-control",
+                  attrs: {
+                    name: "message",
+                    id: "",
+                    placeholder: "Leave a message or question"
+                  },
+                  domProps: { value: _vm.message },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.message = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.errors.first("message")
+                  ? _c("small", { staticClass: "invalid-feedback" }, [
+                      _vm._v(_vm._s(_vm.errors.first("message")))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|email",
+                      expression: "'required|email'"
+                    }
+                  ],
+                  class: _vm.errors.first("email")
+                    ? "is-invalid form-control"
+                    : "form-control",
+                  attrs: {
+                    name: "email",
+                    type: "email",
+                    placeholder: "Your Email"
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.errors.first("email")
+                  ? _c("small", { staticClass: "invalid-feedback" }, [
+                      _vm._v(_vm._s(_vm.errors.first("email")))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fullname,
+                      expression: "fullname"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  class: _vm.errors.first("fullname")
+                    ? "is-invalid form-control"
+                    : "form-control",
+                  attrs: {
+                    name: "fullname",
+                    type: "text",
+                    placeholder: "Your fullname"
+                  },
+                  domProps: { value: _vm.fullname },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.fullname = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.errors.first("fullname")
+                  ? _c("small", { staticClass: "invalid-feedback" }, [
+                      _vm._v(_vm._s(_vm.errors.first("fullname")))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { attrs: { type: "button" }, on: { click: _vm.inquire } },
+                  [_vm._v("Submit")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(6)
+          ])
+        ])
       ]),
       _vm._v(" "),
       _vm._m(7),
@@ -7915,7 +8163,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", [
       _vm._v("\n              Register\n              "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("here")]),
+      _c("a", { attrs: { href: "/signup" } }, [_vm._v("here")]),
       _vm._v(" to get updated about new products.\n            ")
     ])
   },
@@ -7989,93 +8237,61 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container get-touch" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-6 col-md-6 text-center" }, [
-          _c("div", { staticClass: "touch-box" }, [
-            _c("h3", { staticClass: "title" }, [_vm._v("GET IN TOUCH")]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("textarea", {
-              staticClass: "form-control",
-              attrs: {
-                name: "",
-                id: "",
-                placeholder: "Leave a message or question"
-              }
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "email", placeholder: "Your Email" }
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("button", { attrs: { type: "button" } }, [_vm._v("Submit")])
-          ])
+    return _c("div", { staticClass: "col-lg-6 col-md-6" }, [
+      _c("div", { staticClass: "services" }, [
+        _c("h4", { staticClass: "title" }, [
+          _vm._v("WE OFFER SERVICES AND PRODUCTS.")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-md-6" }, [
-          _c("div", { staticClass: "services" }, [
-            _c("h4", { staticClass: "title" }, [
-              _vm._v("WE OFFER SERVICES AND PRODUCTS.")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "list-group" }, [
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Multifuntion Printers\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Colored And Monochrome\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Lan, USB And WI-FI Connected\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Fast And Reliable Printers\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Good Quality Printout\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Preventive Maintenance\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Good Support And Downtime Blocker\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Technical Support\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Guide And Installation Instruction\n              ")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "fas fa-check" }),
-                _vm._v(" Good Customer Assist\n              ")
-              ])
-            ])
+        _c("ul", { staticClass: "list-group" }, [
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Multifuntion Printers\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Colored And Monochrome\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Lan, USB And WI-FI Connected\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Fast And Reliable Printers\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Good Quality Printout\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Preventive Maintenance\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Good Support And Downtime Blocker\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Technical Support\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Guide And Installation Instruction\n              ")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("i", { staticClass: "fas fa-check" }),
+            _vm._v(" Good Customer Assist\n              ")
           ])
         ])
       ])
@@ -8264,9 +8480,11 @@ var render = function() {
                         : "nav-item"
                   },
                   [
-                    _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                      _vm._v("ABOUT US")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "nav-link", attrs: { href: "/about-us" } },
+                      [_vm._v("ABOUT US")]
+                    )
                   ]
                 ),
                 _vm._v(" "),

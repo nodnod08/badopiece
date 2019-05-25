@@ -1,4 +1,4 @@
-@extends('navbar')
+{{-- @extends('navbar')
 
 @section('content')
     <div class="container">
@@ -86,4 +86,12 @@
         </div>
         <br><br>
     </div>
+@endsection --}}
+
+@extends('template')
+
+@section('content')
+<div id="about">
+    <about-component auth="{{ Auth::check() ? Auth::user()->username : 'none' }}"></about-component>
+</div>
 @endsection

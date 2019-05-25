@@ -17,7 +17,7 @@
               <p>Easily sign in with your google.</p>
               <p>
                 Register
-                <a href="#">here</a> to get updated about new products.
+                <a href="/signup">here</a> to get updated about new products.
               </p>
             </div>
           </div>
@@ -78,11 +78,47 @@
             <div class="touch-box">
               <h3 class="title">GET IN TOUCH</h3>
               <br>
-              <textarea name id class="form-control" placeholder="Leave a message or question"></textarea>
+              <textarea
+                v-model="message"
+                name="message"
+                v-validate="'required'"
+                id
+                class="form-control"
+                placeholder="Leave a message or question"
+                :class="errors.first('message') ? 'is-invalid form-control' : 'form-control'"
+              ></textarea>
+              <small
+                class="invalid-feedback"
+                v-if="errors.first('message')"
+              >{{ errors.first('message') }}</small>
               <br>
-              <input type="email" class="form-control" placeholder="Your Email">
+              <input
+                v-model="email"
+                name="email"
+                v-validate="'required|email'"
+                type="email"
+                :class="errors.first('email') ? 'is-invalid form-control' : 'form-control'"
+                placeholder="Your Email"
+              >
+              <small
+                class="invalid-feedback"
+                v-if="errors.first('email')"
+              >{{ errors.first('email') }}</small>
               <br>
-              <button class type="button">Submit</button>
+              <input
+                v-model="fullname"
+                name="fullname"
+                v-validate="'required'"
+                type="text"
+                :class="errors.first('fullname') ? 'is-invalid form-control' : 'form-control'"
+                placeholder="Your fullname"
+              >
+              <small
+                class="invalid-feedback"
+                v-if="errors.first('fullname')"
+              >{{ errors.first('fullname') }}</small>
+              <br>
+              <button @click="inquire" type="button">Submit</button>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
@@ -225,9 +261,39 @@ export default {
   props: ["auth"],
   components: {},
   data() {
-    return {};
+    return {
+      message: "",
+      fullname: "",
+      email: ""
+    };
   },
-  methods: {},
+  methods: {
+    inquire: function() {
+      this.$validator.validateAll().then(async result => {
+        if (result) {
+          await axios
+            .post("/inquire", {
+              fullname: this.fullname,
+              email: this.email,
+              message: this.message
+            })
+            .then(response => {
+              // console.log(response.data);
+              this.fullname = "";
+              this.email = "";
+              this.message = "";
+              if (response.data == "ok") {
+                swal("", "Your message has been sent", "success");
+              } else {
+                swal("", "Something error", "error");
+              }
+              // console.log(response.data);
+            });
+        } else {
+        }
+      });
+    }
+  },
   created() {}
 };
 </script>

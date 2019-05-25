@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewInquire;
 use Illuminate\Http\Request;
 use App\Subscribes;
 
 class SubscribeController extends Controller
 {
-    public function subscribe(Request $request) {
-        $subscribe = new Subscribes;
+    public function inquire(Request $request) {
+        $inquire = new Subscribes;
 
-        $subscribe->email = $request->email;
-        $subscribe->save();
+        $inquire->fullname = $request->fullname;
+        $inquire->email = $request->email;
+        $inquire->message = $request->message;
+        $inquire->save();
 
-        return $subscribe;
+        Mail::send(new NewInquire($inquire));
+
+        return "ok";
     }
 }

@@ -48,7 +48,7 @@ Route::get('/getCartridges/{search}', 'ShopController@getCartridges');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 
-Route::post('/subscribe', 'SubscribeController@subscribe')->name('subscribe');
+Route::post('/inquire', 'SubscribeController@inquire')->name('inquire');
 Route::post('/login', 'AccountController@login')->name('login');
 Route::post('/register', 'AccountController@create')->name('register');
 

@@ -493,6 +493,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     password: _this.password
                   }).then(function (response) {
                     // console.log(response.data)
+                    _this.firstname = "";
+                    _this.lastname = "";
+                    _this.username = "";
+                    _this.email = "";
+                    _this.password = "";
+
                     if (response.data) {
                       swal("", "Successfully registered", "success");
                     } else {
@@ -2210,9 +2216,11 @@ var render = function() {
                         : "nav-item"
                   },
                   [
-                    _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                      _vm._v("ABOUT US")
-                    ])
+                    _c(
+                      "a",
+                      { staticClass: "nav-link", attrs: { href: "/about-us" } },
+                      [_vm._v("ABOUT US")]
+                    )
                   ]
                 ),
                 _vm._v(" "),

@@ -154,6 +154,11 @@ export default {
             })
             .then(response => {
               // console.log(response.data)
+              this.firstname = "";
+              this.lastname = "";
+              this.username = "";
+              this.email = "";
+              this.password = "";
               if (response.data) {
                 swal("", "Successfully registered", "success");
               } else {
