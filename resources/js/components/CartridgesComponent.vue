@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <navbar-component :username="auth"></navbar-component>
     <div>
       <div class="container">
         <div class="cartridges row">
@@ -46,6 +46,7 @@
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
 export default {
+  props: ["auth"],
   components: {},
   mounted() {},
   data() {

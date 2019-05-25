@@ -2,6 +2,6 @@
 
 @section('content')
 <div id="cartridges">
-    <cartridges-component></cartridges-component>
+    <cartridges-component auth="{{ Auth::check() ? Auth::user()->username : 'none' }}"></cartridges-component>
 </div>
 @endsection

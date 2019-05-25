@@ -270,7 +270,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["username"],
   components: {},
   data: function data() {
     return {
@@ -280,6 +296,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.path_name = window.location.pathname;
     console.log(this.path_name);
+  },
+  watch: {
+    username: function username(newVal, oldVal) {
+      this.username = newVal;
+    }
   },
   methods: {}
 });
@@ -343,8 +364,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["auth"],
   components: {},
   mounted: function mounted() {},
   data: function data() {
@@ -3513,45 +3537,92 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("ul", { staticClass: "navbar-nav" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "/signin" } },
-                    [
+                _vm.username == "none"
+                  ? _c("li", { staticClass: "nav-item" }, [
                       _c(
-                        "button",
-                        {
-                          class:
-                            _vm.path_name == "/signin"
-                              ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
-                              : "btn btn-outline-dark btn-sm my-2 my-sm-0",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Signin")]
+                        "a",
+                        { staticClass: "nav-link", attrs: { href: "/signin" } },
+                        [
+                          _c(
+                            "button",
+                            {
+                              class:
+                                _vm.path_name == "/signin"
+                                  ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
+                                  : "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v("Signin")]
+                          )
+                        ]
                       )
-                    ]
-                  )
-                ]),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "/signup" } },
-                    [
+                _vm.username == "none"
+                  ? _c("li", { staticClass: "nav-item" }, [
                       _c(
-                        "button",
-                        {
-                          class:
-                            _vm.path_name == "/signup"
-                              ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
-                              : "btn btn-outline-dark btn-sm my-2 my-sm-0",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Register")]
+                        "a",
+                        { staticClass: "nav-link", attrs: { href: "/signup" } },
+                        [
+                          _c(
+                            "button",
+                            {
+                              class:
+                                _vm.path_name == "/signup"
+                                  ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
+                                  : "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v("Register")]
+                          )
+                        ]
                       )
-                    ]
-                  )
-                ])
+                    ])
+                  : _c("li", { staticClass: "nav-item dropdown" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          attrs: {
+                            href: "#",
+                            id: "navbarDropdown",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v(_vm._s(_vm.username))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v("Account settings")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: { href: "logout_user_sesion_destroy" }
+                            },
+                            [_vm._v("Logout")]
+                          )
+                        ]
+                      )
+                    ])
               ])
             ]
           )
@@ -3606,7 +3677,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("navbar-component"),
+      _c("navbar-component", { attrs: { username: _vm.auth } }),
       _vm._v(" "),
       _c("div", [
         _c(

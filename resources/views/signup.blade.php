@@ -2,6 +2,6 @@
 
 @section('content')
 <div id="signup">
-    <signup-component></signup-component>
+    <signup-component auth="{{ Auth::check() ? Auth::user()->username : 'none' }}"></signup-component>
 </div>
 @endsection

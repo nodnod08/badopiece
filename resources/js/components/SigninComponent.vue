@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <navbar-component :username="auth"></navbar-component>
     <div class="signin">
       <div class="container">
         <div class="row">
@@ -79,6 +79,7 @@
 
 <script>
 export default {
+  props: ["auth"],
   data() {
     return {
       email: "",
@@ -95,13 +96,10 @@ export default {
               password: this.password
             })
             .then(response => {
-              // console.log(response.data)
-              // if (response.data) {
-              //   swal("", "Subscribe successfully", "success");
-              // } else {
-              //   swal("", "Something error", "error");
-              // }
-              console.log(response.data);
+              if (response.data == "ok") {
+                window.location.href = "/";
+              } else {
+              }
             });
         } else {
         }

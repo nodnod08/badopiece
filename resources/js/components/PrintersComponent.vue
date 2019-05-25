@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <navbar-component :username="auth"></navbar-component>
     <div>
       <div class="container">
         <div class="printers row">
@@ -18,7 +18,9 @@
             <div class="card-body text-secondary">
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm 12">
-                  <a :href="'/shop/printers/'+item.id"><button class="btn btn-outline-dark btn-sm my-2 my-sm-0">View details</button></a>
+                  <a :href="'/shop/printers/'+item.id">
+                    <button class="btn btn-outline-dark btn-sm my-2 my-sm-0">View details</button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -41,6 +43,7 @@
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
 export default {
+  props: ["auth"],
   components: {},
   mounted() {},
   data() {

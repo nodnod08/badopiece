@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <navbar-component :username="auth"></navbar-component>
     <div class="signin">
       <div class="container">
         <div class="row">
@@ -18,7 +18,7 @@
                           <label>Firstname</label>
                           <input
                             type="text"
-                            v-model="email"
+                            v-model="firstname"
                             name="firstname"
                             v-validate="'required'"
                             :class="errors.first('firstname') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
@@ -129,6 +129,7 @@
 
 <script>
 export default {
+  props: ["auth"],
   data() {
     return {
       firstname: "",
@@ -153,12 +154,12 @@ export default {
             })
             .then(response => {
               // console.log(response.data)
-              // if (response.data) {
-              //   swal("", "Subscribe successfully", "success");
-              // } else {
-              //   swal("", "Something error", "error");
-              // }
-              console.log(response.data);
+              if (response.data) {
+                swal("", "Successfully registered", "success");
+              } else {
+                swal("", "Something error", "error");
+              }
+              // console.log(response.data);
             });
         } else {
         }

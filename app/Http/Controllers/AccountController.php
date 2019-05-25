@@ -3,29 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 use DB;
 
-class ShopController extends Controller
+class AccountController extends Controller
 {
 
     public function login(Request $request) {
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Authentication passed...
-            return $request->password;
+            return "ok";
         } else {
-            return $request->password;
+            return "not ok";
         }
     }
 
-    protected function create(array $data)
+    protected function create(Request $request)
     {
         return User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $request->firstname.' '.$request->lastname,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
     }
 

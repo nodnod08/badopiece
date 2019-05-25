@@ -33,7 +33,7 @@
             </li>
           </ul>
           <ul class="navbar-nav">
-            <li class="nav-item">
+            <li v-if="username == 'none'" class="nav-item">
               <a class="nav-link" :href="'/signin'">
                 <button
                   :class="path_name == '/signin' ? 'btn btn-outline-dark btn-sm my-2 my-sm-0 active' : 'btn btn-outline-dark btn-sm my-2 my-sm-0'"
@@ -41,13 +41,28 @@
                 >Signin</button>
               </a>
             </li>
-            <li class="nav-item">
+            <li v-if="username == 'none'" class="nav-item">
               <a class="nav-link" :href="'/signup'">
                 <button
                   :class="path_name == '/signup' ? 'btn btn-outline-dark btn-sm my-2 my-sm-0 active' : 'btn btn-outline-dark btn-sm my-2 my-sm-0'"
                   type="submit"
                 >Register</button>
               </a>
+            </li>
+            <li v-else class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >{{ username }}</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Account settings</a>
+                <a class="dropdown-item" :href="'logout_user_sesion_destroy'">Logout</a>
+              </div>
             </li>
           </ul>
         </div>
@@ -59,6 +74,7 @@
 
 <script>
 export default {
+  props: ["username"],
   components: {},
   data() {
     return {
@@ -68,6 +84,11 @@ export default {
   created() {
     this.path_name = window.location.pathname;
     console.log(this.path_name);
+  },
+  watch: {
+    username: function(newVal, oldVal) {
+      this.username = newVal;
+    }
   },
   methods: {}
 };

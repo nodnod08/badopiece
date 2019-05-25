@@ -2,6 +2,7 @@
 
 @section('content')
 <div id="view">
-    <view-component type="{{{ $content['type'] }}}" id="{{{ $content['id'] }}}"></view-component>
+    <view-component auth="{{ Auth::check() ? Auth::user()->username : 'none' }}" type="{{{ $content['type'] }}}"
+        id="{{{ $content['id'] }}}"></view-component>
 </div>
 @endsection

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
+    <navbar-component :username="auth"></navbar-component>
     <div class="showcase">
       <div class="container">
         <div class="row">
@@ -222,11 +222,13 @@
 
 <script>
 export default {
+  props: ["auth"],
   components: {},
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
+  created() {}
 };
 </script>
 <style>

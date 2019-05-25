@@ -50,7 +50,7 @@ Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 
 Route::post('/subscribe', 'SubscribeController@subscribe')->name('subscribe');
 Route::post('/login', 'AccountController@login')->name('login');
-Route::post('/register', 'AccountController@login')->name('register');
+Route::post('/register', 'AccountController@create')->name('register');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
