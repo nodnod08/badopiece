@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div v-if="loading">
+      <div class="loader-back"></div>
+      <div class="loader">
+        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff"/>
+      </div>
+    </div>
     <navbar-component :username="auth"></navbar-component>
     <div class="showcase">
       <div class="container">
@@ -257,20 +263,25 @@
 
 
 <script>
+import { RadarSpinner } from "epic-spinners";
 export default {
   props: ["auth"],
-  components: {},
+  components: {
+    RadarSpinner
+  },
   data() {
     return {
       message: "",
       fullname: "",
-      email: ""
+      email: "",
+      loading: false
     };
   },
   methods: {
     inquire: function() {
       this.$validator.validateAll().then(async result => {
         if (result) {
+          this.loading = true;
           await axios
             .post("/inquire", {
               fullname: this.fullname,
@@ -289,6 +300,7 @@ export default {
               }
               // console.log(response.data);
             });
+          this.loading = false;
         } else {
         }
       });

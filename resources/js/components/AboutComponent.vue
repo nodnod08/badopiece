@@ -11,7 +11,7 @@
           <h4>MISSION</h4>
           <p>Provide customers with high quality products and expertise to express their ideas and promote brand new alternative toner Cartridges.</p>
         </div>
-        <div class="V col-lg-6">
+        <div class="V col-lg-6 col-md-6 col-sm-12">
           <h4>VISION</h4>
           <p>Our vision is to become the country's largest provider of quality remanufactured and brand new compatible toner cartridges.</p>
         </div>

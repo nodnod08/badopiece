@@ -1,6 +1,12 @@
 <template>
   <div>
     <navbar-component :username="auth"></navbar-component>
+    <div v-if="loading">
+      <div class="loader-back"></div>
+      <div class="loader">
+        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff"/>
+      </div>
+    </div>
     <div class="view container">
       <div v-for="item in Items" v-bind:key="item.id" class="row">
         <div class="img_zoom col-lg-6 col-md-6 col-sm-12">
@@ -105,7 +111,7 @@ export default {
   data() {
     return {
       Items: {},
-      loading: false
+      loading: true
     };
   },
   created() {
@@ -113,7 +119,7 @@ export default {
   },
   methods: {
     getItem: async function() {
-      this.loading = true;
+      // this.loading = true;
 
       var url = "/getItem/" + this.type + "/" + this.id;
       await axios.get(url).then(response => {

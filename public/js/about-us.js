@@ -1147,7 +1147,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "V col-lg-6" }, [
+        _c("div", { staticClass: "V col-lg-6 col-md-6 col-sm-12" }, [
           _c("h4", [_vm._v("VISION")]),
           _vm._v(" "),
           _c("p", [

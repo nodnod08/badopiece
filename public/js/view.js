@@ -422,6 +422,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -433,7 +439,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       Items: {},
-      loading: false
+      loading: true
     };
   },
   created: function created() {
@@ -451,18 +457,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.loading = true;
+                // this.loading = true;
                 url = "/getItem/" + this.type + "/" + this.id;
-                _context.next = 4;
+                _context.next = 3;
                 return axios.get(url).then(function (response) {
                   _this.Items = response.data;
                   console.log(_this.Items);
                 });
 
-              case 4:
+              case 3:
                 this.loading = false;
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -18288,6 +18294,27 @@ var render = function() {
     "div",
     [
       _c("navbar-component", { attrs: { username: _vm.auth } }),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("div", [
+            _c("div", { staticClass: "loader-back" }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "loader" },
+              [
+                _c("radar-spinner", {
+                  attrs: {
+                    "animation-duration": 1500,
+                    size: 60,
+                    color: "#18ffff"
+                  }
+                })
+              ],
+              1
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",

@@ -1,5 +1,6 @@
 @component('mail::message')
-<h4>Asking or Inquiring about Pro Prints Enerprise</h4>
+<img height="150px" width="260px" src="{{ asset('storage/img/core-img/LOGO3.png') }}" alt="Smiley face">
+<h4>Asking or Inquiring about Pro Prints Enterprise</h4>
 
 {{ $data['message'] }}
 

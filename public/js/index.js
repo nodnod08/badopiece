@@ -213,6 +213,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var epic_spinners__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! epic-spinners */ "./node_modules/epic-spinners/src/lib.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -477,14 +478,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
-  components: {},
+  components: {
+    RadarSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_1__["RadarSpinner"]
+  },
   data: function data() {
     return {
       message: "",
       fullname: "",
-      email: ""
+      email: "",
+      loading: false
     };
   },
   methods: {
@@ -502,11 +513,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               switch (_context.prev = _context.next) {
                 case 0:
                   if (!result) {
-                    _context.next = 5;
+                    _context.next = 7;
                     break;
                   }
 
-                  _context.next = 3;
+                  _this.loading = true;
+                  _context.next = 4;
                   return axios.post("/inquire", {
                     fullname: _this.fullname,
                     email: _this.email,
@@ -525,11 +537,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   });
 
-                case 3:
-                  _context.next = 5;
+                case 4:
+                  _this.loading = false;
+                  _context.next = 7;
                   break;
 
-                case 5:
+                case 7:
                 case "end":
                   return _context.stop();
               }
@@ -7766,6 +7779,27 @@ var render = function() {
   return _c(
     "div",
     [
+      _vm.loading
+        ? _c("div", [
+            _c("div", { staticClass: "loader-back" }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "loader" },
+              [
+                _c("radar-spinner", {
+                  attrs: {
+                    "animation-duration": 1500,
+                    size: 60,
+                    color: "#18ffff"
+                  }
+                })
+              ],
+              1
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       _c("navbar-component", { attrs: { username: _vm.auth } }),
       _vm._v(" "),
       _c("div", { staticClass: "showcase" }, [
