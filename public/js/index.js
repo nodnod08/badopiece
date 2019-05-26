@@ -486,6 +486,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
@@ -8029,7 +8030,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "button",
-                  { attrs: { type: "button" }, on: { click: _vm.inquire } },
+                  {
+                    staticClass: "btn btn-outline-light btn-sm my-2 my-sm-0",
+                    on: { click: _vm.inquire }
+                  },
                   [_vm._v("Submit")]
                 )
               ])

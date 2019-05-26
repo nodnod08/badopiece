@@ -124,7 +124,8 @@
                 v-if="errors.first('fullname')"
               >{{ errors.first('fullname') }}</small>
               <br>
-              <button @click="inquire" type="button">Submit</button>
+              <!-- <button @click="inquire" type="button">Submit</button> -->
+              <button @click="inquire" class="btn btn-outline-light btn-sm my-2 my-sm-0">Submit</button>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
