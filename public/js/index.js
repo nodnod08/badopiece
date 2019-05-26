@@ -7965,7 +7965,7 @@ var render = function() {
                   attrs: {
                     name: "email",
                     type: "email",
-                    placeholder: "Your Email"
+                    placeholder: "Your Email (recommended Gmail)"
                   },
                   domProps: { value: _vm.email },
                   on: {

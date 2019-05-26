@@ -104,7 +104,7 @@
                 v-validate="'required|email'"
                 type="email"
                 :class="errors.first('email') ? 'is-invalid form-control' : 'form-control'"
-                placeholder="Your Email"
+                placeholder="Your Email (recommended Gmail)"
               >
               <small
                 class="invalid-feedback"

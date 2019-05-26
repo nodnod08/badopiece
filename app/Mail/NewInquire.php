@@ -32,7 +32,7 @@ class NewInquire extends Mailable
     public function build()
     {
         $this->from($this->inquire['email'], $this->inquire['fullname']);
-        $this->to('ppe.sales@proprintsenterprise.com');
+        $this->to('Proprints.ph@gmail.com');
         $this->replyTo($this->inquire['email'], $this->inquire['name']);
         $this->subject('Asking or Inquiring about Pro Prints Enerprise');
 
