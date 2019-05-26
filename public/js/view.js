@@ -187,6 +187,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -879,7 +881,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -17937,7 +17939,21 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(1)
+        _c("div", { staticClass: "col-lg-6" }, [
+          _c("ul", [
+            _c("li", [
+              _c("h5", { staticClass: "text-right" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "https://m.facebook.com/1164924420327481" }
+                  },
+                  [_c("i", { staticClass: "fab fb-page fa-facebook-square" })]
+                )
+              ])
+            ])
+          ])
+        ])
       ])
     ])
   ])
@@ -18016,20 +18032,6 @@ var staticRenderFns = [
             _vm._v(
               " Office hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6" }, [
-      _c("ul", [
-        _c("li", [
-          _c("h5", { staticClass: "text-right" }, [
-            _c("i", { staticClass: "fab fa-facebook-square" })
           ])
         ])
       ])

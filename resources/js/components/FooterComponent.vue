@@ -68,7 +68,9 @@
           <ul>
             <li>
               <h5 class="text-right">
-                <i class="fab fa-facebook-square"></i>
+                <a :href="'https://m.facebook.com/1164924420327481'">
+                  <i class="fab fb-page fa-facebook-square"></i>
+                </a>
               </h5>
             </li>
           </ul>
@@ -103,6 +105,10 @@ li {
 }
 .footer h5 {
   margin-bottom: 10px;
+}
+
+.fb-page {
+  color: #fff;
 }
 </style>
 

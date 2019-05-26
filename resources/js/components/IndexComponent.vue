@@ -212,44 +212,44 @@
           </div>
         </div>
         <div class="row text-center">
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="https://online-appointment.marina.gov.ph/">
               <img height="150" :src="'storage/img/core-img/client-1.png'" alt>
             </a>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="https://www.nykline.com/ecom/CUP_HOM_3000.do?redir=Y">
               <img height="150" :src="'storage/img/core-img/client-2.png'" alt>
             </a>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="http://www.tsmphil.com.ph/">
               <img height="150" :src="'storage/img/core-img/client-3.png'" alt>
             </a>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="http://www.elburgshipmanagement.com.ph/esmv2/">
               <img height="150" :src="'storage/img/core-img/client-4.png'" alt>
             </a>
           </div>
         </div>
         <div class="row text-center">
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="http://www.snackattack.ph/">
               <img height="150" :src="'storage/img/core-img/client-5.png'" alt>
             </a>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="https://robocash.ph/">
               <img height="150" :src="'storage/img/core-img/client-6.png'" alt>
             </a>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="http://ssc.edu.ph/">
               <img height="150" :src="'storage/img/core-img/client-7.png'" alt>
             </a>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6 col-sm-12">
             <a href="https://www.chinabank.ph/personal.aspx">
               <img height="150" :src="'storage/img/core-img/client-8.png'" alt>
             </a>
