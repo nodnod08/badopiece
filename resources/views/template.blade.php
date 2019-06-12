@@ -32,7 +32,7 @@
   @yield('content')
   {{-- </div> --}}
 
-  @if(Route::currentRouteName() == 'shop_printers' || Route::currentRouteName() == 'shop_cartridges' ||
+  @if(Route::currentRouteName() == 'products' ||
   Route::currentRouteName()
   == 'view')
 

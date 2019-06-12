@@ -17,7 +17,7 @@ class ShopController extends Controller
 
     public function showProducts($id) {
         $app = [
-            'type' => 'printers',
+            'type' => 'products',
             'id' => $id
         ];
         return view('view')->with('content', $app);
@@ -37,7 +37,7 @@ class ShopController extends Controller
     }
 
     public function getItems($type, $id) {
-        $item = DB::table($type)->where('id', $id)->get();
+        $item = DB::table($type)->where('product_id', $id)->get();
 
         return $item;
     }

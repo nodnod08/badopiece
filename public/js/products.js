@@ -9094,7 +9094,11 @@ var render = function() {
                           [
                             _c(
                               "a",
-                              { attrs: { href: "/shop/products/" + item.id } },
+                              {
+                                attrs: {
+                                  href: "/shop/products/" + item.product_id
+                                }
+                              },
                               [
                                 _c(
                                   "button",
