@@ -34,7 +34,7 @@ class NewInquire extends Mailable
         $this->from($this->inquire['email'], $this->inquire['fullname']);
         $this->to('Proprints.ph@gmail.com');
         $this->replyTo($this->inquire['email'], $this->inquire['name']);
-        $this->subject('Asking or Inquiring about Pro Prints Enerprise');
+        $this->subject('Asking or Inquiring about Pro Prints Enterprise');
 
         return $this->markdown('emails.inquire')
                         ->with('data',$this->inquire);

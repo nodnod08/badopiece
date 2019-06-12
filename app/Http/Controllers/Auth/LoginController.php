@@ -59,7 +59,7 @@ class LoginController extends Controller
         try {
             $user = Socialite::driver($driver)->user();
         } catch (\Exception $e) {
-            return redirect()->route('login');
+            return redirect()->route('signin');
         }
 
         $existingUser = User::where('email', $user->getEmail())->first();
