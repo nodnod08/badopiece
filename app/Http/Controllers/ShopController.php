@@ -11,11 +11,11 @@ use DB;
 
 class ShopController extends Controller
 {
-    public function printers() {
+    public function products() {
         return view('shop');
     }
 
-    public function showPrinter($id) {
+    public function showProducts($id) {
         $app = [
             'type' => 'printers',
             'id' => $id
@@ -23,44 +23,17 @@ class ShopController extends Controller
         return view('view')->with('content', $app);
     }
 
-    public function getPrinters($search) {
+    public function getProducts($search) {
         if($search == 'default') {
-            $printers = DB::table('printers')->paginate(9);
+            $products = DB::table('products')->paginate(9);
         } else {
-            $printers = DB::table('printers')
-                        ->where('printer_type', 'like', '%'.$search.'%')    
-                        ->orWhere('printer_type', 'like', '%'.$search.'%')    
-                        ->orWhere('printer_name', 'like', '%'.$search.'%')    
+            $products = DB::table('products')
+                        ->where('product_name', 'like', '%'.$search.'%')    
+                        ->orWhere('product_category', 'like', '%'.$search.'%')    
                         ->paginate(9);
         }
 
-        return $printers;
-    }
-
-    public function cartridges() {
-        return view('shop');
-    }
-
-    public function showCartridge($id) {
-        $app = [
-            'type' => 'cartridges',
-            'id' => $id
-        ];
-        return view('view')->with('content', $app);
-    }
-
-    public function getCartridges($search) {
-        if($search == 'default') {
-            $printers = DB::table('cartridges')->paginate(9);
-        } else {
-            $printers = DB::table('cartridges')
-                        ->where('cartridge_type', 'like', '%'.$search.'%')    
-                        ->orWhere('cartridge_color', 'like', '%'.$search.'%')    
-                        ->orWhere('cartridge_name', 'like', '%'.$search.'%')    
-                        ->paginate(9);
-        }
-
-        return $printers;
+        return $products;
     }
 
     public function getItems($type, $id) {

@@ -77,7 +77,7 @@ export default {
       loading: true,
       path_name: "",
       search: "",
-      printersItem: {}
+      productsItem: {}
     };
   },
   created() {
@@ -88,13 +88,13 @@ export default {
     getPrinters: async function(page = 1) {
       this.loading = true;
       if (typeof this.search == "undefined" || this.search == "") {
-        var url = "/getPrinters/default?page=";
+        var url = "/getProducts/default?page=";
       } else {
-        var url = "/getPrinters/" + this.search + "?page=";
+        var url = "/getProducts/" + this.search + "?page=";
       }
       await axios.get(url + page).then(response => {
         // this.loading = true;
-        this.printersItem = response.data;
+        this.productsItem = response.data;
         // this.loading = false;
       });
       this.loading = false;

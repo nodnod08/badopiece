@@ -31,20 +31,14 @@ Route::get('/printers', function () {
     return view('printers');
 })->name('shop_printers');
 
-Route::get('/cartridges', function () {
-    return view('cartridges');
-})->name('shop_cartridges');
-
 Route::get('/logout_user_sesion_destroy', function () {
     Auth::logout();
     return redirect('/');
 })->name('logout_user_sesion_destroy');
 
-Route::get('/shop/printers/{id}', 'ShopController@showPrinter')->name('view');
-Route::get('/shop/cartridges/{id}', 'ShopController@showCartridge')->name('view');
+Route::get('/shop/products/{id}', 'ShopController@showProducts')->name('view');
 
-Route::get('/getPrinters/{search}', 'ShopController@getPrinters');
-Route::get('/getCartridges/{search}', 'ShopController@getCartridges');
+Route::get('/getProducts/{search}', 'ShopController@getProducts');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 
