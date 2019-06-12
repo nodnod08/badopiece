@@ -27,9 +27,9 @@ Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
-Route::get('/printers', function () {
-    return view('printers');
-})->name('shop_printers');
+Route::get('/products', function () {
+    return view('products');
+})->name('products');
 
 Route::get('/logout_user_sesion_destroy', function () {
     Auth::logout();

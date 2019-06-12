@@ -21,23 +21,23 @@
                 >
               </div>
               <div class="col-lg-6 col-md-6">
-                <button @click="getPrinters" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Search</button>
+                <button @click="getProducts" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Search</button>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div
-            v-for="item in printersItem.data"
+            v-for="item in productsItem.data"
             v-bind:key="item.id"
             class="col-lg-4 col-md-6 col-sm-12 card border-secondary mb-3"
           >
             <img
-              :src="'storage/img/offer-img/'+item.printer_image1"
+              :src="'storage/img/offer-img/'+item.product_photo"
               class="card-img-top center"
               alt="..."
             >
-            <div class="card-header">{{ item.printer_name }}</div>
+            <div class="card-header">{{ item.product_name }}</div>
             <div class="card-body text-secondary">
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm 12">
@@ -49,8 +49,8 @@
             </div>
           </div>
         </div>
-        <h6>Showing from {{ this.printersItem.from }} to {{ this.printersItem.to }} of {{ this.printersItem.total }}</h6>
-        <pagination :data="printersItem" @pagination-change-page="getPrinters">
+        <h6>Showing from {{ this.productsItem.from }} to {{ this.productsItem.to }} of {{ this.productsItem.total }}</h6>
+        <pagination :data="productsItem" @pagination-change-page="getProducts">
           <span slot="prev-nav">Previous</span>
           <span slot="next-nav">Next</span>
         </pagination>
@@ -81,11 +81,11 @@ export default {
     };
   },
   created() {
-    this.getPrinters();
+    this.getProducts();
     this.path_name = window.location.pathname;
   },
   methods: {
-    getPrinters: async function(page = 1) {
+    getProducts: async function(page = 1) {
       this.loading = true;
       if (typeof this.search == "undefined" || this.search == "") {
         var url = "/getProducts/default?page=";
