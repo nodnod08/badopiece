@@ -1,4 +1,11 @@
 {
+    "/js/about-us.js": "/js/about-us.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/index.js": "/js/index.js",
+    "/js/shop_cartridges.js": "/js/shop_cartridges.js",
+    "/js/shop_printers.js": "/js/shop_printers.js",
+    "/js/signin.js": "/js/signin.js",
+    "/js/signup.js": "/js/signup.js",
+    "/js/view.js": "/js/view.js"
 }

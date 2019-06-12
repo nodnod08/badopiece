@@ -13,7 +13,7 @@
           <div class="col-lg-6">
             <div class="message-intro text-white">
               <h1>Gives you a lot of Choice</h1>
-              <h3>We make your business comportable on our products.</h3>
+              <h3>We make our customers comportable on our products.</h3>
               <br>
               <a :href="'/redirect/google'">
                 <button class="button-social" type="button">
@@ -61,7 +61,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title">PRODUCTS DURABILITY ARE PERFECT</h5>
-                <small>Durability of all printers and cartridges are tested and ensured for the use of all.</small>
+                <small>Durability of all clothes and accessories are good to our some and previous customers.</small>
               </div>
             </div>
           </div>
@@ -71,8 +71,8 @@
                 <img height="150" class :src="'storage/img/bg-img/support.png'" alt>
               </div>
               <div class="card-body">
-                <h5 class="card-title">GOOD ASSIST AND FAST SUPPORT</h5>
-                <small>Will give you an immediate support and information, also a fast support for avoiding downtime.</small>
+                <h5 class="card-title">GOOD CUSTOMERS ASSIST</h5>
+                <small>Will give you an information and answers for some inquiring about our products.</small>
               </div>
             </div>
           </div>
@@ -130,130 +130,40 @@
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="services">
-              <h4 class="title">WE OFFER SERVICES AND PRODUCTS.</h4>
+              <h4 class="title">WE OFFER MANY SERVICES, CLOTHES AND ACCESSORIES PRODUCTS</h4>
               <ul class="list-group">
                 <li>
-                  <i class="fas fa-check"></i> Multifuntion Printers
+                  <i class="fas fa-check"></i> Meet up for orders
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Colored And Monochrome
+                  <i class="fas fa-check"></i> Quick assist for product issue
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Lan, USB And WI-FI Connected
+                  <i class="fas fa-check"></i> Ensured durability
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Fast And Reliable Printers
+                  <i class="fas fa-check"></i> Check if it has damage before delivery
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Good Quality Printout
+                  <i class="fas fa-check"></i> Secured checkout
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Preventive Maintenance
+                  <i class="fas fa-check"></i> Customers account are secured
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Good Support And Downtime Blocker
+                  <i class="fas fa-check"></i> Get in touch for inquiry
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Technical Support
+                  <i class="fas fa-check"></i> Manage the days of delivery
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Guide And Installation Instruction
+                  <i class="fas fa-check"></i> Clear transaction
                 </li>
                 <li>
-                  <i class="fas fa-check"></i> Good Customer Assist
+                  <i class="fas fa-check"></i> Website friendly
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="intro-product">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 text-center">
-            <br>
-            <br>
-            <h3>Solid Waste and Recycling</h3>
-            <br>
-            <br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-4">
-            <h4>Recycle</h4>
-            <br>
-            <p>The impact of recycling ink cartridges, on our environment, is monumental. It isn’t simply the ink that is being recycled. Plastic and metal waste are being diverted from our landfills. When the plastic casings of the cartridges begin to decompose, poisonous toxins are seeping into our soil and water. Reducing cartridge manufacturing lowers net energy use, which ultimately impacts climate change. Further, reducing the amount of plastic products being used reduces the amount of oil that is consumed. Plastic cannot be manufactured, without oil. Eventually, greenhouse gases are affected, with respect to global climate change.</p>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <h4>Recycling ink and toner cartridges keeps millions of pounds of solid waste each year from landfills.</h4>
-            <br>
-            <p>As a society we are printing, copying and faxing more than ever. Used ink and toner cartridges are clogging our nation’s landfills, as many as 400 million per year!</p>
-            <p>Because cartridges are a petroleum based product, they take hundreds of years to decompose, adding to the already serious environmental problem. Cartridges are made of plastic, and it takes up to three quarts of oil to manufacture a single cartridge.</p>
-            <p>Ink cartridges are considered e-waste; they are harmful to the environment and can take eons to decompose. Companies and consumers should recycle their old ones, and when ink cartridges are purchased, go with refilled ones, which work just like conventional cartridges.</p>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <h4>Environmental Impact</h4>
-            <br>
-            <p>GHGs (green house gases) emissions from manufacturing a single mono toner cartridge have been calculated to approximately 4.8 kg CO2; per cartridge.</p>
-            <p>Each year over 350 million cartridges are thrown out to landfills.</p>
-            <p>By 2012 500 million laser cartridges and 1.8 billion ink cartridges will be dumped in landfills.</p>
-            <p>Each cartridge becomes 3.5 pounds of solid waste sitting in a landfill and can take up to 450 to 1000 years to decompose.</p>
-          </div>
-        </div>
-        <br>
-      </div>
-    </div>
-    <div class="jumbotron client">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h4>HERE IS SOME OF OUR BIG CLIENTS</h4>
-            <p>We introduce some of our long time clients who still trust our services.</p>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="https://online-appointment.marina.gov.ph/">
-              <img height="150" :src="'storage/img/core-img/client-1.png'" alt>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="https://www.nykline.com/ecom/CUP_HOM_3000.do?redir=Y">
-              <img height="150" :src="'storage/img/core-img/client-2.png'" alt>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="http://www.tsmphil.com.ph/">
-              <img height="150" :src="'storage/img/core-img/client-3.png'" alt>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="http://www.elburgshipmanagement.com.ph/esmv2/">
-              <img height="150" :src="'storage/img/core-img/client-4.png'" alt>
-            </a>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="http://www.snackattack.ph/">
-              <img height="150" :src="'storage/img/core-img/client-5.png'" alt>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="https://robocash.ph/">
-              <img height="150" :src="'storage/img/core-img/client-6.png'" alt>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="http://ssc.edu.ph/">
-              <img height="150" :src="'storage/img/core-img/client-7.png'" alt>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <a href="https://www.chinabank.ph/personal.aspx">
-              <img height="150" :src="'storage/img/core-img/client-8.png'" alt>
-            </a>
           </div>
         </div>
       </div>

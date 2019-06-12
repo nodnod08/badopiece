@@ -180,15 +180,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -213,9 +204,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -2042,7 +2030,7 @@ var render = function() {
                 _vm._v(
                   "© " +
                     _vm._s(_vm.year) +
-                    " Copyright Pro Prints Enterprise | Cartridges and Printers"
+                    " Copyright Badopiece Collection | Clothes and Accessories"
                 )
               ])
             ])
@@ -2056,7 +2044,9 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    attrs: { href: "https://m.facebook.com/1164924420327481" }
+                    attrs: {
+                      href: "https://www.facebook.com/badopiececollection/"
+                    }
                   },
                   [_c("i", { staticClass: "fab fb-page fa-facebook-square" })]
                 )
@@ -2080,27 +2070,21 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" Mr. JP Escartin\n          ")
+            _vm._v(" Ms. Emma Argon ( Owner )\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Riki Pardo\n          ")
+            _vm._v(
+              " Ms. Trixie Racoma ( Web Developer of this site )\n          "
+            )
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Alvin Valeza\n          ")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Marlon Dungca\n          ")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Jonard Lero Escartin\n          ")
+            _vm._v(
+              " Ms. Jeanne Paquia ( Web Developer of this site )\n          "
+            )
           ])
         ])
       ]),
@@ -2111,17 +2095,12 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" ppe.sales@proprintsenterprise.com\n          ")
+            _vm._v(" badopiece.store@gmail.com\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" techsupport@proprintsenterprise.com\n          ")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-phone" }),
-            _vm._v(" Landline 517-3813\n          ")
+            _vm._v(" badopiece.inquire@gmail.com\n          ")
           ])
         ])
       ]),
@@ -2132,15 +2111,13 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-map-marker-alt" }),
-            _vm._v(
-              " 586 Jenny’s Ave., Maybunga, Pasig City Sison Mansion, Rockefeller St., San Isidro, Makati City\n          "
-            )
+            _vm._v(" Calamba, Laguna\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-calendar-alt" }),
             _vm._v(
-              " Office hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
+              " Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
           ])
         ])
@@ -2181,7 +2158,7 @@ var render = function() {
             _c("img", {
               staticClass: "brand-logo",
               attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/logo3.png */ "./storage/app/public/img/core-img/logo3.png"),
+                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./public/storage/img/core-img/LOGO3.png"),
                 alt: ""
               }
             })
@@ -2230,35 +2207,15 @@ var render = function() {
                   "li",
                   {
                     class:
-                      _vm.path_name == "/cartridges"
+                      _vm.path_name == "/products"
                         ? "nav-item active"
                         : "nav-item"
                   },
                   [
                     _c(
                       "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/cartridges" }
-                      },
-                      [_vm._v("CARTRIDGES")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    class:
-                      _vm.path_name == "/printers"
-                        ? "nav-item active"
-                        : "nav-item"
-                  },
-                  [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link", attrs: { href: "/printers" } },
-                      [_vm._v("PRINTERS")]
+                      { staticClass: "nav-link", attrs: { href: "/products" } },
+                      [_vm._v("PRODUCTS")]
                     )
                   ]
                 )
@@ -2886,6 +2843,17 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ "./public/storage/img/core-img/LOGO3.png":
+/*!***********************************************!*\
+  !*** ./public/storage/img/core-img/LOGO3.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
+
+/***/ }),
+
 /***/ "./resources/js/components/FooterComponent.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/FooterComponent.vue ***!
@@ -3185,17 +3153,6 @@ var signup = new Vue({
 
 /***/ }),
 
-/***/ "./storage/app/public/img/core-img/logo3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/logo3.png ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo3.png?5ceef416b5f14d50f674e0758fe2ac74";
-
-/***/ }),
-
 /***/ 3:
 /*!**************************************!*\
   !*** multi ./resources/js/signup.js ***!
@@ -3203,7 +3160,7 @@ module.exports = "/images/logo3.png?5ceef416b5f14d50f674e0758fe2ac74";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ppe\resources\js\signup.js */"./resources/js/signup.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\signup.js */"./resources/js/signup.js");
 
 
 /***/ })

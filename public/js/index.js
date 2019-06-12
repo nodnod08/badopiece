@@ -180,15 +180,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -222,96 +213,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -573,9 +474,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -1203,7 +1101,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.showcase {\r\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3.jpg */ "./storage/app/public/img/bg-img/bg-new3.jpg")) + ");\r\n  background-repeat: no-repeat;\r\n  background-size: 100% auto;\r\n  position: relative;\r\n  width: 100%;\r\n  min-height: 100vh;\r\n  margin: 0;\r\n  padding: 0;\n}\n@media (max-width: 1000px) {\n.showcase {\r\n    min-height: 70vh;\r\n    margin-top: 70px;\n}\n}\n@media (max-width: 540px) {\n.showcase {\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3-center.jpg */ "./storage/app/public/img/bg-img/bg-new3-center.jpg")) + ");\n}\n}\n.message-intro {\r\n  margin-top: 250px;\r\n  background: transparent;\r\n  padding: 0;\r\n  margin-bottom: 50px;\n}\n@media (max-width: 690px) {\n.message-intro {\r\n    margin-top: 250px;\r\n    background: rgba(64, 64, 64, 0.7);\r\n    padding: 2%;\r\n    border-radius: 5px;\n}\n}\nli {\r\n  list-style: none;\n}\n.jumbotron {\r\n  margin-bottom: 0;\n}\n.fa-check {\r\n  color: #62f442;\n}\n.get-touch {\r\n  margin-top: 50px;\n}\n.choose-us {\r\n  margin-bottom: 50px;\n}\n.button-social,\r\n.button-social:focus {\r\n  background: #db4437;\r\n  color: #fff;\r\n  outline: none;\r\n  border: none;\n}\n.touch-box {\r\n  background: #404040;\r\n  padding: 2%;\n}\n.touch-box .title {\r\n  color: #fff;\n}\n.services .title {\r\n  color: #404040;\n}\n.touch-box button {\r\n  border: none;\r\n  outline: none;\r\n  width: 70%;\n}\n.services {\r\n  background: #fff;\r\n  padding: 2%;\n}\n.intro-product {\r\n  background: #727171;\r\n  min-height: 100px;\r\n  width: 100%;\r\n  color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.showcase {\r\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3.jpg */ "./public/storage/img/bg-img/bg-new3.jpg")) + ");\r\n  background-repeat: no-repeat;\r\n  background-size: 100% auto;\r\n  position: relative;\r\n  width: 100%;\r\n  min-height: 100vh;\r\n  margin: 0;\r\n  padding: 0;\n}\n@media (max-width: 1000px) {\n.showcase {\r\n    min-height: 70vh;\r\n    margin-top: 70px;\n}\n}\n@media (max-width: 540px) {\n.showcase {\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3-center.jpg */ "./public/storage/img/bg-img/bg-new3-center.jpg")) + ");\n}\n}\n.message-intro {\r\n  margin-top: 250px;\r\n  background: transparent;\r\n  padding: 0;\r\n  margin-bottom: 50px;\n}\n@media (max-width: 690px) {\n.message-intro {\r\n    margin-top: 250px;\r\n    background: rgba(64, 64, 64, 0.7);\r\n    padding: 2%;\r\n    border-radius: 5px;\n}\n}\nli {\r\n  list-style: none;\n}\n.jumbotron {\r\n  margin-bottom: 0;\n}\n.fa-check {\r\n  color: #62f442;\n}\n.get-touch {\r\n  margin-top: 50px;\n}\n.choose-us {\r\n  margin-bottom: 50px;\n}\n.button-social,\r\n.button-social:focus {\r\n  background: #db4437;\r\n  color: #fff;\r\n  outline: none;\r\n  border: none;\n}\n.touch-box {\r\n  background: #404040;\r\n  padding: 2%;\n}\n.touch-box .title {\r\n  color: #fff;\n}\n.services .title {\r\n  color: #404040;\n}\n.touch-box button {\r\n  border: none;\r\n  outline: none;\r\n  width: 70%;\n}\n.services {\r\n  background: #fff;\r\n  padding: 2%;\n}\n.intro-product {\r\n  background: #727171;\r\n  min-height: 100px;\r\n  width: 100%;\r\n  color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -7652,7 +7550,7 @@ var render = function() {
                 _vm._v(
                   "© " +
                     _vm._s(_vm.year) +
-                    " Copyright Pro Prints Enterprise | Cartridges and Printers"
+                    " Copyright Badopiece Collection | Clothes and Accessories"
                 )
               ])
             ])
@@ -7666,7 +7564,9 @@ var render = function() {
                 _c(
                   "a",
                   {
-                    attrs: { href: "https://m.facebook.com/1164924420327481" }
+                    attrs: {
+                      href: "https://www.facebook.com/badopiececollection/"
+                    }
                   },
                   [_c("i", { staticClass: "fab fb-page fa-facebook-square" })]
                 )
@@ -7690,27 +7590,21 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" Mr. JP Escartin\n          ")
+            _vm._v(" Ms. Emma Argon ( Owner )\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Riki Pardo\n          ")
+            _vm._v(
+              " Ms. Trixie Racoma ( Web Developer of this site )\n          "
+            )
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Alvin Valeza\n          ")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Marlon Dungca\n          ")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-user" }),
-            _vm._v(" MR. Jonard Lero Escartin\n          ")
+            _vm._v(
+              " Ms. Jeanne Paquia ( Web Developer of this site )\n          "
+            )
           ])
         ])
       ]),
@@ -7721,17 +7615,12 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" ppe.sales@proprintsenterprise.com\n          ")
+            _vm._v(" badopiece.store@gmail.com\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" techsupport@proprintsenterprise.com\n          ")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-phone" }),
-            _vm._v(" Landline 517-3813\n          ")
+            _vm._v(" badopiece.inquire@gmail.com\n          ")
           ])
         ])
       ]),
@@ -7742,15 +7631,13 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-map-marker-alt" }),
-            _vm._v(
-              " 586 Jenny’s Ave., Maybunga, Pasig City Sison Mansion, Rockefeller St., San Isidro, Makati City\n          "
-            )
+            _vm._v(" Calamba, Laguna\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-calendar-alt" }),
             _vm._v(
-              " Office hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
+              " Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
           ])
         ])
@@ -7813,7 +7700,7 @@ var render = function() {
                 _c("h1", [_vm._v("Gives you a lot of Choice")]),
                 _vm._v(" "),
                 _c("h3", [
-                  _vm._v("We make your business comportable on our products.")
+                  _vm._v("We make our customers comportable on our products.")
                 ]),
                 _vm._v(" "),
                 _c("br"),
@@ -8044,140 +7931,6 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(7),
-      _vm._v(" "),
-      _c("div", { staticClass: "jumbotron client" }, [
-        _c("div", { staticClass: "container" }, [
-          _vm._m(8),
-          _vm._v(" "),
-          _c("div", { staticClass: "row text-center" }, [
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c(
-                "a",
-                {
-                  attrs: { href: "https://online-appointment.marina.gov.ph/" }
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      height: "150",
-                      src: "storage/img/core-img/client-1.png",
-                      alt: ""
-                    }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "https://www.nykline.com/ecom/CUP_HOM_3000.do?redir=Y"
-                  }
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      height: "150",
-                      src: "storage/img/core-img/client-2.png",
-                      alt: ""
-                    }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c("a", { attrs: { href: "http://www.tsmphil.com.ph/" } }, [
-                _c("img", {
-                  attrs: {
-                    height: "150",
-                    src: "storage/img/core-img/client-3.png",
-                    alt: ""
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "http://www.elburgshipmanagement.com.ph/esmv2/"
-                  }
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      height: "150",
-                      src: "storage/img/core-img/client-4.png",
-                      alt: ""
-                    }
-                  })
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row text-center" }, [
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c("a", { attrs: { href: "http://www.snackattack.ph/" } }, [
-                _c("img", {
-                  attrs: {
-                    height: "150",
-                    src: "storage/img/core-img/client-5.png",
-                    alt: ""
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c("a", { attrs: { href: "https://robocash.ph/" } }, [
-                _c("img", {
-                  attrs: {
-                    height: "150",
-                    src: "storage/img/core-img/client-6.png",
-                    alt: ""
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c("a", { attrs: { href: "http://ssc.edu.ph/" } }, [
-                _c("img", {
-                  attrs: {
-                    height: "150",
-                    src: "storage/img/core-img/client-7.png",
-                    alt: ""
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-12" }, [
-              _c(
-                "a",
-                { attrs: { href: "https://www.chinabank.ph/personal.aspx" } },
-                [
-                  _c("img", {
-                    attrs: {
-                      height: "150",
-                      src: "storage/img/core-img/client-8.png",
-                      alt: ""
-                    }
-                  })
-                ]
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
       _c("footer-component")
     ],
     1
@@ -8252,7 +8005,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("small", [
         _vm._v(
-          "Durability of all printers and cartridges are tested and ensured for the use of all."
+          "Durability of all clothes and accessories are good to our some and previous customers."
         )
       ])
     ])
@@ -8263,12 +8016,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [
-        _vm._v("GOOD ASSIST AND FAST SUPPORT")
+        _vm._v("GOOD CUSTOMERS ASSIST")
       ]),
       _vm._v(" "),
       _c("small", [
         _vm._v(
-          "Will give you an immediate support and information, also a fast support for avoiding downtime."
+          "Will give you an information and answers for some inquiring about our products."
         )
       ])
     ])
@@ -8280,171 +8033,59 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-6 col-md-6" }, [
       _c("div", { staticClass: "services" }, [
         _c("h4", { staticClass: "title" }, [
-          _vm._v("WE OFFER SERVICES AND PRODUCTS.")
+          _vm._v("WE OFFER MANY SERVICES, CLOTHES AND ACCESSORIES PRODUCTS")
         ]),
         _vm._v(" "),
         _c("ul", { staticClass: "list-group" }, [
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Multifuntion Printers\n              ")
+            _vm._v(" Meet up for orders\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Colored And Monochrome\n              ")
+            _vm._v(" Quick assist for product issue\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Lan, USB And WI-FI Connected\n              ")
+            _vm._v(" Ensured durability\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Fast And Reliable Printers\n              ")
+            _vm._v(" Check if it has damage before delivery\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Good Quality Printout\n              ")
+            _vm._v(" Secured checkout\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Preventive Maintenance\n              ")
+            _vm._v(" Customers account are secured\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Good Support And Downtime Blocker\n              ")
+            _vm._v(" Get in touch for inquiry\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Technical Support\n              ")
+            _vm._v(" Manage the days of delivery\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Guide And Installation Instruction\n              ")
+            _vm._v(" Clear transaction\n              ")
           ]),
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-check" }),
-            _vm._v(" Good Customer Assist\n              ")
+            _vm._v(" Website friendly\n              ")
           ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "intro-product" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12 col-md-12 text-center" }, [
-            _c("br"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Solid Waste and Recycling")]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("br")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-            _c("h4", [_vm._v("Recycle")]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "The impact of recycling ink cartridges, on our environment, is monumental. It isn’t simply the ink that is being recycled. Plastic and metal waste are being diverted from our landfills. When the plastic casings of the cartridges begin to decompose, poisonous toxins are seeping into our soil and water. Reducing cartridge manufacturing lowers net energy use, which ultimately impacts climate change. Further, reducing the amount of plastic products being used reduces the amount of oil that is consumed. Plastic cannot be manufactured, without oil. Eventually, greenhouse gases are affected, with respect to global climate change."
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-            _c("h4", [
-              _vm._v(
-                "Recycling ink and toner cartridges keeps millions of pounds of solid waste each year from landfills."
-              )
-            ]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "As a society we are printing, copying and faxing more than ever. Used ink and toner cartridges are clogging our nation’s landfills, as many as 400 million per year!"
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Because cartridges are a petroleum based product, they take hundreds of years to decompose, adding to the already serious environmental problem. Cartridges are made of plastic, and it takes up to three quarts of oil to manufacture a single cartridge."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Ink cartridges are considered e-waste; they are harmful to the environment and can take eons to decompose. Companies and consumers should recycle their old ones, and when ink cartridges are purchased, go with refilled ones, which work just like conventional cartridges."
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-            _c("h4", [_vm._v("Environmental Impact")]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "GHGs (green house gases) emissions from manufacturing a single mono toner cartridge have been calculated to approximately 4.8 kg CO2; per cartridge."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Each year over 350 million cartridges are thrown out to landfills."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "By 2012 500 million laser cartridges and 1.8 billion ink cartridges will be dumped in landfills."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Each cartridge becomes 3.5 pounds of solid waste sitting in a landfill and can take up to 450 to 1000 years to decompose."
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("br")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-12 text-center" }, [
-        _c("h4", [_vm._v("HERE IS SOME OF OUR BIG CLIENTS")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "We introduce some of our long time clients who still trust our services."
-          )
         ])
       ])
     ])
@@ -8483,7 +8124,7 @@ var render = function() {
             _c("img", {
               staticClass: "brand-logo",
               attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/logo3.png */ "./storage/app/public/img/core-img/logo3.png"),
+                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./public/storage/img/core-img/LOGO3.png"),
                 alt: ""
               }
             })
@@ -8532,35 +8173,15 @@ var render = function() {
                   "li",
                   {
                     class:
-                      _vm.path_name == "/cartridges"
+                      _vm.path_name == "/products"
                         ? "nav-item active"
                         : "nav-item"
                   },
                   [
                     _c(
                       "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "/cartridges" }
-                      },
-                      [_vm._v("CARTRIDGES")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    class:
-                      _vm.path_name == "/printers"
-                        ? "nav-item active"
-                        : "nav-item"
-                  },
-                  [
-                    _c(
-                      "a",
-                      { staticClass: "nav-link", attrs: { href: "/printers" } },
-                      [_vm._v("PRINTERS")]
+                      { staticClass: "nav-link", attrs: { href: "/products" } },
+                      [_vm._v("PRODUCTS")]
                     )
                   ]
                 )
@@ -8937,6 +8558,39 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ "./public/storage/img/bg-img/bg-new3-center.jpg":
+/*!******************************************************!*\
+  !*** ./public/storage/img/bg-img/bg-new3-center.jpg ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bg-new3-center.jpg?a078f3b1f00a4cbbb87377758a58d679";
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/bg-new3.jpg":
+/*!***********************************************!*\
+  !*** ./public/storage/img/bg-img/bg-new3.jpg ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bg-new3.jpg?f4d11e26a246954730e61f3dd04c8bc5";
+
+/***/ }),
+
+/***/ "./public/storage/img/core-img/LOGO3.png":
+/*!***********************************************!*\
+  !*** ./public/storage/img/core-img/LOGO3.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
+
+/***/ }),
+
 /***/ "./resources/js/components/FooterComponent.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/FooterComponent.vue ***!
@@ -9306,39 +8960,6 @@ var index = new Vue({
 
 /***/ }),
 
-/***/ "./storage/app/public/img/bg-img/bg-new3-center.jpg":
-/*!**********************************************************!*\
-  !*** ./storage/app/public/img/bg-img/bg-new3-center.jpg ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bg-new3-center.jpg?562c2774a0fcdee00f3e4ae85ac14048";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/bg-img/bg-new3.jpg":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/bg-img/bg-new3.jpg ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bg-new3.jpg?6156307abdd52d52ad01824e4515aacc";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/core-img/logo3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/logo3.png ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/logo3.png?5ceef416b5f14d50f674e0758fe2ac74";
-
-/***/ }),
-
 /***/ 1:
 /*!*************************************!*\
   !*** multi ./resources/js/index.js ***!
@@ -9346,7 +8967,7 @@ module.exports = "/images/logo3.png?5ceef416b5f14d50f674e0758fe2ac74";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ppe\resources\js\index.js */"./resources/js/index.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\index.js */"./resources/js/index.js");
 
 
 /***/ })

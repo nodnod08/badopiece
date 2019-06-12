@@ -3,7 +3,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" :href="'/'">
-          <img class="brand-logo" src="../../../public/storage/img/core-img/logo3.png" alt>
+          <img class="brand-logo" src="../../../public/storage/img/core-img/LOGO3.png" alt>
         </a>
         <button
           class="navbar-toggler"
@@ -25,11 +25,8 @@
             <li :class="path_name == '/about-us' ? 'nav-item active' : 'nav-item'">
               <a class="nav-link" href="/about-us">ABOUT US</a>
             </li>
-            <li :class="path_name == '/cartridges' ? 'nav-item active' : 'nav-item'">
-              <a class="nav-link" :href="'/cartridges'">CARTRIDGES</a>
-            </li>
-            <li :class="path_name == '/printers' ? 'nav-item active' : 'nav-item'">
-              <a class="nav-link" :href="'/printers'">PRINTERS</a>
+            <li :class="path_name == '/products' ? 'nav-item active' : 'nav-item'">
+              <a class="nav-link" :href="'/products'">PRODUCTS</a>
             </li>
           </ul>
           <ul class="navbar-nav">

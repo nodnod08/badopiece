@@ -8,19 +8,13 @@
               <h5>Our Team</h5>
             </li>
             <li>
-              <i class="fas fa-user"></i> Mr. JP Escartin
+              <i class="fas fa-user"></i> Ms. Emma Argon ( Owner )
             </li>
             <li>
-              <i class="fas fa-user"></i> MR. Riki Pardo
+              <i class="fas fa-user"></i> Ms. Trixie Racoma ( Web Developer of this site )
             </li>
             <li>
-              <i class="fas fa-user"></i> MR. Alvin Valeza
-            </li>
-            <li>
-              <i class="fas fa-user"></i> MR. Marlon Dungca
-            </li>
-            <li>
-              <i class="fas fa-user"></i> MR. Jonard Lero Escartin
+              <i class="fas fa-user"></i> Ms. Jeanne Paquia ( Web Developer of this site )
             </li>
           </ul>
         </div>
@@ -30,13 +24,10 @@
               <h5>Contact us</h5>
             </li>
             <li>
-              <i class="fas fa-envelope"></i> ppe.sales@proprintsenterprise.com
+              <i class="fas fa-envelope"></i> badopiece.store@gmail.com
             </li>
             <li>
-              <i class="fas fa-envelope"></i> techsupport@proprintsenterprise.com
-            </li>
-            <li>
-              <i class="fas fa-phone"></i> Landline 517-3813
+              <i class="fas fa-envelope"></i> badopiece.inquire@gmail.com
             </li>
           </ul>
         </div>
@@ -46,10 +37,10 @@
               <h5>Locate us</h5>
             </li>
             <li>
-              <i class="fas fa-map-marker-alt"></i> 586 Jenny’s Ave., Maybunga, Pasig City Sison Mansion, Rockefeller St., San Isidro, Makati City
+              <i class="fas fa-map-marker-alt"></i> Calamba, Laguna
             </li>
             <li>
-              <i class="fas fa-calendar-alt"></i> Office hrs. Monday to Friday ( 8:00 am to 5:00 pm )
+              <i class="fas fa-calendar-alt"></i> Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )
             </li>
           </ul>
         </div>
@@ -60,7 +51,7 @@
         <div class="col-lg-6">
           <ul>
             <li>
-              <p>© {{ year }} Copyright Pro Prints Enterprise | Cartridges and Printers</p>
+              <p>© {{ year }} Copyright Badopiece Collection | Clothes and Accessories</p>
             </li>
           </ul>
         </div>
@@ -68,7 +59,7 @@
           <ul>
             <li>
               <h5 class="text-right">
-                <a :href="'https://m.facebook.com/1164924420327481'">
+                <a :href="'https://www.facebook.com/badopiececollection/'">
                   <i class="fab fb-page fa-facebook-square"></i>
                 </a>
               </h5>
