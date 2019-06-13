@@ -120,6 +120,7 @@ export default {
   height: 300px;
   width: 250px;
   margin-left: 50%;
+  margin-top: 15px;
   transform: translateX(-50%);
 }
 

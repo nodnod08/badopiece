@@ -379,45 +379,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -18046,159 +18007,90 @@ var render = function() {
         { staticClass: "view container" },
         [
           _vm._l(_vm.Items, function(item) {
-            return _c("div", { key: item.id, staticClass: "row" }, [
+            return _c("div", { key: item.product_id, staticClass: "row" }, [
               _c(
                 "div",
                 { staticClass: "img_zoom col-lg-6 col-md-6 col-sm-12" },
                 [
-                  _vm.type == "printers"
-                    ? _c("v-zoom", {
-                        staticClass: "responsive-img",
-                        attrs: {
-                          img: "/storage/img/offer-img/" + item.printer_image1,
-                          height: 400,
-                          width: 300
-                        }
-                      })
-                    : _c("v-zoom", {
-                        staticClass: "responsive-img",
-                        attrs: {
-                          img: "/storage/img/offer-img/" + item.cartridge_image,
-                          height: 400,
-                          width: 300
-                        }
-                      })
+                  _c("v-zoom", {
+                    staticClass: "responsive-img",
+                    attrs: {
+                      img: "/storage/img/offer-img/" + item.product_photo,
+                      height: 400,
+                      width: 300
+                    }
+                  })
                 ],
                 1
               ),
               _vm._v(" "),
-              _vm.type == "printers"
-                ? _c("div", { staticClass: "col-lg-6 col-md-12 col-sm-12" }, [
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Name :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_name))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Type :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_type))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Voltage :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_voltage))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Frequency :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_frequency))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Technology :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_technology))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Speed :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_speed))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Interface :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_interface))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Media Sizes :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_media_sizes))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Printer Compatible Cartridges :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.printer_toner))])
-                  ])
-                : _c("div", { staticClass: "col-lg-6 col-md-12 col-sm-12" }, [
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Cartridge Name :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.cartridge_name))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Cartridge Type :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.cartridge_type))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Cartridge Color :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.cartridge_color))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Compatible For :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.cartridge_compatible))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Page Yield :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.cartridge_yield))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("label", [_vm._v("Cartridge Price :")]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(item.cartridge_price))]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("br")
-                  ])
+              _c("div", { staticClass: "col-lg-6 col-md-12 col-sm-12" }, [
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Name :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_name))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Code :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_code))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Price :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_price) + ".00")]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Size :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_size))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Category :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_category))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Stocks :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_stocks))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Description:")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_desc))]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("label", [_vm._v("Product Date Uploaded :")]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(item.product_date))]),
+                _vm._v(" "),
+                _c("br")
+              ])
             ])
           }),
           _vm._v(" "),

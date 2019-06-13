@@ -881,7 +881,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.printers {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.products {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  margin-top: 15px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -9018,7 +9018,7 @@ var render = function() {
           "div",
           { staticClass: "container" },
           [
-            _c("div", { staticClass: "printers search row" }, [
+            _c("div", { staticClass: "products search row" }, [
               _c("div", { staticClass: "col-lg-8 col-md-8" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-lg-6 col-md-6" }, [

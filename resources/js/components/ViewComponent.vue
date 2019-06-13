@@ -8,87 +8,48 @@
       </div>
     </div>
     <div class="view container">
-      <div v-for="item in Items" v-bind:key="item.id" class="row">
+      <div v-for="item in Items" v-bind:key="item.product_id" class="row">
         <div class="img_zoom col-lg-6 col-md-6 col-sm-12">
           <v-zoom
-            v-if="type == 'printers'"
             class="responsive-img"
-            :img="'/storage/img/offer-img/'+item.printer_image1"
-            :height="400"
-            :width="300"
-          ></v-zoom>
-          <v-zoom
-            v-else
-            class="responsive-img"
-            :img="'/storage/img/offer-img/'+item.cartridge_image"
+            :img="'/storage/img/offer-img/'+item.product_photo"
             :height="400"
             :width="300"
           ></v-zoom>
         </div>
-        <div v-if="type == 'printers'" class="col-lg-6 col-md-12 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
           <br>
           <br>
-          <label>Printer Name :</label>
-          <span>{{ item.printer_name }}</span>
+          <label>Product Name :</label>
+          <span>{{ item.product_name }}</span>
           <br>
           <br>
-          <label>Printer Type :</label>
-          <span>{{ item.printer_type }}</span>
+          <label>Product Code :</label>
+          <span>{{ item.product_code }}</span>
           <br>
           <br>
-          <label>Printer Voltage :</label>
-          <span>{{ item.printer_voltage }}</span>
+          <label>Product Price :</label>
+          <span>{{ item.product_price }}.00</span>
           <br>
           <br>
-          <label>Printer Frequency :</label>
-          <span>{{ item.printer_frequency }}</span>
+          <label>Product Size :</label>
+          <span>{{ item.product_size }}</span>
           <br>
           <br>
-          <label>Printer Technology :</label>
-          <span>{{ item.printer_technology }}</span>
+          <label>Product Category :</label>
+          <span>{{ item.product_category }}</span>
           <br>
           <br>
-          <label>Printer Speed :</label>
-          <span>{{ item.printer_speed }}</span>
+          <label>Product Stocks :</label>
+          <span>{{ item.product_stocks }}</span>
           <br>
           <br>
-          <label>Printer Interface :</label>
-          <span>{{ item.printer_interface }}</span>
+          <label>Product Description:</label>
+          <span>{{ item.product_desc }}</span>
           <br>
           <br>
-          <label>Printer Media Sizes :</label>
-          <span>{{ item.printer_media_sizes }}</span>
-          <br>
-          <br>
-          <label>Printer Compatible Cartridges :</label>
-          <span>{{ item.printer_toner }}</span>
-        </div>
-        <div v-else class="col-lg-6 col-md-12 col-sm-12">
-          <br>
-          <br>
-          <label>Cartridge Name :</label>
-          <span>{{ item.cartridge_name }}</span>
-          <br>
-          <br>
-          <label>Cartridge Type :</label>
-          <span>{{ item.cartridge_type }}</span>
-          <br>
-          <br>
-          <label>Cartridge Color :</label>
-          <span>{{ item.cartridge_color }}</span>
-          <br>
-          <br>
-          <label>Compatible For :</label>
-          <span>{{ item.cartridge_compatible }}</span>
-          <br>
-          <br>
-          <label>Page Yield :</label>
-          <span>{{ item.cartridge_yield }}</span>
-          <br>
-          <br>
-          <label>Cartridge Price :</label>
-          <span>{{ item.cartridge_price }}</span>
-          <br>
+          <label>Product Date Uploaded :</label>
+          <span>{{ item.product_date }}</span>
           <br>
         </div>
       </div>
