@@ -10,7 +10,7 @@
     window.Laravel = { csrfToken: '{{ csrf_token() }}' }
   </script>
 
-  <title>Pro Prints Enterprise | Printing Solutions For Business And Personal Use</title>
+  <title>Badopiece Collection | Clothes and Accessories</title>
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"

@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="printers search row">
+        <div class="products search row">
           <div class="col-lg-8 col-md-8">
             <div class="row">
               <div class="col-lg-6 col-md-6">
@@ -112,7 +112,7 @@ export default {
   margin-bottom: 15px;
 }
 
-.printers {
+.products {
   margin-top: 150px;
 }
 
