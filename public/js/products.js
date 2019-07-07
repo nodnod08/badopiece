@@ -275,6 +275,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["username"],
   components: {},
@@ -315,6 +325,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -445,7 +461,10 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
       }
 
       return getProducts;
-    }()
+    }(),
+    addToCart: function addToCart(id) {
+      alert(id);
+    }
   }
 });
 
@@ -881,7 +900,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.products {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  margin-top: 15px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.products {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  margin-top: 15px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\n.page-item {\r\n  background: #000;\n}\r\n", ""]);
 
 // exports
 
@@ -8935,7 +8954,27 @@ var render = function() {
                           )
                         ]
                       )
-                    ])
+                    ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "/cart" } },
+                    [
+                      _c(
+                        "button",
+                        {
+                          class:
+                            _vm.path_name == "/cart"
+                              ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
+                              : "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                          attrs: { type: "submit" }
+                        },
+                        [_c("i", { staticClass: "fas fa-shopping-cart" })]
+                      )
+                    ]
+                  )
+                ])
               ])
             ]
           )
@@ -9109,6 +9148,20 @@ var render = function() {
                                   [_vm._v("View details")]
                                 )
                               ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                class:
+                                  "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addToCart(item.product_id)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-cart-plus" })]
                             )
                           ]
                         )

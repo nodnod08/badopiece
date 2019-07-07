@@ -3,7 +3,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" :href="'/'">
-          <img class="brand-logo" src="../../../public/storage/img/core-img/LOGO3.png" alt>
+          <img class="brand-logo" src="../../../public/storage/img/core-img/LOGO3.png" alt />
         </a>
         <button
           class="navbar-toggler"
@@ -60,6 +60,16 @@
                 <a class="dropdown-item" href="#">Account settings</a>
                 <a class="dropdown-item" :href="'logout_user_sesion_destroy'">Logout</a>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" :href="'/cart'">
+                <button
+                  :class="path_name == '/cart' ? 'btn btn-outline-dark btn-sm my-2 my-sm-0 active' : 'btn btn-outline-dark btn-sm my-2 my-sm-0'"
+                  type="submit"
+                >
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </a>
             </li>
           </ul>
         </div>

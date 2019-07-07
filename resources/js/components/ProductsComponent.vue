@@ -5,7 +5,7 @@
       <div v-if="loading">
         <div class="loader-back"></div>
         <div class="loader">
-          <radar-spinner :animation-duration="1500" :size="60" color="#18ffff"/>
+          <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
         </div>
       </div>
       <div class="container">
@@ -18,7 +18,7 @@
                   placeholder="Search something or keyword.."
                   v-model="search"
                   class="form-control form-control-sm"
-                >
+                />
               </div>
               <div class="col-lg-6 col-md-6">
                 <button @click="getProducts" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Search</button>
@@ -36,7 +36,7 @@
               :src="'storage/img/offer-img/'+item.product_photo"
               class="card-img-top center"
               alt="..."
-            >
+            />
             <div class="card-header">{{ item.product_name }}</div>
             <div class="card-body text-secondary">
               <div class="row">
@@ -44,6 +44,12 @@
                   <a :href="'/shop/products/'+item.product_id">
                     <button class="btn btn-outline-dark btn-sm my-2 my-sm-0">View details</button>
                   </a>
+                  <button
+                    @click="addToCart(item.product_id)"
+                    :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'"
+                  >
+                    <i class="fas fa-cart-plus"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -54,9 +60,9 @@
           <span slot="prev-nav">Previous</span>
           <span slot="next-nav">Next</span>
         </pagination>
-        <br>
-        <br>
-        <br>
+        <br />
+        <br />
+        <br />
       </div>
     </div>
     <footer-component></footer-component>
@@ -98,6 +104,9 @@ export default {
         // this.loading = false;
       });
       this.loading = false;
+    },
+    addToCart: function(id) {
+      alert(id);
     }
   }
 };
@@ -126,6 +135,10 @@ export default {
 
 .card {
   padding: 0;
+}
+
+.page-item {
+  background: #000;
 }
 </style>
 

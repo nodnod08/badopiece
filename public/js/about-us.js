@@ -318,6 +318,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["username"],
   components: {},
@@ -1520,7 +1530,27 @@ var render = function() {
                           )
                         ]
                       )
-                    ])
+                    ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    { staticClass: "nav-link", attrs: { href: "/cart" } },
+                    [
+                      _c(
+                        "button",
+                        {
+                          class:
+                            _vm.path_name == "/cart"
+                              ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
+                              : "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                          attrs: { type: "submit" }
+                        },
+                        [_c("i", { staticClass: "fas fa-shopping-cart" })]
+                      )
+                    ]
+                  )
+                ])
               ])
             ]
           )
