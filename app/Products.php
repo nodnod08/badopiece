@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Subscribes extends Model
+class Products extends Model
 {
     use Notifiable;
 
+    protected $table='products';
     /**
      * The attributes that are mass assignable.
      *

@@ -1,6 +1,12 @@
 <template>
   <div>
-    <navbar-component :username="auth"></navbar-component>
+    <navbar-component :count="cartCount" :username="auth"></navbar-component>
+    <div v-if="loading">
+      <div class="loader-back"></div>
+      <div class="loader">
+        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
+      </div>
+    </div>
     <div class="signin">
       <div class="container">
         <div class="row">
@@ -9,9 +15,9 @@
               <div class="row">
                 <div class="col-lg-6 offset-lg-3 col-md-6 col-sm-12">
                   <div class="signin-box">
-                    <br>
+                    <br />
                     <h4 class="text-center">Create your Account</h4>
-                    <br>
+                    <br />
                     <form v-on:submit.prevent="login" autocomplete="off">
                       <div class="row">
                         <div class="col-lg-6">
@@ -22,7 +28,7 @@
                             name="firstname"
                             v-validate="'required'"
                             :class="errors.first('firstname') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                          >
+                          />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('firstname')"
@@ -36,7 +42,7 @@
                             name="lastname"
                             v-validate="'required'"
                             :class="errors.first('lastname') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                          >
+                          />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('lastname')"
@@ -50,7 +56,7 @@
                             name="username"
                             v-validate="'required'"
                             :class="errors.first('username') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                          >
+                          />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('username')"
@@ -64,7 +70,7 @@
                             name="email"
                             v-validate="'email|required'"
                             :class="errors.first('email') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                          >
+                          />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('email')"
@@ -79,7 +85,7 @@
                             v-validate="'required'"
                             ref="password"
                             :class="errors.first('password') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                          >
+                          />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('password')"
@@ -94,14 +100,14 @@
                             v-validate="'required|confirmed:password'"
                             data-vv-as="password"
                             :class="errors.first('confirm_password') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                          >
+                          />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('confirm_password')"
                           >{{ errors.first('confirm_password') }}</small>
                         </div>
                       </div>
-                      <br>
+                      <br />
                       <div class="text-center">
                         <button
                           type="submit"
@@ -128,8 +134,12 @@
 </template>
 
 <script>
+import { RadarSpinner } from "epic-spinners";
 export default {
   props: ["auth"],
+  components: {
+    RadarSpinner
+  },
   data() {
     return {
       firstname: "",
@@ -137,13 +147,16 @@ export default {
       email: "",
       username: "",
       cpassword: "",
-      password: ""
+      password: "",
+      loading: false,
+      cartCount: ""
     };
   },
   methods: {
     login: function() {
       this.$validator.validateAll().then(async result => {
         if (result) {
+          this.loading = true;
           await axios
             .post("/register", {
               firstname: this.firstname,
@@ -160,14 +173,22 @@ export default {
               this.email = "";
               this.password = "";
               if (response.data) {
+                this.loading = false;
                 swal("", "Successfully registered", "success");
               } else {
+                this.loading = false;
                 swal("", "Something error", "error");
               }
               // console.log(response.data);
             });
         } else {
         }
+      });
+    },
+    countCart: async function() {
+      axios.get("countCart").then(response => {
+        this.cartCount = response.data;
+        console.log(response.data);
       });
     }
   }

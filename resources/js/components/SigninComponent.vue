@@ -1,6 +1,12 @@
 <template>
   <div>
-    <navbar-component :username="auth"></navbar-component>
+    <navbar-component :count="cartCount" :username="auth"></navbar-component>
+    <div v-if="loading">
+      <div class="loader-back"></div>
+      <div class="loader">
+        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
+      </div>
+    </div>
     <div class="signin">
       <div class="container">
         <div class="row">
@@ -9,9 +15,9 @@
               <div class="row">
                 <div class="col-lg-6 offset-lg-3 col-md-6 col-sm-12">
                   <div class="signin-box">
-                    <br>
+                    <br />
                     <h4 class="text-center">Log in or Create an Account</h4>
-                    <br>
+                    <h6 v-if="error" class="invalid text-center">Username or password is incorrect</h6>
                     <form v-on:submit.prevent="login">
                       <label>Email</label>
                       <input
@@ -20,7 +26,7 @@
                         name="email"
                         v-validate="'email|required'"
                         :class="errors.first('email') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                      >
+                      />
                       <small
                         class="invalid-feedback"
                         v-if="errors.first('email')"
@@ -32,12 +38,12 @@
                         name="password"
                         v-validate="'required'"
                         :class="errors.first('password') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
-                      >
+                      />
                       <small
                         class="invalid-feedback"
                         v-if="errors.first('password')"
                       >{{ errors.first('password') }}</small>
-                      <br>
+                      <br />
                       <div class="text-center">
                         <button ttype="submit" class="text-center btn btn-outline-dark btn-sm">Login</button>
                       </div>
@@ -56,8 +62,8 @@
                           <i class="fab fa-facebook-square"></i> Login with Facebook
                         </button>
                       </div>
-                      <br>
-                      <br>
+                      <br />
+                      <br />
                       <div class="col-lg-12 col-md-12">
                         <p>
                           Don't have an account?
@@ -78,18 +84,29 @@
 </template>
 
 <script>
+import { RadarSpinner } from "epic-spinners";
 export default {
   props: ["auth"],
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      loading: false,
+      error: false,
+      cartCount: ""
     };
+  },
+  components: {
+    RadarSpinner
+  },
+  created() {
+    this.countCart();
   },
   methods: {
     login: function() {
       this.$validator.validateAll().then(async result => {
         if (result) {
+          this.loading = true;
           await axios
             .post("/login", {
               email: this.email,
@@ -97,12 +114,22 @@ export default {
             })
             .then(response => {
               if (response.data == "ok") {
+                this.loading = false;
+                this.error = false;
                 window.location.href = "/";
               } else {
+                this.loading = false;
+                this.error = true;
               }
             });
         } else {
         }
+      });
+    },
+    countCart: async function() {
+      axios.get("countCart").then(response => {
+        this.cartCount = response.data;
+        console.log(response.data);
       });
     }
   }
@@ -150,5 +177,9 @@ form,
 .fb {
   background: #4267b2;
   color: #fff;
+}
+
+.invalid {
+  color: red;
 }
 </style>

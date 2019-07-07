@@ -45,6 +45,8 @@ Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 Route::post('/inquire', 'SubscribeController@inquire')->name('inquire');
 Route::post('/login', 'AccountController@login')->name('login');
 Route::post('/register', 'AccountController@create')->name('register');
+Route::post('/add', 'CartController@add')->name('add');
+Route::get('/countCart', 'CartController@countCart')->name('countCart');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

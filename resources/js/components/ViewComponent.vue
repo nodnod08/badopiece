@@ -1,10 +1,10 @@
 <template>
   <div>
-    <navbar-component :username="auth"></navbar-component>
+    <navbar-component :count="cartCount" :username="auth"></navbar-component>
     <div v-if="loading">
       <div class="loader-back"></div>
       <div class="loader">
-        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff"/>
+        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
       </div>
     </div>
     <div class="view container">
@@ -18,43 +18,43 @@
           ></v-zoom>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Name :</label>
           <span>{{ item.product_name }}</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Code :</label>
           <span>{{ item.product_code }}</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Price :</label>
           <span>{{ item.product_price }}.00</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Size :</label>
           <span>{{ item.product_size }}</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Category :</label>
           <span>{{ item.product_category }}</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Stocks :</label>
           <span>{{ item.product_stocks }}</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Description:</label>
           <span>{{ item.product_desc }}</span>
-          <br>
-          <br>
+          <br />
+          <br />
           <label>Product Date Uploaded :</label>
           <span>{{ item.product_date }}</span>
-          <br>
+          <br />
         </div>
       </div>
-      <br>
-      <br>
+      <br />
+      <br />
     </div>
     <footer-component></footer-component>
   </div>
@@ -72,11 +72,13 @@ export default {
   data() {
     return {
       Items: {},
-      loading: true
+      loading: true,
+      cartCount: ""
     };
   },
   created() {
     this.getItem();
+    this.countCart();
   },
   methods: {
     getItem: async function() {
@@ -89,6 +91,12 @@ export default {
       });
 
       this.loading = false;
+    },
+    countCart: async function() {
+      axios.get("countCart").then(response => {
+        this.cartCount = response.data;
+        console.log(response.data);
+      });
     }
   }
 };

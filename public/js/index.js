@@ -399,7 +399,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       message: "",
       fullname: "",
       email: "",
-      loading: false
+      loading: false,
+      cartCount: ""
     };
   },
   methods: {
@@ -458,9 +459,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return _ref.apply(this, arguments);
         };
       }());
-    }
+    },
+    countCart: function () {
+      var _countCart = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                axios.get("countCart").then(function (response) {
+                  _this2.cartCount = response.data;
+                  console.log(response.data);
+                });
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function countCart() {
+        return _countCart.apply(this, arguments);
+      }
+
+      return countCart;
+    }()
   },
-  created: function created() {}
+  created: function created() {
+    this.countCart();
+  }
 });
 
 /***/ }),
@@ -555,8 +587,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["username"],
+  props: ["username", "count"],
   components: {},
   data: function data() {
     return {
@@ -570,6 +603,9 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     username: function username(newVal, oldVal) {
       this.username = newVal;
+    },
+    count: function count(newVal, oldVal) {
+      this.count = newVal;
     }
   },
   methods: {}
@@ -7700,7 +7736,9 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("navbar-component", { attrs: { username: _vm.auth } }),
+      _c("navbar-component", {
+        attrs: { count: _vm.cartCount, username: _vm.auth }
+      }),
       _vm._v(" "),
       _c("div", { staticClass: "showcase" }, [
         _c("div", { staticClass: "container" }, [
@@ -8295,11 +8333,19 @@ var render = function() {
                         {
                           class:
                             _vm.path_name == "/cart"
-                              ? "btn btn-outline-dark btn-sm my-2 my-sm-0 active"
-                              : "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                              ? "btn btn-dark btn-sm my-2 my-sm-0 active"
+                              : "btn btn-dark btn-sm my-2 my-sm-0",
                           attrs: { type: "submit" }
                         },
-                        [_c("i", { staticClass: "fas fa-shopping-cart" })]
+                        [
+                          _c("i", { staticClass: "fas fa-shopping-cart" }),
+                          _vm._v(" "),
+                          _vm.count > 0
+                            ? _c("span", { staticClass: "badge badge-light" }, [
+                                _vm._v(_vm._s(_vm.count))
+                              ])
+                            : _vm._e()
+                        ]
                       )
                     ]
                   )
@@ -8595,7 +8641,7 @@ function normalizeComponent (
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bg-new3-center.jpg?a078f3b1f00a4cbbb87377758a58d679";
+module.exports = "/images/bg-new3-center.jpg?3db64ab9248172bc30f55cd7fb716442";
 
 /***/ }),
 
@@ -8606,7 +8652,7 @@ module.exports = "/images/bg-new3-center.jpg?a078f3b1f00a4cbbb87377758a58d679";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/bg-new3.jpg?f4d11e26a246954730e61f3dd04c8bc5";
+module.exports = "/images/bg-new3.jpg?a1936626bbdc489fd8a750b0b3f32e23";
 
 /***/ }),
 

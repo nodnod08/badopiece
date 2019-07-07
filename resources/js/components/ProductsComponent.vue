@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component :username="auth"></navbar-component>
+    <navbar-component :count="cartCount" :username="auth"></navbar-component>
     <div>
       <div v-if="loading">
         <div class="loader-back"></div>
@@ -72,6 +72,7 @@
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
 import { RadarSpinner } from "epic-spinners";
+
 export default {
   props: ["auth"],
   components: {
@@ -83,12 +84,14 @@ export default {
       loading: true,
       path_name: "",
       search: "",
-      productsItem: {}
+      productsItem: {},
+      cartCount: ""
     };
   },
-  created() {
-    this.getProducts();
-    this.path_name = window.location.pathname;
+  async created() {
+    await this.getProducts();
+    await this.countCart();
+    this.path_name = await window.location.pathname;
   },
   methods: {
     getProducts: async function(page = 1) {
@@ -105,8 +108,42 @@ export default {
       });
       this.loading = false;
     },
-    addToCart: function(id) {
-      alert(id);
+    addToCart: async function(id) {
+      let options = {
+        html: false,
+        loader: false,
+        reverse: false,
+        okText: "Continue",
+        cancelText: "Close",
+        animation: "zoom",
+        type: "basic",
+        verification: "continue",
+        verificationHelp: 'Type "[+:verification]" below to confirm',
+        clicksCount: 3,
+        backdropClose: true,
+        customClass: ""
+      };
+      axios
+        .post("/add", {
+          id: id
+        })
+        .then(response => {
+          if (response.data == "already") {
+            this.$dialog
+              .alert("Item is already in your cart", options)
+              .then(function(dialog) {
+                // console.log("Closed");
+              });
+          } else {
+            this.cartCount = response.data;
+          }
+        });
+    },
+    countCart: async function() {
+      axios.get("countCart").then(response => {
+        this.cartCount = response.data;
+        console.log(response.data);
+      });
     }
   }
 };
@@ -135,10 +172,6 @@ export default {
 
 .card {
   padding: 0;
-}
-
-.page-item {
-  background: #000;
 }
 </style>
 

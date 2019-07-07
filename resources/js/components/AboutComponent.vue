@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar-component :username="auth"></navbar-component>
+    <navbar-component :count="cartCount" :username="auth"></navbar-component>
     <div class="container">
       <div class="about row">
         <div class="CP col-lg-12 col-md-12 col-sm-12">
@@ -38,9 +38,21 @@
 export default {
   props: ["auth"],
   data() {
-    return {};
+    return {
+      cartCount: ""
+    };
   },
-  methods: {}
+  created() {
+    this.countCart();
+  },
+  methods: {
+    countCart: async function() {
+      axios.get("countCart").then(response => {
+        this.cartCount = response.data;
+        console.log(response.data);
+      });
+    }
+  }
 };
 </script>
 

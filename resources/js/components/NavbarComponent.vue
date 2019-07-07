@@ -64,10 +64,11 @@
             <li class="nav-item">
               <a class="nav-link" :href="'/cart'">
                 <button
-                  :class="path_name == '/cart' ? 'btn btn-outline-dark btn-sm my-2 my-sm-0 active' : 'btn btn-outline-dark btn-sm my-2 my-sm-0'"
+                  :class="path_name == '/cart' ? 'btn btn-dark btn-sm my-2 my-sm-0 active' : 'btn btn-dark btn-sm my-2 my-sm-0'"
                   type="submit"
                 >
                   <i class="fas fa-shopping-cart"></i>
+                  <span v-if="count > 0" class="badge badge-light">{{ count }}</span>
                 </button>
               </a>
             </li>
@@ -81,7 +82,7 @@
 
 <script>
 export default {
-  props: ["username"],
+  props: ["username", "count"],
   components: {},
   data() {
     return {
@@ -95,6 +96,9 @@ export default {
   watch: {
     username: function(newVal, oldVal) {
       this.username = newVal;
+    },
+    count: function(newVal, oldVal) {
+      this.count = newVal;
     }
   },
   methods: {}

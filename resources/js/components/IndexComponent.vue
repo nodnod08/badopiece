@@ -3,10 +3,10 @@
     <div v-if="loading">
       <div class="loader-back"></div>
       <div class="loader">
-        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff"/>
+        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
       </div>
     </div>
-    <navbar-component :username="auth"></navbar-component>
+    <navbar-component :count="cartCount" :username="auth"></navbar-component>
     <div class="showcase">
       <div class="container">
         <div class="row">
@@ -14,7 +14,7 @@
             <div class="message-intro text-white">
               <h1>Gives you a lot of Choice</h1>
               <h3>We make our customers comportable on our products.</h3>
-              <br>
+              <br />
               <a :href="'/redirect/google'">
                 <button class="button-social" type="button">
                   <i class="fab fa-google-plus-g"></i> Sign in with Google
@@ -36,9 +36,9 @@
           <div class="col-lg-12 text-center text-black">
             <h4>WHY CHOOSE US?</h4>
           </div>
-          <br>
-          <br>
-          <br>
+          <br />
+          <br />
+          <br />
         </div>
       </div>
       <div class="container">
@@ -46,7 +46,7 @@
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="card choose-us">
               <div class="text-center">
-                <img height="150" width="160" :src="'storage/img/bg-img/save.png'" alt>
+                <img height="150" width="160" :src="'storage/img/bg-img/save.png'" alt />
               </div>
               <div class="card-body">
                 <h5 class="card-title">GUARANTEE SAVE YOUR MONEY</h5>
@@ -57,7 +57,7 @@
           <div class="col-lg-4 col-md-4 col-sm-12 text-center">
             <div class="card choose-us">
               <div class="text-center">
-                <img height="150" class :src="'storage/img/bg-img/durable.png'" alt>
+                <img height="150" class :src="'storage/img/bg-img/durable.png'" alt />
               </div>
               <div class="card-body">
                 <h5 class="card-title">PRODUCTS DURABILITY ARE PERFECT</h5>
@@ -68,7 +68,7 @@
           <div class="col-lg-4 col-md-4 col-sm-12 text-center">
             <div class="card choose-us">
               <div class="text-center">
-                <img height="150" class :src="'storage/img/bg-img/support.png'" alt>
+                <img height="150" class :src="'storage/img/bg-img/support.png'" alt />
               </div>
               <div class="card-body">
                 <h5 class="card-title">GOOD CUSTOMERS ASSIST</h5>
@@ -83,7 +83,7 @@
           <div class="col-lg-6 col-md-6 text-center">
             <div class="touch-box">
               <h3 class="title">GET IN TOUCH</h3>
-              <br>
+              <br />
               <textarea
                 v-model="message"
                 name="message"
@@ -97,7 +97,7 @@
                 class="invalid-feedback"
                 v-if="errors.first('message')"
               >{{ errors.first('message') }}</small>
-              <br>
+              <br />
               <input
                 v-model="email"
                 name="email"
@@ -105,12 +105,12 @@
                 type="email"
                 :class="errors.first('email') ? 'is-invalid form-control' : 'form-control'"
                 placeholder="Your Email (recommended Gmail)"
-              >
+              />
               <small
                 class="invalid-feedback"
                 v-if="errors.first('email')"
               >{{ errors.first('email') }}</small>
-              <br>
+              <br />
               <input
                 v-model="fullname"
                 name="fullname"
@@ -118,12 +118,12 @@
                 type="text"
                 :class="errors.first('fullname') ? 'is-invalid form-control' : 'form-control'"
                 placeholder="Your fullname"
-              >
+              />
               <small
                 class="invalid-feedback"
                 v-if="errors.first('fullname')"
               >{{ errors.first('fullname') }}</small>
-              <br>
+              <br />
               <!-- <button @click="inquire" type="button">Submit</button> -->
               <button @click="inquire" class="btn btn-outline-light btn-sm my-2 my-sm-0">Submit</button>
             </div>
@@ -185,7 +185,8 @@ export default {
       message: "",
       fullname: "",
       email: "",
-      loading: false
+      loading: false,
+      cartCount: ""
     };
   },
   methods: {
@@ -215,9 +216,17 @@ export default {
         } else {
         }
       });
+    },
+    countCart: async function() {
+      axios.get("countCart").then(response => {
+        this.cartCount = response.data;
+        console.log(response.data);
+      });
     }
   },
-  created() {}
+  created() {
+    this.countCart();
+  }
 };
 </script>
 <style>
