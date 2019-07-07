@@ -31,10 +31,11 @@ class NewInquire extends Mailable
      */
     public function build()
     {
+        $to = explode(',', env('ADMIN_EMAILS'));
         $this->from($this->inquire['email'], $this->inquire['fullname']);
-        $this->to('Proprints.ph@gmail.com');
+        $this->to($to);
         $this->replyTo($this->inquire['email'], $this->inquire['name']);
-        $this->subject('Asking or Inquiring about Pro Prints Enterprise');
+        $this->subject('Asking or Inquiring about Badopiece Collection');
 
         return $this->markdown('emails.inquire')
                         ->with('data',$this->inquire);
