@@ -504,13 +504,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
+                  $(function () {
+                    $("#submit").submit(function (event) {
+                      var verified = grecaptcha.getResponse();
+
+                      if (verified.length === 0) {
+                        event.preventDefault();
+                      }
+                    });
+                  });
+
                   if (!result) {
-                    _context.next = 6;
+                    _context.next = 7;
                     break;
                   }
 
                   _this.loading = true;
-                  _context.next = 4;
+                  _context.next = 5;
                   return axios.post("/register", {
                     firstname: _this.firstname,
                     lastname: _this.lastname,
@@ -541,11 +551,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   });
 
-                case 4:
-                  _context.next = 6;
+                case 5:
+                  _context.next = 7;
                   break;
 
-                case 6:
+                case 7:
                 case "end":
                   return _context.stop();
               }
@@ -586,19 +596,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return countCart;
-    }(),
-    created: function created() {
-      this.countCart();
-      $(function () {
-        $("#submit").submit(function (event) {
-          var verified = grecaptcha.getResponse();
-
-          if (verified.length === 0) {
-            event.preventDefault();
-          }
-        });
-      });
-    }
+    }()
+  },
+  created: function created() {
+    this.countCart();
   }
 });
 
