@@ -18,7 +18,7 @@
                     <br />
                     <h4 class="text-center">Create your Account</h4>
                     <br />
-                    <form v-on:submit.prevent="login" autocomplete="off">
+                    <form v-on:submit.prevent="login" autocomplete="off" id="submit">
                       <div class="row">
                         <div class="col-lg-6">
                           <label>Firstname</label>
@@ -106,6 +106,13 @@
                             v-if="errors.first('confirm_password')"
                           >{{ errors.first('confirm_password') }}</small>
                         </div>
+                        <div class="col-lg-12">
+                          <br />
+                          <div
+                            class="g-recaptcha"
+                            data-sitekey="6LdV0qwUAAAAAK9Y4WXetFlrHS195LqO1DcC3TXD"
+                          ></div>
+                        </div>
                       </div>
                       <br />
                       <div class="text-center">
@@ -149,7 +156,8 @@ export default {
       cpassword: "",
       password: "",
       loading: false,
-      cartCount: ""
+      cartCount: "",
+      recaptcha: false
     };
   },
   methods: {
@@ -163,7 +171,8 @@ export default {
               lastname: this.lastname,
               username: this.username,
               email: this.email,
-              password: this.password
+              password: this.password,
+              token: document.getElementById("g-recaptcha-response").value
             })
             .then(response => {
               // console.log(response.data)
@@ -172,9 +181,18 @@ export default {
               this.username = "";
               this.email = "";
               this.password = "";
-              if (response.data) {
+              this.cpassword = "";
+              if (response.data == "success") {
                 this.loading = false;
+                this.recaptcha = false;
                 swal("", "Successfully registered", "success");
+              } else if (response.data == "recaptcha-error") {
+                this.loading = false;
+                swal(
+                  "",
+                  "Make sure the Recaptcha is checked and correct.",
+                  "error"
+                );
               } else {
                 this.loading = false;
                 swal("", "Something error", "error");
@@ -189,6 +207,17 @@ export default {
       axios.get("countCart").then(response => {
         this.cartCount = response.data;
         console.log(response.data);
+      });
+    },
+    created() {
+      this.countCart();
+      $(function() {
+        $("#submit").submit(function(event) {
+          var verified = grecaptcha.getResponse();
+          if (verified.length === 0) {
+            event.preventDefault();
+          }
+        });
       });
     }
   }

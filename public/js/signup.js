@@ -464,6 +464,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
@@ -479,7 +486,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       cpassword: "",
       password: "",
       loading: false,
-      cartCount: ""
+      cartCount: "",
+      recaptcha: false
     };
   },
   methods: {
@@ -508,7 +516,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     lastname: _this.lastname,
                     username: _this.username,
                     email: _this.email,
-                    password: _this.password
+                    password: _this.password,
+                    token: document.getElementById("g-recaptcha-response").value
                   }).then(function (response) {
                     // console.log(response.data)
                     _this.firstname = "";
@@ -516,10 +525,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     _this.username = "";
                     _this.email = "";
                     _this.password = "";
+                    _this.cpassword = "";
 
-                    if (response.data) {
+                    if (response.data == "success") {
                       _this.loading = false;
+                      _this.recaptcha = false;
                       swal("", "Successfully registered", "success");
+                    } else if (response.data == "recaptcha-error") {
+                      _this.loading = false;
+                      swal("", "Make sure the Recaptcha is checked and correct.", "error");
                     } else {
                       _this.loading = false;
                       swal("", "Something error", "error");
@@ -572,7 +586,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return countCart;
-    }()
+    }(),
+    created: function created() {
+      this.countCart();
+      $(function () {
+        $("#submit").submit(function (event) {
+          var verified = grecaptcha.getResponse();
+
+          if (verified.length === 0) {
+            event.preventDefault();
+          }
+        });
+      });
+    }
   }
 });
 
@@ -7818,7 +7844,7 @@ var render = function() {
                         _c(
                           "form",
                           {
-                            attrs: { autocomplete: "off" },
+                            attrs: { autocomplete: "off", id: "submit" },
                             on: {
                               submit: function($event) {
                                 $event.preventDefault()
@@ -8110,12 +8136,14 @@ var render = function() {
                                       ]
                                     )
                                   : _vm._e()
-                              ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(0)
                             ]),
                             _vm._v(" "),
                             _c("br"),
                             _vm._v(" "),
-                            _vm._m(0)
+                            _vm._m(1)
                           ]
                         ),
                         _vm._v(" "),
@@ -8146,6 +8174,19 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("br"),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "g-recaptcha",
+        attrs: { "data-sitekey": "6LdV0qwUAAAAAK9Y4WXetFlrHS195LqO1DcC3TXD" }
+      })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
