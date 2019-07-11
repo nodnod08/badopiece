@@ -47,6 +47,7 @@ Route::post('/login', 'AccountController@login')->name('login');
 Route::post('/register', 'AccountController@create')->name('register');
 Route::post('/add', 'CartController@add')->name('add');
 Route::get('/countCart', 'CartController@countCart')->name('countCart');
+Route::get('/cart', 'CartController@index')->name('cart');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

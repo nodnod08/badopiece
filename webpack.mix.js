@@ -22,3 +22,4 @@ mix.js(['resources/js/signup.js'], 'public/js/signup.js');
 mix.js(['resources/js/products.js'], 'public/js/products.js');
 mix.js(['resources/js/view.js'], 'public/js/view.js');
 mix.js(['resources/js/about-us.js'], 'public/js/about-us.js');
+mix.js(['resources/js/cart.js'], 'public/js/cart.js');

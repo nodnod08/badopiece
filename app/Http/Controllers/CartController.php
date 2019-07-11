@@ -37,4 +37,8 @@ class CartController extends Controller
     public function countCart() {
         return \Cart::getContent()->count();
     }
+
+    public function index() {
+        return view('cart');
+    }
 }
