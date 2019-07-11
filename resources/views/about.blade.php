@@ -92,6 +92,8 @@
 
 @section('content')
 <div id="about">
-    <about-component auth="{{ Auth::check() ? Auth::user()->username : 'none' }}"></about-component>
+    <about-component
+        auth="{{ Auth::check() ? (( Auth::user()->provider_name != null) ? Auth::user()->name : Auth::user()->username) : 'none' }}">
+    </about-component>
 </div>
 @endsection

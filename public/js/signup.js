@@ -295,8 +295,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.path_name = window.location.pathname;
-    console.log(this.path_name);
+    this.path_name = window.location.pathname; // console.log(this.path_name);
   },
   watch: {
     username: function username(newVal, oldVal) {
@@ -530,16 +529,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     token: document.getElementById("g-recaptcha-response").value
                   }).then(function (response) {
                     // console.log(response.data)
-                    _this.firstname = "";
-                    _this.lastname = "";
-                    _this.username = "";
-                    _this.email = "";
-                    _this.password = "";
-                    _this.cpassword = "";
-
                     if (response.data == "success") {
                       _this.loading = false;
                       _this.recaptcha = false;
+                      _this.firstname = "";
+                      _this.lastname = "";
+                      _this.username = "";
+                      _this.email = "";
+                      _this.password = "";
+                      _this.cpassword = "";
                       swal("", "Successfully registered", "success");
                     } else if (response.data == "recaptcha-error") {
                       _this.loading = false;
@@ -579,8 +577,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 axios.get("countCart").then(function (response) {
-                  _this2.cartCount = response.data;
-                  console.log(response.data);
+                  _this2.cartCount = response.data; // console.log(response.data);
                 });
 
               case 1:

@@ -173,8 +173,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 axios.get("countCart").then(function (response) {
-                  _this.cartCount = response.data;
-                  console.log(response.data);
+                  _this.cartCount = response.data; // console.log(response.data);
                 });
 
               case 1:
@@ -393,8 +392,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.path_name = window.location.pathname;
-    console.log(this.path_name);
+    this.path_name = window.location.pathname; // console.log(this.path_name);
   },
   watch: {
     username: function username(newVal, oldVal) {

@@ -6,8 +6,8 @@
 
 // require("./bootstrap");
 
-window.Vue = require("vue");
-window.axios = require("axios").default;
+window.Vue = require('vue');
+window.axios = require('axios').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -26,9 +26,9 @@ window.axios = require("axios").default;
 // Vue.component('subscribe-component', require('./components/SubscribeComponent.vue').default);
 // Vue.component('cart-component', require('./components/CartComponent.vue').default);
 
-import VeeValidate from "vee-validate";
+import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate, {
-    events: "blur"
+    events: 'blur'
 });
 /**
  * Next, we will create a fresh Vue application instance and attach it to

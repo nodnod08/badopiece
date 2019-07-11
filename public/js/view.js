@@ -295,8 +295,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.path_name = window.location.pathname;
-    console.log(this.path_name);
+    this.path_name = window.location.pathname; // console.log(this.path_name);
   },
   watch: {
     username: function username(newVal, oldVal) {
@@ -428,8 +427,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 url = "/getItem/" + this.type + "/" + this.id;
                 _context.next = 3;
                 return axios.get(url).then(function (response) {
-                  _this.Items = response.data;
-                  console.log(_this.Items);
+                  _this.Items = response.data; // console.log(this.Items);
                 });
 
               case 3:
@@ -460,8 +458,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 axios.get("countCart").then(function (response) {
-                  _this2.cartCount = response.data;
-                  console.log(response.data);
+                  _this2.cartCount = response.data; // console.log(response.data);
                 });
 
               case 1:

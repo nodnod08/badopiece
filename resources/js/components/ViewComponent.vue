@@ -87,7 +87,7 @@ export default {
       var url = "/getItem/" + this.type + "/" + this.id;
       await axios.get(url).then(response => {
         this.Items = response.data;
-        console.log(this.Items);
+        // console.log(this.Items);
       });
 
       this.loading = false;
@@ -95,7 +95,7 @@ export default {
     countCart: async function() {
       axios.get("countCart").then(response => {
         this.cartCount = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
     }
   }

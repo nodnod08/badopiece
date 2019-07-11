@@ -91,7 +91,7 @@ export default {
   },
   created() {
     this.path_name = window.location.pathname;
-    console.log(this.path_name);
+    // console.log(this.path_name);
   },
   watch: {
     username: function(newVal, oldVal) {

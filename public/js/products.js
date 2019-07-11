@@ -295,8 +295,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.path_name = window.location.pathname;
-    console.log(this.path_name);
+    this.path_name = window.location.pathname; // console.log(this.path_name);
   },
   watch: {
     username: function username(newVal, oldVal) {
@@ -560,8 +559,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
             switch (_context4.prev = _context4.next) {
               case 0:
                 axios.get("countCart").then(function (response) {
-                  _this3.cartCount = response.data;
-                  console.log(response.data);
+                  _this3.cartCount = response.data; // console.log(response.data);
                 });
 
               case 1:
@@ -9201,45 +9199,41 @@ var render = function() {
           [
             _c("div", { staticClass: "products search row" }, [
               _c("div", { staticClass: "col-lg-8 col-md-8" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-6 col-md-6" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.search,
-                          expression: "search"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: {
-                        type: "text",
-                        placeholder: "Search something or keyword.."
-                      },
-                      domProps: { value: _vm.search },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.search = $event.target.value
-                        }
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.search,
+                      expression: "search"
+                    }
+                  ],
+                  staticClass: "form-control form-control-sm",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Search something or keyword.."
+                  },
+                  domProps: { value: _vm.search },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-6 col-md-6" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-dark btn-sm my-2 my-sm-0",
-                        on: { click: _vm.getProducts }
-                      },
-                      [_vm._v("Search")]
-                    )
-                  ])
-                ])
+                      _vm.search = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-md-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                    on: { click: _vm.getProducts }
+                  },
+                  [_vm._v("Search")]
+                )
               ])
             ]),
             _vm._v(" "),

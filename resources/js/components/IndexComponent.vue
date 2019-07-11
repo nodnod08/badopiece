@@ -124,6 +124,8 @@
                 v-if="errors.first('fullname')"
               >{{ errors.first('fullname') }}</small>
               <br />
+              <div class="g-recaptcha" data-sitekey="6LdV0qwUAAAAAK9Y4WXetFlrHS195LqO1DcC3TXD"></div>
+              <br />
               <!-- <button @click="inquire" type="button">Submit</button> -->
               <button @click="inquire" class="btn btn-outline-light btn-sm my-2 my-sm-0">Submit</button>
             </div>
@@ -198,15 +200,22 @@ export default {
             .post("/inquire", {
               fullname: this.fullname,
               email: this.email,
-              message: this.message
+              message: this.message,
+              token: document.getElementById("g-recaptcha-response").value
             })
             .then(response => {
               // console.log(response.data);
-              this.fullname = "";
-              this.email = "";
-              this.message = "";
               if (response.data == "ok") {
+                this.fullname = "";
+                this.email = "";
+                this.message = "";
                 swal("", "Your message has been sent", "success");
+              } else if (response.data == "recaptcha-error") {
+                swal(
+                  "",
+                  "Make sure the Recaptcha is checked and correct.",
+                  "error"
+                );
               } else {
                 swal("", "Something error", "error");
               }
@@ -220,12 +229,13 @@ export default {
     countCart: async function() {
       axios.get("countCart").then(response => {
         this.cartCount = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
     }
   },
   created() {
     this.countCart();
+    // console.log(this.auth);
   }
 };
 </script>

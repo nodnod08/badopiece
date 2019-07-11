@@ -11,20 +11,20 @@
       <div class="container">
         <div class="products search row">
           <div class="col-lg-8 col-md-8">
-            <div class="row">
-              <div class="col-lg-6 col-md-6">
-                <input
-                  type="text"
-                  placeholder="Search something or keyword.."
-                  v-model="search"
-                  class="form-control form-control-sm"
-                />
-              </div>
-              <div class="col-lg-6 col-md-6">
-                <button @click="getProducts" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Search</button>
-              </div>
-            </div>
+            <!-- <div class="row"> -->
+            <!-- <div class="col-lg-6 col-md-6"> -->
+            <input
+              type="text"
+              placeholder="Search something or keyword.."
+              v-model="search"
+              class="form-control form-control-sm"
+            />
           </div>
+          <div class="col-lg-4 col-md-4">
+            <button @click="getProducts" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Search</button>
+          </div>
+          <!-- </div> -->
+          <!-- </div> -->
         </div>
         <div class="row">
           <div
@@ -142,7 +142,7 @@ export default {
     countCart: async function() {
       axios.get("countCart").then(response => {
         this.cartCount = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
     }
   }

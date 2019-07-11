@@ -388,6 +388,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
@@ -427,15 +429,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return axios.post("/inquire", {
                     fullname: _this.fullname,
                     email: _this.email,
-                    message: _this.message
+                    message: _this.message,
+                    token: document.getElementById("g-recaptcha-response").value
                   }).then(function (response) {
                     // console.log(response.data);
-                    _this.fullname = "";
-                    _this.email = "";
-                    _this.message = "";
-
                     if (response.data == "ok") {
+                      _this.fullname = "";
+                      _this.email = "";
+                      _this.message = "";
                       swal("", "Your message has been sent", "success");
+                    } else if (response.data == "recaptcha-error") {
+                      swal("", "Make sure the Recaptcha is checked and correct.", "error");
                     } else {
                       swal("", "Something error", "error");
                     } // console.log(response.data);
@@ -471,8 +475,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 axios.get("countCart").then(function (response) {
-                  _this2.cartCount = response.data;
-                  console.log(response.data);
+                  _this2.cartCount = response.data; // console.log(response.data);
                 });
 
               case 1:
@@ -491,7 +494,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }()
   },
   created: function created() {
-    this.countCart();
+    this.countCart(); // console.log(this.auth);
   }
 });
 
@@ -597,8 +600,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.path_name = window.location.pathname;
-    console.log(this.path_name);
+    this.path_name = window.location.pathname; // console.log(this.path_name);
   },
   watch: {
     username: function username(newVal, oldVal) {
@@ -7960,6 +7962,15 @@ var render = function() {
                       _vm._v(_vm._s(_vm.errors.first("fullname")))
                     ])
                   : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "g-recaptcha",
+                  attrs: {
+                    "data-sitekey": "6LdV0qwUAAAAAK9Y4WXetFlrHS195LqO1DcC3TXD"
+                  }
+                }),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),

@@ -25315,7 +25315,7 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
 
 Vue.use(vee_validate__WEBPACK_IMPORTED_MODULE_0__["default"], {
-  events: "blur"
+  events: 'blur'
 });
 /**
  * Next, we will create a fresh Vue application instance and attach it to

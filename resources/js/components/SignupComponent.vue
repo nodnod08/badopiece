@@ -184,15 +184,15 @@ export default {
             })
             .then(response => {
               // console.log(response.data)
-              this.firstname = "";
-              this.lastname = "";
-              this.username = "";
-              this.email = "";
-              this.password = "";
-              this.cpassword = "";
               if (response.data == "success") {
                 this.loading = false;
                 this.recaptcha = false;
+                this.firstname = "";
+                this.lastname = "";
+                this.username = "";
+                this.email = "";
+                this.password = "";
+                this.cpassword = "";
                 swal("", "Successfully registered", "success");
               } else if (response.data == "recaptcha-error") {
                 this.loading = false;
@@ -214,7 +214,7 @@ export default {
     countCart: async function() {
       axios.get("countCart").then(response => {
         this.cartCount = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
     }
   },
