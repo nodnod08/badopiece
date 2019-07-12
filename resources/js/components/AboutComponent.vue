@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     countCart: async function() {
-      axios.get("countCart").then(response => {
+      axios.get("/countCart").then(response => {
         this.cartCount = response.data;
         // console.log(response.data);
       });

@@ -172,7 +172,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                axios.get("countCart").then(function (response) {
+                axios.get("/countCart").then(function (response) {
                   _this.cartCount = response.data; // console.log(response.data);
                 });
 

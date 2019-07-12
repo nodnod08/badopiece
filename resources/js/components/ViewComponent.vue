@@ -19,12 +19,12 @@
           <br />
           <div class="row">
             <div class="col-lg-3">
-              <select class="mt-3 form-control" id="exampleFormControlSelect1">
+              <select class="mt-3 form-control form-control-sm" id="exampleFormControlSelect1">
                 <option v-bind:key="n" v-for="n in item.product_stocks" :value="n">{{ n }}</option>
               </select>
             </div>
             <div class="col-lg-9">
-              <button class="mt-3 mb-3 text-center btn btn-outline-dark btn-md">
+              <button class="mt-3 mb-3 text-center btn btn-outline-dark btn-sm">
                 Add to Cart
                 <i class="fas fa-cart-plus"></i>
               </button>
@@ -93,7 +93,7 @@ import vZoom from "vue-zoom";
 import { RadarSpinner } from "epic-spinners";
 
 export default {
-  props: ["id", "type", "auth"],
+  props: ["tosearch", "type", "auth"],
   components: {
     vZoom,
     RadarSpinner
@@ -127,7 +127,7 @@ export default {
     getItem: async function() {
       // this.loading = true;
 
-      var url = "/getItem/" + this.type + "/" + this.id;
+      var url = "/getItem/" + this.type + "/" + this.tosearch;
       await axios.get(url).then(response => {
         this.Items = response.data;
         // console.log(this.Items);
@@ -136,7 +136,7 @@ export default {
       this.loading = false;
     },
     countCart: async function() {
-      axios.get("countCart").then(response => {
+      await axios.get("/countCart").then(response => {
         this.cartCount = response.data;
         // console.log(response.data);
       });

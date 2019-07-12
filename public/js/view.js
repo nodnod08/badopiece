@@ -423,7 +423,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["id", "type", "auth"],
+  props: ["tosearch", "type", "auth"],
   components: {
     vZoom: vue_zoom__WEBPACK_IMPORTED_MODULE_1___default.a,
     RadarSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_2__["RadarSpinner"]
@@ -453,7 +453,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 // this.loading = true;
-                url = "/getItem/" + this.type + "/" + this.id;
+                url = "/getItem/" + this.type + "/" + this.tosearch;
                 _context.next = 3;
                 return axios.get(url).then(function (response) {
                   _this.Items = response.data; // console.log(this.Items);
@@ -486,11 +486,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                axios.get("countCart").then(function (response) {
+                _context2.next = 2;
+                return axios.get("/countCart").then(function (response) {
                   _this2.cartCount = response.data; // console.log(response.data);
                 });
 
-              case 1:
+              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -18363,7 +18364,7 @@ var render = function() {
                       _c(
                         "select",
                         {
-                          staticClass: "mt-3 form-control",
+                          staticClass: "mt-3 form-control form-control-sm",
                           attrs: { id: "exampleFormControlSelect1" }
                         },
                         _vm._l(item.product_stocks, function(n) {
@@ -18483,7 +18484,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-9" }, [
       _c(
         "button",
-        { staticClass: "mt-3 mb-3 text-center btn btn-outline-dark btn-md" },
+        { staticClass: "mt-3 mb-3 text-center btn btn-outline-dark btn-sm" },
         [
           _vm._v("\n              Add to Cart\n              "),
           _c("i", { staticClass: "fas fa-cart-plus" })

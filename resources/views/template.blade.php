@@ -68,7 +68,7 @@
   </div>
   @endif
 
-  @if(Route::currentRouteName() == 'cartridges' || Route::currentRouteName() == 'printers' || Route::currentRouteName()
+  @if(Route::currentRouteName() == 'products' || Route::currentRouteName()
   == 'view')
   @else
   <script>

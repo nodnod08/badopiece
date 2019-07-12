@@ -562,7 +562,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                axios.get("countCart").then(function (response) {
+                axios.get("/countCart").then(function (response) {
                   _this3.cartCount = response.data; // console.log(response.data);
                 });
 
