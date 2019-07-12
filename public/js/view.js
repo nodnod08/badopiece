@@ -392,6 +392,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -404,7 +432,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       Items: {},
       loading: true,
-      cartCount: ""
+      cartCount: "",
+      month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     };
   },
   created: function created() {
@@ -18325,19 +18354,39 @@ var render = function() {
                       height: 400,
                       width: 300
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c(
+                        "select",
+                        {
+                          staticClass: "mt-3 form-control",
+                          attrs: { id: "exampleFormControlSelect1" }
+                        },
+                        _vm._l(item.product_stocks, function(n) {
+                          return _c(
+                            "option",
+                            { key: n, domProps: { value: n } },
+                            [_vm._v(_vm._s(n))]
+                          )
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(0, true)
+                  ])
                 ],
                 1
               ),
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-6 col-md-12 col-sm-12" }, [
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
                 _c("label", [_vm._v("Product Name :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_name))]),
+                _c("span", [_c("b", [_vm._v(_vm._s(item.product_name))])]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18345,7 +18394,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Code :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_code))]),
+                _c("span", [_c("b", [_vm._v(_vm._s(item.product_code))])]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18353,7 +18402,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Price :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_price) + ".00")]),
+                _c("span", [
+                  _c("b", [_vm._v("₱ " + _vm._s(item.product_price) + ".00")])
+                ]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18361,7 +18412,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Size :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_size))]),
+                _c("span", [_c("b", [_vm._v(_vm._s(item.product_size))])]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18369,7 +18420,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Category :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_category))]),
+                _c("span", [_c("b", [_vm._v(_vm._s(item.product_category))])]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18377,7 +18428,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Stocks :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_stocks))]),
+                _c("span", [_c("b", [_vm._v(_vm._s(item.product_stocks))])]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18385,7 +18436,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Description:")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_desc))]),
+                _c("span", [_c("b", [_vm._v(_vm._s(item.product_desc))])]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -18393,7 +18444,19 @@ var render = function() {
                 _vm._v(" "),
                 _c("label", [_vm._v("Product Date Uploaded :")]),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(item.product_date))]),
+                _c("span", [
+                  _c("b", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.month[new Date(item.product_date).getMonth() - 1] +
+                          " " +
+                          new Date(item.product_date).getDate() +
+                          ", " +
+                          new Date(item.product_date).getFullYear()
+                      )
+                    )
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("br")
               ])
@@ -18412,7 +18475,23 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-9" }, [
+      _c(
+        "button",
+        { staticClass: "mt-3 mb-3 text-center btn btn-outline-dark btn-md" },
+        [
+          _vm._v("\n              Add to Cart\n              "),
+          _c("i", { staticClass: "fas fa-cart-plus" })
+        ]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

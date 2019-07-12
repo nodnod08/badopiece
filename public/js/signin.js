@@ -7908,7 +7908,7 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "text-center btn btn-outline-dark btn-sm",
-          attrs: { ttype: "submit" }
+          attrs: { type: "submit" }
         },
         [_vm._v("Login")]
       )

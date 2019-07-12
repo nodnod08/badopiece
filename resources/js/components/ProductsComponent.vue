@@ -109,6 +109,7 @@ export default {
       this.loading = false;
     },
     addToCart: async function(id) {
+      this.loading = true;
       let options = {
         html: false,
         loader: false,
@@ -123,18 +124,20 @@ export default {
         backdropClose: true,
         customClass: ""
       };
-      axios
+      await axios
         .post("/add", {
           id: id
         })
         .then(response => {
           if (response.data == "already") {
+            this.loading = false;
             this.$dialog
               .alert("Item is already in your cart", options)
               .then(function(dialog) {
                 // console.log("Closed");
               });
           } else {
+            this.loading = false;
             this.cartCount = response.data;
           }
         });

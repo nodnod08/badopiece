@@ -509,6 +509,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                this.loading = true;
                 options = {
                   html: false,
                   loader: false,
@@ -523,23 +524,26 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
                   backdropClose: true,
                   customClass: ""
                 };
-                axios.post("/add", {
+                _context3.next = 4;
+                return axios.post("/add", {
                   id: id
                 }).then(function (response) {
                   if (response.data == "already") {
-                    _this2.$dialog.alert("Item is already in your cart", options).then(function (dialog) {// console.log("Closed");
-                    });
+                    _this2.loading = false;
+
+                    _this2.$dialog.alert("Item is already in your cart", options).then(function (dialog) {});
                   } else {
+                    _this2.loading = false;
                     _this2.cartCount = response.data;
                   }
                 });
 
-              case 2:
+              case 4:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3);
+        }, _callee3, this);
       }));
 
       function addToCart(_x) {

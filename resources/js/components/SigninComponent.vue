@@ -45,7 +45,7 @@
                       >{{ errors.first('password') }}</small>
                       <br />
                       <div class="text-center">
-                        <button ttype="submit" class="text-center btn btn-outline-dark btn-sm">Login</button>
+                        <button type="submit" class="text-center btn btn-outline-dark btn-sm">Login</button>
                       </div>
                     </form>
                     <h6 class="text-center">or</h6>

@@ -16,40 +16,68 @@
             :height="400"
             :width="300"
           ></v-zoom>
+          <br />
+          <div class="row">
+            <div class="col-lg-3">
+              <select class="mt-3 form-control" id="exampleFormControlSelect1">
+                <option v-bind:key="n" v-for="n in item.product_stocks" :value="n">{{ n }}</option>
+              </select>
+            </div>
+            <div class="col-lg-9">
+              <button class="mt-3 mb-3 text-center btn btn-outline-dark btn-md">
+                Add to Cart
+                <i class="fas fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <br />
-          <br />
           <label>Product Name :</label>
-          <span>{{ item.product_name }}</span>
+          <span>
+            <b>{{ item.product_name }}</b>
+          </span>
           <br />
           <br />
           <label>Product Code :</label>
-          <span>{{ item.product_code }}</span>
+          <span>
+            <b>{{ item.product_code }}</b>
+          </span>
           <br />
           <br />
           <label>Product Price :</label>
-          <span>{{ item.product_price }}.00</span>
+          <span>
+            <b>&#8369; {{ item.product_price }}.00</b>
+          </span>
           <br />
           <br />
           <label>Product Size :</label>
-          <span>{{ item.product_size }}</span>
+          <span>
+            <b>{{ item.product_size }}</b>
+          </span>
           <br />
           <br />
           <label>Product Category :</label>
-          <span>{{ item.product_category }}</span>
+          <span>
+            <b>{{ item.product_category }}</b>
+          </span>
           <br />
           <br />
           <label>Product Stocks :</label>
-          <span>{{ item.product_stocks }}</span>
+          <span>
+            <b>{{ item.product_stocks }}</b>
+          </span>
           <br />
           <br />
           <label>Product Description:</label>
-          <span>{{ item.product_desc }}</span>
+          <span>
+            <b>{{ item.product_desc }}</b>
+          </span>
           <br />
           <br />
           <label>Product Date Uploaded :</label>
-          <span>{{ item.product_date }}</span>
+          <span>
+            <b>{{ month[new Date(item.product_date).getMonth() - 1] +' '+new Date(item.product_date).getDate()+', '+new Date(item.product_date).getFullYear() }}</b>
+          </span>
           <br />
         </div>
       </div>
@@ -63,6 +91,7 @@
 <script>
 import vZoom from "vue-zoom";
 import { RadarSpinner } from "epic-spinners";
+
 export default {
   props: ["id", "type", "auth"],
   components: {
@@ -73,7 +102,21 @@ export default {
     return {
       Items: {},
       loading: true,
-      cartCount: ""
+      cartCount: "",
+      month: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
     };
   },
   created() {
