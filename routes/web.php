@@ -38,7 +38,8 @@ Route::get('/logout_user_sesion_destroy', function () {
 
 Route::get('/shop/products/{id}', 'ShopController@showProducts')->name('view');
 
-Route::get('/getProducts/{search}', 'ShopController@getProducts');
+Route::get('/getProducts/{from}/{to}/{category}', 'ShopController@getProductsFilter');
+Route::get('/getProducts', 'ShopController@getProducts');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 
@@ -48,6 +49,7 @@ Route::post('/register', 'AccountController@create')->name('register');
 Route::post('/add', 'CartController@add')->name('add');
 Route::get('/countCart', 'CartController@countCart')->name('countCart');
 Route::get('/cart', 'CartController@index')->name('cart');
+Route::get('/getCategories', 'ShopController@getCategories')->name('getCategories');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

@@ -31,7 +31,13 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Filter Products</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button
+                  type="button"
+                  id="close"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -40,16 +46,21 @@
                 <vue-slider ref="slider" v-model="value" v-bind="options"></vue-slider>
                 <br />
                 <h6>By Category</h6>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select v-model="category" class="form-control" id="exampleFormControlSelect1">
+                  <option
+                    v-bind:key="category.id"
+                    v-for="category in categories"
+                    :value="category.id"
+                  >{{ category.category }}</option>
+                  <option value="all">All</option>
                 </select>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Filter Now</button>
+                <button
+                  v-on:click="filterProducts()"
+                  type="button"
+                  class="btn btn-primary"
+                >Filter Now</button>
               </div>
             </div>
           </div>
@@ -114,10 +125,12 @@ export default {
     return {
       loading: true,
       path_name: "",
-      search: "",
       productsItem: {},
+      category: 43,
+      categories: {},
       cartCount: "",
       value: [0, 10000],
+      filter: false,
       options: {
         dotSize: 16,
         width: "auto",
@@ -157,24 +170,45 @@ export default {
       }
     };
   },
-  async created() {
-    await this.getProducts();
-    await this.countCart();
-    this.path_name = await window.location.pathname;
+  created() {
+    this.getProducts();
+    this.countCart();
+    this.getCategories();
+    this.path_name = window.location.pathname;
   },
   methods: {
-    getProducts: async function(page = 1) {
-      this.loading = true;
-      if (typeof this.search == "undefined" || this.search == "") {
-        var url = "/getProducts/default?page=";
-      } else {
-        var url = "/getProducts/" + this.search + "?page=";
-      }
+    filterProducts: async function(page = 1) {
+      var url =
+        (await "/getProducts/") +
+        this.value[0] +
+        "/" +
+        this.value[1] +
+        "/" +
+        this.category +
+        "?page=";
+
       await axios.get(url + page).then(response => {
+        document.getElementById("close").click();
         // this.loading = true;
         this.productsItem = response.data;
         // this.loading = false;
         console.log(response.data);
+      });
+      this.loading = false;
+    },
+    getCategories: async function() {
+      axios.get("/getCategories").then(response => {
+        this.categories = response.data;
+      });
+    },
+    getProducts: async function(page = 1) {
+      this.loading = true;
+      var url = await "/getProducts?page=";
+      await axios.get(url + page).then(response => {
+        // this.loading = true;
+        this.productsItem = response.data;
+        // this.loading = false;
+        // console.log(response.data);
       });
       this.loading = false;
     },
@@ -245,6 +279,27 @@ export default {
 
 .card {
   padding: 0;
+}
+ul.pagination > li > a.page-link {
+  box-shadow: none;
+}
+
+ul.pagination > li.active > a.page-link {
+  background: #404040;
+  border-color: #404040;
+  color: #fff;
+}
+
+ul.pagination > li > a.page-link {
+  background: #fff;
+  border-color: #404040;
+  color: #404040;
+}
+
+ul.pagination > li > a.page-link:hover {
+  background: #404040;
+  border-color: #404040;
+  color: #fff;
 }
 </style>
 

@@ -277,6 +277,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -438,7 +464,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -2039,7 +2065,7 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("br"),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-6" }, [
@@ -2138,6 +2164,46 @@ var staticRenderFns = [
             _vm._v(
               " Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("ul", [
+          _c("li", [_c("h5", [_vm._v("Payment Method")])]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "payment" }, [
+                  _c("img", {
+                    staticClass: "payment-photo",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/payment.png */ "./public/storage/img/bg-img/payment.png"),
+                      alt: ""
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "payment" }, [
+                  _c("img", {
+                    staticClass: "payment-photo",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/cod.png */ "./public/storage/img/bg-img/cod.png"),
+                      alt: ""
+                    }
+                  })
+                ])
+              ])
+            ])
           ])
         ])
       ])
@@ -2495,6 +2561,28 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/cod.png":
+/*!*******************************************!*\
+  !*** ./public/storage/img/bg-img/cod.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/cod.png?fa3020e31ed83c3a1f4de166fe23750c";
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/payment.png":
+/*!***********************************************!*\
+  !*** ./public/storage/img/bg-img/payment.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/payment.png?b2ec6b6bf1bc0179f5b00803fea6bd05";
 
 /***/ }),
 

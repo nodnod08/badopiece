@@ -132,6 +132,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -221,6 +227,32 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -816,7 +848,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.cart {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  margin-top: 15px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.cart {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.card {\r\n  padding: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -835,7 +867,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -8644,7 +8676,7 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "container cart" })
+        _vm._m(0)
       ]),
       _vm._v(" "),
       _c("footer-component")
@@ -8652,7 +8684,20 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container cart" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("h4", [_vm._v("Your Cart")])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -8680,7 +8725,7 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("br"),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-6" }, [
@@ -8779,6 +8824,46 @@ var staticRenderFns = [
             _vm._v(
               " Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("ul", [
+          _c("li", [_c("h5", [_vm._v("Payment Method")])]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "payment" }, [
+                  _c("img", {
+                    staticClass: "payment-photo",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/payment.png */ "./public/storage/img/bg-img/payment.png"),
+                      alt: ""
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "payment" }, [
+                  _c("img", {
+                    staticClass: "payment-photo",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/cod.png */ "./public/storage/img/bg-img/cod.png"),
+                      alt: ""
+                    }
+                  })
+                ])
+              ])
+            ])
           ])
         ])
       ])
@@ -9136,6 +9221,28 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/cod.png":
+/*!*******************************************!*\
+  !*** ./public/storage/img/bg-img/cod.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/cod.png?fa3020e31ed83c3a1f4de166fe23750c";
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/payment.png":
+/*!***********************************************!*\
+  !*** ./public/storage/img/bg-img/payment.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/payment.png?b2ec6b6bf1bc0179f5b00803fea6bd05";
 
 /***/ }),
 

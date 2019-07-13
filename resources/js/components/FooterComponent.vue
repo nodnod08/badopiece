@@ -45,8 +45,34 @@
           </ul>
         </div>
       </div>
-      <br>
-      <br>
+      <br />
+      <div class="row">
+        <div class="col-lg-12">
+          <ul>
+            <li>
+              <h5>Payment Method</h5>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="payment">
+                    <img
+                      class="payment-photo"
+                      src="../../../public/storage/img/bg-img/payment.png"
+                      alt
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="payment">
+                    <img class="payment-photo" src="../../../public/storage/img/bg-img/cod.png" alt />
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-6">
           <ul>
@@ -100,6 +126,32 @@ li {
 
 .fb-page {
   color: #fff;
+}
+
+.payment {
+  background: #fff;
+  padding: 2%;
+}
+
+@media (max-width: 480px) {
+  .payment-photo {
+    height: 50px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 390px) {
+  .payment-photo {
+    height: 40px;
+    width: 250px;
+  }
+}
+
+@media (max-width: 350px) {
+  .payment-photo {
+    height: 35px;
+    width: 200px;
+  }
 }
 </style>
 

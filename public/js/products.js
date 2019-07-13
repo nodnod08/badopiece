@@ -180,6 +180,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -431,6 +457,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -446,10 +483,12 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
     return {
       loading: true,
       path_name: "",
-      search: "",
       productsItem: {},
+      category: 43,
+      categories: {},
       cartCount: "",
       value: [0, 10000],
+      filter: false,
       options: {
         dotSize: 16,
         width: "auto",
@@ -490,82 +529,131 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
       }
     };
   },
-  created: function () {
-    var _created = _asyncToGenerator(
-    /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return this.getProducts();
-
-            case 2:
-              _context.next = 4;
-              return this.countCart();
-
-            case 4:
-              _context.next = 6;
-              return window.location.pathname;
-
-            case 6:
-              this.path_name = _context.sent;
-
-            case 7:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, this);
-    }));
-
-    function created() {
-      return _created.apply(this, arguments);
-    }
-
-    return created;
-  }(),
+  created: function created() {
+    this.getProducts();
+    this.countCart();
+    this.getCategories();
+    this.path_name = window.location.pathname;
+  },
   methods: {
-    getProducts: function () {
-      var _getProducts = _asyncToGenerator(
+    filterProducts: function () {
+      var _filterProducts = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this = this;
 
         var page,
             url,
-            _args2 = arguments;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+            _args = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
-                page = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 1;
-                this.loading = true;
+                page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+                _context.next = 3;
+                return "/getProducts/";
 
-                if (typeof this.search == "undefined" || this.search == "") {
-                  url = "/getProducts/default?page=";
-                } else {
-                  url = "/getProducts/" + this.search + "?page=";
-                }
-
-                _context2.next = 5;
+              case 3:
+                _context.t0 = _context.sent;
+                _context.t1 = this.value[0];
+                _context.t2 = _context.t0 + _context.t1;
+                _context.t3 = _context.t2 + "/";
+                _context.t4 = this.value[1];
+                _context.t5 = _context.t3 + _context.t4;
+                _context.t6 = _context.t5 + "/";
+                _context.t7 = this.category;
+                _context.t8 = _context.t6 + _context.t7;
+                url = _context.t8 + "?page=";
+                _context.next = 15;
                 return axios.get(url + page).then(function (response) {
-                  // this.loading = true;
+                  document.getElementById("close").click(); // this.loading = true;
+
                   _this.productsItem = response.data; // this.loading = false;
 
                   console.log(response.data);
                 });
 
-              case 5:
+              case 15:
                 this.loading = false;
 
-              case 6:
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function filterProducts() {
+        return _filterProducts.apply(this, arguments);
+      }
+
+      return filterProducts;
+    }(),
+    getCategories: function () {
+      var _getCategories = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                axios.get("/getCategories").then(function (response) {
+                  _this2.categories = response.data;
+                });
+
+              case 1:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee2);
+      }));
+
+      function getCategories() {
+        return _getCategories.apply(this, arguments);
+      }
+
+      return getCategories;
+    }(),
+    getProducts: function () {
+      var _getProducts = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        var page,
+            url,
+            _args3 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                page = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 1;
+                this.loading = true;
+                _context3.next = 4;
+                return "/getProducts?page=";
+
+              case 4:
+                url = _context3.sent;
+                _context3.next = 7;
+                return axios.get(url + page).then(function (response) {
+                  // this.loading = true;
+                  _this3.productsItem = response.data; // this.loading = false;
+                  // console.log(response.data);
+                });
+
+              case 7:
+                this.loading = false;
+
+              case 8:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
       }));
 
       function getProducts() {
@@ -577,13 +665,13 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
     addToCart: function () {
       var _addToCart = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(id) {
-        var _this2 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+        var _this4 = this;
 
         var options;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 this.loading = true;
                 options = {
@@ -600,26 +688,26 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
                   backdropClose: true,
                   customClass: ""
                 };
-                _context3.next = 4;
+                _context4.next = 4;
                 return axios.post("/add", {
                   id: id
                 }).then(function (response) {
                   if (response.data == "already") {
-                    _this2.loading = false;
+                    _this4.loading = false;
 
-                    _this2.$dialog.alert("Item is already in your cart", options).then(function (dialog) {});
+                    _this4.$dialog.alert("Item is already in your cart", options).then(function (dialog) {});
                   } else {
-                    _this2.loading = false;
-                    _this2.cartCount = response.data;
+                    _this4.loading = false;
+                    _this4.cartCount = response.data;
                   }
                 });
 
               case 4:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
       function addToCart(_x) {
@@ -631,23 +719,23 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
     countCart: function () {
       var _countCart = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var _this3 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var _this5 = this;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 axios.get("/countCart").then(function (response) {
-                  _this3.cartCount = response.data; // console.log(response.data);
+                  _this5.cartCount = response.data; // console.log(response.data);
                 });
 
               case 1:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }));
 
       function countCart() {
@@ -1091,7 +1179,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -1129,7 +1217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.products {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  margin-top: 15px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.shop {\r\n  min-height: 70vh;\r\n  margin-top: 100px;\n}\n.search {\r\n  margin-bottom: 15px;\n}\n.products {\r\n  margin-top: 150px;\n}\n.card-img-top {\r\n  height: 300px;\r\n  width: 250px;\r\n  margin-left: 50%;\r\n  margin-top: 15px;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\n}\n.card {\r\n  padding: 0;\n}\nul.pagination > li > a.page-link {\r\n  box-shadow: none;\n}\nul.pagination > li.active > a.page-link {\r\n  background: #404040;\r\n  border-color: #404040;\r\n  color: #fff;\n}\nul.pagination > li > a.page-link {\r\n  background: #fff;\r\n  border-color: #404040;\r\n  color: #404040;\n}\nul.pagination > li > a.page-link:hover {\r\n  background: #404040;\r\n  border-color: #404040;\r\n  color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -9364,7 +9452,7 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("br"),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-6" }, [
@@ -9463,6 +9551,46 @@ var staticRenderFns = [
             _vm._v(
               " Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("ul", [
+          _c("li", [_c("h5", [_vm._v("Payment Method")])]),
+          _vm._v(" "),
+          _c("li", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "payment" }, [
+                  _c("img", {
+                    staticClass: "payment-photo",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/payment.png */ "./public/storage/img/bg-img/payment.png"),
+                      alt: ""
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "payment" }, [
+                  _c("img", {
+                    staticClass: "payment-photo",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/cod.png */ "./public/storage/img/bg-img/cod.png"),
+                      alt: ""
+                    }
+                  })
+                ])
+              ])
+            ])
           ])
         ])
       ])
@@ -9815,12 +9943,73 @@ var render = function() {
                           _vm._v(" "),
                           _c("h6", [_vm._v("By Category")]),
                           _vm._v(" "),
-                          _vm._m(2)
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.category,
+                                  expression: "category"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { id: "exampleFormControlSelect1" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.category = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            [
+                              _vm._l(_vm.categories, function(category) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: category.id,
+                                    domProps: { value: category.id }
+                                  },
+                                  [_vm._v(_vm._s(category.category))]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "all" } }, [
+                                _vm._v("All")
+                              ])
+                            ],
+                            2
+                          )
                         ],
                         1
                       ),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _c("div", { staticClass: "modal-footer" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.filterProducts()
+                              }
+                            }
+                          },
+                          [_vm._v("Filter Now")]
+                        )
+                      ])
                     ])
                   ]
                 )
@@ -9982,46 +10171,12 @@ var staticRenderFns = [
           staticClass: "close",
           attrs: {
             type: "button",
+            id: "close",
             "data-dismiss": "modal",
             "aria-label": "Close"
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      {
-        staticClass: "form-control",
-        attrs: { id: "exampleFormControlSelect1" }
-      },
-      [
-        _c("option", [_vm._v("1")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("2")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("3")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("4")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("5")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Filter Now")]
       )
     ])
   }
@@ -22220,6 +22375,28 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/cod.png":
+/*!*******************************************!*\
+  !*** ./public/storage/img/bg-img/cod.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/cod.png?fa3020e31ed83c3a1f4de166fe23750c";
+
+/***/ }),
+
+/***/ "./public/storage/img/bg-img/payment.png":
+/*!***********************************************!*\
+  !*** ./public/storage/img/bg-img/payment.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/payment.png?b2ec6b6bf1bc0179f5b00803fea6bd05";
 
 /***/ }),
 

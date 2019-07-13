@@ -23,15 +23,24 @@ class ShopController extends Controller
         return view('view')->with('content', $app);
     }
 
-    public function getProducts($search) {
-        if($search == 'default') {
-            $products = Products::where('product_stocks', '!=', 0)->with('category')->paginate(9);
+    public function getProducts() {
+        $products = Products::where('product_stocks', '!=', 0)->with('category')->paginate(9);
+
+        return $products;
+    }
+
+    public function getProductsFilter($from, $to, $category) {
+        if($category == 'all') {
+            $products = Products::whereBetween('product_price',[$from, $to])
+                            ->where('product_stocks', '!=', 0)
+                            ->with('category')
+                            ->paginate(9);
         } else {
-            $products = Products::
-                        where('product_name', 'like', '%'.$search.'%')    
-                        ->orWhere('product_category', 'like', '%'.$search.'%')    
-                        ->with('category')
-                        ->paginate(9);
+            $products = Products::whereBetween('product_price',[$from, $to])
+                            ->where('product_category', $category)
+                            ->where('product_stocks', '!=', 0)
+                            ->with('category')
+                            ->paginate(9);
         }
 
         return $products;
@@ -41,6 +50,12 @@ class ShopController extends Controller
         $item = Products::where('product_id', $id)->with('category')->get();
 
         return $item;
+    }
+
+    public function getCategories() {
+        $categories = Categories::all();
+
+        return $categories;
     }
     
 }
