@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
+use App\Products;
+use App\Categories;
 use DB;
 
 class ShopController extends Controller
@@ -23,11 +25,12 @@ class ShopController extends Controller
 
     public function getProducts($search) {
         if($search == 'default') {
-            $products = DB::table('products')->paginate(9);
+            $products = Products::where('product_stocks', '!=', 0)->with('category')->paginate(9);
         } else {
-            $products = DB::table('products')
-                        ->where('product_name', 'like', '%'.$search.'%')    
+            $products = Products::
+                        where('product_name', 'like', '%'.$search.'%')    
                         ->orWhere('product_category', 'like', '%'.$search.'%')    
+                        ->with('category')
                         ->paginate(9);
         }
 
@@ -35,7 +38,7 @@ class ShopController extends Controller
     }
 
     public function getItems($type, $id) {
-        $item = DB::table($type)->where('product_id', $id)->get();
+        $item = Products::where('product_id', $id)->with('category')->get();
 
         return $item;
     }

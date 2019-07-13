@@ -10,21 +10,49 @@
       </div>
       <div class="container">
         <div class="products search row">
-          <div class="col-lg-8 col-md-8">
-            <!-- <div class="row"> -->
-            <!-- <div class="col-lg-6 col-md-6"> -->
-            <input
-              type="text"
-              placeholder="Search something or keyword.."
-              v-model="search"
-              class="form-control form-control-sm"
-            />
+          <button
+            type="button"
+            class="btn btn-outline-dark btn-md my-2 my-sm-0"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            <i class="fas fa-filter"></i> Filter Products
+          </button>
+        </div>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Filter Products</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h6>By Price</h6>
+                <vue-slider ref="slider" v-model="value" v-bind="options"></vue-slider>
+                <br />
+                <h6>By Category</h6>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Filter Now</button>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-4">
-            <button @click="getProducts" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Search</button>
-          </div>
-          <!-- </div> -->
-          <!-- </div> -->
         </div>
         <div class="row">
           <div
@@ -70,13 +98,16 @@
 </template>
 
 <script>
+import VueSlider from "vue-slider-component";
+import "vue-slider-component/theme/antd.css";
 Vue.component("pagination", require("laravel-vue-pagination"));
 import { RadarSpinner } from "epic-spinners";
 
 export default {
   props: ["auth"],
   components: {
-    RadarSpinner
+    RadarSpinner,
+    VueSlider
   },
   mounted() {},
   data() {
@@ -85,7 +116,45 @@ export default {
       path_name: "",
       search: "",
       productsItem: {},
-      cartCount: ""
+      cartCount: "",
+      value: [0, 10000],
+      options: {
+        dotSize: 16,
+        width: "auto",
+        height: 7,
+        contained: false,
+        direction: "ltr",
+        data: null,
+        min: 0,
+        max: 10000,
+        interval: 1,
+        disabled: false,
+        clickable: true,
+        duration: 0.5,
+        adsorb: false,
+        lazy: false,
+        tooltip: "focus",
+        tooltipPlacement: "top",
+        tooltipFormatter: v =>
+          `₱ ${("" + v).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`,
+        useKeyboard: false,
+        enableCross: false,
+        fixed: false,
+        minRange: void 0,
+        maxRange: void 0,
+        order: true,
+        marks: false,
+        dotOptions: void 0,
+        process: true,
+        dotStyle: void 0,
+        railStyle: void 0,
+        processStyle: void 0,
+        tooltipStyle: void 0,
+        stepStyle: void 0,
+        stepActiveStyle: void 0,
+        labelStyle: void 0,
+        labelActiveStyle: void 0
+      }
     };
   },
   async created() {
@@ -105,6 +174,7 @@ export default {
         // this.loading = true;
         this.productsItem = response.data;
         // this.loading = false;
+        console.log(response.data);
       });
       this.loading = false;
     },

@@ -18,13 +18,11 @@
           ></v-zoom>
           <br />
           <div class="row">
-            <div class="col-lg-3">
-              <select class="mt-3 form-control form-control-sm" id="exampleFormControlSelect1">
-                <option v-bind:key="n" v-for="n in item.product_stocks" :value="n">{{ n }}</option>
-              </select>
-            </div>
-            <div class="col-lg-9">
-              <button class="mt-3 mb-3 text-center btn btn-outline-dark btn-sm">
+            <div class="col-lg-12">
+              <button
+                v-on:click="addToCart(item.product_id)"
+                class="mt-3 mb-3 text-center btn btn-outline-dark btn-sm"
+              >
                 Add to Cart
                 <i class="fas fa-cart-plus"></i>
               </button>
@@ -58,7 +56,7 @@
           <br />
           <label>Product Category :</label>
           <span>
-            <b>{{ item.product_category }}</b>
+            <b>{{ item.category.category }}</b>
           </span>
           <br />
           <br />
@@ -83,6 +81,19 @@
       </div>
       <br />
       <br />
+    </div>
+    <div class="mb-5 review container">
+      <h4>Item Reviews</h4>
+      <hr />
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h6>
+            <b>John Doe</b>
+          </h6>
+          <small>December 25, 2018</small>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, sint aliquam? Mollitia, quia adipisci corrupti harum saepe officiis explicabo deleniti cupiditate est, veniam modi excepturi magni culpa totam, magnam soluta.</p>
+        </div>
+      </div>
     </div>
     <footer-component></footer-component>
   </div>
@@ -130,7 +141,6 @@ export default {
       var url = "/getItem/" + this.type + "/" + this.tosearch;
       await axios.get(url).then(response => {
         this.Items = response.data;
-        // console.log(this.Items);
       });
 
       this.loading = false;
@@ -140,6 +150,40 @@ export default {
         this.cartCount = response.data;
         // console.log(response.data);
       });
+    },
+    addToCart: async function(id) {
+      this.loading = true;
+      let options = {
+        html: false,
+        loader: false,
+        reverse: false,
+        okText: "Continue",
+        cancelText: "Close",
+        animation: "zoom",
+        type: "basic",
+        verification: "continue",
+        verificationHelp: 'Type "[+:verification]" below to confirm',
+        clicksCount: 3,
+        backdropClose: true,
+        customClass: ""
+      };
+      await axios
+        .post("/add", {
+          id: id
+        })
+        .then(response => {
+          if (response.data == "already") {
+            this.loading = false;
+            this.$dialog
+              .alert("Item is already in your cart", options)
+              .then(function(dialog) {
+                // console.log("Closed");
+              });
+          } else {
+            this.loading = false;
+            this.cartCount = response.data;
+          }
+        });
     }
   }
 };
@@ -151,6 +195,9 @@ export default {
 }
 .responsive-img {
   border: 1px solid #404040;
+}
+.responsive-img:hover {
+  cursor: zoom-in;
 }
 </style>
 

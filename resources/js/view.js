@@ -16,17 +16,22 @@
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+import VuejsDialog from 'vuejs-dialog';
+// import VuejsDialogMixin from 'vuejs-dialog/vuejs-dialog-mixin.min.js';
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
+Vue.use(VuejsDialog);
+
 Vue.component(
-    "view-component",
-    require("./components/ViewComponent.vue").default
+    'view-component',
+    require('./components/ViewComponent.vue').default
 );
 Vue.component(
-    "navbar-component",
-    require("./components/NavbarComponent.vue").default
+    'navbar-component',
+    require('./components/NavbarComponent.vue').default
 );
 Vue.component(
-    "footer-component",
-    require("./components/FooterComponent.vue").default
+    'footer-component',
+    require('./components/FooterComponent.vue').default
 );
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,5 +40,5 @@ Vue.component(
  */
 
 const view = new Vue({
-    el: "#view"
+    el: '#view'
 });
