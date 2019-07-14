@@ -19,11 +19,14 @@ class CartController extends Controller
         if(empty($check)) {
             \Cart::add(array(
                 'id' => $item->product_id,
-                'name' => $item->product_name.'-'.$item->product_code,
+                'name' => $item->product_name,
                 'price' => $item->product_price,
                 'quantity' => 1,
                 'attributes' => array(
-                    'photo' => $item->product_photo
+                    'photo' => $item->product_photo,
+                    'description' => $item->product_desc,
+                    'stocks' => $item->product_stocks,
+                    'code' => $item->product_code,
                  )
             ));
         } else {
@@ -34,8 +37,33 @@ class CartController extends Controller
 
     }
 
+    public function updateCart(Request $request) {
+        \Cart::update($request->id, array(
+            'quantity' => array(
+                'relative' => false,
+                'value' => $request->count
+            ),
+        ));
+
+        return "updated";
+    }
+
     public function countCart() {
         return \Cart::getContent()->count();
+    }
+
+    public function removeItem(Request $request) {
+        \Cart::remove($request->id);
+
+        return "removed";
+    }
+
+    public function getSubtotal() {
+        return \Cart::getSubTotal();
+    }
+
+    public function getCartContent() {
+        return \Cart::getContent();
     }
 
     public function index() {

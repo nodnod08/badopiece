@@ -67,14 +67,19 @@
                           <input
                             type="text"
                             v-model="email"
+                            @blur="checkEmail()"
                             name="email"
                             v-validate="'email|required'"
-                            :class="errors.first('email') ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
+                            :class="(errors.first('email') || already) ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
                           />
                           <small
                             class="invalid-feedback"
                             v-if="errors.first('email')"
                           >{{ errors.first('email') }}</small>
+                          <small
+                            v-if="already == true"
+                            class="invalid-feedback"
+                          >Email is already exist.</small>
                         </div>
                         <div class="col-lg-6">
                           <label>Password</label>
@@ -157,7 +162,8 @@ export default {
       password: "",
       loading: false,
       cartCount: "",
-      recaptcha: false
+      recaptcha: false,
+      already: false
     };
   },
   methods: {
@@ -171,7 +177,7 @@ export default {
             }
           });
         });
-        if (result) {
+        if (result && this.already == false) {
           this.loading = true;
           await axios
             .post("/register", {
@@ -216,6 +222,21 @@ export default {
         this.cartCount = response.data;
         // console.log(response.data);
       });
+    },
+    checkEmail: async function() {
+      // alert();
+      await axios
+        .post("/checkEmail", {
+          email: this.email
+        })
+        .then(response => {
+          // console.log(response.data);
+          if (response.data == "already") {
+            this.already = true;
+          } else {
+            this.already = false;
+          }
+        });
     }
   },
   created() {

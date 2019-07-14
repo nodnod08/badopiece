@@ -36,20 +36,23 @@ Route::get('/logout_user_sesion_destroy', function () {
     return redirect('/');
 })->name('logout_user_sesion_destroy');
 
-Route::get('/shop/products/{id}', 'ShopController@showProducts')->name('view');
-
-Route::get('/getProducts/{from}/{to}/{category}', 'ShopController@getProductsFilter');
-Route::get('/getProducts', 'ShopController@getProducts');
-
-Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
-
 Route::post('/inquire', 'SubscribeController@inquire')->name('inquire');
 Route::post('/login', 'AccountController@login')->name('login');
 Route::post('/register', 'AccountController@create')->name('register');
 Route::post('/add', 'CartController@add')->name('add');
+Route::post('/updateCart', 'CartController@updateCart')->name('updateCart');
+Route::post('/removeItem', 'CartController@removeItem')->name('removeItem');
+Route::post('/checkEmail', 'AccountController@checkEmail')->name('checkEmail');
 Route::get('/countCart', 'CartController@countCart')->name('countCart');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/getCategories', 'ShopController@getCategories')->name('getCategories');
+Route::get('/getCartContent', 'CartController@getCartContent')->name('getCartContent');
+Route::get('/shop/products/{id}', 'ShopController@showProducts')->name('view');
+Route::get('/getProducts/{from}/{to}/{category}', 'ShopController@getProductsFilter');
+Route::get('/getProducts', 'ShopController@getProducts');
+Route::get('/getSubtotal', 'CartController@getSubtotal');
+
+Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 

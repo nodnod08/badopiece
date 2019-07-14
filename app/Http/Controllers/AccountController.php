@@ -22,6 +22,17 @@ class AccountController extends Controller
         }
     }
 
+    public function checkEmail(Request $request) {
+
+        $user = User::where('email', $request->email)->get()->count();
+
+        if($user != 0) {
+            return "already";
+        } else {
+            return "available";
+        }
+    }
+
     protected function create(Request $request)
     {
         $client = new Client();

@@ -496,6 +496,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
@@ -512,7 +517,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       password: "",
       loading: false,
       cartCount: "",
-      recaptcha: false
+      recaptcha: false,
+      already: false
     };
   },
   methods: {
@@ -539,7 +545,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     });
                   });
 
-                  if (!result) {
+                  if (!(result && _this.already == false)) {
                     _context.next = 7;
                     break;
                   }
@@ -619,6 +625,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return countCart;
+    }(),
+    checkEmail: function () {
+      var _checkEmail = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.post("/checkEmail", {
+                  email: this.email
+                }).then(function (response) {
+                  // console.log(response.data);
+                  if (response.data == "already") {
+                    _this3.already = true;
+                  } else {
+                    _this3.already = false;
+                  }
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function checkEmail() {
+        return _checkEmail.apply(this, arguments);
+      }
+
+      return checkEmail;
     }()
   },
   created: function created() {
@@ -8074,12 +8116,16 @@ var render = function() {
                                       expression: "'email|required'"
                                     }
                                   ],
-                                  class: _vm.errors.first("email")
-                                    ? "is-invalid form-control form-control-sm"
-                                    : "form-control form-control-sm",
+                                  class:
+                                    _vm.errors.first("email") || _vm.already
+                                      ? "is-invalid form-control form-control-sm"
+                                      : "form-control form-control-sm",
                                   attrs: { type: "text", name: "email" },
                                   domProps: { value: _vm.email },
                                   on: {
+                                    blur: function($event) {
+                                      return _vm.checkEmail()
+                                    },
                                     input: function($event) {
                                       if ($event.target.composing) {
                                         return
@@ -8098,6 +8144,14 @@ var render = function() {
                                           _vm._s(_vm.errors.first("email"))
                                         )
                                       ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.already == true
+                                  ? _c(
+                                      "small",
+                                      { staticClass: "invalid-feedback" },
+                                      [_vm._v("Email is already exist.")]
                                     )
                                   : _vm._e()
                               ]),
