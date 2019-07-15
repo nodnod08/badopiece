@@ -71,6 +71,59 @@
               <div v-else class="col-lg-9 col-md-12">
                 <h4>Billing Info</h4>
                 <hr />
+                <form>
+                  <div class="row mt-4 mb-5">
+                    <div class="col-lg-12">
+                      <h5>
+                        <b>Personal Information</b>
+                      </h5>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-lg-6 mb-2">
+                      <label for>First Name</label>
+                      <input v-model="firstname" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>Last Name</label>
+                      <input v-model="lastname" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>Email</label>
+                      <input v-model="email" type="email" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>Phone Number</label>
+                      <input v-model="phone" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <br />
+                    <div class="col-lg-12 mt-4 mb-4">
+                      <h5>
+                        <b>Shipping Address Information</b>
+                      </h5>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>Address</label>
+                      <input v-model="address" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>City</label>
+                      <input v-model="city" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>State / Province</label>
+                      <input v-model="state" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                      <label for>Postal Code</label>
+                      <input v-model="postal" type="text" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-lg-12 mb-2">
+                      <label for>Tell something about your order. (optional)</label>
+                      <textarea v-model="message" class="form-control"></textarea>
+                    </div>
+                  </div>
+                </form>
               </div>
               <div class="col-lg-3">
                 <h4>Item Summary</h4>
@@ -135,7 +188,17 @@
             <h4>No Items in your Cart</h4>
             <hr />
             <div class="row">
-              <div class="col-lg-12"></div>
+              <div class="col-lg-12 text-center mt-4">
+                <img class="empty" src="../../../public/storage/img/bg-img/empty.png" alt />
+                <br />
+                <p>It seems your cart doesn't have any item.</p>
+                <a href="/products">
+                  <button type="submit" class="text-center btn btn-outline-dark btn-sm">
+                    Shop now
+                    <i class="fas fa-shopping-bag"></i>
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -161,7 +224,16 @@ export default {
       cartCount: "",
       carts: {},
       subTotal: "",
-      bill: false
+      bill: false,
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      postal: "",
+      message: ""
     };
   },
   mounted() {
@@ -267,6 +339,11 @@ export default {
   .m-title-none {
     display: none;
   }
+}
+
+.empty {
+  width: 200px;
+  height: 200px;
 }
 </style>
 

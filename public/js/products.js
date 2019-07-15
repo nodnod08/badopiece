@@ -468,6 +468,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -484,7 +488,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
       loading: true,
       path_name: "",
       productsItem: {},
-      category: 43,
+      category: "all",
       categories: {},
       cartCount: "",
       value: [0, 10000],
@@ -571,6 +575,12 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
                   _this.productsItem = response.data; // this.loading = false;
 
                   console.log(response.data);
+
+                  if (_this.category != "all") {
+                    _this.filter = true;
+                  } else {
+                    _this.filter = false;
+                  }
                 });
 
               case 15:
@@ -641,7 +651,8 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
                 _context3.next = 7;
                 return axios.get(url + page).then(function (response) {
                   // this.loading = true;
-                  _this3.productsItem = response.data; // this.loading = false;
+                  _this3.productsItem = response.data;
+                  _this3.filter = false; // this.loading = false;
                   // console.log(response.data);
                 });
 
@@ -10099,22 +10110,47 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c(
-              "pagination",
-              {
-                attrs: { data: _vm.productsItem },
-                on: { "pagination-change-page": _vm.getProducts }
-              },
-              [
-                _c("span", { attrs: { slot: "prev-nav" }, slot: "prev-nav" }, [
-                  _vm._v("Previous")
-                ]),
-                _vm._v(" "),
-                _c("span", { attrs: { slot: "next-nav" }, slot: "next-nav" }, [
-                  _vm._v("Next")
-                ])
-              ]
-            ),
+            _vm.filter
+              ? _c(
+                  "pagination",
+                  {
+                    attrs: { data: _vm.productsItem },
+                    on: { "pagination-change-page": _vm.filterProducts }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { attrs: { slot: "prev-nav" }, slot: "prev-nav" },
+                      [_vm._v("Previous")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { attrs: { slot: "next-nav" }, slot: "next-nav" },
+                      [_vm._v("Next")]
+                    )
+                  ]
+                )
+              : _c(
+                  "pagination",
+                  {
+                    attrs: { data: _vm.productsItem },
+                    on: { "pagination-change-page": _vm.getProducts }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { attrs: { slot: "prev-nav" }, slot: "prev-nav" },
+                      [_vm._v("Previous")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { attrs: { slot: "next-nav" }, slot: "next-nav" },
+                      [_vm._v("Next")]
+                    )
+                  ]
+                ),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),

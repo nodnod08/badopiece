@@ -95,7 +95,11 @@
           </div>
         </div>
         <h6>Showing from {{ this.productsItem.from }} to {{ this.productsItem.to }} of {{ this.productsItem.total }}</h6>
-        <pagination :data="productsItem" @pagination-change-page="getProducts">
+        <pagination v-if="filter" :data="productsItem" @pagination-change-page="filterProducts">
+          <span slot="prev-nav">Previous</span>
+          <span slot="next-nav">Next</span>
+        </pagination>
+        <pagination v-else :data="productsItem" @pagination-change-page="getProducts">
           <span slot="prev-nav">Previous</span>
           <span slot="next-nav">Next</span>
         </pagination>
@@ -126,7 +130,7 @@ export default {
       loading: true,
       path_name: "",
       productsItem: {},
-      category: 43,
+      category: "all",
       categories: {},
       cartCount: "",
       value: [0, 10000],
@@ -193,6 +197,11 @@ export default {
         this.productsItem = response.data;
         // this.loading = false;
         console.log(response.data);
+        if (this.category != "all") {
+          this.filter = true;
+        } else {
+          this.filter = false;
+        }
       });
       this.loading = false;
     },
@@ -207,6 +216,7 @@ export default {
       await axios.get(url + page).then(response => {
         // this.loading = true;
         this.productsItem = response.data;
+        this.filter = false;
         // this.loading = false;
         // console.log(response.data);
       });
