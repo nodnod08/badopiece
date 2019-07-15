@@ -22,6 +22,15 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.js"></script>
+  <!-- Load PayPal's checkout.js Library. -->
+  <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
+
+  <!-- Load the client component. -->
+  <script src="https://js.braintreegateway.com/web/3.47.0/js/client.min.js"></script>
+
+  <!-- Load the PayPal Checkout component. -->
+  <script src="https://js.braintreegateway.com/web/3.47.0/js/paypal-checkout.min.js"></script>
 </head>
 
 <body>

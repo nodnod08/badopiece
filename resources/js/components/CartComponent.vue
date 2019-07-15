@@ -122,6 +122,14 @@
                       <label for>Tell something about your order. (optional)</label>
                       <textarea v-model="message" class="form-control"></textarea>
                     </div>
+                    <div class="col-lg-12 mt-4 mb-3">
+                      <h5>
+                        <b>Pay with</b>
+                      </h5>
+                    </div>
+                    <div class="col-lg-12">
+                      <div id="dropin-container"></div>
+                    </div>
                   </div>
                 </form>
               </div>
@@ -211,11 +219,13 @@
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
 import { RadarSpinner } from "epic-spinners";
+import { braintree } from "braintree-web";
 
 export default {
   props: ["auth", "details"],
   components: {
-    RadarSpinner
+    RadarSpinner,
+    braintree
   },
   data() {
     return {
@@ -236,12 +246,27 @@ export default {
       message: ""
     };
   },
-  mounted() {
+  async mounted() {
     this.getCartContent();
     this.getSubtotal();
     this.countCart();
     console.log(this.details);
     this.path_name = window.location.pathname;
+    var button = document.querySelector("#submit-button");
+
+    await braintree.dropin.create(
+      {
+        authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+        selector: "#dropin-container"
+      },
+      function(err, instance) {
+        button.addEventListener("click", function() {
+          instance.requestPaymentMethod(function(err, payload) {
+            // Submit payload.nonce to your server
+          });
+        });
+      }
+    );
   },
   methods: {
     countCart: async function() {
