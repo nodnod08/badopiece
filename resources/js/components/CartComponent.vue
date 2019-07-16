@@ -12,7 +12,7 @@
         <div class="row">
           <div v-if="carts.length != 0" class="col-lg-12">
             <div class="row">
-              <div v-if="!bill" class="col-lg-9 col-md-12">
+              <div class="col-lg-9 col-md-12">
                 <h4>Item Collection</h4>
                 <hr />
                 <div class="row m-title-none">
@@ -45,7 +45,7 @@
                       class="form-control form-control-sm col-lg-12"
                       :id="'itemCount'+cart.id"
                     >
-                      <option v-for="n in cart.attributes.stocks" :value="n">{{ n }}</option>
+                      <option v-for="n in cart.attributes.stocks" v-bind:key="n" :value="n">{{ n }}</option>
                     </select>
                     <button
                       v-on:click="update(cart.id)"
@@ -67,71 +67,6 @@
                     <b>&#8369; {{ cart.price * cart.quantity }}.00</b>
                   </div>
                 </div>
-              </div>
-              <div v-else class="col-lg-9 col-md-12">
-                <h4>Billing Info</h4>
-                <hr />
-                <form>
-                  <div class="row mt-4 mb-5">
-                    <div class="col-lg-12">
-                      <h5>
-                        <b>Personal Information</b>
-                      </h5>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="col-lg-6 mb-2">
-                      <label for>First Name</label>
-                      <input v-model="firstname" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>Last Name</label>
-                      <input v-model="lastname" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>Email</label>
-                      <input v-model="email" type="email" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>Phone Number</label>
-                      <input v-model="phone" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <br />
-                    <div class="col-lg-12 mt-4 mb-4">
-                      <h5>
-                        <b>Shipping Address Information</b>
-                      </h5>
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>Address</label>
-                      <input v-model="address" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>City</label>
-                      <input v-model="city" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>State / Province</label>
-                      <input v-model="state" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                      <label for>Postal Code</label>
-                      <input v-model="postal" type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="col-lg-12 mb-2">
-                      <label for>Tell something about your order. (optional)</label>
-                      <textarea v-model="message" class="form-control"></textarea>
-                    </div>
-                    <div class="col-lg-12 mt-4 mb-3">
-                      <h5>
-                        <b>Pay with</b>
-                      </h5>
-                    </div>
-                    <div class="col-lg-12">
-                      <div id="dropin-container"></div>
-                    </div>
-                  </div>
-                </form>
               </div>
               <div class="col-lg-3">
                 <h4>Item Summary</h4>
@@ -165,24 +100,16 @@
                             <b>&#8369; {{ (subTotal > 500) ? subTotal : subTotal + 100 }}.00</b>
                           </div>
                           <br />
-                          <div v-if="bill" class="col-lg-12 mt-4 mb-4">
-                            <button
-                              v-on:click="cartEdit()"
-                              :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'"
-                              type="button"
-                            >
-                              <i class="fas fa-arrow-circle-left"></i> Back
-                            </button>
-                          </div>
-                          <div v-if="!bill" class="col-lg-12 mt-4 mb-4">
-                            <button
-                              v-on:click="checkout()"
-                              :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'"
-                              type="button"
-                            >
-                              Continue Checkout
-                              <i class="fas fa-money-check"></i>
-                            </button>
+                          <div class="col-lg-12 mt-4 mb-4">
+                            <a href="/billing">
+                              <button
+                                :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'"
+                                type="button"
+                              >
+                                Continue Checkout
+                                <i class="fas fa-money-check"></i>
+                              </button>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -219,13 +146,11 @@
 <script>
 Vue.component("pagination", require("laravel-vue-pagination"));
 import { RadarSpinner } from "epic-spinners";
-import { braintree } from "braintree-web";
 
 export default {
   props: ["auth", "details"],
   components: {
-    RadarSpinner,
-    braintree
+    RadarSpinner
   },
   data() {
     return {
@@ -234,7 +159,6 @@ export default {
       cartCount: "",
       carts: {},
       subTotal: "",
-      bill: false,
       firstname: "",
       lastname: "",
       email: "",
@@ -252,21 +176,6 @@ export default {
     this.countCart();
     console.log(this.details);
     this.path_name = window.location.pathname;
-    var button = document.querySelector("#submit-button");
-
-    await braintree.dropin.create(
-      {
-        authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
-        selector: "#dropin-container"
-      },
-      function(err, instance) {
-        button.addEventListener("click", function() {
-          instance.requestPaymentMethod(function(err, payload) {
-            // Submit payload.nonce to your server
-          });
-        });
-      }
-    );
   },
   methods: {
     countCart: async function() {
@@ -317,12 +226,6 @@ export default {
       this.getCartContent();
       this.getSubtotal();
       this.countCart();
-    },
-    checkout: async function() {
-      this.bill = await true;
-    },
-    cartEdit: async function() {
-      this.bill = await false;
     }
   }
 };

@@ -321,7 +321,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.path_name = window.location.pathname; // console.log(this.path_name);
+    this.path_name = window.location.pathname;
   },
   watch: {
     username: function username(newVal, oldVal) {

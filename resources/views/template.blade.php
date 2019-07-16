@@ -19,18 +19,11 @@
   <link rel="icon" type="image/png" href="{{ asset('storage/img/core-img/logo3.png') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.js"></script>
-  <!-- Load PayPal's checkout.js Library. -->
-  <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
-
-  <!-- Load the client component. -->
-  <script src="https://js.braintreegateway.com/web/3.47.0/js/client.min.js"></script>
-
-  <!-- Load the PayPal Checkout component. -->
-  <script src="https://js.braintreegateway.com/web/3.47.0/js/paypal-checkout.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+  @yield('extra-css')
+  @yield('extra-js-link')
 </head>
 
 <body>
@@ -87,6 +80,8 @@
           })
   </script>
   @endif
+
+  @yield('extra-js')
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -51,6 +51,7 @@ Route::get('/shop/products/{id}', 'ShopController@showProducts')->name('view');
 Route::get('/getProducts/{from}/{to}/{category}', 'ShopController@getProductsFilter');
 Route::get('/getProducts', 'ShopController@getProducts');
 Route::get('/getSubtotal', 'CartController@getSubtotal');
+Route::get('/billing', 'CartController@billing')->name('billing');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 

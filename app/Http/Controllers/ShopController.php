@@ -57,5 +57,9 @@ class ShopController extends Controller
 
         return $categories;
     }
+
+    public function passBill() {
+        redirect('/');
+    }
     
 }

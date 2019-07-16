@@ -69,4 +69,10 @@ class CartController extends Controller
     public function index() {
         return view('cart');
     }
+
+    public function billing() {
+        $data['count'] = \Cart::getContent()->count();
+        $data['subTotal'] =  \Cart::getSubTotal();
+        return view('billing')->with('data', $data);
+    }
 }
