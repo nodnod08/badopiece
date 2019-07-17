@@ -1605,6 +1605,9 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
 var billing = new Vue({
   el: '#billing'
 });
+var billing1 = new Vue({
+  el: '#billing1'
+});
 
 /***/ }),
 

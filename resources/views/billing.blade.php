@@ -18,13 +18,25 @@
 </style>
 @endsection
 @section('extra-js-link')
+<!-- Load PayPal's checkout.js Library. -->
+<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
+
+<!-- Load the client component. -->
+<script src="https://js.braintreegateway.com/web/3.47.0/js/client.min.js"></script>
+
+<!-- Load the PayPal Checkout component. -->
+<script src="https://js.braintreegateway.com/web/3.47.0/js/paypal-checkout.min.js"></script>
+
+<script src="https://js.braintreegateway.com/web/dropin/1.18.0/js/dropin.min.js"></script>
 @endsection
 @section('content')
-<div id="billing">
-    <navbar-component
-        username="{{ Auth::check() ? (( Auth::user()->provider_name != null) ? Auth::user()->name : Auth::user()->username) : 'none' }}"
-        count="{{ json_encode($data['count']) }}">
-    </navbar-component>
+<div>
+    <div id="billing">
+        <navbar-component
+            username="{{ Auth::check() ? (( Auth::user()->provider_name != null) ? Auth::user()->name : Auth::user()->username) : 'none' }}"
+            count="{{ json_encode($data['count']) }}">
+        </navbar-component>
+    </div>
     <div class="container cart">
         <div class="row">
             <div class="col-lg-9 col-md-12">
@@ -137,25 +149,18 @@
         <div class="row mb-5">
             <div class="col-lg-6">
                 <div id="dropin-container"></div>
-                <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0 mt-5">Pay Now
+                <br>
+                <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay Now
                     <i class="fas fa-money-check"></i></button>
             </div>
         </div>
     </div>
-    <footer-component></footer-component>
+    <div id="billing1">
+        <footer-component></footer-component>
+    </div>
 </div>
 @endsection
 @section('extra-js')
-<!-- Load PayPal's checkout.js Library. -->
-<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
-
-<!-- Load the client component. -->
-<script src="https://js.braintreegateway.com/web/3.47.0/js/client.min.js"></script>
-
-<!-- Load the PayPal Checkout component. -->
-<script src="https://js.braintreegateway.com/web/3.47.0/js/paypal-checkout.min.js"></script>
-
-<script src="https://js.braintreegateway.com/web/dropin/1.18.0/js/dropin.min.js"></script>
 <script>
     var button = document.querySelector('#submit-button');
     
@@ -169,7 +174,6 @@
         }
     }, function (err, instance) {
         button.addEventListener('click', function () {
-            alert('click')
             instance.requestPaymentMethod(function (err, payload) {
             // Submit payload.nonce to your server
             console.log(payload)

@@ -29,6 +29,9 @@ Vue.component(
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+const billing1 = new Vue({
+    el: '#billing1'
+});
 
 const billing = new Vue({
     el: '#billing'
