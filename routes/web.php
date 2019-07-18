@@ -43,6 +43,7 @@ Route::post('/add', 'CartController@add')->name('add');
 Route::post('/updateCart', 'CartController@updateCart')->name('updateCart');
 Route::post('/removeItem', 'CartController@removeItem')->name('removeItem');
 Route::post('/checkEmail', 'AccountController@checkEmail')->name('checkEmail');
+Route::post('/processPayment', 'PaymentController@')->name('processPayment');
 Route::get('/countCart', 'CartController@countCart')->name('countCart');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/getCategories', 'ShopController@getCategories')->name('getCategories');

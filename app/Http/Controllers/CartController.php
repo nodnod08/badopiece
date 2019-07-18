@@ -73,6 +73,7 @@ class CartController extends Controller
     public function billing() {
         $data['count'] = \Cart::getContent()->count();
         $data['subTotal'] =  \Cart::getSubTotal();
+        $data['Total'] =  \Cart::getTotal();
         return view('billing')->with('data', $data);
     }
 }

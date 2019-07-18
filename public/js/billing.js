@@ -1602,11 +1602,11 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var billing = new Vue({
-  el: '#billing'
-});
 var billing1 = new Vue({
   el: '#billing1'
+});
+var billing = new Vue({
+  el: '#billing'
 });
 
 /***/ }),

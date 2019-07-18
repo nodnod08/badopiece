@@ -14,6 +14,16 @@
         font-size: 24px;
         font-family: "Oswald", sans-serif;
         margin-bottom: 10px;
+        display: none
+    }
+
+    .empty {
+        width: 200px;
+        height: 200px;
+    }
+
+    .required-message {
+        color: red
     }
 </style>
 @endsection
@@ -38,65 +48,121 @@
         </navbar-component>
     </div>
     <div class="container cart">
+        @if(json_encode($data['count']) > 0)
         <div class="row">
             <div class="col-lg-9 col-md-12">
                 <h4>Billing Info</h4>
                 <hr />
-                <form if="payment-form">
+                <form class="needs-validation" novalidate>
                     <div class="row mt-4 mb-5">
                         <div class="col-lg-12">
                             <h5>
-                                <b>Personal Information</b>
+                                <b>Personal Information</b> <small class="required-message">( Required )</small>
                             </h5>
                         </div>
                         <br />
                         <br />
                         <div class="col-lg-6 mb-2">
                             <label for>First Name</label>
-                            <input name="firstname" type="text" class="form-control form-control-sm" />
-
+                            <input name="firstname" id="validationCustom01" type="text"
+                                class="form-control form-control-sm" required />
+                            <div class="invalid-feedback">
+                                Please provide a First Name.
+                            </div>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>Last Name</label>
-                            <input name="lastname" type="text" class="form-control form-control-sm" />
+                            <input name="lastname" id="validationCustom02" type="text"
+                                class="form-control form-control-sm" required />
+                            <div class="invalid-feedback">
+                                Please provide a Last Name.
+                            </div>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>Email</label>
-                            <input name="email" type="email" class="form-control form-control-sm" />
+                            <input name="email" id="validationCustom03" type="email"
+                                class="form-control form-control-sm"
+                                value="{{ Auth::check() ? Auth::user()->email : '' }}" required />
+                            <div class="invalid-feedback">
+                                Please provide an Email.
+                            </div>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>Phone Number</label>
-                            <input name="phone" type="text" class="form-control form-control-sm" />
+                            <input name="phone" id="validationCustom04" type="number"
+                                class="form-control form-control-sm" required />
+                            <div class="invalid-feedback">
+                                Please provide a Phone Number.
+                            </div>
                         </div>
                         <br />
                         <div class="col-lg-12 mt-4 mb-4">
                             <h5>
-                                <b>Shipping Address Information</b>
+                                <b>Shipping Address Information</b> <small class="required-message">( Required )</small>
                             </h5>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>Address</label>
-                            <input name="address" type="text" class="form-control form-control-sm" />
+                            <input name="address" id="validationCustom05" type="text"
+                                class="form-control form-control-sm" required />
+                            <div class="invalid-feedback">
+                                Please provide an Address.
+                            </div>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>City</label>
-                            <input name="city" type="text" class="form-control form-control-sm" />
+                            <input name="city" id="validationCustom06" type="text" class="form-control form-control-sm"
+                                required />
+                            <div class="invalid-feedback">
+                                Please provide a City.
+                            </div>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>State / Province</label>
-                            <input name="state" type="text" class="form-control form-control-sm" />
+                            <input name="state" id="validationCustom07" type="text" class="form-control form-control-sm"
+                                required />
+                            <div class="invalid-feedback">
+                                Please provide a State or Province.
+                            </div>
                         </div>
                         <div class="col-lg-6 mb-2">
                             <label for>Postal Code</label>
-                            <input name="postal" type="text" class="form-control form-control-sm" />
+                            <input name="postal" id="validationCustom08" type="number"
+                                class="form-control form-control-sm" required />
                             <input name="payment_method_nonce" type="hidden" id="nonce"
                                 class="form-control form-control-sm" />
+                            <div class="invalid-feedback">
+                                Please provide a Postal Code.
+                            </div>
                         </div>
                         <div class="col-lg-12 mb-2">
                             <label for>Tell something about your order. (optional)</label>
                             <textarea class="form-control" name="message"></textarea>
                         </div>
                     </div>
+                    @if(!Auth::check())
+                    <div class="row mt-4 mb-5">
+                        <div class="col-lg-12">
+                            <h5>
+                                <b>Account First</b> <small class="required-message">( Required )</small>
+                                <br>
+                                <small>We recommended that all user has an account and has been login, so that all
+                                    transaction will be sent to your account. Thank you.</small>
+                                <br>
+                                <br>
+                                <a href="/signin">
+                                    <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="button">
+                                        Login
+                                    </button></a>
+                                or
+                                <a href="/signup">
+                                    <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="button">
+                                        Create an Account
+                                    </button></a>
+                            </h5>
+                        </div>
+                    </div>
+                    @endif
                 </form>
             </div>
             <div class="col-lg-3 mb-5">
@@ -134,7 +200,7 @@
                                     <br />
                                     <div class="col-lg-12 mt-4 mb-4">
                                         <a href="/cart">
-                                            <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="button">
+                                            <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="button">
                                                 <i class="fas fa-arrow-circle-left"></i> Back
                                             </button>
                                         </a>
@@ -146,24 +212,43 @@
                 </div>
             </div>
         </div>
+        @if(Auth::check())
         <div class="row mb-5">
             <div class="col-lg-6">
+                <h5>
+                    <b>Choose a way to pay</b> <small class="required-message">( Required )</small>
+                </h5>
                 <div id="dropin-container"></div>
                 <br>
-                <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay Now
+                <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay now
                     <i class="fas fa-money-check"></i></button>
             </div>
         </div>
+        @endif
+        @else
+        <div class="row mb-5 mt-5">
+            <div class="col-lg-12 text-center">
+                <img class="empty" src="{{ asset('storage/img/bg-img/empty.png') }}" alt="">
+                <br />
+                <p>It seems your cart doesn't have any item.</p>
+                <a href="/products">
+                    <button type="submit" class="text-center btn btn-outline-dark btn-sm">
+                        Shop now
+                        <i class="fas fa-shopping-bag"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+        @endif
     </div>
     <div id="billing1">
         <footer-component></footer-component>
     </div>
 </div>
+
 @endsection
 @section('extra-js')
 <script>
-    var button = document.querySelector('#submit-button');
-    
     braintree.dropin.create({
         authorization: 'sandbox_9q2whtnv_btsn82cvs6kmgrxb',
         container: '#dropin-container',
@@ -173,12 +258,33 @@
             currency: 'USD'
         }
     }, function (err, instance) {
-        button.addEventListener('click', function () {
-            instance.requestPaymentMethod(function (err, payload) {
-            // Submit payload.nonce to your server
-            console.log(payload)
-            });
-        })
+        (function() {
+            'use strict';
+                var forms = document.getElementsByClassName('needs-validation');
+                var form1 = document.getElementById("submit-button")
+                
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form1.addEventListener('click', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+
+                            instance.requestPaymentMethod(function (err, payload) {
+
+                                // const axios = require('axios');
+
+                                // axios.post('/processPayment', {
+                                //     firstname: document.getElementById("validationCustom01")
+                                // }).then(response => {
+                                //     console.log(response.data)
+                                // })
+                                console.log(payload)
+                            });
+                    }, false);
+                });
+        })();
     });
 </script>
 @endsection

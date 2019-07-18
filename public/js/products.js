@@ -576,7 +576,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
                   console.log(response.data);
 
-                  if (_this.category != "all") {
+                  if (_this.category != "all" || _this.value[0] != 0 || _this.value[1] != 1000) {
                     _this.filter = true;
                   } else {
                     _this.filter = false;

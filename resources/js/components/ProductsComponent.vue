@@ -197,7 +197,7 @@ export default {
         this.productsItem = response.data;
         // this.loading = false;
         console.log(response.data);
-        if (this.category != "all") {
+        if (this.category != "all" || this.value[0] != 0 || this.value[1] != 1000) {
           this.filter = true;
         } else {
           this.filter = false;
