@@ -53,7 +53,7 @@
             <div class="col-lg-9 col-md-12">
                 <h4>Billing Info</h4>
                 <hr />
-                <form class="needs-validation" novalidate>
+                <form id="checkoutForm" class="needs-validation" novalidate method="POST" action="/processPayment">
                     <div class="row mt-4 mb-5">
                         <div class="col-lg-12">
                             <h5>
@@ -64,6 +64,7 @@
                         <br />
                         <div class="col-lg-6 mb-2">
                             <label for>First Name</label>
+                            @csrf
                             <input name="firstname" id="validationCustom01" type="text"
                                 class="form-control form-control-sm" required />
                             <div class="invalid-feedback">
@@ -129,7 +130,7 @@
                             <label for>Postal Code</label>
                             <input name="postal" id="validationCustom08" type="number"
                                 class="form-control form-control-sm" required />
-                            <input name="payment_method_nonce" type="hidden" id="nonce"
+                            <input name="payment_method_nonce" type="hidden" id="payment_method_nonce"
                                 class="form-control form-control-sm" />
                             <div class="invalid-feedback">
                                 Please provide a Postal Code.
@@ -261,7 +262,8 @@
         (function() {
             'use strict';
                 var forms = document.getElementsByClassName('needs-validation');
-                var form1 = document.getElementById("submit-button")
+                var form1 = document.getElementById("submit-button");
+                var toSubmit = document.querySelector("#checkoutForm");
                 
                 var validation = Array.prototype.filter.call(forms, function(form) {
                     form1.addEventListener('click', function(event) {
@@ -273,14 +275,27 @@
 
                             instance.requestPaymentMethod(function (err, payload) {
 
-                                // const axios = require('axios');
+                                if(typeof payload != 'undefined' && form.checkValidity() !== false) {                     
+                                    setTimeout(function() {
+                                        swal({
+                                            title: "Your payment is ready to process.",
+                                            text: "Are you sure, your order and other details are correct?",
+                                            icon: "info",
+                                            buttons: true,
+                                            dangerMode: true,
+                                        })
+                                        .then((willDelete) => {
+                                            if (willDelete) {
+                                                document.querySelector("#payment_method_nonce").value = payload.nonce
+                                                toSubmit.submit();
+                                            } else {
+                                                
+                                            }
+                                        });
+                                    },1250)
+                                } else {
 
-                                // axios.post('/processPayment', {
-                                //     firstname: document.getElementById("validationCustom01")
-                                // }).then(response => {
-                                //     console.log(response.data)
-                                // })
-                                console.log(payload)
+                                }
                             });
                     }, false);
                 });
