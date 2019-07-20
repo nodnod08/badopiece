@@ -57,6 +57,7 @@
                 aria-expanded="false"
               >{{ username }}</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Transactions</a>
                 <a class="dropdown-item" href="#">Account settings</a>
                 <a class="dropdown-item" :href="'logout_user_sesion_destroy'">Logout</a>
               </div>

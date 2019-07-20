@@ -15,4 +15,9 @@ class Statuses extends Model
     protected $fillable = [
         'status'
     ];
+
+    public function transaction()
+    {
+        return $this->hasOne('App\Transactions', 'transaction_status_id');
+    }
 }

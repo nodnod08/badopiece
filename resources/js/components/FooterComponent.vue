@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-4">
-          <ul>
+          <ul class="main">
             <li>
               <h5>Our Team</h5>
             </li>
@@ -48,7 +48,7 @@
       <br />
       <div class="row">
         <div class="col-lg-12">
-          <ul>
+          <ul class="main">
             <li>
               <h5>Payment Method</h5>
             </li>
@@ -75,14 +75,14 @@
       </div>
       <div class="row">
         <div class="col-lg-6">
-          <ul>
+          <ul class="main">
             <li>
               <p>© {{ year }} Copyright Badopiece Collection | Clothes and Accessories</p>
             </li>
           </ul>
         </div>
         <div class="col-lg-6">
-          <ul>
+          <ul class="main">
             <li>
               <h5 class="text-right">
                 <a :href="'https://www.facebook.com/badopiececollection/'">
@@ -152,6 +152,10 @@ li {
     height: 35px;
     width: 200px;
   }
+}
+
+ul.main {
+  padding-left: 0;
 }
 </style>
 

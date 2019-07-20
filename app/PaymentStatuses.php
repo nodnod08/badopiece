@@ -15,4 +15,9 @@ class PaymentStatuses extends Model
     protected $fillable = [
         'status'
     ];
+
+    public function transaction()
+    {
+        return $this->hasOne('App\Transactions', 'payment_status_id');
+    }
 }

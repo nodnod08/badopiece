@@ -15,4 +15,9 @@ class Transaction_types extends Model
     protected $fillable = [
         'transaction_type'
     ];
+
+    public function transaction()
+    {
+        return $this->hasOne('App\Transactions', 'transaction_type_id');
+    }
 }

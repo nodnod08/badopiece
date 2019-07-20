@@ -409,6 +409,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["username", "count"],
   components: {},
@@ -464,7 +465,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -2069,7 +2070,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-6" }, [
-          _c("ul", [
+          _c("ul", { staticClass: "main" }, [
             _c("li", [
               _c("p", [
                 _vm._v(
@@ -2083,7 +2084,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-lg-6" }, [
-          _c("ul", [
+          _c("ul", { staticClass: "main" }, [
             _c("li", [
               _c("h5", { staticClass: "text-right" }, [
                 _c(
@@ -2110,7 +2111,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-        _c("ul", [
+        _c("ul", { staticClass: "main" }, [
           _c("li", [_c("h5", [_vm._v("Our Team")])]),
           _vm._v(" "),
           _c("li", [
@@ -2175,7 +2176,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-12" }, [
-        _c("ul", [
+        _c("ul", { staticClass: "main" }, [
           _c("li", [_c("h5", [_vm._v("Payment Method")])]),
           _vm._v(" "),
           _c("li", [
@@ -2373,6 +2374,15 @@ var render = function() {
                           attrs: { "aria-labelledby": "navbarDropdown" }
                         },
                         [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v("Transactions")]
+                          ),
+                          _vm._v(" "),
                           _c(
                             "a",
                             {

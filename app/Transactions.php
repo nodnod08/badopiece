@@ -30,4 +30,19 @@ class Transactions extends Model
     {
         return $this->belongsTo('App\User', 'customer_id');
     }
+
+    public function transaction_type()
+    {
+        return $this->belongsTo('App\Transaction_types', 'transaction_type_id');
+    }
+
+    public function transaction_status()
+    {
+        return $this->belongsTo('App\Statuses', 'transaction_status_id');
+    }
+
+    public function payment_status()
+    {
+        return $this->belongsTo('App\PaymentStatuses', 'payment_status_id');
+    }
 }

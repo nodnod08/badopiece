@@ -8,5 +8,6 @@
     "/js/products.js": "/js/products.js",
     "/js/signin.js": "/js/signin.js",
     "/js/signup.js": "/js/signup.js",
+    "/js/transaction.js": "/js/transaction.js",
     "/js/view.js": "/js/view.js"
 }
