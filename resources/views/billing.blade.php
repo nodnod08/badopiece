@@ -52,6 +52,12 @@
         <div class="row">
             <div class="col-lg-9 col-md-12">
                 <h4>Billing Info</h4>
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <hr />
                 <form id="checkoutForm" class="needs-validation" novalidate method="POST" action="/processPayment">
                     <div class="row mt-4 mb-5">
@@ -131,6 +137,8 @@
                             <input name="postal" id="validationCustom08" type="number"
                                 class="form-control form-control-sm" required />
                             <input name="payment_method_nonce" type="hidden" id="payment_method_nonce"
+                                class="form-control form-control-sm" />
+                            <input name="transaction_type" type="hidden" id="transaction_type"
                                 class="form-control form-control-sm" />
                             <div class="invalid-feedback">
                                 Please provide a Postal Code.
@@ -217,12 +225,23 @@
         <div class="row mb-5">
             <div class="col-lg-6">
                 <h5>
-                    <b>Choose a way to pay</b> <small class="required-message">( Required )</small>
+                    <b>Choose a way to pay</b> <small class="required-message"></small>
                 </h5>
                 <div id="dropin-container"></div>
                 <br>
                 <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay now
                     <i class="fas fa-money-check"></i></button>
+            </div>
+            <div class="col-lg-12 mt-5">
+                <h5>
+                    <b>Other payment method</b> <small class="required-message"></small>
+                </h5>
+                <div id="dropin-container"></div>
+                <br>
+                <button id="MeetUP" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay on meet up
+                    <i class="far fa-handshake"></i></button>
+                <button id="COD" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Cash on Delivery
+                    <i class="fas fa-motorcycle"></i></button>
             </div>
         </div>
         @endif
@@ -286,7 +305,8 @@
                                         })
                                         .then((willDelete) => {
                                             if (willDelete) {
-                                                document.querySelector("#payment_method_nonce").value = payload.nonce
+                                                document.querySelector("#payment_method_nonce").value = payload.nonce;
+                                                document.querySelector("#transaction_type").value = '3';
                                                 toSubmit.submit();
                                             } else {
                                                 
@@ -300,6 +320,62 @@
                     }, false);
                 });
         })();
+    });
+    var meetUP = document.getElementById("MeetUP"); 
+    var COD = document.getElementById("COD"); 
+    var forms = document.getElementsByClassName('needs-validation');
+    var toSubmit = document.querySelector("#checkoutForm");
+
+    var validation = Array.prototype.filter.call(forms, function(form) {
+            MeetUP.addEventListener('click', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    swal({
+                        title: "Your payment is ready to process.",
+                        text: "Are you sure, your order and other details are correct?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            document.querySelector("#transaction_type").value = '2';
+                            toSubmit.submit();
+                        } else {
+                                                        
+                        }
+                    });
+                }
+                form.classList.add('was-validated');
+        }, false);
+    });
+
+    var validation = Array.prototype.filter.call(forms, function(form) {
+            COD.addEventListener('click', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    swal({
+                        title: "Your payment is ready to process.",
+                        text: "Are you sure, your order and other details are correct?",
+                        icon: "info",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            document.querySelector("#transaction_type").value = '1';
+                            toSubmit.submit();
+                        } else {
+                                                        
+                        }
+                    });
+                }
+                form.classList.add('was-validated');
+        }, false);
     });
 </script>
 @endsection

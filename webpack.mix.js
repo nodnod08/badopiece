@@ -24,3 +24,4 @@ mix.js(['resources/js/view.js'], 'public/js/view.js');
 mix.js(['resources/js/about-us.js'], 'public/js/about-us.js');
 mix.js(['resources/js/cart.js'], 'public/js/cart.js');
 mix.js(['resources/js/billing.js'], 'public/js/billing.js');
+mix.js(['resources/js/transaction.js'], 'public/js/transaction.js');
