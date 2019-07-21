@@ -53,6 +53,7 @@ Route::get('/getProducts/{from}/{to}/{category}', 'ShopController@getProductsFil
 Route::get('/getProducts', 'ShopController@getProducts');
 Route::get('/getSubtotal', 'CartController@getSubtotal');
 Route::get('/billing', 'CartController@billing')->name('billing');
+Route::get('/getLogo', 'SettingsController@getLogo')->name('getLogo');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 

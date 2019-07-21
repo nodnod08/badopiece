@@ -13,11 +13,11 @@
           <h3>Transaction Summary</h3>
         </div>
         <div class="col-lg-6 col-md-6">
-          <button :class="'btn btn-outline-dark btn-md my-2 my-sm-0'">
+          <button v-on:click="download()" :class="'btn btn-outline-dark btn-md my-2 my-sm-0'">
             Download PDF
             <i class="fas fa-file-pdf"></i>
           </button>
-          <button :class="'btn btn-outline-dark btn-md my-2 my-sm-0'">
+          <button v-on:click="print()" :class="'btn btn-outline-dark btn-md my-2 my-sm-0'">
             Print Now
             <i class="fas fa-print"></i>
           </button>
@@ -25,16 +25,16 @@
         <hr />
         <div class="col-lg-12">
           <p>
+            <b>Date:</b>
+            {{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}
+          </p>
+          <p>
             <b>Transaction Id:</b>
             {{ transaction.transaction_id }}
           </p>
           <p>
             <b>Transaction Type:</b>
             {{ transaction.transaction_type.transaction_type }}
-          </p>
-          <p>
-            <b>Date:</b>
-            {{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}
           </p>
           <p>
             <b>Status:</b>
@@ -86,48 +86,60 @@
           <h3>Items Ordered</h3>
           <hr />
         </div>
-        <table class="table table-borderless table-ligth">
-          <thead>
-            <tr>
-              <th scope="col">Photo</th>
-              <th scope="col">Product Code</th>
-              <th scope="col">Product Quantity</th>
-              <th scope="col">Product Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in transaction.items">
-              <th scope="row">{{ index+1 }}</th>
-              <td>{{ item.product_code }}</td>
-              <td>{{ item.product_quantity }}</td>
-              <td>&#8369; {{ item.product_price }}.00</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                <b>SubTotal:</b>
-              </td>
-              <td>{{ transaction.amount - transaction.shipping_amount }}.00</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                <b>Shipping:</b>
-              </td>
-              <td>&#8369; {{ transaction.shipping_amount }}</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td>
-                <b>Total Amount:</b>
-              </td>
-              <td>&#8369; {{ transaction.amount }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="col-lg-12">
+          <table class="table table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Photo</th>
+                <th scope="col">Product Code</th>
+                <th scope="col">Product Quantity</th>
+                <th scope="col">Product Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in transaction.items">
+                <th scope="row">{{ index+1 }}</th>
+                <td>{{ item.product_code }}</td>
+                <td>{{ item.product_quantity }}</td>
+                <td>&#8369; {{ item.product_price }}.00</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <b>SubTotal</b>
+                </td>
+                <td>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <b>Shipping</b>
+                </td>
+                <td>&#8369; {{ transaction.shipping_amount }}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <b>VAT %</b>
+                </td>
+                <td>0 %</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <b>Total Amount</b>
+                </td>
+                <td>
+                  <u>&#8369; {{ transaction.amount }}</u>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <footer-component></footer-component>
@@ -147,6 +159,7 @@ export default {
       loading: false,
       cartCount: "",
       transactions: {},
+      logo: "",
       month: [
         "January",
         "February",
@@ -166,6 +179,7 @@ export default {
   created() {
     this.countCart();
     this.getTransaction();
+    this.getLogo();
   },
   methods: {
     countCart: async function() {
@@ -179,6 +193,109 @@ export default {
         this.transactions = response.data;
         console.log(response.data);
       });
+    },
+    getLogo: async function() {
+      await axios.get("/getLogo").then(response => {
+        this.logo = response.data;
+      });
+    },
+    download: async function() {
+      pdfMake.createPdf(docDefinition).download();
+      var docDefinition = {
+        footer: function(currentPage, pageCount) {
+          return currentPage.toString() + " of " + pageCount;
+        },
+        header: function(currentPage, pageCount, pageSize) {
+          // you can apply any logic and return any valid pdfmake element
+
+          return [
+            {
+              text: "simple text",
+              alignment: currentPage % 2 ? "left" : "right"
+            },
+            {
+              canvas: [
+                { type: "rect", x: 170, y: 32, w: pageSize.width - 170, h: 40 }
+              ]
+            }
+          ];
+        }
+      };
+    },
+    print: async function() {
+      var docDefinition = await {
+        pageSize: "A4",
+        pageOrientation: "portrait",
+        pageMargins: [40, 60, 40, 60],
+        footer: function(currentPage, pageCount) {
+          return currentPage.toString() + " of " + pageCount;
+        },
+        header: function(currentPage, pageCount, pageSize) {
+          // you can apply any logic and return any valid pdfmake element
+
+          return [];
+        },
+        content: [
+          {
+            image: this.logo[0].content,
+            width: 120,
+            height: 55
+          },
+          {
+            text: "\n Transaction Details \n\n\n",
+            fontSize: 17,
+            bold: true,
+            alignment: "center"
+          },
+          {
+            text: [
+              { text: "Transaction Summary: \n", bold: true, fontSize: 13 },
+              "--------------------------------------------------------------------\n",
+              { text: "Date: ", bold: true },
+              this.month[new Date(this.transactions[0].created_at).getMonth()] +
+                " " +
+                new Date(this.transactions[0].created_at).getDate() +
+                ", " +
+                new Date(this.transactions[0].created_at).getFullYear() +
+                "\n",
+              { text: "Transaction Id: ", bold: true },
+              this.transactions[0].id + "\n",
+              { text: "Transaction Type: ", bold: true },
+              this.transactions[0].transaction_type.transaction_type + "\n",
+              { text: "Status: ", bold: true },
+              this.transactions[0].transaction_status.status + "\n",
+              { text: "Payment Status: ", bold: true },
+              this.transactions[0].payment_status.status + "\n",
+              { text: "\nBilling Details: \n", bold: true, fontSize: 13 },
+              "--------------------------------------------------------------------\n",
+              { text: "Recipient Name: ", bold: true },
+              this.transactions[0].shipping.firstname +
+                " " +
+                this.transactions[0].shipping.lastname +
+                "\n",
+              { text: "Phone: ", bold: true },
+              "0" + this.transactions[0].shipping.phone + "\n",
+              { text: "Email: ", bold: true },
+              this.transactions[0].shipping.email + "\n",
+              { text: "Address / Shipping Destination: ", bold: true },
+              this.transactions[0].shipping.street_address +
+                " " +
+                this.transactions[0].shipping.city +
+                " " +
+                this.transactions[0].shipping.state +
+                " " +
+                this.transactions[0].shipping.country +
+                " " +
+                this.transactions[0].shipping.postal +
+                "\n"
+            ],
+            fontSize: 10,
+            alignment: "left"
+          }
+        ]
+      };
+
+      pdfMake.createPdf(docDefinition).print();
     }
   }
 };

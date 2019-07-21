@@ -491,6 +491,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["id", "auth"],
@@ -502,12 +514,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       loading: false,
       cartCount: "",
       transactions: {},
+      logo: "",
       month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     };
   },
   created: function created() {
     this.countCart();
     this.getTransaction();
+    this.getLogo();
   },
   methods: {
     countCart: function () {
@@ -568,6 +582,170 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getTransaction;
+    }(),
+    getLogo: function () {
+      var _getLogo = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get("/getLogo").then(function (response) {
+                  _this3.logo = response.data;
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function getLogo() {
+        return _getLogo.apply(this, arguments);
+      }
+
+      return getLogo;
+    }(),
+    download: function () {
+      var _download = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var docDefinition;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                pdfMake.createPdf(docDefinition).download();
+                docDefinition = {
+                  footer: function footer(currentPage, pageCount) {
+                    return currentPage.toString() + " of " + pageCount;
+                  },
+                  header: function header(currentPage, pageCount, pageSize) {
+                    // you can apply any logic and return any valid pdfmake element
+                    return [{
+                      text: "simple text",
+                      alignment: currentPage % 2 ? "left" : "right"
+                    }, {
+                      canvas: [{
+                        type: "rect",
+                        x: 170,
+                        y: 32,
+                        w: pageSize.width - 170,
+                        h: 40
+                      }]
+                    }];
+                  }
+                };
+
+              case 2:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      function download() {
+        return _download.apply(this, arguments);
+      }
+
+      return download;
+    }(),
+    print: function () {
+      var _print = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var docDefinition;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return {
+                  pageSize: "A4",
+                  pageOrientation: "portrait",
+                  pageMargins: [40, 60, 40, 60],
+                  footer: function footer(currentPage, pageCount) {
+                    return currentPage.toString() + " of " + pageCount;
+                  },
+                  header: function header(currentPage, pageCount, pageSize) {
+                    // you can apply any logic and return any valid pdfmake element
+                    return [];
+                  },
+                  content: [{
+                    image: this.logo[0].content,
+                    width: 120,
+                    height: 55
+                  }, {
+                    text: "\n Transaction Details \n\n\n",
+                    fontSize: 17,
+                    bold: true,
+                    alignment: "center"
+                  }, {
+                    text: [{
+                      text: "Transaction Summary: \n",
+                      bold: true,
+                      fontSize: 13
+                    }, "--------------------------------------------------------------------\n", {
+                      text: "Date: ",
+                      bold: true
+                    }, this.month[new Date(this.transactions[0].created_at).getMonth()] + " " + new Date(this.transactions[0].created_at).getDate() + ", " + new Date(this.transactions[0].created_at).getFullYear() + "\n", {
+                      text: "Transaction Id: ",
+                      bold: true
+                    }, this.transactions[0].id + "\n", {
+                      text: "Transaction Type: ",
+                      bold: true
+                    }, this.transactions[0].transaction_type.transaction_type + "\n", {
+                      text: "Status: ",
+                      bold: true
+                    }, this.transactions[0].transaction_status.status + "\n", {
+                      text: "Payment Status: ",
+                      bold: true
+                    }, this.transactions[0].payment_status.status + "\n", {
+                      text: "\nBilling Details: \n",
+                      bold: true,
+                      fontSize: 13
+                    }, "--------------------------------------------------------------------\n", {
+                      text: "Recipient Name: ",
+                      bold: true
+                    }, this.transactions[0].shipping.firstname + " " + this.transactions[0].shipping.lastname + "\n", {
+                      text: "Phone: ",
+                      bold: true
+                    }, "0" + this.transactions[0].shipping.phone + "\n", {
+                      text: "Email: ",
+                      bold: true
+                    }, this.transactions[0].shipping.email + "\n", {
+                      text: "Address / Shipping Destination: ",
+                      bold: true
+                    }, this.transactions[0].shipping.street_address + " " + this.transactions[0].shipping.city + " " + this.transactions[0].shipping.state + " " + this.transactions[0].shipping.country + " " + this.transactions[0].shipping.postal + "\n"],
+                    fontSize: 10,
+                    alignment: "left"
+                  }]
+                };
+
+              case 2:
+                docDefinition = _context5.sent;
+                pdfMake.createPdf(docDefinition).print();
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function print() {
+        return _print.apply(this, arguments);
+      }
+
+      return print;
     }()
   }
 });
@@ -7851,7 +8029,14 @@ var render = function() {
             _c("div", { staticClass: "col-lg-6 col-md-6" }, [
               _c(
                 "button",
-                { class: "btn btn-outline-dark btn-md my-2 my-sm-0" },
+                {
+                  class: "btn btn-outline-dark btn-md my-2 my-sm-0",
+                  on: {
+                    click: function($event) {
+                      return _vm.download()
+                    }
+                  }
+                },
                 [
                   _vm._v("\n          Download PDF\n          "),
                   _c("i", { staticClass: "fas fa-file-pdf" })
@@ -7860,7 +8045,14 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "button",
-                { class: "btn btn-outline-dark btn-md my-2 my-sm-0" },
+                {
+                  class: "btn btn-outline-dark btn-md my-2 my-sm-0",
+                  on: {
+                    click: function($event) {
+                      return _vm.print()
+                    }
+                  }
+                },
                 [
                   _vm._v("\n          Print Now\n          "),
                   _c("i", { staticClass: "fas fa-print" })
@@ -7871,6 +8063,21 @@ var render = function() {
             _c("hr"),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-12" }, [
+              _c("p", [
+                _c("b", [_vm._v("Date:")]),
+                _vm._v(
+                  "\n          " +
+                    _vm._s(
+                      _vm.month[new Date(transaction.created_at).getMonth()] +
+                        " " +
+                        new Date(transaction.created_at).getDate() +
+                        ", " +
+                        new Date(transaction.created_at).getFullYear()
+                    ) +
+                    "\n        "
+                )
+              ]),
+              _vm._v(" "),
               _c("p", [
                 _c("b", [_vm._v("Transaction Id:")]),
                 _vm._v(
@@ -7885,21 +8092,6 @@ var render = function() {
                 _vm._v(
                   "\n          " +
                     _vm._s(transaction.transaction_type.transaction_type) +
-                    "\n        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _c("b", [_vm._v("Date:")]),
-                _vm._v(
-                  "\n          " +
-                    _vm._s(
-                      _vm.month[new Date(transaction.created_at).getMonth()] +
-                        " " +
-                        new Date(transaction.created_at).getDate() +
-                        ", " +
-                        new Date(transaction.created_at).getFullYear()
-                    ) +
                     "\n        "
                 )
               ]),
@@ -8006,68 +8198,76 @@ var render = function() {
             _vm._v(" "),
             _vm._m(1, true),
             _vm._v(" "),
-            _c("table", { staticClass: "table table-borderless table-ligth" }, [
-              _vm._m(2, true),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(transaction.items, function(item, index) {
-                    return _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v(_vm._s(index + 1))
-                      ]),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("table", { staticClass: "table table-bordered" }, [
+                _vm._m(2, true),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  [
+                    _vm._l(transaction.items, function(item, index) {
+                      return _c("tr", [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(item.product_code))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(item.product_quantity))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v("₱ " + _vm._s(item.product_price) + ".00")
+                        ])
+                      ])
+                    }),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("td"),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(item.product_code))]),
+                      _c("td"),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(item.product_quantity))]),
+                      _vm._m(3, true),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v("₱ " + _vm._s(item.product_price) + ".00")
+                        _vm._v(
+                          "₱ " +
+                            _vm._s(
+                              transaction.amount - transaction.shipping_amount
+                            ) +
+                            ".00"
+                        )
                       ])
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td"),
+                    ]),
                     _vm._v(" "),
-                    _c("td"),
-                    _vm._v(" "),
-                    _vm._m(3, true),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        _vm._s(
-                          transaction.amount - transaction.shipping_amount
-                        ) + ".00"
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td"),
-                    _vm._v(" "),
-                    _c("td"),
-                    _vm._v(" "),
-                    _vm._m(4, true),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v("₱ " + _vm._s(transaction.shipping_amount))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td"),
-                    _vm._v(" "),
-                    _c("td"),
+                    _c("tr", [
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _vm._m(4, true),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v("₱ " + _vm._s(transaction.shipping_amount))
+                      ])
+                    ]),
                     _vm._v(" "),
                     _vm._m(5, true),
                     _vm._v(" "),
-                    _c("td", [_vm._v("₱ " + _vm._s(transaction.amount))])
-                  ])
-                ],
-                2
-              )
+                    _c("tr", [
+                      _c("td"),
+                      _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
+                      _vm._m(6, true),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("u", [_vm._v("₱ " + _vm._s(transaction.amount))])
+                      ])
+                    ])
+                  ],
+                  2
+                )
+              ])
             ])
           ])
         }),
@@ -8102,7 +8302,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
+    return _c("thead", { staticClass: "table-dark" }, [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Photo")]),
         _vm._v(" "),
@@ -8118,19 +8318,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("b", [_vm._v("SubTotal:")])])
+    return _c("td", [_c("b", [_vm._v("SubTotal")])])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("b", [_vm._v("Shipping:")])])
+    return _c("td", [_c("b", [_vm._v("Shipping")])])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("b", [_vm._v("Total Amount:")])])
+    return _c("tr", [
+      _c("td"),
+      _vm._v(" "),
+      _c("td"),
+      _vm._v(" "),
+      _c("td", [_c("b", [_vm._v("VAT %")])]),
+      _vm._v(" "),
+      _c("td", [_vm._v("0 %")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [_c("b", [_vm._v("Total Amount")])])
   }
 ]
 render._withStripped = true

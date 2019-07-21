@@ -31,6 +31,7 @@
         "epic-spinners": "^1.0.4",
         "laravel-vue-pagination": "^2.3.0",
         "moment": "^2.24.0",
+        "pdfmake": "^0.1.57",
         "vee-validate": "^2.2.2",
         "vue-chartjs": "^3.4.2",
         "vue-material": "^1.0.0-beta-10.2",
