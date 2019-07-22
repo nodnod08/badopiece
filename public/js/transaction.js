@@ -522,6 +522,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.countCart();
     this.getTransaction();
     this.getLogo();
+    this.buildPDF();
   },
   methods: {
     countCart: function () {
@@ -612,43 +613,61 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return getLogo;
     }(),
-    download: function () {
-      var _download = _asyncToGenerator(
+    print: function () {
+      var _print = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var docDefinition;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                pdfMake.createPdf(docDefinition).download();
-                docDefinition = {
-                  footer: function footer(currentPage, pageCount) {
-                    return currentPage.toString() + " of " + pageCount;
-                  },
-                  header: function header(currentPage, pageCount, pageSize) {
-                    // you can apply any logic and return any valid pdfmake element
-                    return [{
-                      text: "simple text",
-                      alignment: currentPage % 2 ? "left" : "right"
-                    }, {
-                      canvas: [{
-                        type: "rect",
-                        x: 170,
-                        y: 32,
-                        w: pageSize.width - 170,
-                        h: 40
-                      }]
-                    }];
-                  }
-                };
+                _context4.t0 = pdfMake;
+                _context4.next = 3;
+                return this.buildPDF();
 
-              case 2:
+              case 3:
+                _context4.t1 = _context4.sent;
+
+                _context4.t0.createPdf.call(_context4.t0, _context4.t1).print();
+
+              case 5:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4);
+        }, _callee4, this);
+      }));
+
+      function print() {
+        return _print.apply(this, arguments);
+      }
+
+      return print;
+    }(),
+    download: function () {
+      var _download = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.t0 = pdfMake;
+                _context5.next = 3;
+                return this.buildPDF();
+
+              case 3:
+                _context5.t1 = _context5.sent;
+                _context5.t2 = this.transactions[0].shipping.lastname + "_transaction_" + this.transactions[0].transaction_id;
+
+                _context5.t0.createPdf.call(_context5.t0, _context5.t1).download(_context5.t2);
+
+              case 6:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
       }));
 
       function download() {
@@ -657,22 +676,154 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return download;
     }(),
-    print: function () {
-      var _print = _asyncToGenerator(
+    buildPDF: function () {
+      var _buildPDF = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-        var docDefinition;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var bodyContent, sub, shipping, vat, amount, docDefinition;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                _context5.next = 2;
+                _context6.next = 2;
+                return [[{
+                  text: "Product Name",
+                  bold: true,
+                  fillColor: "#404040",
+                  color: "#fff"
+                }, {
+                  text: "Product Code",
+                  bold: true,
+                  fillColor: "#404040",
+                  color: "#fff"
+                }, {
+                  text: "Product Quantity",
+                  bold: true,
+                  fillColor: "#404040",
+                  color: "#fff"
+                }, {
+                  text: "Product Price",
+                  bold: true,
+                  fillColor: "#404040",
+                  color: "#fff"
+                }]];
+
+              case 2:
+                bodyContent = _context6.sent;
+                _context6.next = 5;
+                return $.each(this.transactions[0].items, function (index, value) {
+                  var temp = [value.product_name, value.product_code, value.product_quantity, "₱ " + value.product_price + ".00"];
+                  bodyContent.push(temp);
+                });
+
+              case 5:
+                _context6.next = 7;
+                return [{
+                  text: "Subtotal",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "Subtotal",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "Subtotal",
+                  bold: true
+                }, {
+                  text: "₱ " + Number(this.transactions[0].amount - this.transactions[0].shipping_amount) + ".00",
+                  bold: true
+                }];
+
+              case 7:
+                sub = _context6.sent;
+                bodyContent.push(sub);
+                _context6.next = 11;
+                return [{
+                  text: "Shipping",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "Shipping",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "Shipping",
+                  bold: true
+                }, {
+                  text: "₱ " + this.transactions[0].shipping_amount + ".00",
+                  bold: true
+                }];
+
+              case 11:
+                shipping = _context6.sent;
+                bodyContent.push(shipping);
+                _context6.next = 15;
+                return [{
+                  text: "VAT",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "VAT",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "VAT",
+                  bold: true
+                }, {
+                  text: "0%",
+                  bold: true
+                }];
+
+              case 15:
+                vat = _context6.sent;
+                bodyContent.push(vat);
+                _context6.next = 19;
+                return [{
+                  text: "Total Amount",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "Total Amount",
+                  bold: true,
+                  fillColor: "#fff",
+                  border: false,
+                  color: "#fff"
+                }, {
+                  text: "Total Amount",
+                  bold: true
+                }, {
+                  text: "₱ " + Number(this.transactions[0].amount) + ".00",
+                  bold: true
+                }];
+
+              case 19:
+                amount = _context6.sent;
+                bodyContent.push(amount);
+                _context6.next = 23;
                 return {
                   pageSize: "A4",
                   pageOrientation: "portrait",
                   pageMargins: [40, 60, 40, 60],
                   footer: function footer(currentPage, pageCount) {
-                    return currentPage.toString() + " of " + pageCount;
+                    // return currentPage.toString() + " of " + pageCount;
+                    return [{
+                      text: currentPage.toString() + " of " + pageCount,
+                      margin: [40, 2, 10, 40]
+                    }];
                   },
                   header: function header(currentPage, pageCount, pageSize) {
                     // you can apply any logic and return any valid pdfmake element
@@ -689,7 +840,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     alignment: "center"
                   }, {
                     text: [{
-                      text: "Transaction Summary: \n",
+                      text: "Transaction Summary \n",
                       bold: true,
                       fontSize: 13
                     }, "--------------------------------------------------------------------\n", {
@@ -708,7 +859,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       text: "Payment Status: ",
                       bold: true
                     }, this.transactions[0].payment_status.status + "\n", {
-                      text: "\nBilling Details: \n",
+                      text: "\nBilling Details \n",
                       bold: true,
                       fontSize: 13
                     }, "--------------------------------------------------------------------\n", {
@@ -723,29 +874,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     }, this.transactions[0].shipping.email + "\n", {
                       text: "Address / Shipping Destination: ",
                       bold: true
-                    }, this.transactions[0].shipping.street_address + " " + this.transactions[0].shipping.city + " " + this.transactions[0].shipping.state + " " + this.transactions[0].shipping.country + " " + this.transactions[0].shipping.postal + "\n"],
+                    }, this.transactions[0].shipping.street_address + " " + this.transactions[0].shipping.city + " " + this.transactions[0].shipping.state + " " + this.transactions[0].shipping.country + " " + this.transactions[0].shipping.postal + "\n\n", {
+                      text: "Items Ordered \n",
+                      bold: true,
+                      fontSize: 13
+                    }, "--------------------------------------------------------------------\n"],
                     fontSize: 10,
                     alignment: "left"
+                  }, {
+                    // optional
+                    table: {
+                      // headers are automatically repeated if the table spans over multiple pages
+                      // you can declare how many rows should be treated as headers
+                      headerRows: 1,
+                      widths: ["*", "*", "*", "*"],
+                      body: bodyContent
+                    },
+                    alignment: "center"
                   }]
                 };
 
-              case 2:
-                docDefinition = _context5.sent;
-                pdfMake.createPdf(docDefinition).print();
+              case 23:
+                docDefinition = _context6.sent;
+                return _context6.abrupt("return", docDefinition);
 
-              case 4:
+              case 25:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee6, this);
       }));
 
-      function print() {
-        return _print.apply(this, arguments);
+      function buildPDF() {
+        return _buildPDF.apply(this, arguments);
       }
 
-      return print;
+      return buildPDF;
     }()
   }
 });
@@ -8207,9 +8372,7 @@ var render = function() {
                   [
                     _vm._l(transaction.items, function(item, index) {
                       return _c("tr", [
-                        _c("th", { attrs: { scope: "row" } }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
+                        _c("th", [_vm._v(_vm._s(item.product_name))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(item.product_code))]),
                         _vm._v(" "),
@@ -8304,7 +8467,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "table-dark" }, [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Photo")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Name")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Code")]),
         _vm._v(" "),
