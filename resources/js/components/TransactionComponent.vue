@@ -209,7 +209,7 @@ export default {
         .download(
           this.transactions[0].shipping.lastname +
             "_transaction_" +
-            this.transactions[0].transaction_id
+            this.transactions[0].created_at
         );
     },
     buildPDF: async function() {

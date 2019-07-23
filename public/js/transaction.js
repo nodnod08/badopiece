@@ -313,6 +313,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["username", "count"],
   components: {},
@@ -658,7 +675,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 _context5.t1 = _context5.sent;
-                _context5.t2 = this.transactions[0].shipping.lastname + "_transaction_" + this.transactions[0].transaction_id;
+                _context5.t2 = this.transactions[0].shipping.lastname + "_transaction_" + this.transactions[0].created_at;
 
                 _context5.t0.createPdf.call(_context5.t0, _context5.t1).download(_context5.t2);
 
@@ -8078,6 +8095,8 @@ var render = function() {
                       )
                     ]),
                 _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [
                   _c(
                     "a",
@@ -8133,6 +8152,51 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            id: "navbarDropdown",
+            role: "button",
+            "data-toggle": "dropdown",
+            "aria-haspopup": "true",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("Dropdown")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "navbarDropdown" }
+        },
+        [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Action")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Another action")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "dropdown-divider" }),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Something else here")
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
