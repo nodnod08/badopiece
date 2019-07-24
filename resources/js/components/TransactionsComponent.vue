@@ -39,7 +39,7 @@
                 <td>{{ transaction.transaction_status.status }}</td>
                 <td>{{ transaction.payment_type }}</td>
                 <td>{{ transaction.payment_status.status }}</td>
-                <td>{{ transaction.created_at }}</td>
+                <td>{{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}</td>
               </tr>
             </tbody>
           </table>
@@ -67,7 +67,21 @@ export default {
     return {
       transactions: {},
       loading: false,
-      cartCount: ""
+      cartCount: "",
+      month: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
     };
   },
   created() {

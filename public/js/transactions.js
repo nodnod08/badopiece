@@ -428,7 +428,8 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
     return {
       transactions: {},
       loading: false,
-      cartCount: ""
+      cartCount: "",
+      month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     };
   },
   created: function created() {
@@ -9215,7 +9216,19 @@ var render = function() {
                           _vm._v(_vm._s(transaction.payment_status.status))
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(transaction.created_at))])
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm.month[
+                                new Date(transaction.created_at).getMonth()
+                              ] +
+                                " " +
+                                new Date(transaction.created_at).getDate() +
+                                ", " +
+                                new Date(transaction.created_at).getFullYear()
+                            )
+                          )
+                        ])
                       ])
                     }),
                     0
