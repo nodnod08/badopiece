@@ -319,17 +319,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["username", "count"],
   components: {},
@@ -518,11 +507,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["id", "auth"],
+  props: ["id", "auth", "payment"],
   components: {
     RadarSpinner: epic_spinners__WEBPACK_IMPORTED_MODULE_1__["RadarSpinner"]
   },
@@ -540,6 +527,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.getTransaction();
     this.getLogo();
     this.buildPDF();
+    console.log(this.payment);
   },
   methods: {
     countCart: function () {
@@ -1345,7 +1333,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.brand-logo {\r\n  width: 140px;\r\n  height: 60px;\n}\r\n", ""]);
+exports.push([module.i, "\n.brand-logo {\r\n  width: 140px;\r\n  height: 60px;\n}\ndiv.dropdown-menu > a.active {\r\n  background: #404040;\r\n  color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -8068,8 +8056,11 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass: "dropdown-item",
-                              attrs: { href: "#" }
+                              class:
+                                _vm.path_name == "/transactions"
+                                  ? "dropdown-item active"
+                                  : "dropdown-item",
+                              attrs: { href: "/transactions" }
                             },
                             [_vm._v("Transactions")]
                           ),
@@ -8077,7 +8068,10 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass: "dropdown-item",
+                              class:
+                                _vm.path_name == "/account_settings"
+                                  ? "dropdown-item active"
+                                  : "dropdown-item",
                               attrs: { href: "#" }
                             },
                             [_vm._v("Account settings")]
@@ -8094,8 +8088,6 @@ var render = function() {
                         ]
                       )
                     ]),
-                _vm._v(" "),
-                _vm._m(1),
                 _vm._v(" "),
                 _c("li", { staticClass: "nav-item" }, [
                   _c(
@@ -8152,51 +8144,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link dropdown-toggle",
-          attrs: {
-            href: "#",
-            id: "navbarDropdown",
-            role: "button",
-            "data-toggle": "dropdown",
-            "aria-haspopup": "true",
-            "aria-expanded": "false"
-          }
-        },
-        [_vm._v("Dropdown")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-menu",
-          attrs: { "aria-labelledby": "navbarDropdown" }
-        },
-        [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Action")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Another action")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "dropdown-divider" }),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Something else here")
-          ])
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -8435,7 +8382,7 @@ var render = function() {
                   "tbody",
                   [
                     _vm._l(transaction.items, function(item, index) {
-                      return _c("tr", [
+                      return _c("tr", { key: index }, [
                         _c("th", [_vm._v(_vm._s(item.product_name))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(item.product_code))]),
@@ -8474,7 +8421,9 @@ var render = function() {
                       _vm._m(4, true),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v("₱ " + _vm._s(transaction.shipping_amount))
+                        _vm._v(
+                          "₱ " + _vm._s(transaction.shipping_amount) + ".00"
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -8488,7 +8437,7 @@ var render = function() {
                       _vm._m(6, true),
                       _vm._v(" "),
                       _c("td", [
-                        _c("u", [_vm._v("₱ " + _vm._s(transaction.amount))])
+                        _vm._v("₱ " + _vm._s(transaction.amount) + ".00")
                       ])
                     ])
                   ],

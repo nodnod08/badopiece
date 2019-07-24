@@ -75,6 +75,8 @@ class CartController extends Controller
         $data['count'] = \Cart::getContent()->count();
         $data['subTotal'] =  \Cart::getSubTotal();
         $data['Total'] =  \Cart::getTotal();
+        $data['content'] = \Cart::getContent();
+        $data['amount'] = (\Cart::getSubTotal() >= 500) ? \Cart::getSubTotal() : \Cart::getSubTotal() + 100;
 
         return view('billing')->with('data', $data);
     }

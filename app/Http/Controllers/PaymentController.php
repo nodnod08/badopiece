@@ -40,7 +40,7 @@ class PaymentController extends Controller
                 'publicKey' => config('services.braintree.publicKey'),
                 'privateKey' => config('services.braintree.privateKey')
             ]);
-
+            
             $status = $gateway->transaction()->sale([
                 'amount' => (\Cart::getSubTotal() > 500) ? \Cart::getSubTotal() : \Cart::getSubTotal() + 100,
                 'shippingAmount' => (\Cart::getSubTotal() > 500) ? "0.00" : "100.00",
@@ -48,32 +48,33 @@ class PaymentController extends Controller
                 'customer' => [
                     'firstName' => $request->firstname,
                     'lastName' => $request->lastname,
-                    'phone' => $request->phone,
+                    'phone' => ($request->type == "PayPalAccount") ? '123.456.7890' : $request->phone,
                     'email' => $request->email
                 ],
                 'shipping' => [
                     'firstName' => $request->firstname,
                     'lastName' => $request->lastname,
-                    'streetAddress' => $request->address,
-                    'locality' => $request->city,
-                    'region' => $request->state,
-                    'postalCode' => $request->postal,
-                    'countryCodeAlpha2' => 'PH'
+                    'streetAddress' => ($request->type == "PayPalAccount") ? '1234 Main St.' : $request->address,
+                    'locality' => ($request->type == "PayPalAccount") ? 'Chicago' : $request->city,
+                    'region' => ($request->type == "PayPalAccount") ? 'IL' : $request->state,
+                    'postalCode' => ($request->type == "PayPalAccount") ? '60652' : $request->postal,
+                    'countryCodeAlpha2' => ($request->type == "PayPalAccount") ? 'US' : 'PH'
                 ],
                 'billing' => [
                     'firstName' => $request->firstname,
                     'lastName' => $request->lastname,
-                    'streetAddress' => $request->address,
-                    'locality' => $request->city,
-                    'region' => $request->state,
-                    'postalCode' => $request->postal,
-                    'countryCodeAlpha2' => 'PH'
+                    'streetAddress' => ($request->type == "PayPalAccount") ? '1234 Main St.' : $request->address,
+                    'locality' => ($request->type == "PayPalAccount") ? 'Chicago' : $request->city,
+                    'region' => ($request->type == "PayPalAccount") ? 'IL' : $request->state,
+                    'postalCode' => ($request->type == "PayPalAccount") ? '60652' : $request->postal,
+                    'countryCodeAlpha2' => ($request->type == "PayPalAccount") ? 'US' : 'PH'
                 ],
                 'lineItems' => $items,
                 'options' => [
                     'submitForSettlement' => True
                 ]
             ]);
+            
 
             if($status->success) {
                 $transaction = $status->transaction;

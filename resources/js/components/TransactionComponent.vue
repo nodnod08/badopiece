@@ -97,7 +97,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in transaction.items">
+              <tr v-for="(item, index) in transaction.items" v-bind:key="index">
                 <th>{{ item.product_name }}</th>
                 <td>{{ item.product_code }}</td>
                 <td>{{ item.product_quantity }}</td>
@@ -117,7 +117,7 @@
                 <td>
                   <b>Shipping</b>
                 </td>
-                <td>&#8369; {{ transaction.shipping_amount }}</td>
+                <td>&#8369; {{ transaction.shipping_amount }}.00</td>
               </tr>
               <tr>
                 <td></td>
@@ -133,9 +133,7 @@
                 <td>
                   <b>Total Amount</b>
                 </td>
-                <td>
-                  <u>&#8369; {{ transaction.amount }}</u>
-                </td>
+                <td>&#8369; {{ transaction.amount }}.00</td>
               </tr>
             </tbody>
           </table>
@@ -150,7 +148,7 @@
 import { RadarSpinner } from "epic-spinners";
 
 export default {
-  props: ["id", "auth"],
+  props: ["id", "auth", "payment"],
   components: {
     RadarSpinner
   },
@@ -181,6 +179,7 @@ export default {
     this.getTransaction();
     this.getLogo();
     this.buildPDF();
+    console.log(this.payment);
   },
   methods: {
     countCart: async function() {

@@ -140,6 +140,7 @@
                                 class="form-control form-control-sm" />
                             <input name="transaction_type" type="hidden" id="transaction_type"
                                 class="form-control form-control-sm" />
+                            <input name="type" type="hidden" id="type" class="form-control form-control-sm" />
                             <div class="invalid-feedback">
                                 Please provide a Postal Code.
                             </div>
@@ -293,7 +294,7 @@
                         form.classList.add('was-validated');
 
                             instance.requestPaymentMethod(function (err, payload) {
-
+                                console.log(payload)
                                 if(typeof payload != 'undefined' && form.checkValidity() !== false) {                     
                                     setTimeout(function() {
                                         swal({
@@ -306,6 +307,7 @@
                                         .then((willDelete) => {
                                             if (willDelete) {
                                                 document.querySelector("#payment_method_nonce").value = payload.nonce;
+                                                document.querySelector("#type").value = payload.type;
                                                 document.querySelector("#transaction_type").value = '3';
                                                 toSubmit.submit();
                                             } else {

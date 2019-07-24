@@ -18,6 +18,14 @@ class TransactionController extends Controller
         return view('transaction')->with('id', $transactionId);
     }
 
+    public function getTransactions() {
+        $transactions = Transactions::where('customer_id', Auth::user()->id)
+                                    ->with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
+                                    ->paginate(10);
+
+        return $transactions;
+    }
+
     public function getTransaction($transactionId) {
         $id = $transactionId;
 
