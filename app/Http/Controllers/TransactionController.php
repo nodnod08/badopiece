@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Darryldecode\Cart\Cart;
 use App\Transactions;
+use App\Transaction_records;
 use App\Items;
 use App\Shipping_details;
 
@@ -16,6 +17,30 @@ class TransactionController extends Controller
         $id = $transactionId;
 
         return view('transaction')->with('id', $transactionId);
+    }
+
+    public function checkNew($id) {
+
+        $record = Transaction_records::where('transaction_id', $id)->get();
+
+        if($record->count() > 0) {
+            return "exist";
+        } else {
+            return "none";
+        }
+    }
+
+    public function recordTransaction($id) {
+
+        $record = Transaction_records::create([
+            'transaction_id' => $id,
+        ]);
+
+        if($record) {
+            return $record;
+        } else {
+            return "error";
+        }
     }
 
     public function getTransactions() {

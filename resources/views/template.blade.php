@@ -37,7 +37,8 @@
 
   @if(Route::currentRouteName() == 'products' ||
   Route::currentRouteName()
-  == 'view')
+  == 'view' || Route::currentRouteName()
+  == 'transaction')
 
   @else
   <div class="loader-back"></div>
@@ -71,7 +72,8 @@
   @endif
 
   @if(Route::currentRouteName() == 'products' || Route::currentRouteName()
-  == 'view')
+  == 'view' || Route::currentRouteName()
+  == 'transaction')
   @else
   <script>
     window.addEventListener('load', function() {

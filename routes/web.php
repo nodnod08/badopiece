@@ -54,6 +54,8 @@ Route::get('/getProducts', 'ShopController@getProducts');
 Route::get('/getSubtotal', 'CartController@getSubtotal');
 Route::get('/billing', 'CartController@billing')->name('billing');
 Route::get('/getLogo', 'SettingsController@getLogo')->name('getLogo');
+Route::get('/checkNew/{id}', 'TransactionController@checkNew');
+Route::get('/recordTransaction/{id}', 'TransactionController@recordTransaction');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 

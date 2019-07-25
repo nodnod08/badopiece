@@ -154,7 +154,7 @@ export default {
   },
   data() {
     return {
-      loading: false,
+      loading: true,
       cartCount: "",
       transactions: {},
       logo: "",
@@ -174,12 +174,13 @@ export default {
       ]
     };
   },
-  created() {
+  async created() {
     this.countCart();
-    this.getTransaction();
+    await this.getTransaction();
     this.getLogo();
     this.buildPDF();
-    console.log(this.payment);
+    // this.checkNew();
+    // console.log(this.payment);
   },
   methods: {
     countCart: async function() {
@@ -191,12 +192,53 @@ export default {
     getTransaction: async function() {
       await axios.get("/getTransaction/" + this.id).then(response => {
         this.transactions = response.data;
-        console.log(response.data);
+        // console.log(this.transactions);
       });
     },
     getLogo: async function() {
       await axios.get("/getLogo").then(response => {
         this.logo = response.data;
+      });
+    },
+    record: async function() {
+      axios
+        .get("/recordTransaction/" + this.transactions[0].id)
+        .then(response => {
+          // console.log(response.data)
+        });
+    },
+    checkNew: async function() {
+      await axios.get("/checkNew/" + this.transactions[0].id).then(response => {
+        if (response.data == "none") {
+          const pdfDocGenerator = pdfMake.createPdf(this.buildPDF());
+          pdfDocGenerator.getBase64(data => {
+            axios
+              .get(
+                "/sendTransaction/" +
+                  this.transactions[0].customer.email +
+                  "/" +
+                  data
+              )
+              .then(async response_1 => {
+                this.loading = await false;
+                swal({
+                  title:
+                    "Thank you for purchasing Badopiece Collection product(s).",
+                  text:
+                    "We also send the transaction details to your email as PDF. Thank you",
+                  icon: "success",
+                  showCancelButton: false,
+                  showConfirmButton: true,
+                  dangerMode: false,
+                  closeOnClickOutside: false
+                }).then(async success => {
+                  if (success) {
+                    this.record();
+                  }
+                });
+              });
+          });
+        }
       });
     },
     print: async function() {
