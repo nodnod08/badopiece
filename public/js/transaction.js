@@ -519,7 +519,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       cartCount: "",
       transactions: {},
       logo: "",
-      month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      base_64: ""
     };
   },
   created: function () {
@@ -535,11 +536,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return this.getTransaction();
 
             case 3:
-              this.getLogo();
-              this.buildPDF(); // this.checkNew();
-              // console.log(this.payment);
+              _context.next = 5;
+              return this.getLogo();
 
             case 5:
+              this.buildPDF();
+              this.checkNew(); // console.log(this.payment);
+
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -676,78 +680,101 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
-                _context8.next = 2;
-                return axios.get("/checkNew/" + this.transactions[0].id).then(function (response) {
-                  if (response.data == "none") {
-                    var pdfDocGenerator = pdfMake.createPdf(_this4.buildPDF());
-                    pdfDocGenerator.getBase64(function (data) {
-                      axios.get("/sendTransaction/" + _this4.transactions[0].customer.email + "/" + data).then(
-                      /*#__PURE__*/
-                      function () {
-                        var _ref = _asyncToGenerator(
-                        /*#__PURE__*/
-                        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(response_1) {
-                          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
-                            while (1) {
-                              switch (_context7.prev = _context7.next) {
-                                case 0:
-                                  _context7.next = 2;
-                                  return false;
-
-                                case 2:
-                                  _this4.loading = _context7.sent;
-                                  swal({
-                                    title: "Thank you for purchasing Badopiece Collection product(s).",
-                                    text: "We also send the transaction details to your email as PDF. Thank you",
-                                    icon: "success",
-                                    showCancelButton: false,
-                                    showConfirmButton: true,
-                                    dangerMode: false,
-                                    closeOnClickOutside: false
-                                  }).then(
-                                  /*#__PURE__*/
-                                  function () {
-                                    var _ref2 = _asyncToGenerator(
-                                    /*#__PURE__*/
-                                    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(success) {
-                                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
-                                        while (1) {
-                                          switch (_context6.prev = _context6.next) {
-                                            case 0:
-                                              if (success) {
-                                                _this4.record();
-                                              }
-
-                                            case 1:
-                                            case "end":
-                                              return _context6.stop();
-                                          }
-                                        }
-                                      }, _callee6);
-                                    }));
-
-                                    return function (_x2) {
-                                      return _ref2.apply(this, arguments);
-                                    };
-                                  }());
-
-                                case 4:
-                                case "end":
-                                  return _context7.stop();
-                              }
+                axios.get("/checkNew/" + this.transactions[0].id).then(
+                /*#__PURE__*/
+                function () {
+                  var _ref = _asyncToGenerator(
+                  /*#__PURE__*/
+                  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(response) {
+                    var self, encoded, docDefinition;
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+                      while (1) {
+                        switch (_context7.prev = _context7.next) {
+                          case 0:
+                            if (!(response.data == "none")) {
+                              _context7.next = 10;
+                              break;
                             }
-                          }, _callee7);
-                        }));
 
-                        return function (_x) {
-                          return _ref.apply(this, arguments);
-                        };
-                      }());
-                    });
-                  }
-                });
+                            self = _this4;
+                            encoded = "";
+                            _context7.next = 5;
+                            return _this4.buildPDF();
 
-              case 2:
+                          case 5:
+                            docDefinition = _context7.sent;
+                            _context7.next = 8;
+                            return pdfMake.createPdf(docDefinition).getBase64(
+                            /*#__PURE__*/
+                            function () {
+                              var _ref2 = _asyncToGenerator(
+                              /*#__PURE__*/
+                              _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(encodedString) {
+                                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+                                  while (1) {
+                                    switch (_context6.prev = _context6.next) {
+                                      case 0:
+                                        _context6.next = 2;
+                                        return encodedString;
+
+                                      case 2:
+                                        encoded = _context6.sent;
+                                        // console.log(encoded);
+                                        axios.post("/sendTransaction", {
+                                          data: encoded,
+                                          email: self.transactions[0].customer.email
+                                        }).then(function (response_1) {
+                                          self.loading = false; // console.log("data ->" + response_1.data);
+
+                                          swal({
+                                            title: "Thank you for purchasing Badopiece Collection product(s).",
+                                            text: "We also send the transaction details to your email as PDF. Thank you",
+                                            icon: "success",
+                                            showCancelButton: false,
+                                            showConfirmButton: true,
+                                            dangerMode: false,
+                                            closeOnClickOutside: false
+                                          }).then(function (success) {
+                                            if (success) {
+                                              self.record();
+                                            }
+                                          });
+                                        });
+
+                                      case 4:
+                                      case "end":
+                                        return _context6.stop();
+                                    }
+                                  }
+                                }, _callee6);
+                              }));
+
+                              return function (_x2) {
+                                return _ref2.apply(this, arguments);
+                              };
+                            }());
+
+                          case 8:
+                            _context7.next = 11;
+                            break;
+
+                          case 10:
+                            _this4.loading = false;
+
+                          case 11:
+                          case "end":
+                            return _context7.stop();
+                        }
+                      }
+                    }, _callee7);
+                  }));
+
+                  return function (_x) {
+                    return _ref.apply(this, arguments);
+                  };
+                }());
+
+              case 1:
               case "end":
                 return _context8.stop();
             }
@@ -824,242 +851,193 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return download;
     }(),
-    buildPDF: function () {
-      var _buildPDF = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11() {
-        var bodyContent, sub, shipping, vat, amount, docDefinition;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context11) {
-          while (1) {
-            switch (_context11.prev = _context11.next) {
-              case 0:
-                _context11.next = 2;
-                return [[{
-                  text: "Product Name",
-                  bold: true,
-                  fillColor: "#404040",
-                  color: "#fff"
-                }, {
-                  text: "Product Code",
-                  bold: true,
-                  fillColor: "#404040",
-                  color: "#fff"
-                }, {
-                  text: "Product Quantity",
-                  bold: true,
-                  fillColor: "#404040",
-                  color: "#fff"
-                }, {
-                  text: "Product Price",
-                  bold: true,
-                  fillColor: "#404040",
-                  color: "#fff"
-                }]];
-
-              case 2:
-                bodyContent = _context11.sent;
-                _context11.next = 5;
-                return $.each(this.transactions[0].items, function (index, value) {
-                  var temp = [value.product_name, value.product_code, value.product_quantity, "₱ " + value.product_price + ".00"];
-                  bodyContent.push(temp);
-                });
-
-              case 5:
-                _context11.next = 7;
-                return [{
-                  text: "Subtotal",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "Subtotal",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "Subtotal",
-                  bold: true
-                }, {
-                  text: "₱ " + Number(this.transactions[0].amount - this.transactions[0].shipping_amount) + ".00",
-                  bold: true
-                }];
-
-              case 7:
-                sub = _context11.sent;
-                bodyContent.push(sub);
-                _context11.next = 11;
-                return [{
-                  text: "Shipping",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "Shipping",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "Shipping",
-                  bold: true
-                }, {
-                  text: "₱ " + this.transactions[0].shipping_amount + ".00",
-                  bold: true
-                }];
-
-              case 11:
-                shipping = _context11.sent;
-                bodyContent.push(shipping);
-                _context11.next = 15;
-                return [{
-                  text: "VAT",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "VAT",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "VAT",
-                  bold: true
-                }, {
-                  text: "0%",
-                  bold: true
-                }];
-
-              case 15:
-                vat = _context11.sent;
-                bodyContent.push(vat);
-                _context11.next = 19;
-                return [{
-                  text: "Total Amount",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "Total Amount",
-                  bold: true,
-                  fillColor: "#fff",
-                  border: false,
-                  color: "#fff"
-                }, {
-                  text: "Total Amount",
-                  bold: true
-                }, {
-                  text: "₱ " + Number(this.transactions[0].amount) + ".00",
-                  bold: true
-                }];
-
-              case 19:
-                amount = _context11.sent;
-                bodyContent.push(amount);
-                _context11.next = 23;
-                return {
-                  pageSize: "A4",
-                  pageOrientation: "portrait",
-                  pageMargins: [40, 60, 40, 60],
-                  footer: function footer(currentPage, pageCount) {
-                    // return currentPage.toString() + " of " + pageCount;
-                    return [{
-                      text: currentPage.toString() + " of " + pageCount,
-                      margin: [40, 2, 10, 40]
-                    }];
-                  },
-                  header: function header(currentPage, pageCount, pageSize) {
-                    // you can apply any logic and return any valid pdfmake element
-                    return [];
-                  },
-                  content: [{
-                    image: this.logo[0].content,
-                    width: 120,
-                    height: 55
-                  }, {
-                    text: "\n Transaction Details \n\n\n",
-                    fontSize: 17,
-                    bold: true,
-                    alignment: "center"
-                  }, {
-                    text: [{
-                      text: "Transaction Summary \n",
-                      bold: true,
-                      fontSize: 13
-                    }, "--------------------------------------------------------------------\n", {
-                      text: "Date: ",
-                      bold: true
-                    }, this.month[new Date(this.transactions[0].created_at).getMonth()] + " " + new Date(this.transactions[0].created_at).getDate() + ", " + new Date(this.transactions[0].created_at).getFullYear() + "\n", {
-                      text: "Transaction Id: ",
-                      bold: true
-                    }, this.transactions[0].id + "\n", {
-                      text: "Transaction Type: ",
-                      bold: true
-                    }, this.transactions[0].transaction_type.transaction_type + "\n", {
-                      text: "Status: ",
-                      bold: true
-                    }, this.transactions[0].transaction_status.status + "\n", {
-                      text: "Payment Status: ",
-                      bold: true
-                    }, this.transactions[0].payment_status.status + "\n", {
-                      text: "\nBilling Details \n",
-                      bold: true,
-                      fontSize: 13
-                    }, "--------------------------------------------------------------------\n", {
-                      text: "Recipient Name: ",
-                      bold: true
-                    }, this.transactions[0].shipping.firstname + " " + this.transactions[0].shipping.lastname + "\n", {
-                      text: "Phone: ",
-                      bold: true
-                    }, "0" + this.transactions[0].shipping.phone + "\n", {
-                      text: "Email: ",
-                      bold: true
-                    }, this.transactions[0].shipping.email + "\n", {
-                      text: "Address / Shipping Destination: ",
-                      bold: true
-                    }, this.transactions[0].shipping.street_address + " " + this.transactions[0].shipping.city + " " + this.transactions[0].shipping.state + " " + this.transactions[0].shipping.country + " " + this.transactions[0].shipping.postal + "\n\n", {
-                      text: "Items Ordered \n",
-                      bold: true,
-                      fontSize: 13
-                    }, "--------------------------------------------------------------------\n"],
-                    fontSize: 10,
-                    alignment: "left"
-                  }, {
-                    // optional
-                    table: {
-                      // headers are automatically repeated if the table spans over multiple pages
-                      // you can declare how many rows should be treated as headers
-                      headerRows: 1,
-                      widths: ["*", "*", "*", "*"],
-                      body: bodyContent
-                    },
-                    alignment: "center"
-                  }]
-                };
-
-              case 23:
-                docDefinition = _context11.sent;
-                return _context11.abrupt("return", docDefinition);
-
-              case 25:
-              case "end":
-                return _context11.stop();
-            }
-          }
-        }, _callee11, this);
-      }));
-
-      function buildPDF() {
-        return _buildPDF.apply(this, arguments);
-      }
-
-      return buildPDF;
-    }()
+    buildPDF: function buildPDF() {
+      var bodyContent = [[{
+        text: "Product Name",
+        bold: true,
+        fillColor: "#404040",
+        color: "#fff"
+      }, {
+        text: "Product Code",
+        bold: true,
+        fillColor: "#404040",
+        color: "#fff"
+      }, {
+        text: "Product Quantity",
+        bold: true,
+        fillColor: "#404040",
+        color: "#fff"
+      }, {
+        text: "Product Price",
+        bold: true,
+        fillColor: "#404040",
+        color: "#fff"
+      }]];
+      $.each(this.transactions[0].items, function (index, value) {
+        var temp = [value.product_name, value.product_code, value.product_quantity, "₱ " + value.product_price + ".00"];
+        bodyContent.push(temp);
+      });
+      var sub = [{
+        text: "Subtotal",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "Subtotal",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "Subtotal",
+        bold: true
+      }, {
+        text: "₱ " + Number(this.transactions[0].amount - this.transactions[0].shipping_amount) + ".00",
+        bold: true
+      }];
+      bodyContent.push(sub);
+      var shipping = [{
+        text: "Shipping",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "Shipping",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "Shipping",
+        bold: true
+      }, {
+        text: "₱ " + this.transactions[0].shipping_amount + ".00",
+        bold: true
+      }];
+      bodyContent.push(shipping);
+      var vat = [{
+        text: "VAT",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "VAT",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "VAT",
+        bold: true
+      }, {
+        text: "0%",
+        bold: true
+      }];
+      bodyContent.push(vat);
+      var amount = [{
+        text: "Total Amount",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "Total Amount",
+        bold: true,
+        fillColor: "#fff",
+        border: false,
+        color: "#fff"
+      }, {
+        text: "Total Amount",
+        bold: true
+      }, {
+        text: "₱ " + Number(this.transactions[0].amount) + ".00",
+        bold: true
+      }];
+      bodyContent.push(amount);
+      var docDefinition = {
+        pageSize: "A4",
+        pageOrientation: "portrait",
+        pageMargins: [40, 60, 40, 60],
+        footer: function footer(currentPage, pageCount) {
+          // return currentPage.toString() + " of " + pageCount;
+          return [{
+            text: currentPage.toString() + " of " + pageCount,
+            margin: [40, 2, 10, 40]
+          }];
+        },
+        header: function header(currentPage, pageCount, pageSize) {
+          // you can apply any logic and return any valid pdfmake element
+          return [];
+        },
+        content: [{
+          image: this.logo[0].content,
+          width: 120,
+          height: 55
+        }, {
+          text: "\n Transaction Details \n\n\n",
+          fontSize: 17,
+          bold: true,
+          alignment: "center"
+        }, {
+          text: [{
+            text: "Transaction Summary \n",
+            bold: true,
+            fontSize: 13
+          }, "--------------------------------------------------------------------\n", {
+            text: "Date: ",
+            bold: true
+          }, this.month[new Date(this.transactions[0].created_at).getMonth()] + " " + new Date(this.transactions[0].created_at).getDate() + ", " + new Date(this.transactions[0].created_at).getFullYear() + "\n", {
+            text: "Transaction Id: ",
+            bold: true
+          }, this.transactions[0].id + "\n", {
+            text: "Transaction Type: ",
+            bold: true
+          }, this.transactions[0].transaction_type.transaction_type + "\n", {
+            text: "Status: ",
+            bold: true
+          }, this.transactions[0].transaction_status.status + "\n", {
+            text: "Payment Status: ",
+            bold: true
+          }, this.transactions[0].payment_status.status + "\n", {
+            text: "\nBilling Details \n",
+            bold: true,
+            fontSize: 13
+          }, "--------------------------------------------------------------------\n", {
+            text: "Recipient Name: ",
+            bold: true
+          }, this.transactions[0].shipping.firstname + " " + this.transactions[0].shipping.lastname + "\n", {
+            text: "Phone: ",
+            bold: true
+          }, "0" + this.transactions[0].shipping.phone + "\n", {
+            text: "Email: ",
+            bold: true
+          }, this.transactions[0].shipping.email + "\n", {
+            text: "Address / Shipping Destination: ",
+            bold: true
+          }, this.transactions[0].shipping.street_address + " " + this.transactions[0].shipping.city + " " + this.transactions[0].shipping.state + " " + this.transactions[0].shipping.country + " " + this.transactions[0].shipping.postal + "\n\n", {
+            text: "Items Ordered \n",
+            bold: true,
+            fontSize: 13
+          }, "--------------------------------------------------------------------\n"],
+          fontSize: 10,
+          alignment: "left"
+        }, {
+          // optional
+          table: {
+            // headers are automatically repeated if the table spans over multiple pages
+            // you can declare how many rows should be treated as headers
+            headerRows: 1,
+            widths: ["*", "*", "*", "*"],
+            body: bodyContent
+          },
+          alignment: "center"
+        }]
+      };
+      return docDefinition;
+    }
   }
 });
 
@@ -7963,7 +7941,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" badopiece.store@gmail.com\n          ")
+            _vm._v(" badopiece.ph@gmail.com\n          ")
           ]),
           _vm._v(" "),
           _c("li", [
@@ -8990,15 +8968,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************!*\
   !*** ./resources/js/components/TransactionComponent.vue ***!
   \**********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TransactionComponent_vue_vue_type_template_id_7fcd85ac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TransactionComponent.vue?vue&type=template&id=7fcd85ac& */ "./resources/js/components/TransactionComponent.vue?vue&type=template&id=7fcd85ac&");
 /* harmony import */ var _TransactionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TransactionComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/TransactionComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _TransactionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _TransactionComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _TransactionComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TransactionComponent.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/TransactionComponent.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _TransactionComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TransactionComponent.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/TransactionComponent.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -9030,7 +9007,7 @@ component.options.__file = "resources/js/components/TransactionComponent.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/TransactionComponent.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

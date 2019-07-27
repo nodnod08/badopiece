@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Darryldecode\Cart\Cart;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendTransaction;
 use App\Transactions;
 use App\Transaction_records;
 use App\Items;
@@ -17,6 +19,14 @@ class TransactionController extends Controller
         $id = $transactionId;
 
         return view('transaction')->with('id', $transactionId);
+    }
+
+    public function sendTransaction(Request $request) {
+        $transaction['email'] = $request->email;
+        $transaction['data'] = $request->data;
+        Mail::send(new sendTransaction($transaction));
+
+        // return $transaction['data'];
     }
 
     public function checkNew($id) {

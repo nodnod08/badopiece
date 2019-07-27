@@ -7575,7 +7575,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("li", [
             _c("i", { staticClass: "fas fa-envelope" }),
-            _vm._v(" badopiece.store@gmail.com\n          ")
+            _vm._v(" badopiece.ph@gmail.com\n          ")
           ]),
           _vm._v(" "),
           _c("li", [

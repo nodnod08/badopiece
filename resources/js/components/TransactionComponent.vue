@@ -171,15 +171,16 @@ export default {
         "October",
         "November",
         "December"
-      ]
+      ],
+      base_64: ""
     };
   },
   async created() {
     this.countCart();
     await this.getTransaction();
-    this.getLogo();
+    await this.getLogo();
     this.buildPDF();
-    // this.checkNew();
+    this.checkNew();
     // console.log(this.payment);
   },
   methods: {
@@ -208,36 +209,43 @@ export default {
         });
     },
     checkNew: async function() {
-      await axios.get("/checkNew/" + this.transactions[0].id).then(response => {
+      axios.get("/checkNew/" + this.transactions[0].id).then(async response => {
         if (response.data == "none") {
-          const pdfDocGenerator = pdfMake.createPdf(this.buildPDF());
-          pdfDocGenerator.getBase64(data => {
-            axios
-              .get(
-                "/sendTransaction/" +
-                  this.transactions[0].customer.email +
-                  "/" +
-                  data
-              )
-              .then(async response_1 => {
-                this.loading = await false;
-                swal({
-                  title:
-                    "Thank you for purchasing Badopiece Collection product(s).",
-                  text:
-                    "We also send the transaction details to your email as PDF. Thank you",
-                  icon: "success",
-                  showCancelButton: false,
-                  showConfirmButton: true,
-                  dangerMode: false,
-                  closeOnClickOutside: false
-                }).then(async success => {
-                  if (success) {
-                    this.record();
-                  }
+          var self = this;
+          var encoded = "";
+          var docDefinition = await this.buildPDF();
+          await pdfMake
+            .createPdf(docDefinition)
+            .getBase64(async function(encodedString) {
+              encoded = await encodedString;
+              // console.log(encoded);
+              axios
+                .post("/sendTransaction", {
+                  data: encoded,
+                  email: self.transactions[0].customer.email
+                })
+                .then(response_1 => {
+                  self.loading = false;
+                  // console.log("data ->" + response_1.data);
+                  swal({
+                    title:
+                      "Thank you for purchasing Badopiece Collection product(s).",
+                    text:
+                      "We also send the transaction details to your email as PDF. Thank you",
+                    icon: "success",
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    dangerMode: false,
+                    closeOnClickOutside: false
+                  }).then(success => {
+                    if (success) {
+                      self.record();
+                    }
+                  });
                 });
-              });
-          });
+            });
+        } else {
+          this.loading = false;
         }
       });
     },
@@ -253,8 +261,8 @@ export default {
             this.transactions[0].created_at
         );
     },
-    buildPDF: async function() {
-      var bodyContent = await [
+    buildPDF: function() {
+      var bodyContent = [
         [
           {
             text: "Product Name",
@@ -282,7 +290,7 @@ export default {
           }
         ]
       ];
-      await $.each(this.transactions[0].items, function(index, value) {
+      $.each(this.transactions[0].items, function(index, value) {
         var temp = [
           value.product_name,
           value.product_code,
@@ -292,7 +300,7 @@ export default {
 
         bodyContent.push(temp);
       });
-      var sub = await [
+      var sub = [
         {
           text: "Subtotal",
           bold: true,
@@ -319,7 +327,7 @@ export default {
         }
       ];
       bodyContent.push(sub);
-      var shipping = await [
+      var shipping = [
         {
           text: "Shipping",
           bold: true,
@@ -341,7 +349,7 @@ export default {
         }
       ];
       bodyContent.push(shipping);
-      var vat = await [
+      var vat = [
         {
           text: "VAT",
           bold: true,
@@ -363,7 +371,7 @@ export default {
         }
       ];
       bodyContent.push(vat);
-      var amount = await [
+      var amount = [
         {
           text: "Total Amount",
           bold: true,
@@ -386,7 +394,7 @@ export default {
       ];
       bodyContent.push(amount);
 
-      var docDefinition = await {
+      var docDefinition = {
         pageSize: "A4",
         pageOrientation: "portrait",
         pageMargins: [40, 60, 40, 60],

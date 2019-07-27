@@ -24,7 +24,7 @@
               <h5>Contact us</h5>
             </li>
             <li>
-              <i class="fas fa-envelope"></i> badopiece.store@gmail.com
+              <i class="fas fa-envelope"></i> badopiece.ph@gmail.com
             </li>
             <li>
               <i class="fas fa-envelope"></i> badopiece.inquire@gmail.com

@@ -69,7 +69,7 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')
     ->name('login.callback');
     // ->where('driver', implode('|', config('auth.socialite.drivers')));    
 
-Route::group(['middleware' => 'guest'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/errors/{errors}', 'TransactionController@error')->name('error');
     Route::get('/transaction/{transactionId}', 'TransactionController@transaction')->name('transaction');
     Route::get('/transactions', function() {
@@ -77,4 +77,6 @@ Route::group(['middleware' => 'guest'], function () {
     })->name('transactions');
     Route::get('/getTransaction/{transactionId}', 'TransactionController@getTransaction')->name('transaction');
     Route::get('/getTransactions', 'TransactionController@getTransactions');
+    Route::get('/getTransactions', 'TransactionController@getTransactions');
+    Route::post('/sendTransaction', 'TransactionController@sendTransaction');
 });
