@@ -196,7 +196,7 @@ export default {
         // this.loading = true;
         this.productsItem = response.data;
         // this.loading = false;
-        console.log(response.data);
+        // console.log(response.data);
         if (
           this.category != "all" ||
           this.value[0] != 0 ||

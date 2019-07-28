@@ -89,7 +89,7 @@ class PaymentController extends Controller
                     'amount' => $response->amount,
                     'customer_id' => Auth::user()->id,
                     'shipping_amount' => $response->shippingAmount,
-                    'process_authorization_code' => $response->processorAuthorizationCode,
+                    'process_authorization_code' => ($request->type == "PayPalAccount") ? 'PAYPAL_METHOD' : $response->processorAuthorizationCode,
                     'payment_type' => ($request->transaction_type == 2) ? 'MEET UP' : ($request->transaction_type == 1) ? 'COD' : $response->paymentInstrumentType,
                 ]);
     
@@ -127,7 +127,8 @@ class PaymentController extends Controller
                 foreach ($status->errors->deepAll() as $error => $value) {
                     $errorString .= "Error: ".$error->code.": ".$error->message."\n";
                 }
-                return back()->with('error',$errorString);
+                // return back()->with('error',$errorString);
+                return var_dump($errorString);
             }
         } else if($request->transaction_type == 1){
             $transactions = Transactions::create([

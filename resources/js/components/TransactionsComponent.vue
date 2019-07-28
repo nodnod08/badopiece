@@ -24,7 +24,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(transaction, index) in transactions.data" v-bind:key="index">
+              <tr
+                v-if="transactions.data"
+                v-for="(transaction, index) in transactions.data"
+                v-bind:key="index"
+              >
                 <td>{{ index+1 }}</td>
                 <td>
                   <a :href="'/transaction/'+transaction.id">
@@ -40,6 +44,11 @@
                 <td>{{ transaction.payment_type }}</td>
                 <td>{{ transaction.payment_status.status }}</td>
                 <td>{{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}</td>
+              </tr>
+              <tr>
+                <td colspan="8">
+                  <b>No transactions found</b>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -97,7 +106,7 @@ export default {
     getTransactions: async function(page = 1) {
       axios.get("/getTransactions?page=" + page).then(response => {
         this.transactions = response.data;
-        console.log(this.transactions);
+        // console.log(this.transactions);
       });
     }
   }

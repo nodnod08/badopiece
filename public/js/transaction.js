@@ -185,27 +185,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -230,6 +209,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -338,7 +331,35 @@ __webpack_require__.r(__webpack_exports__);
       this.count = newVal;
     }
   },
-  methods: {}
+  methods: {
+    logout: function () {
+      var _logout = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/logout_user_sesion_destroy").then(function (response) {
+                  window.location = "/";
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function logout() {
+        return _logout.apply(this, arguments);
+      }
+
+      return logout;
+    }()
+  }
 });
 
 /***/ }),
@@ -361,6 +382,22 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -541,7 +578,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
             case 5:
               this.buildPDF();
-              this.checkNew(); // console.log(this.payment);
+              this.checkNew();
 
             case 7:
             case "end":
@@ -570,7 +607,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.next = 2;
                 return axios.get("/countCart").then(function (response) {
-                  _this.cartCount = response.data; // console.log(response.data);
+                  _this.cartCount = response.data;
                 });
 
               case 2:
@@ -599,7 +636,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.next = 2;
                 return axios.get("/getTransaction/" + this.id).then(function (response) {
-                  _this2.transactions = response.data; // console.log(this.transactions);
+                  _this2.transactions = response.data;
+                  console.log(response.data);
                 });
 
               case 2:
@@ -653,8 +691,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                axios.get("/recordTransaction/" + this.transactions[0].id).then(function (response) {// console.log(response.data)
-                });
+                axios.get("/recordTransaction/" + this.transactions[0].id).then(function (response) {});
 
               case 1:
               case "end":
@@ -719,13 +756,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                                       case 2:
                                         encoded = _context6.sent;
-                                        // console.log(encoded);
                                         axios.post("/sendTransaction", {
                                           data: encoded,
                                           email: self.transactions[0].customer.email
                                         }).then(function (response_1) {
-                                          self.loading = false; // console.log("data ->" + response_1.data);
-
+                                          self.loading = false;
                                           swal({
                                             title: "Thank you for purchasing Badopiece Collection product(s).",
                                             text: "We also send the transaction details to your email as PDF. Thank you",
@@ -1435,7 +1470,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -7866,8 +7901,6 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-6" }, [
           _c("ul", { staticClass: "main" }, [
@@ -7895,7 +7928,15 @@ var render = function() {
                     }
                   },
                   [_c("i", { staticClass: "fab fb-page fa-facebook-square" })]
-                )
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fb-page fa-twitter-square" })
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-instagram" })
+                ])
               ])
             ])
           ])
@@ -7965,46 +8006,6 @@ var staticRenderFns = [
             _vm._v(
               " Store hrs. Monday to Friday ( 8:00 am to 5:00 pm )\n          "
             )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-12" }, [
-        _c("ul", { staticClass: "main" }, [
-          _c("li", [_c("h5", [_vm._v("Payment Method")])]),
-          _vm._v(" "),
-          _c("li", [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("div", { staticClass: "payment" }, [
-                  _c("img", {
-                    staticClass: "payment-photo",
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/payment.png */ "./public/storage/img/bg-img/payment.png"),
-                      alt: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("div", { staticClass: "payment" }, [
-                  _c("img", {
-                    staticClass: "payment-photo",
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/cod.png */ "./public/storage/img/bg-img/cod.png"),
-                      alt: ""
-                    }
-                  })
-                ])
-              ])
-            ])
           ])
         ])
       ])
@@ -8183,7 +8184,10 @@ var render = function() {
                                   : "dropdown-item",
                               attrs: { href: "/transactions" }
                             },
-                            [_vm._v("Transactions")]
+                            [
+                              _c("i", { staticClass: "fas fa-file-invoice" }),
+                              _vm._v(" Transactions\n              ")
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -8195,16 +8199,27 @@ var render = function() {
                                   : "dropdown-item",
                               attrs: { href: "#" }
                             },
-                            [_vm._v("Account settings")]
+                            [
+                              _c("i", { staticClass: "fas fa-cogs" }),
+                              _vm._v(" Account settings\n              ")
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "a",
                             {
                               staticClass: "dropdown-item",
-                              attrs: { href: "logout_user_sesion_destroy" }
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.logout()
+                                }
+                              }
                             },
-                            [_vm._v("Logout")]
+                            [
+                              _c("i", { staticClass: "fas fa-power-off" }),
+                              _vm._v(" Logout\n              ")
+                            ]
                           )
                         ]
                       )
@@ -8438,7 +8453,53 @@ var render = function() {
               ? _c("div", { staticClass: "col-lg-12" }, [
                   _c("h3", [_vm._v("Meeting Place Details")]),
                   _vm._v(" "),
-                  _c("hr")
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Recipient Name:")]),
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(transaction.shipping.firstname) +
+                        " " +
+                        _vm._s(transaction.shipping.lastname) +
+                        "\n        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Phone:")]),
+                    _vm._v(
+                      "\n          0" +
+                        _vm._s(transaction.shipping.phone) +
+                        "\n        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Email:")]),
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(transaction.shipping.email) +
+                        "\n        "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("b", [_vm._v("Address / Shipping Destination:")]),
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(transaction.shipping.street_address) +
+                        " " +
+                        _vm._s(transaction.shipping.city) +
+                        " " +
+                        _vm._s(transaction.shipping.state) +
+                        " " +
+                        _vm._s(transaction.shipping.country) +
+                        " " +
+                        _vm._s(transaction.shipping.postal) +
+                        "\n        "
+                    )
+                  ])
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -8754,28 +8815,6 @@ function normalizeComponent (
   }
 }
 
-
-/***/ }),
-
-/***/ "./public/storage/img/bg-img/cod.png":
-/*!*******************************************!*\
-  !*** ./public/storage/img/bg-img/cod.png ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/cod.png?fa3020e31ed83c3a1f4de166fe23750c";
-
-/***/ }),
-
-/***/ "./public/storage/img/bg-img/payment.png":
-/*!***********************************************!*\
-  !*** ./public/storage/img/bg-img/payment.png ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/payment.png?b2ec6b6bf1bc0179f5b00803fea6bd05";
 
 /***/ }),
 

@@ -60,6 +60,22 @@
         <div v-if="transaction.transaction_type_id == 2" class="col-lg-12">
           <h3>Meeting Place Details</h3>
           <hr />
+          <p>
+            <b>Recipient Name:</b>
+            {{ transaction.shipping.firstname }} {{ transaction.shipping.lastname }}
+          </p>
+          <p>
+            <b>Phone:</b>
+            0{{ transaction.shipping.phone }}
+          </p>
+          <p>
+            <b>Email:</b>
+            {{ transaction.shipping.email }}
+          </p>
+          <p>
+            <b>Address / Shipping Destination:</b>
+            {{ transaction.shipping.street_address }} {{ transaction.shipping.city }} {{ transaction.shipping.state }} {{ transaction.shipping.country }} {{ transaction.shipping.postal }}
+          </p>
         </div>
         <div
           v-if="transaction.transaction_type_id == 3 || transaction.transaction_type_id == 1"
@@ -181,19 +197,17 @@ export default {
     await this.getLogo();
     this.buildPDF();
     this.checkNew();
-    // console.log(this.payment);
   },
   methods: {
     countCart: async function() {
       await axios.get("/countCart").then(response => {
         this.cartCount = response.data;
-        // console.log(response.data);
       });
     },
     getTransaction: async function() {
       await axios.get("/getTransaction/" + this.id).then(response => {
         this.transactions = response.data;
-        // console.log(this.transactions);
+        console.log(response.data);
       });
     },
     getLogo: async function() {
@@ -204,9 +218,7 @@ export default {
     record: async function() {
       axios
         .get("/recordTransaction/" + this.transactions[0].id)
-        .then(response => {
-          // console.log(response.data)
-        });
+        .then(response => {});
     },
     checkNew: async function() {
       axios.get("/checkNew/" + this.transactions[0].id).then(async response => {
@@ -218,7 +230,6 @@ export default {
             .createPdf(docDefinition)
             .getBase64(async function(encodedString) {
               encoded = await encodedString;
-              // console.log(encoded);
               axios
                 .post("/sendTransaction", {
                   data: encoded,
@@ -226,7 +237,6 @@ export default {
                 })
                 .then(response_1 => {
                   self.loading = false;
-                  // console.log("data ->" + response_1.data);
                   swal({
                     title:
                       "Thank you for purchasing Badopiece Collection product(s).",

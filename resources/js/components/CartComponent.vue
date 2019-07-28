@@ -8,7 +8,7 @@
           <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
         </div>
       </div>
-      <div class="container cart">
+      <div class="container cart mb-5">
         <div class="row">
           <div v-if="carts.length != 0" class="col-lg-12">
             <div class="row">
@@ -22,7 +22,7 @@
                   <div class="col-lg-3">Subtotal</div>
                 </div>
                 <br />
-                <div v-for="cart, index in carts" class="row item-box mb-1">
+                <div v-for="cart, index in carts" v-bind:key="index" class="row item-box mb-1">
                   <div class="col-lg-3 col-md-6">
                     <p class="m-title mt-5">Item Photo</p>
                     <img
@@ -174,7 +174,7 @@ export default {
     this.getCartContent();
     this.getSubtotal();
     this.countCart();
-    console.log(this.details);
+    // console.log(this.details);
     this.path_name = window.location.pathname;
   },
   methods: {
@@ -214,18 +214,29 @@ export default {
       this.countCart();
     },
     remove: async function(id) {
-      await axios
-        .post("/removeItem", {
-          id: id
-        })
-        .then(response => {
-          this.loading = false;
-          swal("", "Item removed", "success");
-        });
+      swal({
+        title: "Are you sure? you want to remove this item in your cart?",
+        // text: "Are you sure, your order and other details are correct?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        closeOnClickOutside: false
+      }).then(async willDelete => {
+        if (willDelete) {
+          await axios
+            .post("/removeItem", {
+              id: id
+            })
+            .then(response => {
+              this.loading = false;
+              swal("", "Item removed", "success");
+            });
 
-      this.getCartContent();
-      this.getSubtotal();
-      this.countCart();
+          this.getCartContent();
+          this.getSubtotal();
+          this.countCart();
+        }
+      });
     }
   }
 };

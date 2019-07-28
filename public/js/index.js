@@ -185,27 +185,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -239,6 +218,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -535,6 +518,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -643,7 +640,35 @@ __webpack_require__.r(__webpack_exports__);
       this.count = newVal;
     }
   },
-  methods: {}
+  methods: {
+    logout: function () {
+      var _logout = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/logout_user_sesion_destroy").then(function (response) {
+                  window.location = "/";
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function logout() {
+        return _logout.apply(this, arguments);
+      }
+
+      return logout;
+    }()
+  }
 });
 
 /***/ }),
@@ -1162,7 +1187,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -7621,8 +7646,6 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-lg-6" }, [
           _c("ul", { staticClass: "main" }, [
@@ -7650,7 +7673,15 @@ var render = function() {
                     }
                   },
                   [_c("i", { staticClass: "fab fb-page fa-facebook-square" })]
-                )
+                ),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fb-page fa-twitter-square" })
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-instagram" })
+                ])
               ])
             ])
           ])
@@ -7724,46 +7755,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-12" }, [
-        _c("ul", { staticClass: "main" }, [
-          _c("li", [_c("h5", [_vm._v("Payment Method")])]),
-          _vm._v(" "),
-          _c("li", [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("div", { staticClass: "payment" }, [
-                  _c("img", {
-                    staticClass: "payment-photo",
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/payment.png */ "./public/storage/img/bg-img/payment.png"),
-                      alt: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("div", { staticClass: "payment" }, [
-                  _c("img", {
-                    staticClass: "payment-photo",
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../public/storage/img/bg-img/cod.png */ "./public/storage/img/bg-img/cod.png"),
-                      alt: ""
-                    }
-                  })
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -7828,11 +7819,39 @@ var render = function() {
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _c("a", { attrs: { href: "/redirect/google" } }, [_vm._m(0)]),
+                _vm.auth == "none"
+                  ? _c("a", { attrs: { href: "/redirect/google" } }, [
+                      _vm._m(0)
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("p", [_vm._v("Easily sign in with your google.")]),
+                _vm.auth == "none"
+                  ? _c("p", [_vm._v("Easily sign in with your google.")])
+                  : _vm._e(),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm.auth == "none"
+                  ? _c("p", [
+                      _vm._v("\n              Register\n              "),
+                      _c("a", { attrs: { href: "/signup" } }, [_vm._v("here")]),
+                      _vm._v(
+                        " to get updated about new products.\n            "
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.auth != "none"
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-light",
+                        attrs: { type: "button" }
+                      },
+                      [
+                        _vm._v("\n              Shop now\n              "),
+                        _c("i", { staticClass: "fas fa-shopping-bag" })
+                      ]
+                    )
+                  : _vm._e()
               ])
             ])
           ])
@@ -7840,7 +7859,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "jumbotron" }, [
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row text-black text-center" }, [
@@ -7857,7 +7876,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(2)
               ])
             ]),
             _vm._v(" "),
@@ -7876,7 +7895,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(4)
+                  _vm._m(3)
                 ])
               ]
             ),
@@ -7896,7 +7915,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(5)
+                  _vm._m(4)
                 ])
               ]
             )
@@ -8058,7 +8077,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(6)
+            _vm._m(5)
           ])
         ])
       ]),
@@ -8081,16 +8100,6 @@ var staticRenderFns = [
         _vm._v(" Sign in with Google\n              ")
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v("\n              Register\n              "),
-      _c("a", { attrs: { href: "/signup" } }, [_vm._v("here")]),
-      _vm._v(" to get updated about new products.\n            ")
-    ])
   },
   function() {
     var _vm = this
@@ -8395,7 +8404,10 @@ var render = function() {
                                   : "dropdown-item",
                               attrs: { href: "/transactions" }
                             },
-                            [_vm._v("Transactions")]
+                            [
+                              _c("i", { staticClass: "fas fa-file-invoice" }),
+                              _vm._v(" Transactions\n              ")
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -8407,16 +8419,27 @@ var render = function() {
                                   : "dropdown-item",
                               attrs: { href: "#" }
                             },
-                            [_vm._v("Account settings")]
+                            [
+                              _c("i", { staticClass: "fas fa-cogs" }),
+                              _vm._v(" Account settings\n              ")
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
                             "a",
                             {
                               staticClass: "dropdown-item",
-                              attrs: { href: "logout_user_sesion_destroy" }
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.logout()
+                                }
+                              }
                             },
-                            [_vm._v("Logout")]
+                            [
+                              _c("i", { staticClass: "fas fa-power-off" }),
+                              _vm._v(" Logout\n              ")
+                            ]
                           )
                         ]
                       )
@@ -8752,28 +8775,6 @@ module.exports = "/images/bg-new3-center.jpg?3db64ab9248172bc30f55cd7fb716442";
 /***/ (function(module, exports) {
 
 module.exports = "/images/bg-new3.jpg?a1936626bbdc489fd8a750b0b3f32e23";
-
-/***/ }),
-
-/***/ "./public/storage/img/bg-img/cod.png":
-/*!*******************************************!*\
-  !*** ./public/storage/img/bg-img/cod.png ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/cod.png?fa3020e31ed83c3a1f4de166fe23750c";
-
-/***/ }),
-
-/***/ "./public/storage/img/bg-img/payment.png":
-/*!***********************************************!*\
-  !*** ./public/storage/img/bg-img/payment.png ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/payment.png?b2ec6b6bf1bc0179f5b00803fea6bd05";
 
 /***/ }),
 
@@ -9141,10 +9142,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-Vue.component("subscribe-component", __webpack_require__(/*! ./components/SubscribeComponent.vue */ "./resources/js/components/SubscribeComponent.vue").default);
-Vue.component("navbar-component", __webpack_require__(/*! ./components/NavbarComponent.vue */ "./resources/js/components/NavbarComponent.vue").default);
-Vue.component("footer-component", __webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue").default);
-Vue.component("index-component", __webpack_require__(/*! ./components/IndexComponent.vue */ "./resources/js/components/IndexComponent.vue").default);
+Vue.component('subscribe-component', __webpack_require__(/*! ./components/SubscribeComponent.vue */ "./resources/js/components/SubscribeComponent.vue").default);
+Vue.component('navbar-component', __webpack_require__(/*! ./components/NavbarComponent.vue */ "./resources/js/components/NavbarComponent.vue").default);
+Vue.component('footer-component', __webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue").default);
+Vue.component('index-component', __webpack_require__(/*! ./components/IndexComponent.vue */ "./resources/js/components/IndexComponent.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -9152,7 +9153,7 @@ Vue.component("index-component", __webpack_require__(/*! ./components/IndexCompo
  */
 
 var index = new Vue({
-  el: "#index"
+  el: '#index'
 });
 
 /***/ }),

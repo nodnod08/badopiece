@@ -17,20 +17,20 @@
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 Vue.component(
-    "subscribe-component",
-    require("./components/SubscribeComponent.vue").default
+    'subscribe-component',
+    require('./components/SubscribeComponent.vue').default
 );
 Vue.component(
-    "navbar-component",
-    require("./components/NavbarComponent.vue").default
+    'navbar-component',
+    require('./components/NavbarComponent.vue').default
 );
 Vue.component(
-    "footer-component",
-    require("./components/FooterComponent.vue").default
+    'footer-component',
+    require('./components/FooterComponent.vue').default
 );
 Vue.component(
-    "index-component",
-    require("./components/IndexComponent.vue").default
+    'index-component',
+    require('./components/IndexComponent.vue').default
 );
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -39,5 +39,5 @@ Vue.component(
  */
 
 const index = new Vue({
-    el: "#index"
+    el: '#index'
 });

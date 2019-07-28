@@ -294,7 +294,7 @@
                         form.classList.add('was-validated');
 
                             instance.requestPaymentMethod(function (err, payload) {
-                                console.log(payload)
+                                // console.log(payload)
                                 if(typeof payload != 'undefined' && form.checkValidity() !== false) {                     
                                     setTimeout(function() {
                                         swal({
@@ -303,6 +303,7 @@
                                             icon: "info",
                                             buttons: true,
                                             dangerMode: true,
+                                            closeOnClickOutside: false
                                         })
                                         .then((willDelete) => {
                                             if (willDelete) {
@@ -340,6 +341,7 @@
                         icon: "info",
                         buttons: true,
                         dangerMode: true,
+                        closeOnClickOutside: false
                     })
                     .then((willDelete) => {
                         if (willDelete) {
@@ -366,6 +368,7 @@
                         icon: "info",
                         buttons: true,
                         dangerMode: true,
+                        closeOnClickOutside: false
                     })
                     .then((willDelete) => {
                         if (willDelete) {

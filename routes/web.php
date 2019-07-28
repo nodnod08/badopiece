@@ -31,10 +31,10 @@ Route::get('/products', function () {
     return view('products');
 })->name('products');
 
-Route::get('/logout_user_sesion_destroy', function () {
-    Auth::logout();
-    return redirect('/');
-})->name('logout_user_sesion_destroy');
+// Route::get('/logout_user_sesion_destroy', function () {
+//     Auth::logout();
+//     redirect('/');
+// });
 
 Route::post('/inquire', 'SubscribeController@inquire')->name('inquire');
 Route::post('/login', 'AccountController@login')->name('login');
@@ -56,6 +56,7 @@ Route::get('/billing', 'CartController@billing')->name('billing');
 Route::get('/getLogo', 'SettingsController@getLogo')->name('getLogo');
 Route::get('/checkNew/{id}', 'TransactionController@checkNew');
 Route::get('/recordTransaction/{id}', 'TransactionController@recordTransaction');
+Route::get('/logout_user_sesion_destroy', 'Auth\LoginController@logout');
 
 Route::get('/getItem/{type}/{id}', 'ShopController@getItems');
 

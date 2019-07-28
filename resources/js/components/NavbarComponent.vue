@@ -60,12 +60,18 @@
                 <a
                   :class="path_name == '/transactions' ? 'dropdown-item active' : 'dropdown-item'"
                   :href="'/transactions'"
-                >Transactions</a>
+                >
+                  <i class="fas fa-file-invoice"></i> Transactions
+                </a>
                 <a
                   :class="path_name == '/account_settings' ? 'dropdown-item active' : 'dropdown-item'"
                   href="#"
-                >Account settings</a>
-                <a class="dropdown-item" :href="'logout_user_sesion_destroy'">Logout</a>
+                >
+                  <i class="fas fa-cogs"></i> Account settings
+                </a>
+                <a class="dropdown-item" v-on:click="logout()" :href="'#'">
+                  <i class="fas fa-power-off"></i> Logout
+                </a>
               </div>
             </li>
             <li class="nav-item">
@@ -107,7 +113,13 @@ export default {
       this.count = newVal;
     }
   },
-  methods: {}
+  methods: {
+    logout: async function() {
+      await axios.get("/logout_user_sesion_destroy").then(response => {
+        window.location = "/";
+      });
+    }
+  }
 };
 </script>
 <style>

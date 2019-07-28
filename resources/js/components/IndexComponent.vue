@@ -15,16 +15,20 @@
               <h1>Gives you a lot of Choice</h1>
               <h3>We make our customers comportable on our products.</h3>
               <br />
-              <a :href="'/redirect/google'">
+              <a v-if="auth == 'none'" :href="'/redirect/google'">
                 <button class="button-social" type="button">
                   <i class="fab fa-google-plus-g"></i> Sign in with Google
                 </button>
               </a>
-              <p>Easily sign in with your google.</p>
-              <p>
+              <p v-if="auth == 'none'">Easily sign in with your google.</p>
+              <p v-if="auth == 'none'">
                 Register
                 <a href="/signup">here</a> to get updated about new products.
               </p>
+              <button v-if="auth != 'none'" type="button" class="btn btn-outline-light">
+                Shop now
+                <i class="fas fa-shopping-bag"></i>
+              </button>
             </div>
           </div>
         </div>

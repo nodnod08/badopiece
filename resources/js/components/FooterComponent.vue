@@ -47,33 +47,6 @@
       </div>
       <br />
       <div class="row">
-        <div class="col-lg-12">
-          <ul class="main">
-            <li>
-              <h5>Payment Method</h5>
-            </li>
-            <li>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="payment">
-                    <img
-                      class="payment-photo"
-                      src="../../../public/storage/img/bg-img/payment.png"
-                      alt
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="payment">
-                    <img class="payment-photo" src="../../../public/storage/img/bg-img/cod.png" alt />
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
         <div class="col-lg-6">
           <ul class="main">
             <li>
@@ -87,6 +60,12 @@
               <h5 class="text-right">
                 <a :href="'https://www.facebook.com/badopiececollection/'">
                   <i class="fab fb-page fa-facebook-square"></i>
+                </a>
+                <a :href="'#'">
+                  <i class="fab fb-page fa-twitter-square"></i>
+                </a>
+                <a :href="'#'">
+                  <i class="fab fa-instagram"></i>
                 </a>
               </h5>
             </li>
@@ -124,7 +103,8 @@ li {
   margin-bottom: 10px;
 }
 
-.fb-page {
+.fb-page,
+.fa-instagram {
   color: #fff;
 }
 
