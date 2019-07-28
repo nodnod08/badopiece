@@ -1982,7 +1982,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "Pro Prints Enterprise is generally a printer and printer consumables provider and reseller. We deliver a strategic solutions that will facilitate our client’s optimal balance between cost, quality, and productivity. The company concentrates on selling Brand New Alternative Toners which are compatible with the various models of Brother, HP, Samsung and Canon LaserJet Printers. It also offers Free Use of LaserJet printers for those clients who want to save on budget for their printer expenditures. Further, the company provides free repair and maintenance for clients owned and out of warranty LaserJet printers. We have develop and implement a system that listens and adopt the customer’s need. With our experience in management, we are providing superior quality, the most competitive price and the best after sales service in the market now a days. At Pro Prints Enterprise we innovate products thru consumer satisfaction, market demands and environmental concerns. We always driven our desire to give a good quality and affordable product to our valued clients and consumers. Pro Prints Enterprise was founded by a group of young and visionary professionals with strong belief that the continuous innovation is the keystone toward better living. The backbone of the company is a well knowledgeable in LaserJet Printers, Digital Marketing Expert and Sales and Marketing Enthusiast who participate their profession for more than 7 years. We aim to be one of the most trusted leading supplier and remanufacturer in our industry."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             )
           ])
         ]),
@@ -1992,7 +1992,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "Provide customers with high quality products and expertise to express their ideas and promote brand new alternative toner Cartridges."
+              "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo"
             )
           ])
         ]),
@@ -2002,7 +2002,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "Our vision is to become the country's largest provider of quality remanufactured and brand new compatible toner cartridges."
+              "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish."
             )
           ])
         ]),
@@ -2386,10 +2386,10 @@ var render = function() {
                             "a",
                             {
                               class:
-                                _vm.path_name == "/account_settings"
+                                _vm.path_name == "/settings"
                                   ? "dropdown-item active"
                                   : "dropdown-item",
-                              attrs: { href: "#" }
+                              attrs: { href: "/settings" }
                             },
                             [
                               _c("i", { staticClass: "fas fa-cogs" }),

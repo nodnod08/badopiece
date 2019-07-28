@@ -64,8 +64,8 @@
                   <i class="fas fa-file-invoice"></i> Transactions
                 </a>
                 <a
-                  :class="path_name == '/account_settings' ? 'dropdown-item active' : 'dropdown-item'"
-                  href="#"
+                  :class="path_name == '/settings' ? 'dropdown-item active' : 'dropdown-item'"
+                  :href="'/settings'"
                 >
                   <i class="fas fa-cogs"></i> Account settings
                 </a>

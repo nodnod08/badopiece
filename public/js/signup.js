@@ -7814,10 +7814,10 @@ var render = function() {
                             "a",
                             {
                               class:
-                                _vm.path_name == "/account_settings"
+                                _vm.path_name == "/settings"
                                   ? "dropdown-item active"
                                   : "dropdown-item",
-                              attrs: { href: "#" }
+                              attrs: { href: "/settings" }
                             },
                             [
                               _c("i", { staticClass: "fas fa-cogs" }),
@@ -7942,7 +7942,7 @@ var render = function() {
                   attrs: {
                     "animation-duration": 1500,
                     size: 60,
-                    color: "#18ffff"
+                    color: "#59ffa4"
                   }
                 })
               ],

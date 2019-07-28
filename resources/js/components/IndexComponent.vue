@@ -3,7 +3,7 @@
     <div v-if="loading">
       <div class="loader-back"></div>
       <div class="loader">
-        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
+        <radar-spinner :animation-duration="1500" :size="60" color="#59ffa4" />
       </div>
     </div>
     <navbar-component :count="cartCount" :username="auth"></navbar-component>

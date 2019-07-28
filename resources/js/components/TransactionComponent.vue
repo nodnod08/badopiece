@@ -4,7 +4,7 @@
     <div v-if="loading">
       <div class="loader-back"></div>
       <div class="loader">
-        <radar-spinner :animation-duration="1500" :size="60" color="#18ffff" />
+        <radar-spinner :animation-duration="1500" :size="60" color="#59ffa4" />
       </div>
     </div>
     <div class="transaction container">
@@ -207,7 +207,7 @@ export default {
     getTransaction: async function() {
       await axios.get("/getTransaction/" + this.id).then(response => {
         this.transactions = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
     },
     getLogo: async function() {

@@ -731,6 +731,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -739,7 +750,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       loading: false,
-      email: ''
+      email: ""
     };
   },
   methods: {
@@ -763,14 +774,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this.loading = true;
                   _context.next = 4;
-                  return axios.post('/subscribe', {
+                  return axios.post("/subscribe", {
                     email: _this.email
                   }).then(function (response) {
                     // console.log(response.data)
                     if (response.data) {
-                      swal('', 'Subscribe successfully', 'success');
+                      swal("", "Subscribe successfully", "success");
                     } else {
-                      swal('', 'Something error', 'error');
+                      swal("", "Something error", "error");
                     }
                   });
 
@@ -7793,7 +7804,7 @@ var render = function() {
                   attrs: {
                     "animation-duration": 1500,
                     size: 60,
-                    color: "#18ffff"
+                    color: "#59ffa4"
                   }
                 })
               ],
@@ -8414,10 +8425,10 @@ var render = function() {
                             "a",
                             {
                               class:
-                                _vm.path_name == "/account_settings"
+                                _vm.path_name == "/settings"
                                   ? "dropdown-item active"
                                   : "dropdown-item",
-                              attrs: { href: "#" }
+                              attrs: { href: "/settings" }
                             },
                             [
                               _c("i", { staticClass: "fas fa-cogs" }),
@@ -8536,7 +8547,7 @@ var render = function() {
                 attrs: {
                   "animation-duration": 1500,
                   size: 60,
-                  color: "#18ffff"
+                  color: "#59ffa4"
                 }
               })
             ],
@@ -8633,7 +8644,9 @@ var render = function() {
                   ])
                 ])
               ]),
+              _vm._v(" "),
               _c("br"),
+              _vm._v(" "),
               _c("br")
             ])
           ])

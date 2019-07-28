@@ -6,6 +6,7 @@
     "/js/cart.js": "/js/cart.js",
     "/js/index.js": "/js/index.js",
     "/js/products.js": "/js/products.js",
+    "/js/settings.js": "/js/settings.js",
     "/js/signin.js": "/js/signin.js",
     "/js/signup.js": "/js/signup.js",
     "/js/transaction.js": "/js/transaction.js",

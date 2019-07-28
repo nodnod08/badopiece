@@ -57,4 +57,15 @@ class AccountController extends Controller
         }
     }
 
+    public function updatePassword(Request $request) {
+        if(!Hash::check($request->opassword, Auth::user()->password)) {
+            return 0;
+        } else {
+            $newPass = Hash::make($request->npassword);
+            User::where('id', Auth::user()->id)
+                ->update(['password' => $newPass]);
+            
+            return 1;    
+        }
+    }
 }

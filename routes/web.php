@@ -79,5 +79,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/getTransaction/{transactionId}', 'TransactionController@getTransaction')->name('transaction');
     Route::get('/getTransactions', 'TransactionController@getTransactions');
     Route::get('/getTransactions', 'TransactionController@getTransactions');
+    Route::get('/settings', function() {
+        return view('settings');
+    })->name('settings');
     Route::post('/sendTransaction', 'TransactionController@sendTransaction');
+    Route::post('/updatePassword', 'AccountController@updatePassword');
 });

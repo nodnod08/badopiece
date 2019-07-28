@@ -636,8 +636,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.next = 2;
                 return axios.get("/getTransaction/" + this.id).then(function (response) {
-                  _this2.transactions = response.data;
-                  console.log(response.data);
+                  _this2.transactions = response.data; // console.log(response.data);
                 });
 
               case 2:
@@ -8194,10 +8193,10 @@ var render = function() {
                             "a",
                             {
                               class:
-                                _vm.path_name == "/account_settings"
+                                _vm.path_name == "/settings"
                                   ? "dropdown-item active"
                                   : "dropdown-item",
-                              attrs: { href: "#" }
+                              attrs: { href: "/settings" }
                             },
                             [
                               _c("i", { staticClass: "fas fa-cogs" }),
@@ -8322,7 +8321,7 @@ var render = function() {
                   attrs: {
                     "animation-duration": 1500,
                     size: 60,
-                    color: "#18ffff"
+                    color: "#59ffa4"
                   }
                 })
               ],

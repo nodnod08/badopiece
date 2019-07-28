@@ -2109,10 +2109,10 @@ var render = function() {
                             "a",
                             {
                               class:
-                                _vm.path_name == "/account_settings"
+                                _vm.path_name == "/settings"
                                   ? "dropdown-item active"
                                   : "dropdown-item",
-                              attrs: { href: "#" }
+                              attrs: { href: "/settings" }
                             },
                             [
                               _c("i", { staticClass: "fas fa-cogs" }),

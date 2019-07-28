@@ -1,5 +1,5 @@
 body {
-    font-family: "Oswald", sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .loader-back {
@@ -73,8 +73,8 @@ body {
 }
 
 .radar-spinner .circle-inner {
-    border-left-color: #18ffff;
-    border-right-color: #18ffff;
+    border-left-color: #59ffa4;
+    border-right-color: #59ffa4;
 }
 
 @keyframes radar-spinner-animation {
