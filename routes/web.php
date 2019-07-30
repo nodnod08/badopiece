@@ -11,6 +11,12 @@
 |
 */
 
+// Admin Core
+
+Route::get('/portal', function () {
+    return view('admin.index');
+})->name('admin_index');
+
 Route::get('/', function () {
     return view('index');
 })->name('index');
@@ -30,11 +36,6 @@ Route::get('/signup', function () {
 Route::get('/products', function () {
     return view('products');
 })->name('products');
-
-// Route::get('/logout_user_sesion_destroy', function () {
-//     Auth::logout();
-//     redirect('/');
-// });
 
 Route::post('/inquire', 'SubscribeController@inquire')->name('inquire');
 Route::post('/login', 'AccountController@login')->name('login');

@@ -27,3 +27,4 @@ mix.js(['resources/js/billing.js'], 'public/js/billing.js');
 mix.js(['resources/js/transaction.js'], 'public/js/transaction.js');
 mix.js(['resources/js/transactions.js'], 'public/js/transactions.js');
 mix.js(['resources/js/settings.js'], 'public/js/settings.js');
+mix.js(['resources/js/admin_index.js'], 'public/js/admin_index.js');
