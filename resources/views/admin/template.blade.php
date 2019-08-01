@@ -76,8 +76,14 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark">
     <!-- Left Panel -->
+
+    <!-- /#left-panel -->
+    <!-- Right Panel -->
+    @if(Route::currentRouteName() == 'admin_login')
+    @yield('content')
+    @else
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -113,11 +119,10 @@
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
     <div id="admin">
         <admin-component></admin-component>
     </div>
+    @endif
     <!-- /#right-panel -->
 
     <!-- Scripts -->

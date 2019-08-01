@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Items' => $baseDir . '/app/Items.php',
     'App\\Mail\\NewInquire' => $baseDir . '/app/Mail/NewInquire.php',
+    'App\\Mail\\SendTransaction' => $baseDir . '/app/Mail/SendTransaction.php',
     'App\\PaymentStatuses' => $baseDir . '/app/PaymentStatuses.php',
     'App\\Products' => $baseDir . '/app/Products.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
@@ -44,6 +45,7 @@ return array(
     'App\\Shipping_details' => $baseDir . '/app/Shipping_details.php',
     'App\\Statuses' => $baseDir . '/app/Statuses.php',
     'App\\Subscribes' => $baseDir . '/app/Subscribes.php',
+    'App\\Transaction_records' => $baseDir . '/app/Transaction_records.php',
     'App\\Transaction_types' => $baseDir . '/app/Trsansaction_types.php',
     'App\\Transactions' => $baseDir . '/app/Transactions.php',
     'App\\User' => $baseDir . '/app/User.php',
@@ -3856,4 +3858,5 @@ return array(
     'settingsSeeder' => $baseDir . '/database/seeds/settingsSeeder.php',
     'statusesSeeder' => $baseDir . '/database/seeds/statusesSeeder.php',
     'transactionTypesSeeder' => $baseDir . '/database/seeds/transactionTypesSeeder.php',
+    'usersSeeder' => $baseDir . '/database/seeds/usersSeeder.php',
 );

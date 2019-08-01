@@ -441,6 +441,7 @@ class ComposerStaticInitb9f878d9780df82eddcaeb258b43d117
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Items' => __DIR__ . '/../..' . '/app/Items.php',
         'App\\Mail\\NewInquire' => __DIR__ . '/../..' . '/app/Mail/NewInquire.php',
+        'App\\Mail\\SendTransaction' => __DIR__ . '/../..' . '/app/Mail/SendTransaction.php',
         'App\\PaymentStatuses' => __DIR__ . '/../..' . '/app/PaymentStatuses.php',
         'App\\Products' => __DIR__ . '/../..' . '/app/Products.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -452,6 +453,7 @@ class ComposerStaticInitb9f878d9780df82eddcaeb258b43d117
         'App\\Shipping_details' => __DIR__ . '/../..' . '/app/Shipping_details.php',
         'App\\Statuses' => __DIR__ . '/../..' . '/app/Statuses.php',
         'App\\Subscribes' => __DIR__ . '/../..' . '/app/Subscribes.php',
+        'App\\Transaction_records' => __DIR__ . '/../..' . '/app/Transaction_records.php',
         'App\\Transaction_types' => __DIR__ . '/../..' . '/app/Trsansaction_types.php',
         'App\\Transactions' => __DIR__ . '/../..' . '/app/Transactions.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
@@ -4264,6 +4266,7 @@ class ComposerStaticInitb9f878d9780df82eddcaeb258b43d117
         'settingsSeeder' => __DIR__ . '/../..' . '/database/seeds/settingsSeeder.php',
         'statusesSeeder' => __DIR__ . '/../..' . '/database/seeds/statusesSeeder.php',
         'transactionTypesSeeder' => __DIR__ . '/../..' . '/database/seeds/transactionTypesSeeder.php',
+        'usersSeeder' => __DIR__ . '/../..' . '/database/seeds/usersSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

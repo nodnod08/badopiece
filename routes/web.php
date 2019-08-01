@@ -14,8 +14,10 @@
 // Admin Core
 
 Route::get('/portal', function () {
-    return view('admin.index');
-})->name('admin_index');
+    return view('admin.login');
+})->name('admin_login');
+
+// User core
 
 Route::get('/', function () {
     return view('index');
