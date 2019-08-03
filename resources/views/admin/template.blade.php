@@ -94,8 +94,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon ti-bar-chart-alt"></i>Sales Dashboard</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-bar-chart-o"></i><a href="ui-buttons.html">Sales Overview</a></li>
-                            <li><i class="fa fa-bar-chart-o"></i><a href="ui-badges.html">Inventory Overview</a></li>
+                            <li><i class="fa fa-bar-chart-o"></i><a href="/sales">Sales Overview</a></li>
+                            <li><i class="fa fa-bar-chart-o"></i><a href="/inventory">Inventory Overview</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

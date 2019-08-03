@@ -133,14 +133,14 @@ class PaymentController extends Controller
             }
         } else if($request->transaction_type == 1){
             $transactions = Transactions::create([
-                'transaction_id' => Str::random(10);,
+                'transaction_id' => Str::random(10),
                 'transaction_type_id' => $request->transaction_type,
                 'transaction_status_id' => '1',
                 'payment_status_id' => ($request->transaction_type == 3) ? '1' : '2',
                 'amount' => (\Cart::getSubTotal() > 500) ? \Cart::getSubTotal() : \Cart::getSubTotal() + 100,
                 'customer_id' => Auth::user()->id,
                 'shipping_amount' => (\Cart::getSubTotal() > 500) ? '0' : '100',
-                'process_authorization_code' => Str::random(6);,
+                'process_authorization_code' => Str::random(6),
                 'payment_type' => 'COD',
             ]);
 
@@ -173,14 +173,14 @@ class PaymentController extends Controller
             return redirect('/transaction/'.$transactions->id);
         } else {
             $transactions = Transactions::create([
-                'transaction_id' => Str::random(10);,
+                'transaction_id' => Str::random(10),
                 'transaction_type_id' => $request->transaction_type,
                 'transaction_status_id' => '1',
                 'payment_status_id' => ($request->transaction_type == 3) ? '1' : '2',
                 'amount' => (\Cart::getSubTotal() > 500) ? \Cart::getSubTotal() : \Cart::getSubTotal() + 100,
                 'customer_id' => Auth::user()->id,
                 'shipping_amount' => (\Cart::getSubTotal() > 500) ? '0' : '100',
-                'process_authorization_code' => Str::random(6);,
+                'process_authorization_code' => Str::random(6),
                 'payment_type' => 'MEET UP',
             ]);
 

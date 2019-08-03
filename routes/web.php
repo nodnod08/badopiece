@@ -95,6 +95,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin_port', function() {
             return view('admin.index');
         })->name('admin_index');
+        Route::get('/inventory', function() {
+            return view('admin.inventory');
+        })->name('admin_inventory');
+        Route::get('/sales', function() {
+            return view('admin.index');
+        })->name('admin_index');
         Route::get('/logout', function() {
             Auth::logout();
             return redirect('/portal');
@@ -102,5 +108,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('monthPaids', 'SalesController@monthPaids');
         Route::get('monthSales', 'SalesController@monthSales');
         Route::get('getYear', 'SalesController@getYear');
+        Route::get('sales/{year}/{from}/{to}', 'SalesController@getData');
+        Route::get('inventories/get-all-items', 'InventoryController@getInventories');
     });
 });

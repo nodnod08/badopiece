@@ -37,6 +37,16 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+import VueApexCharts from 'vue-apexcharts';
+Vue.use(VueApexCharts);
+Vue.component('apexchart', VueApexCharts);
+
+import DatePicker from 'vuejs-datepicker';
+Vue.component('DatePicker', DatePicker);
+import moment from 'moment';
+Vue.component(moment);
+import _ from 'lodash';
+Vue.component(_);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
