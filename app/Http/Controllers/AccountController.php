@@ -48,6 +48,7 @@ class AccountController extends Controller
             User::create([
                 'name' => $request->firstname.' '.$request->lastname,
                 'username' => $request->username,
+                'user_type' => 'user',
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
@@ -66,6 +67,15 @@ class AccountController extends Controller
                 ->update(['password' => $newPass]);
             
             return 1;    
+        }
+    }
+
+    public function admin_attempt(Request $request) {
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            // Authentication passed...
+            return 1;
+        } else {
+            return 0;
         }
     }
 }

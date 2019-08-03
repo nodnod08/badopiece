@@ -17,7 +17,7 @@
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 Vue.component(
-    'admin-component',
+    'admin_index-component',
     require('./components/AdminIndexComponent.vue').default
 );
 
@@ -27,6 +27,6 @@ Vue.component(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const admin = new Vue({
-    el: '#admin'
+const admin_index = new Vue({
+    el: '#admin_index'
 });

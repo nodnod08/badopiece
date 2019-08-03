@@ -17,6 +17,9 @@ Route::get('/portal', function () {
     return view('admin.login');
 })->name('admin_login');
 
+Route::post('/admin_attempt', 'AccountController@admin_attempt');
+
+
 // User core
 
 Route::get('/', function () {
@@ -87,4 +90,17 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('settings');
     Route::post('/sendTransaction', 'TransactionController@sendTransaction');
     Route::post('/updatePassword', 'AccountController@updatePassword');
+
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/admin_port', function() {
+            return view('admin.index');
+        })->name('admin_index');
+        Route::get('/logout', function() {
+            Auth::logout();
+            return redirect('/portal');
+        });
+        Route::get('monthPaids', 'SalesController@monthPaids');
+        Route::get('monthSales', 'SalesController@monthSales');
+        Route::get('getYear', 'SalesController@getYear');
+    });
 });

@@ -82,14 +82,15 @@
     <!-- /#left-panel -->
     <!-- Right Panel -->
     @if(Route::currentRouteName() == 'admin_login')
-    @yield('content')
+    @yield('content_login')
     @else
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="menu-title">Admin Portal</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
+                    <li
+                        class="{{ (Route::currentRouteName() == 'admin_index' || Route::currentRouteName() == 'admin_inventory') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon ti-bar-chart-alt"></i>Sales Dashboard</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -119,9 +120,7 @@
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
-    <div id="admin">
-        <admin-component></admin-component>
-    </div>
+    @yield('content')
     @endif
     <!-- /#right-panel -->
 

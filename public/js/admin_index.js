@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminIndexComponent.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdminIndexComponent.vue?vue&type=script&lang=js& ***!
@@ -95,585 +107,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -748,11 +189,875 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
-    return {};
+    return {
+      yearSales: 0,
+      monthSales: 0,
+      monthPaids: 0
+    };
   },
-  methods: {},
-  created: function created() {}
+  created: function () {
+    var _created = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return this.getYear();
+
+            case 2:
+              _context.next = 4;
+              return this.getMonthPaids();
+
+            case 4:
+              _context.next = 6;
+              return this.getMonthSales();
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function created() {
+      return _created.apply(this, arguments);
+    }
+
+    return created;
+  }(),
+  methods: {
+    getYear: function () {
+      var _getYear = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get("/getYear").then(function (response) {
+                  _this.yearSales = response.data[0].amount;
+                  console.log(_this.yearSales);
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function getYear() {
+        return _getYear.apply(this, arguments);
+      }
+
+      return getYear;
+    }(),
+    getMonthSales: function () {
+      var _getMonthSales = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this2 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get("/monthSales").then(function (response) {
+                  _this2.monthSales = response.data[0].amount;
+                  console.log(_this2.monthSales);
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function getMonthSales() {
+        return _getMonthSales.apply(this, arguments);
+      }
+
+      return getMonthSales;
+    }(),
+    getMonthPaids: function () {
+      var _getMonthPaids = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this3 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios.get("/monthPaids").then(function (response) {
+                  _this3.monthPaids = response.data[0].amount;
+                  console.log(_this3.monthPaids);
+                });
+
+              case 2:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      function getMonthPaids() {
+        return _getMonthPaids.apply(this, arguments);
+      }
+
+      return getMonthPaids;
+    }()
+  }
 });
+
+/***/ }),
+
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : undefined
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
+
 
 /***/ }),
 
@@ -771,1378 +1076,110 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "right-panel", attrs: { id: "right-panel" } },
-    [
-      _c("header", { staticClass: "header", attrs: { id: "header" } }, [
-        _c("div", { staticClass: "top-left" }, [
-          _c("div", { staticClass: "navbar-header" }, [
-            _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-              _c("img", {
-                attrs: {
-                  width: "110",
-                  height: "40",
-                  src: "images/logo3.png",
-                  alt: "Logo"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              { staticClass: "navbar-brand hidden", attrs: { href: "#" } },
-              [_c("img", { attrs: { src: "images/logo3.png", alt: "Logo" } })]
-            ),
-            _vm._v(" "),
-            _vm._m(0)
+  return _c("div", { staticClass: "content" }, [
+    _c("div", { staticClass: "animated fadeIn" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _vm._v("\n                    ₱\n                    "),
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.monthSales).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("This Month Sales")
+                    ])
+                  ])
+                ])
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "top-right" }, [
-          _c("div", { staticClass: "header-menu" }, [
-            _c("div", { staticClass: "header-left" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "dropdown for-message" }, [
-                _vm._m(4),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(1),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu",
-                    attrs: { "aria-labelledby": "message" }
-                  },
-                  [
-                    _c("p", { staticClass: "red" }, [
-                      _vm._v("You have 4 Mails")
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _vm._v("\n                    ₱\n                    "),
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.monthPaids).toLocaleString()))
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item media",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("span", { staticClass: "photo media-left" }, [
-                          _c("img", {
-                            attrs: {
-                              alt: "avatar",
-                              src: "admin/images/avatar/1.jpg"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(5)
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item media",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("span", { staticClass: "photo media-left" }, [
-                          _c("img", {
-                            attrs: {
-                              alt: "avatar",
-                              src: "admin/images/avatar/2.jpg"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(6)
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item media",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("span", { staticClass: "photo media-left" }, [
-                          _c("img", {
-                            attrs: {
-                              alt: "avatar",
-                              src: "admin/images/avatar/3.jpg"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(7)
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "dropdown-item media",
-                        attrs: { href: "#" }
-                      },
-                      [
-                        _c("span", { staticClass: "photo media-left" }, [
-                          _c("img", {
-                            attrs: {
-                              alt: "avatar",
-                              src: "admin/images/avatar/4.jpg"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(8)
-                      ]
-                    )
-                  ]
-                )
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("This Month Paid")
+                    ])
+                  ])
+                ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-area dropdown float-right" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "dropdown-toggle active",
-                  attrs: {
-                    href: "#",
-                    "data-toggle": "dropdown",
-                    "aria-haspopup": "true",
-                    "aria-expanded": "false"
-                  }
-                },
-                [
-                  _c("img", {
-                    staticClass: "user-avatar rounded-circle",
-                    attrs: { src: "admin/images/admin.jpg", alt: "User Avatar" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(9)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _vm._v("\n                    ₱\n                    "),
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.yearSales).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("This Year Sales")
+                    ])
+                  ])
+                ])
+              ])
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(10),
-      _vm._v(" "),
-      _c("div", { staticClass: "clearfix" }),
-      _vm._v(" "),
-      _vm._m(11)
-    ]
-  )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "menutoggle", attrs: { id: "menuToggle" } }, [
-      _c("i", { staticClass: "fa fa-bars" })
+    return _c("div", { staticClass: "stat-icon dib flat-color-1" }, [
+      _c("i", { staticClass: "pe-7s-cash" })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "search-trigger" }, [
-      _c("i", { staticClass: "fa fa-search" })
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "pe-7s-cart" })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-inline" }, [
-      _c("form", { staticClass: "search-form" }, [
-        _c("input", {
-          staticClass: "form-control mr-sm-2",
-          attrs: {
-            type: "text",
-            placeholder: "Search ...",
-            "aria-label": "Search"
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "search-close", attrs: { type: "submit" } },
-          [_c("i", { staticClass: "fa fa-close" })]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown for-notification" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary dropdown-toggle",
-          attrs: {
-            type: "button",
-            id: "notification",
-            "data-toggle": "dropdown",
-            "aria-haspopup": "true",
-            "aria-expanded": "false"
-          }
-        },
-        [
-          _c("i", { staticClass: "fa fa-bell" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "count bg-danger" }, [_vm._v("3")])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-menu",
-          attrs: { "aria-labelledby": "notification" }
-        },
-        [
-          _c("p", { staticClass: "red" }, [_vm._v("You have 3 Notification")]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "dropdown-item media", attrs: { href: "#" } },
-            [
-              _c("i", { staticClass: "fa fa-check" }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Server #1 overloaded.")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "dropdown-item media", attrs: { href: "#" } },
-            [
-              _c("i", { staticClass: "fa fa-info" }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Server #2 overloaded.")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "dropdown-item media", attrs: { href: "#" } },
-            [
-              _c("i", { staticClass: "fa fa-warning" }),
-              _vm._v(" "),
-              _c("p", [_vm._v("Server #3 overloaded.")])
-            ]
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-secondary dropdown-toggle",
-        attrs: {
-          type: "button",
-          id: "message",
-          "data-toggle": "dropdown",
-          "aria-haspopup": "true",
-          "aria-expanded": "false"
-        }
-      },
-      [
-        _c("i", { staticClass: "fa fa-envelope" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "count bg-primary" }, [_vm._v("4")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "message media-body" }, [
-      _c("span", { staticClass: "name float-left" }, [
-        _vm._v("Jonathan Smith")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "time float-right" }, [_vm._v("Just now")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Hello, this is an example msg")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "message media-body" }, [
-      _c("span", { staticClass: "name float-left" }, [_vm._v("Jack Sanders")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "time float-right" }, [
-        _vm._v("5 minutes ago")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Lorem ipsum dolor sit amet, consectetur")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "message media-body" }, [
-      _c("span", { staticClass: "name float-left" }, [
-        _vm._v("Cheryl Wheeler")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "time float-right" }, [
-        _vm._v("10 minutes ago")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Hello, this is an example msg")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "message media-body" }, [
-      _c("span", { staticClass: "name float-left" }, [_vm._v("Rachel Santos")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "time float-right" }, [
-        _vm._v("15 minutes ago")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Lorem ipsum dolor sit amet, consectetur")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-menu dropdown-menu" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa- user" }),
-        _vm._v("My Profile\n            ")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa- user" }),
-        _vm._v("Notifications\n              "),
-        _c("span", { staticClass: "count" }, [_vm._v("13")])
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa -cog" }),
-        _vm._v("Settings\n            ")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fa fa-power -off" }),
-        _vm._v("Logout\n            ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "animated fadeIn" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "stat-widget-five" }, [
-                  _c("div", { staticClass: "stat-icon dib flat-color-1" }, [
-                    _c("i", { staticClass: "pe-7s-cash" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-content" }, [
-                    _c("div", { staticClass: "text-left dib" }, [
-                      _c("div", { staticClass: "stat-text" }, [
-                        _vm._v("$"),
-                        _c("span", { staticClass: "count" }, [_vm._v("23569")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "stat-heading" }, [
-                        _vm._v("Revenue")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "stat-widget-five" }, [
-                  _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                    _c("i", { staticClass: "pe-7s-cart" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-content" }, [
-                    _c("div", { staticClass: "text-left dib" }, [
-                      _c("div", { staticClass: "stat-text" }, [
-                        _c("span", { staticClass: "count" }, [_vm._v("3435")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "stat-heading" }, [
-                        _vm._v("Sales")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "stat-widget-five" }, [
-                  _c("div", { staticClass: "stat-icon dib flat-color-3" }, [
-                    _c("i", { staticClass: "pe-7s-browser" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-content" }, [
-                    _c("div", { staticClass: "text-left dib" }, [
-                      _c("div", { staticClass: "stat-text" }, [
-                        _c("span", { staticClass: "count" }, [_vm._v("349")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "stat-heading" }, [
-                        _vm._v("Templates")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "stat-widget-five" }, [
-                  _c("div", { staticClass: "stat-icon dib flat-color-4" }, [
-                    _c("i", { staticClass: "pe-7s-users" })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-content" }, [
-                    _c("div", { staticClass: "text-left dib" }, [
-                      _c("div", { staticClass: "stat-text" }, [
-                        _c("span", { staticClass: "count" }, [_vm._v("2986")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "stat-heading" }, [
-                        _vm._v("Clients")
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "box-title" }, [_vm._v("Traffic ")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-8" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", {
-                      staticClass: "traffic-chart",
-                      attrs: { id: "traffic-chart" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "progress-box progress-1" }, [
-                      _c("h4", { staticClass: "por-title" }, [
-                        _vm._v("Visits")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "por-txt" }, [
-                        _vm._v("96,930 Users (40%)")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "progress mb-2",
-                          staticStyle: { height: "5px" }
-                        },
-                        [
-                          _c("div", {
-                            staticClass: "progress-bar bg-flat-color-1",
-                            staticStyle: { width: "40%" },
-                            attrs: {
-                              role: "progressbar",
-                              "aria-valuenow": "25",
-                              "aria-valuemin": "0",
-                              "aria-valuemax": "100"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "progress-box progress-2" }, [
-                      _c("h4", { staticClass: "por-title" }, [
-                        _vm._v("Bounce Rate")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "por-txt" }, [
-                        _vm._v("3,220 Users (24%)")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "progress mb-2",
-                          staticStyle: { height: "5px" }
-                        },
-                        [
-                          _c("div", {
-                            staticClass: "progress-bar bg-flat-color-2",
-                            staticStyle: { width: "24%" },
-                            attrs: {
-                              role: "progressbar",
-                              "aria-valuenow": "25",
-                              "aria-valuemin": "0",
-                              "aria-valuemax": "100"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "progress-box progress-2" }, [
-                      _c("h4", { staticClass: "por-title" }, [
-                        _vm._v("Unique Visitors")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "por-txt" }, [
-                        _vm._v("29,658 Users (60%)")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "progress mb-2",
-                          staticStyle: { height: "5px" }
-                        },
-                        [
-                          _c("div", {
-                            staticClass: "progress-bar bg-flat-color-3",
-                            staticStyle: { width: "60%" },
-                            attrs: {
-                              role: "progressbar",
-                              "aria-valuenow": "60",
-                              "aria-valuemin": "0",
-                              "aria-valuemax": "100"
-                            }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "progress-box progress-2" }, [
-                      _c("h4", { staticClass: "por-title" }, [
-                        _vm._v("Targeted  Visitors")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "por-txt" }, [
-                        _vm._v("99,658 Users (90%)")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "progress mb-2",
-                          staticStyle: { height: "5px" }
-                        },
-                        [
-                          _c("div", {
-                            staticClass: "progress-bar bg-flat-color-4",
-                            staticStyle: { width: "90%" },
-                            attrs: {
-                              role: "progressbar",
-                              "aria-valuenow": "90",
-                              "aria-valuemin": "0",
-                              "aria-valuemax": "100"
-                            }
-                          })
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" })
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "clearfix" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "orders" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-xl-8" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h4", { staticClass: "box-title" }, [_vm._v("Orders ")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body--" }, [
-                  _c("div", { staticClass: "table-stats order-table ov-h" }, [
-                    _c("table", { staticClass: "table " }, [
-                      _c("thead", [
-                        _c("tr", [
-                          _c("th", { staticClass: "serial" }, [_vm._v("#")]),
-                          _vm._v(" "),
-                          _c("th", { staticClass: "avatar" }, [
-                            _vm._v("Avatar")
-                          ]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("ID")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Name")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Product")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Quantity")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Status")])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tbody", [
-                        _c("tr", [
-                          _c("td", { staticClass: "serial" }, [_vm._v("1.")]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "avatar" }, [
-                            _c("div", { staticClass: "round-img" })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(" #5469 ")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "name" }, [
-                              _vm._v("Louis Stanley")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "product" }, [
-                              _vm._v("iMax")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "count" }, [
-                              _vm._v("231")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "span",
-                              { staticClass: "badge badge-complete" },
-                              [_vm._v("Complete")]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { staticClass: "serial" }, [_vm._v("2.")]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "avatar" }, [
-                            _c("div", { staticClass: "round-img" })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(" #5468 ")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "name" }, [
-                              _vm._v("Gregory Dixon")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "product" }, [
-                              _vm._v("iPad")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "count" }, [
-                              _vm._v("250")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "span",
-                              { staticClass: "badge badge-complete" },
-                              [_vm._v("Complete")]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { staticClass: "serial" }, [_vm._v("3.")]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "avatar" }, [
-                            _c("div", { staticClass: "round-img" })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(" #5467 ")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "name" }, [
-                              _vm._v("Catherine Dixon")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "product" }, [
-                              _vm._v("SSD")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "count" }, [
-                              _vm._v("250")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "span",
-                              { staticClass: "badge badge-complete" },
-                              [_vm._v("Complete")]
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", { staticClass: "serial" }, [_vm._v("4.")]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "avatar" }, [
-                            _c("div", { staticClass: "round-img" })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(" #5466 ")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "name" }, [
-                              _vm._v("Mary Silva")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "product" }, [
-                              _vm._v("Magic Mouse")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "count" }, [
-                              _vm._v("250")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "badge badge-pending" }, [
-                              _vm._v("Pending")
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", { staticClass: " pb-0" }, [
-                          _c("td", { staticClass: "serial" }, [_vm._v("5.")]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "avatar pb-0" }, [
-                            _c("div", { staticClass: "round-img" })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(" #5465 ")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "name" }, [
-                              _vm._v("Johnny Stephens")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "product" }, [
-                              _vm._v("Monitor")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("span", { staticClass: "count" }, [
-                              _vm._v("250")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "span",
-                              { staticClass: "badge badge-complete" },
-                              [_vm._v("Complete")]
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-xl-4" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-6 col-xl-12" }, [
-                  _c("div", { staticClass: "card br-0" }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("div", { staticClass: "chart-container ov-h" }, [
-                        _c("div", {
-                          staticClass: "float-chart",
-                          attrs: { id: "flotPie1" }
-                        })
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6 col-xl-12" }, [
-                  _c("div", { staticClass: "card bg-flat-color-3  " }, [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c(
-                        "h4",
-                        { staticClass: "card-title m-0  white-color " },
-                        [_vm._v("August 2018")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("div", {
-                        staticClass: "flot-line",
-                        attrs: { id: "flotLine5" }
-                      })
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title box-title" }, [
-                  _vm._v("To Do List")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "todo-list" }, [
-                    _c("div", { staticClass: "tdl-holder" }, [
-                      _c("div", { staticClass: "tdl-content" }, [
-                        _c("ul", [
-                          _c("li", [
-                            _c("label", [
-                              _c("input", { attrs: { type: "checkbox" } }),
-                              _c("i", { staticClass: "check-box" }),
-                              _c("span", [
-                                _vm._v(
-                                  "Conveniently fabricate interactive technology for ...."
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-times",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-pencil",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-check",
-                                attrs: { href: "#" }
-                              })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("label", [
-                              _c("input", { attrs: { type: "checkbox" } }),
-                              _c("i", { staticClass: "check-box" }),
-                              _c("span", [_vm._v("Creating component page")]),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-times",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-pencil",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-check",
-                                attrs: { href: "#" }
-                              })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("label", [
-                              _c("input", {
-                                attrs: { type: "checkbox", checked: "" }
-                              }),
-                              _c("i", { staticClass: "check-box" }),
-                              _c("span", [
-                                _vm._v("Follow back those who follow you")
-                              ]),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-times",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-pencil",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-check",
-                                attrs: { href: "#" }
-                              })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("label", [
-                              _c("input", {
-                                attrs: { type: "checkbox", checked: "" }
-                              }),
-                              _c("i", { staticClass: "check-box" }),
-                              _c("span", [_vm._v("Design One page theme")]),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-times",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-pencil",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-check",
-                                attrs: { href: "#" }
-                              })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("label", [
-                              _c("input", {
-                                attrs: { type: "checkbox", checked: "" }
-                              }),
-                              _c("i", { staticClass: "check-box" }),
-                              _c("span", [_vm._v("Creating component page")]),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-times",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-pencil",
-                                attrs: { href: "#" }
-                              }),
-                              _vm._v(" "),
-                              _c("a", {
-                                staticClass: "fa fa-check",
-                                attrs: { href: "#" }
-                              })
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h4", { staticClass: "card-title box-title" }, [
-                  _vm._v("Live Chat")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "messenger-box" }, [
-                    _c("ul", [
-                      _c("li", [
-                        _c(
-                          "div",
-                          { staticClass: "msg-received msg-container" },
-                          [
-                            _c("div", { staticClass: "avatar" }, [
-                              _c("div", { staticClass: "send-time" }, [
-                                _vm._v("11.11 am")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "msg-box" }, [
-                              _c("div", { staticClass: "inner-box" }, [
-                                _c("div", { staticClass: "name" }, [
-                                  _vm._v(
-                                    "\n                                                          John Doe\n                                                      "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "meg" }, [
-                                  _vm._v(
-                                    "\n                                                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sunt placeat velit ad reiciendis ipsam\n                                                      "
-                                  )
-                                ])
-                              ])
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("div", { staticClass: "msg-sent msg-container" }, [
-                          _c("div", { staticClass: "avatar" }, [
-                            _c("div", { staticClass: "send-time" }, [
-                              _vm._v("11.11 am")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "msg-box" }, [
-                            _c("div", { staticClass: "inner-box" }, [
-                              _c("div", { staticClass: "name" }, [
-                                _vm._v(
-                                  "\n                                                          John Doe\n                                                      "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "meg" }, [
-                                _vm._v(
-                                  "\n                                                          Hay how are you doing?\n                                                      "
-                                )
-                              ])
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "send-mgs" }, [
-                      _c("div", { staticClass: "yourmsg" }, [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: { type: "text" }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("button", { staticClass: "btn msg-send-btn" }, [
-                        _c("i", { staticClass: "pe-7s-paper-plane" })
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12 col-lg-4" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "calender-cont widget-calender" }, [
-                  _c("div", { attrs: { id: "calendar" } })
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-            _c("div", { staticClass: "card ov-h" }, [
-              _c("div", { staticClass: "card-body bg-flat-color-2" }, [
-                _c("div", {
-                  staticClass: "float-chart ml-4 mr-4",
-                  attrs: { id: "flotBarChart" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "float-chart",
-                attrs: { id: "cellPaiChart" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-            _c("div", { staticClass: "card weather-box" }, [
-              _c("h4", { staticClass: "weather-title box-title" }, [
-                _vm._v("Weather")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "weather-widget" }, [
-                  _c("div", {
-                    staticClass: "weather-one",
-                    attrs: { id: "weather-one" }
-                  })
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade none-border",
-            attrs: { id: "event-modal" }
-          },
-          [
-            _c("div", { staticClass: "modal-dialog" }, [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-hidden": "true"
-                      }
-                    },
-                    [_vm._v("×")]
-                  ),
-                  _vm._v(" "),
-                  _c("h4", { staticClass: "modal-title" }, [
-                    _c("strong", [_vm._v("Add New Event")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-default waves-effect",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-success save-event waves-effect waves-light",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Create event")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-danger delete-event waves-effect waves-light",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                ])
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "modal fade none-border",
-            attrs: { id: "add-category" }
-          },
-          [
-            _c("div", { staticClass: "modal-dialog" }, [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-hidden": "true"
-                      }
-                    },
-                    [_vm._v("×")]
-                  ),
-                  _vm._v(" "),
-                  _c("h4", { staticClass: "modal-title" }, [
-                    _c("strong", [_vm._v("Add a category ")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("form", [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c("label", { staticClass: "control-label" }, [
-                          _vm._v("Category Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control form-white",
-                          attrs: {
-                            placeholder: "Enter name",
-                            type: "text",
-                            name: "category-name"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-6" }, [
-                        _c("label", { staticClass: "control-label" }, [
-                          _vm._v("Choose Category Color")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
-                          {
-                            staticClass: "form-control form-white",
-                            attrs: {
-                              "data-placeholder": "Choose a color...",
-                              name: "category-color"
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "success" } }, [
-                              _vm._v("Success")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "danger" } }, [
-                              _vm._v("Danger")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "info" } }, [
-                              _vm._v("Info")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "pink" } }, [
-                              _vm._v("Pink")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "primary" } }, [
-                              _vm._v("Primary")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "warning" } }, [
-                              _vm._v("Warning")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-default waves-effect",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-danger waves-effect waves-light save-category",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Save")]
-                  )
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "site-footer" }, [
-      _c("div", { staticClass: "footer-inner bg-white" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _vm._v("Copyright © 2018 Ela Admin")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6 text-right" }, [
-            _vm._v("\n          Designed by\n          "),
-            _c("a", { attrs: { href: "https://colorlib.com" } }, [
-              _vm._v("Colorlib")
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "stat-icon dib flat-color-3" }, [
+      _c("i", { staticClass: "pe-7s-browser" })
     ])
   }
 ]
@@ -2282,15 +1319,15 @@ function normalizeComponent (
  */
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-Vue.component('admin-component', __webpack_require__(/*! ./components/AdminIndexComponent.vue */ "./resources/js/components/AdminIndexComponent.vue").default);
+Vue.component('admin_index-component', __webpack_require__(/*! ./components/AdminIndexComponent.vue */ "./resources/js/components/AdminIndexComponent.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var admin = new Vue({
-  el: '#admin'
+var admin_index = new Vue({
+  el: '#admin_index'
 });
 
 /***/ }),
