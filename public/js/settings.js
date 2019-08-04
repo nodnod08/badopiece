@@ -7553,7 +7553,7 @@ var render = function() {
             _c("img", {
               staticClass: "brand-logo",
               attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./public/storage/img/core-img/LOGO3.png"),
+                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./storage/app/public/img/core-img/LOGO3.png"),
                 alt: ""
               }
             })
@@ -8156,17 +8156,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./public/storage/img/core-img/LOGO3.png":
-/*!***********************************************!*\
-  !*** ./public/storage/img/core-img/LOGO3.png ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
-
-/***/ }),
-
 /***/ "./resources/js/components/FooterComponent.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/FooterComponent.vue ***!
@@ -8473,6 +8462,17 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
 var settings = new Vue({
   el: '#settings'
 });
+
+/***/ }),
+
+/***/ "./storage/app/public/img/core-img/LOGO3.png":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 

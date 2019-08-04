@@ -190,24 +190,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       Labels: [],
-      year: "",
-      vendor: "",
+      year: "2019",
       dateFrom: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
       dateTo: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
+      yearSales: 0,
+      monthSales: 0,
+      monthPaids: 0,
       options: {
         chart: {
           background: "#fff",
           height: "400",
           width: "100%",
-          type: "bar",
+          type: "line",
           shadow: {
             enabled: true,
             color: "#000",
@@ -220,16 +222,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             show: true
           }
         },
-        colors: ["#12c7c4"],
         dataLabels: {
-          enabled: true
+          enabled: true,
+          formatter: function formatter(val, opts) {
+            return val.toLocaleString();
+          }
         },
         stroke: {
           curve: "smooth"
         },
         series: [],
         title: {
-          text: "Products Overview By Category(s)",
+          text: "Inventory Monitoring",
           align: "left"
         },
         grid: {
@@ -246,19 +250,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         xaxis: {
           categories: [],
           title: {
-            text: "Item(s) Category"
+            text: "Date(s)"
           }
         },
         yaxis: {
+          labels: {
+            formatter: function formatter(value) {
+              return value.toLocaleString();
+            },
+            style: {
+              fontSize: "15px",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              cssClass: "apexcharts-yaxis-label"
+            },
+            title: {
+              text: "Stocks"
+            }
+          },
           title: {
-            text: "Quantity"
+            text: "Stocks"
           }
         },
         legend: {
           position: "top",
           horizontalAlign: "right",
           floating: true,
-          offsetY: -25,
+          offsetY: -18,
           offsetX: -5
         }
       }
@@ -283,53 +300,100 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this = this;
 
-        var self, datas, datasets;
+        var self, from, to, url, Prices, borderColor, backgroundColor, datas, datasArray;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 self = this;
+                self.datasArray = [];
+                typeof self.year == "undefined" || self.year == "" ? self.year = new Date().getFullYear() : self.year;
+                from = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.dateFrom.date).format("YYYY-MM-DD");
+                to = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.dateTo.date).format("YYYY-MM-DD");
+                url = "/inventories/" + self.year + "/" + from + "/" + to;
+                Prices = "";
+                borderColor = "";
+                backgroundColor = "";
                 datas = {};
-                datasets = [];
-                _context.next = 5;
-                return axios.get("inventories/get-all-items").then(function (response) {
+                datasArray = [];
+                _context.next = 13;
+                return axios.get(url).then(function (response) {
+                  console.log(response.data);
                   var data = response.data;
-                  console.log(data);
                   _this.Labels = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(data[data.length - 1]);
                   _this.options = _objectSpread({}, _this.options, {
                     xaxis: {
                       categories: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(data[data.length - 1])
                     }
                   });
-                  data.splice(data.length - 1, 1); // $.each(data, function(ind, val) {
-                  //   datasets.push(data[ind].quantity);
-                  // });
+                  data.splice(data.length - 1, 1);
+                  var datas = {};
 
-                  var _arr = Object.entries(data);
+                  if (data) {
+                    var datasets = [];
 
-                  for (var _i = 0; _i < _arr.length; _i++) {
-                    var _arr$_i = _slicedToArray(_arr[_i], 2),
-                        key = _arr$_i[0],
-                        value = _arr$_i[1];
+                    var groupName = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(data).groupBy("category").value(); // console.log(groupName);
 
-                    datasets.push(data[key].quantity);
+
+                    var self = _this;
+
+                    var _arr = Object.entries(groupName);
+
+                    for (var _i = 0; _i < _arr.length; _i++) {
+                      var _arr$_i = _slicedToArray(_arr[_i], 2),
+                          key = _arr$_i[0],
+                          value = _arr$_i[1];
+
+                      var groupDate = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(value).groupBy("date").map(function (objs, key1) {
+                        return {
+                          category: objs[0].category,
+                          date: objs[0].date,
+                          quantity: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sumBy(objs, "quantity")
+                        };
+                      }).value(); // console.log(ind)
+
+
+                      var _arr2 = Object.entries(self.Labels);
+
+                      var _loop = function _loop() {
+                        var _arr2$_i = _slicedToArray(_arr2[_i2], 2),
+                            key2 = _arr2$_i[0],
+                            value2 = _arr2$_i[1];
+
+                        toFind = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.result(lodash__WEBPACK_IMPORTED_MODULE_3___default.a.find(groupDate, function (obj) {
+                          return obj.date === value2;
+                        }), "quantity"); // console.log(name)
+
+                        if (typeof toFind != "undefined") {
+                          datasets.push(toFind);
+                        } else {
+                          datasets.push("0");
+                        }
+                      };
+
+                      for (var _i2 = 0; _i2 < _arr2.length; _i2++) {
+                        var toFind;
+
+                        _loop();
+                      }
+
+                      datas = {
+                        name: key,
+                        data: datasets
+                      };
+                      datasArray.push(datas);
+                      datas = {};
+                      datasets = [];
+                    } // datasArray = _.sortBy(datasArray, "name");
+
+
+                    _this.options = _objectSpread({}, _this.options, {
+                      series: datasArray
+                    }); // console.log(datasArray);
                   }
-
-                  datas = {
-                    name: "Category Quantity",
-                    data: datasets
-                  };
-                  _this.options = _objectSpread({}, _this.options, {
-                    series: [datas]
-                  });
-                  datas = {};
-                  datasets = [];
                 });
 
-              case 5:
-                this.dataCollected = 1;
-
-              case 6:
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -35871,22 +35935,26 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _c("span", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function($event) {
-                    return _vm.getData()
+        _c(
+          "div",
+          { staticClass: "col-lg-4", staticStyle: { "margin-top": "31px" } },
+          [
+            _c("span", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function($event) {
+                      return _vm.getData()
+                    }
                   }
-                }
-              },
-              [_vm._v("Search")]
-            )
-          ])
-        ]),
+                },
+                [_vm._v("Search")]
+              )
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",

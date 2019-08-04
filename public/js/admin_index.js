@@ -258,12 +258,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       dateFrom: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
       dateTo: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
       yearSales: 0,
       monthSales: 0,
@@ -428,7 +428,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 datasArray = [];
                 _context2.next = 13;
                 return axios.get(url).then(function (response) {
-                  // console.log(response.data);
+                  console.log(response.data);
                   var data = response.data;
                   _this4.Labels = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(data[data.length - 1]); // this.Labels.forEach(function(index, value) {
                   //   console.log(index);
@@ -487,8 +487,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     _this4.options = _objectSpread({}, _this4.options, {
                       colors: colors
-                    });
-                    console.log(groupName);
+                    }); // console.log(groupName);
+
                     var self = _this4;
 
                     var _arr3 = Object.entries(groupName);
@@ -36166,22 +36166,26 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _c("span", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function($event) {
-                    return _vm.getData()
+        _c(
+          "div",
+          { staticClass: "col-lg-4", staticStyle: { "margin-top": "31px" } },
+          [
+            _c("span", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function($event) {
+                      return _vm.getData()
+                    }
                   }
-                }
-              },
-              [_vm._v("Search")]
-            )
-          ])
-        ]),
+                },
+                [_vm._v("Search")]
+              )
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",

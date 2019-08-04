@@ -98,6 +98,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/inventory', function() {
             return view('admin.inventory');
         })->name('admin_inventory');
+        Route::get('/add-inventory', function() {
+            return view('admin.add_inventory');
+        })->name('admin_add_inventory');
         Route::get('/sales', function() {
             return view('admin.index');
         })->name('admin_index');
@@ -109,6 +112,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('monthSales', 'SalesController@monthSales');
         Route::get('getYear', 'SalesController@getYear');
         Route::get('sales/{year}/{from}/{to}', 'SalesController@getData');
-        Route::get('inventories/get-all-items', 'InventoryController@getInventories');
+        Route::get('inventories/{year}/{from}/{to}', 'InventoryController@getInventories');
+        Route::get('inventories/getCategories', 'InventoryController@getCategories');
+        Route::post('inventories/addItem', 'InventoryController@addItem');
+        Route::post('inventories/addCategory', 'InventoryController@addCategory');
     });
 });

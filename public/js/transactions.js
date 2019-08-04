@@ -8873,7 +8873,7 @@ var render = function() {
             _c("img", {
               staticClass: "brand-logo",
               attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./public/storage/img/core-img/LOGO3.png"),
+                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./storage/app/public/img/core-img/LOGO3.png"),
                 alt: ""
               }
             })
@@ -9176,99 +9176,85 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    [
-                      _vm._l(_vm.transactions.data, function(
-                        transaction,
-                        index
-                      ) {
-                        return _vm.transactions.data
-                          ? _c("tr", { key: index }, [
-                              _c("td", [_vm._v(_vm._s(index + 1))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href: "/transaction/" + transaction.id
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        class:
-                                          "btn btn-outline-dark btn-sm my-2 my-sm-0",
-                                        attrs: { type: "submit" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                    View Transaction\n                    "
-                                        ),
-                                        _c("i", {
-                                          staticClass: "fas fa-file-alt"
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(_vm._s(transaction.transaction_id))
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  _vm._s(
-                                    transaction.transaction_type
-                                      .transaction_type
+                    _vm._l(_vm.transactions.data, function(transaction, index) {
+                      return _vm.transactions.data.length != 0
+                        ? _c("tr", { key: index }, [
+                            _c("td", [_vm._v(_vm._s(index + 1))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href: "/transaction/" + transaction.id
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      class:
+                                        "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                                      attrs: { type: "submit" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                    View Transaction\n                    "
+                                      ),
+                                      _c("i", {
+                                        staticClass: "fas fa-file-alt"
+                                      })
+                                    ]
                                   )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(transaction.transaction_id))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  transaction.transaction_type.transaction_type
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  _vm._s(transaction.transaction_status.status)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(transaction.transaction_status.status)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(transaction.payment_type))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(transaction.payment_status.status))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.month[
+                                    new Date(transaction.created_at).getMonth()
+                                  ] +
+                                    " " +
+                                    new Date(transaction.created_at).getDate() +
+                                    ", " +
+                                    new Date(
+                                      transaction.created_at
+                                    ).getFullYear()
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(_vm._s(transaction.payment_type))
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  _vm._s(transaction.payment_status.status)
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.month[
-                                      new Date(
-                                        transaction.created_at
-                                      ).getMonth()
-                                    ] +
-                                      " " +
-                                      new Date(
-                                        transaction.created_at
-                                      ).getDate() +
-                                      ", " +
-                                      new Date(
-                                        transaction.created_at
-                                      ).getFullYear()
-                                  )
-                                )
-                              ])
+                              )
                             ])
-                          : _vm._e()
-                      }),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ],
-                    2
+                          ])
+                        : _c("tr", [_vm._m(1)])
+                    }),
+                    0
                   )
                 ]
               ),
@@ -9333,10 +9319,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { attrs: { colspan: "8" } }, [
-        _c("b", [_vm._v("No transactions found")])
-      ])
+    return _c("td", { attrs: { colspan: "8" } }, [
+      _c("b", [_vm._v("No transactions found")])
     ])
   }
 ]
@@ -9450,17 +9434,6 @@ function normalizeComponent (
   }
 }
 
-
-/***/ }),
-
-/***/ "./public/storage/img/core-img/LOGO3.png":
-/*!***********************************************!*\
-  !*** ./public/storage/img/core-img/LOGO3.png ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 
@@ -9760,6 +9733,17 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
 var transactions = new Vue({
   el: '#transactions'
 });
+
+/***/ }),
+
+/***/ "./storage/app/public/img/core-img/LOGO3.png":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 

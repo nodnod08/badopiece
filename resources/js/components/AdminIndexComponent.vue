@@ -91,9 +91,9 @@
             ></datepicker>
           </span>
         </div>
-        <div class="col-lg-4">
+        <div style="margin-top: 31px;" class="col-lg-4">
           <span>
-            <button v-on:click="getData()" class="btn btn-primary">Search</button>
+            <button v-on:click="getData()" class="btn btn-primary btn-sm">Search</button>
           </span>
         </div>
         <div class="col-lg-12 mt-4">
@@ -126,12 +126,12 @@ export default {
       dateFrom: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
       dateTo: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
       yearSales: 0,
       monthSales: 0,
@@ -267,7 +267,7 @@ export default {
       var datas = {};
       var datasArray = [];
       await axios.get(url).then(response => {
-        // console.log(response.data);
+        console.log(response.data);
         let data = response.data;
         this.Labels = _.sortedUniq(data[data.length - 1]);
         // this.Labels.forEach(function(index, value) {
@@ -321,7 +321,7 @@ export default {
               colors: colors
             }
           };
-          console.log(groupName);
+          // console.log(groupName);
           var self = this;
           for (let [key, value] of Object.entries(groupName)) {
             var groupDate = _.chain(value)

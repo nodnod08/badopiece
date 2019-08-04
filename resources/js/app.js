@@ -47,6 +47,9 @@ import moment from 'moment';
 Vue.component(moment);
 import _ from 'lodash';
 Vue.component(_);
+
+// import vueFilePond from 'vue-filepond';
+// Vue.use('file-pond', vueFilePond);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

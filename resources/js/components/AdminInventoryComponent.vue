@@ -27,9 +27,9 @@
             ></datepicker>
           </span>
         </div>
-        <div class="col-lg-4">
+        <div style="margin-top: 31px;" class="col-lg-4">
           <span>
-            <button v-on:click="getData()" class="btn btn-primary">Search</button>
+            <button v-on:click="getData()" class="btn btn-primary btn-sm">Search</button>
           </span>
         </div>
         <div class="col-lg-12 mt-4">
@@ -58,24 +58,26 @@ export default {
   data() {
     return {
       Labels: [],
-      year: "",
-      vendor: "",
+      year: "2019",
       dateFrom: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
       dateTo: {
         date: {},
         name: "date_to",
-        class: "form-control"
+        class: "form-control form-control-sm"
       },
+      yearSales: 0,
+      monthSales: 0,
+      monthPaids: 0,
       options: {
         chart: {
           background: "#fff",
           height: "400",
           width: "100%",
-          type: "bar",
+          type: "line",
           shadow: {
             enabled: true,
             color: "#000",
@@ -88,16 +90,18 @@ export default {
             show: true
           }
         },
-        colors: ["#12c7c4"],
         dataLabels: {
-          enabled: true
+          enabled: true,
+          formatter: function(val, opts) {
+            return val.toLocaleString();
+          }
         },
         stroke: {
           curve: "smooth"
         },
         series: [],
         title: {
-          text: "Products Overview By Category(s)",
+          text: "Inventory Monitoring",
           align: "left"
         },
         grid: {
@@ -113,19 +117,32 @@ export default {
         xaxis: {
           categories: [],
           title: {
-            text: "Item(s) Category"
+            text: "Date(s)"
           }
         },
         yaxis: {
+          labels: {
+            formatter: function(value) {
+              return value.toLocaleString();
+            },
+            style: {
+              fontSize: "15px",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              cssClass: "apexcharts-yaxis-label"
+            },
+            title: {
+              text: "Stocks"
+            }
+          },
           title: {
-            text: "Quantity"
+            text: "Stocks"
           }
         },
         legend: {
           position: "top",
           horizontalAlign: "right",
           floating: true,
-          offsetY: -25,
+          offsetY: -18,
           offsetX: -5
         }
       }
@@ -146,12 +163,28 @@ export default {
     },
     getData: async function() {
       var self = this;
+      self.datasArray = [];
+      var from;
+      var to;
+
+      typeof self.year == "undefined" || self.year == ""
+        ? (self.year = new Date().getFullYear())
+        : self.year;
+
+      from = moment(this.dateFrom.date).format("YYYY-MM-DD");
+      to = moment(this.dateTo.date).format("YYYY-MM-DD");
+      var url = "/inventories/" + self.year + "/" + from + "/" + to;
+
+      let Prices = "";
+      let borderColor = "";
+      let backgroundColor = "";
       var datas = {};
-      var datasets = [];
-      await axios.get("inventories/get-all-items").then(response => {
+      var datasArray = [];
+      await axios.get(url).then(response => {
+        console.log(response.data);
         let data = response.data;
-        console.log(data);
         this.Labels = _.sortedUniq(data[data.length - 1]);
+
         this.options = {
           ...this.options,
           ...{
@@ -162,26 +195,58 @@ export default {
         };
         data.splice(data.length - 1, 1);
 
-        // $.each(data, function(ind, val) {
-        //   datasets.push(data[ind].quantity);
-        // });
-        for (let [key, value] of Object.entries(data)) {
-          datasets.push(data[key].quantity);
-        }
-        datas = {
-          name: "Category Quantity",
-          data: datasets
-        };
-        this.options = {
-          ...this.options,
-          ...{
-            series: [datas]
+        var datas = {};
+        if (data) {
+          var datasets = [];
+
+          var groupName = _.chain(data)
+            .groupBy("category")
+            .value();
+          // console.log(groupName);
+          var self = this;
+          for (let [key, value] of Object.entries(groupName)) {
+            var groupDate = _.chain(value)
+              .groupBy("date")
+              .map((objs, key1) => ({
+                category: objs[0].category,
+                date: objs[0].date,
+                quantity: _.sumBy(objs, "quantity")
+              }))
+              .value();
+            // console.log(ind)
+            for (let [key2, value2] of Object.entries(self.Labels)) {
+              var toFind = _.result(
+                _.find(groupDate, function(obj) {
+                  return obj.date === value2;
+                }),
+                "quantity"
+              );
+              // console.log(name)
+              if (typeof toFind != "undefined") {
+                datasets.push(toFind);
+              } else {
+                datasets.push("0");
+              }
+            }
+
+            datas = {
+              name: key,
+              data: datasets
+            };
+            datasArray.push(datas);
+            datas = {};
+            datasets = [];
           }
-        };
-        datas = {};
-        datasets = [];
+          // datasArray = _.sortBy(datasArray, "name");
+          this.options = {
+            ...this.options,
+            ...{
+              series: datasArray
+            }
+          };
+          // console.log(datasArray);
+        }
       });
-      this.dataCollected = 1;
     }
   }
 };

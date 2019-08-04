@@ -1218,7 +1218,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.showcase {\r\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3.jpg */ "./public/storage/img/bg-img/bg-new3.jpg")) + ");\r\n  background-repeat: no-repeat;\r\n  background-size: 100% auto;\r\n  position: relative;\r\n  width: 100%;\r\n  min-height: 100vh;\r\n  margin: 0;\r\n  padding: 0;\n}\n@media (max-width: 1000px) {\n.showcase {\r\n    min-height: 70vh;\r\n    margin-top: 70px;\n}\n}\n@media (max-width: 540px) {\n.showcase {\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3-center.jpg */ "./public/storage/img/bg-img/bg-new3-center.jpg")) + ");\n}\n}\n.message-intro {\r\n  margin-top: 250px;\r\n  background: transparent;\r\n  padding: 0;\r\n  margin-bottom: 50px;\n}\n@media (max-width: 690px) {\n.message-intro {\r\n    margin-top: 250px;\r\n    background: rgba(64, 64, 64, 0.7);\r\n    padding: 2%;\r\n    border-radius: 5px;\n}\n}\nli {\r\n  list-style: none;\n}\n.jumbotron {\r\n  margin-bottom: 0;\n}\n.fa-check {\r\n  color: #62f442;\n}\n.get-touch {\r\n  margin-top: 50px;\n}\n.choose-us {\r\n  margin-bottom: 50px;\n}\n.button-social,\r\n.button-social:focus {\r\n  background: #db4437;\r\n  color: #fff;\r\n  outline: none;\r\n  border: none;\n}\n.touch-box {\r\n  background: #404040;\r\n  padding: 2%;\n}\n.touch-box .title {\r\n  color: #fff;\n}\n.services .title {\r\n  color: #404040;\n}\n.touch-box button {\r\n  border: none;\r\n  outline: none;\r\n  width: 70%;\n}\n.services {\r\n  background: #fff;\r\n  padding: 2%;\n}\n.intro-product {\r\n  background: #727171;\r\n  min-height: 100px;\r\n  width: 100%;\r\n  color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.showcase {\r\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3.jpg */ "./storage/app/public/img/bg-img/bg-new3.jpg")) + ");\r\n  background-repeat: no-repeat;\r\n  background-size: 100% auto;\r\n  position: relative;\r\n  width: 100%;\r\n  min-height: 100vh;\r\n  margin: 0;\r\n  padding: 0;\n}\n@media (max-width: 1000px) {\n.showcase {\r\n    min-height: 70vh;\r\n    margin-top: 70px;\n}\n}\n@media (max-width: 540px) {\n.showcase {\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../../public/storage/img/bg-img/bg-new3-center.jpg */ "./storage/app/public/img/bg-img/bg-new3-center.jpg")) + ");\n}\n}\n.message-intro {\r\n  margin-top: 250px;\r\n  background: transparent;\r\n  padding: 0;\r\n  margin-bottom: 50px;\n}\n@media (max-width: 690px) {\n.message-intro {\r\n    margin-top: 250px;\r\n    background: rgba(64, 64, 64, 0.7);\r\n    padding: 2%;\r\n    border-radius: 5px;\n}\n}\nli {\r\n  list-style: none;\n}\n.jumbotron {\r\n  margin-bottom: 0;\n}\n.fa-check {\r\n  color: #62f442;\n}\n.get-touch {\r\n  margin-top: 50px;\n}\n.choose-us {\r\n  margin-bottom: 50px;\n}\n.button-social,\r\n.button-social:focus {\r\n  background: #db4437;\r\n  color: #fff;\r\n  outline: none;\r\n  border: none;\n}\n.touch-box {\r\n  background: #404040;\r\n  padding: 2%;\n}\n.touch-box .title {\r\n  color: #fff;\n}\n.services .title {\r\n  color: #404040;\n}\n.touch-box button {\r\n  border: none;\r\n  outline: none;\r\n  width: 70%;\n}\n.services {\r\n  background: #fff;\r\n  padding: 2%;\n}\n.intro-product {\r\n  background: #727171;\r\n  min-height: 100px;\r\n  width: 100%;\r\n  color: #fff;\n}\r\n", ""]);
 
 // exports
 
@@ -8276,7 +8276,7 @@ var render = function() {
             _c("img", {
               staticClass: "brand-logo",
               attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./public/storage/img/core-img/LOGO3.png"),
+                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./storage/app/public/img/core-img/LOGO3.png"),
                 alt: ""
               }
             })
@@ -8769,39 +8769,6 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ "./public/storage/img/bg-img/bg-new3-center.jpg":
-/*!******************************************************!*\
-  !*** ./public/storage/img/bg-img/bg-new3-center.jpg ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bg-new3-center.jpg?3db64ab9248172bc30f55cd7fb716442";
-
-/***/ }),
-
-/***/ "./public/storage/img/bg-img/bg-new3.jpg":
-/*!***********************************************!*\
-  !*** ./public/storage/img/bg-img/bg-new3.jpg ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bg-new3.jpg?a1936626bbdc489fd8a750b0b3f32e23";
-
-/***/ }),
-
-/***/ "./public/storage/img/core-img/LOGO3.png":
-/*!***********************************************!*\
-  !*** ./public/storage/img/core-img/LOGO3.png ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
-
-/***/ }),
-
 /***/ "./resources/js/components/FooterComponent.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/FooterComponent.vue ***!
@@ -9168,6 +9135,39 @@ Vue.component('index-component', __webpack_require__(/*! ./components/IndexCompo
 var index = new Vue({
   el: '#index'
 });
+
+/***/ }),
+
+/***/ "./storage/app/public/img/bg-img/bg-new3-center.jpg":
+/*!**********************************************************!*\
+  !*** ./storage/app/public/img/bg-img/bg-new3-center.jpg ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bg-new3-center.jpg?3db64ab9248172bc30f55cd7fb716442";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/bg-img/bg-new3.jpg":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/bg-img/bg-new3.jpg ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bg-new3.jpg?a1936626bbdc489fd8a750b0b3f32e23";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/core-img/LOGO3.png":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 

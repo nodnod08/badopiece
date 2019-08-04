@@ -25,7 +25,7 @@
             </thead>
             <tbody>
               <tr
-                v-if="transactions.data"
+                v-if="transactions.data.length != 0"
                 v-for="(transaction, index) in transactions.data"
                 v-bind:key="index"
               >
@@ -45,7 +45,7 @@
                 <td>{{ transaction.payment_status.status }}</td>
                 <td>{{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}</td>
               </tr>
-              <tr>
+              <tr v-else>
                 <td colspan="8">
                   <b>No transactions found</b>
                 </td>

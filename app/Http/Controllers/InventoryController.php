@@ -6,18 +6,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
 use App\Products;
+use App\Categories;
 use DB;
 
 class InventoryController extends Controller
 {
-    public function getInventories()
+    public function getInventories($year, $from, $to)
     {
         // ($month == "current")? $month = 'current' : $month;
         // ($month == "current")? $counter = 12 : $counter = 0;
 
         // ($month == 'current')? $number_of_days = Carbon::now()->daysInMonth : $number_of_days = Carbon::parse($year.'-'.$month.'-01')->daysInMonth;
-        // $from = $from.' 00:00:00';
-        // $to = $to.' 23:59:59';
+        $from = $from.' 00:00:00';
+        $to = $to.' 23:59:59';
         $labels = [];
         $month = 0;
         $datas = [];
@@ -29,24 +30,62 @@ class InventoryController extends Controller
                                     'products.product_stocks',
                                     'products.product_category',
                                     'products.product_id',
-                                    DB::raw('SUM(products.product_stocks) stocks')
+                                    DB::raw('SUM(products.product_stocks) stocks'),
+                                    DB::raw('DAY(products.created_at) day'),
+                                    'products.created_at'
                                     )
-                                // ->whereBetween('products.created_at', [$from, $to])
-                                ->groupBy(['products.product_category'])
+                                ->whereBetween('products.created_at', [$from, $to])
+                                ->orderBy('products.created_at')
+                                ->groupBy(['day', 'products.product_category'])
                                 ->get();
-        // $vendors = $inventories->unique('details.vendor')->get('details.vendor', 'quantity');
 
-        // return $inventories;
         foreach ($inventories as $key => $value) {
             $datas = [
                 'category' => $value->category,
                 'quantity' => (int)$value->stocks,
-                // 'date' => ($from == 'not day' && $to == 'not day') ? Carbon::parse($value->created_at)->englishMonth : Carbon::parse($value->created_at)->englishMonth.' '.Carbon::parse($value->created_at)->day.', '.Carbon::parse($value->created_at)->year.' '.Carbon::parse($value->created_at)->englishDayOfWeek,
+                'date' => ($from == 'not day' && $to == 'not day') ? Carbon::parse($value->created_at)->englishMonth : Carbon::parse($value->created_at)->englishMonth.' '.Carbon::parse($value->created_at)->day.', '.Carbon::parse($value->created_at)->year.' '.Carbon::parse($value->created_at)->englishDayOfWeek,
             ];
             array_push($data, $datas);
-            array_push($labels, $value->category);
+            array_push($labels, "".($from == 'not day' && $to == 'not day') ? Carbon::parse($value->created_at)->englishMonth : Carbon::parse($value->created_at)->englishMonth.' '.Carbon::parse($value->created_at)->day.', '.Carbon::parse($value->created_at)->year.' '.Carbon::parse($value->created_at)->englishDayOfWeek."");
         }
         array_push($data, $labels);    
         return $data;
+    }
+
+    public function getCategories() {
+        $categories = Categories::all();
+        
+        return $categories;
+    }
+
+    public function addItem(Request $request) {
+        $filenameWithExtension = $request->image->getClientOriginalName();
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+        $extension = $request->image->getClientOriginalExtension();
+        $filenameToStore = $filename.'_'.time().'.'.$extension;
+        $path = $request->image->storeAs('public/img/offer-img', $filenameToStore);
+
+        $product = Products::create([
+            'product_photo' => $filenameToStore,
+            'product_name' => $request->name,
+            'product_code' => $request->code,
+            'product_price' => $request->price,
+            'product_price_previous' => $request->price,
+            'product_size' => '1',
+            'product_category' => $request->category,
+            'product_stocks' => $request->quantity,
+            'product_desc' => $request->description,
+            'product_date' => Carbon::now(),
+        ]);    
+        
+        return $product;
+    }
+
+    public function addCategory(Request $request) {
+        $category = Categories::create([
+            'category' => $request->category,
+        ]); 
+
+        return $category;
     }
 }

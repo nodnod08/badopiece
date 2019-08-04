@@ -31,6 +31,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
         #weatherWidget .currentDesc {
@@ -92,17 +93,18 @@
                     <li
                         class="{{ (Route::currentRouteName() == 'admin_index' || Route::currentRouteName() == 'admin_inventory') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon ti-bar-chart-alt"></i>Sales Dashboard</a>
+                            aria-expanded="false"> <i class="menu-icon ti-bar-chart-alt"></i>Dashboard Overview</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-bar-chart-o"></i><a href="/sales">Sales Overview</a></li>
                             <li><i class="fa fa-bar-chart-o"></i><a href="/inventory">Inventory Overview</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    <li
+                        class="{{ (Route::currentRouteName() == 'admin_add_inventory' || Route::currentRouteName() == 'admin_manage_inventory') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon ti-dropbox"></i>Inventory Settings</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-dropbox"></i><a href="tables-basic.html">Add New Item</a></li>
+                            <li><i class="fa fa-dropbox"></i><a href="/add-inventory">Add New Item</a></li>
                             <li><i class="fa fa-dropbox"></i><a href="tables-basic.html">Bulk Pricing</a></li>
                         </ul>
                     </li>
