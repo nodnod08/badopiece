@@ -445,8 +445,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -9174,11 +9172,14 @@ var render = function() {
                 [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.transactions.data, function(transaction, index) {
-                      return _vm.transactions.data.length != 0
-                        ? _c("tr", { key: index }, [
+                  _vm.transactions.data.length != 0
+                    ? _c(
+                        "tbody",
+                        _vm._l(_vm.transactions.data, function(
+                          transaction,
+                          index
+                        ) {
+                          return _c("tr", { key: index }, [
                             _c("td", [_vm._v(_vm._s(index + 1))]),
                             _vm._v(" "),
                             _c("td", [
@@ -9252,10 +9253,10 @@ var render = function() {
                               )
                             ])
                           ])
-                        : _c("tr", [_vm._m(1)])
-                    }),
-                    0
-                  )
+                        }),
+                        0
+                      )
+                    : _c("tbody", [_vm._m(1)])
                 ]
               ),
               _vm._v(" "),
@@ -9319,8 +9320,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", { attrs: { colspan: "8" } }, [
-      _c("b", [_vm._v("No transactions found")])
+    return _c("tr", [
+      _c("td", { attrs: { colspan: "8" } }, [
+        _c("b", [_vm._v("No transactions found")])
+      ])
     ])
   }
 ]

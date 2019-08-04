@@ -23,12 +23,8 @@
                 <th scope="col">Date Created</th>
               </tr>
             </thead>
-            <tbody>
-              <tr
-                v-if="transactions.data.length != 0"
-                v-for="(transaction, index) in transactions.data"
-                v-bind:key="index"
-              >
+            <tbody v-if="transactions.data.length != 0">
+              <tr v-for="(transaction, index) in transactions.data" v-bind:key="index">
                 <td>{{ index+1 }}</td>
                 <td>
                   <a :href="'/transaction/'+transaction.id">
@@ -45,7 +41,9 @@
                 <td>{{ transaction.payment_status.status }}</td>
                 <td>{{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}</td>
               </tr>
-              <tr v-else>
+            </tbody>
+            <tbody v-else>
+              <tr>
                 <td colspan="8">
                   <b>No transactions found</b>
                 </td>
