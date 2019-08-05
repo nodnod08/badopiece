@@ -88,4 +88,16 @@ class InventoryController extends Controller
 
         return $category;
     }
+
+    public function getAllItems() {
+        $inventories = Products::where('product_stocks','!=', null)
+                                ->with('category')
+                                ->get();
+
+
+        $inventories = collect($inventories->groupBy('category.category'));
+
+        return $inventories;
+
+    }
 }

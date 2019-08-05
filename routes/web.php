@@ -101,6 +101,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/add-inventory', function() {
             return view('admin.add_inventory');
         })->name('admin_add_inventory');
+        Route::get('/admin-manage', function() {
+            return view('admin.admin_manage');
+        })->name('admin_manage');
         Route::get('/sales', function() {
             return view('admin.index');
         })->name('admin_index');
@@ -116,5 +119,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('inventories/getCategories', 'InventoryController@getCategories');
         Route::post('inventories/addItem', 'InventoryController@addItem');
         Route::post('inventories/addCategory', 'InventoryController@addCategory');
+        Route::get('inventories/getAllItems', 'InventoryController@getAllItems');
     });
 });

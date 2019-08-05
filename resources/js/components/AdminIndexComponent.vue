@@ -28,7 +28,7 @@
             <div class="card-body">
               <div class="stat-widget-five">
                 <div class="stat-icon dib flat-color-2">
-                  <i class="pe-7s-cart"></i>
+                  <i class="ti-check-box"></i>
                 </div>
                 <div class="stat-content">
                   <div class="text-left dib">

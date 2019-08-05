@@ -30,6 +30,7 @@ mix.js(['resources/js/settings.js'], 'public/js/settings.js');
 mix.js(['resources/js/admin_index.js'], 'public/js/admin_index.js');
 mix.js(['resources/js/admin_login.js'], 'public/js/admin_login.js');
 mix.js(['resources/js/admin_inventory.js'], 'public/js/admin_inventory.js');
+mix.js(['resources/js/admin_manage.js'], 'public/js/admin_manage.js');
 mix.js(
     ['resources/js/admin_add_inventory.js'],
     'public/js/admin_add_inventory.js'

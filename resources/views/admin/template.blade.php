@@ -100,12 +100,12 @@
                         </ul>
                     </li>
                     <li
-                        class="{{ (Route::currentRouteName() == 'admin_add_inventory' || Route::currentRouteName() == 'admin_manage_inventory') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
+                        class="{{ (Route::currentRouteName() == 'admin_add_inventory' || Route::currentRouteName() == 'admin_manage') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon ti-dropbox"></i>Inventory Settings</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-dropbox"></i><a href="/add-inventory">Add New Item</a></li>
-                            <li><i class="fa fa-dropbox"></i><a href="tables-basic.html">Bulk Pricing</a></li>
+                            <li><i class="fa fa-dropbox"></i><a href="/admin-manage">Bulk Pricing</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
