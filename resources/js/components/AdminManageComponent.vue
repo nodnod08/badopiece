@@ -1,6 +1,88 @@
 <template>
   <div class="content">
     <div class="animated fadeIn">
+      <div
+        v-if="itemToEdit"
+        class="modal fade"
+        id="mediumModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="mediumModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mediumModalLabel">Edit {{ itemToEdit.product_name }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-6 mb-3">
+                  <label for>Product Name</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    v-model="itemToEdit.product_name"
+                  />
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for>Product Code</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    v-model="itemToEdit.product_code"
+                  />
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for>Product Price</label>
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    v-model="itemToEdit.product_price"
+                  />
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for>Product Quantity</label>
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    v-model="itemToEdit.product_stocks"
+                  />
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for>Product Description</label>
+                  <textarea class="form-control form-control-sm" v-model="itemToEdit.product_desc"></textarea>
+                </div>
+                <div class="col-lg-6 mb-3">
+                  <label for>Product Photo</label>
+                  <br />
+                  <img height="200" :src="'storage/img/offer-img/'+itemToEdit.product_photo" alt />
+                </div>
+                <div class="col-lg-12">
+                  <label for>Update Photo</label>
+                  <file-pond
+                    name="test"
+                    ref="pond"
+                    label-idle="Drop image here or click this..."
+                    allow-multiple="false"
+                    accepted-file-types="image/jpeg, image/png, image/jpg"
+                    v-bind:files="myFiles"
+                    v-model="file"
+                    v-on:init="handleFilePondInit"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" v-on:click="updateItem()" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="card">
@@ -151,13 +233,18 @@
                       </div>
                       <div style="margin-top: 8px;" class="col-lg-4">
                         <input
+                          :id="'price'+index"
                           type="number"
                           class="form-control form-control-sm"
                           placeholder="Set default Price"
                         />
                       </div>
                       <div class="col-lg-4">
-                        <button type="button" class="btn btn-success btn-sm">Set Price</button>
+                        <button
+                          type="button"
+                          v-on:click="setPrice(index,'price'+index)"
+                          class="btn btn-success btn-sm"
+                        >Set Price</button>
                       </div>
                     </div>
                   </h2>
@@ -197,7 +284,8 @@
                                   type="button"
                                   class="btn btn-primary btn-sm"
                                   data-toggle="modal"
-                                  data-target="#item"
+                                  data-target="#mediumModal"
+                                  v-on:click="setItem(data)"
                                 >
                                   <i class="ti-pencil-alt"></i>
                                 </button>
@@ -223,16 +311,30 @@
 </template>
 
 <script>
+import vueFilePond from "vue-filepond";
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+const FilePond = vueFilePond(
+  FilePondPluginFileValidateType,
+  FilePondPluginImagePreview
+);
 import DatePicker from "vuejs-datepicker";
 import moment from "moment";
 import _ from "lodash";
 export default {
   components: {
-    datepicker: DatePicker
+    datepicker: DatePicker,
+    FilePond
   },
   data() {
     return {
-      allItems: {}
+      allItems: {},
+      itemToEdit: {},
+      form: new FormData(),
+      file: [],
+      price: 0
     };
   },
   created() {
@@ -243,6 +345,61 @@ export default {
       await axios.get("/inventories/getAllItems").then(response => {
         this.allItems = response.data;
         console.log(response.data);
+      });
+    },
+    setItem: async function(data) {
+      this.itemToEdit = await data;
+    },
+    updateItem: async function() {
+      this.photoError1 = false;
+      if (this.file.length != 0) {
+        this.form.append("image", this.file[0].file);
+      }
+      this.form.append("id", this.itemToEdit.product_id);
+      this.form.append("name", this.itemToEdit.product_name);
+      this.form.append("code", this.itemToEdit.product_code);
+      this.form.append("price", this.itemToEdit.product_price);
+      this.form.append("category", this.itemToEdit.product_category);
+      this.form.append("quantity", this.itemToEdit.product_stocks);
+      this.form.append("description", this.itemToEdit.product_desc);
+      const config = {
+        header: {
+          "Content-Type": "multipart/form-data"
+        }
+      };
+      axios
+        .post("/inventories/updateItem", this.form, config)
+        .then(response => {
+          this.getAllItems();
+          swal("", "Item successfully added.", "success");
+        });
+    },
+    setPrice: async function(index, id) {
+      var price = document.getElementById(id).value;
+      await swal({
+        title: "Do you really want to proceed?",
+        text: "All items of " + index + " category will be updated",
+        icon: "info",
+        buttons: true,
+        dangerMode: true,
+        closeOnClickOutside: false
+      }).then(success => {
+        if (success) {
+          axios
+            .post("/inventories/defaultPrice", {
+              category: index,
+              price: price
+            })
+            .then(response => {
+              swal(
+                "",
+                "Price for " + index + " category has been updated.",
+                "success"
+              );
+              console.log(response.data);
+              this.getAllItems();
+            });
+        }
       });
     }
   }

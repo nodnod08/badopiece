@@ -118,7 +118,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('inventories/{year}/{from}/{to}', 'InventoryController@getInventories');
         Route::get('inventories/getCategories', 'InventoryController@getCategories');
         Route::post('inventories/addItem', 'InventoryController@addItem');
+        Route::post('inventories/updateItem', 'InventoryController@updateItem');
         Route::post('inventories/addCategory', 'InventoryController@addCategory');
+        Route::post('inventories/defaultPrice', 'InventoryController@defaultPrice');
         Route::get('inventories/getAllItems', 'InventoryController@getAllItems');
     });
 });

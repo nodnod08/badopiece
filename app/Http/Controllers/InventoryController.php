@@ -100,4 +100,56 @@ class InventoryController extends Controller
         return $inventories;
 
     }
+
+    public function updateItem(Request $request) {
+        if ($request->hasFile('image')) {
+            $filenameWithExtension = $request->image->getClientOriginalName();
+            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+            $extension = $request->image->getClientOriginalExtension();
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->image->storeAs('public/img/offer-img', $filenameToStore);
+
+            $product = Products::where('product_id', $request->id)
+                            ->update([
+                                'product_photo' => $filenameToStore,
+                                'product_name' => $request->name,
+                                'product_code' => $request->code,
+                                'product_price' => $request->price,
+                                'product_price_previous' => $request->price,
+                                'product_size' => '1',
+                                'product_category' => $request->category,
+                                'product_stocks' => $request->quantity,
+                                'product_desc' => $request->description,
+                                'product_date' => Carbon::now(),
+                            ]);    
+        } else {
+            $product = Products::where('product_id', $request->id)
+                            ->update([
+                                'product_name' => $request->name,
+                                'product_code' => $request->code,
+                                'product_price' => $request->price,
+                                'product_price_previous' => $request->price,
+                                'product_size' => '1',
+                                'product_category' => $request->category,
+                                'product_stocks' => $request->quantity,
+                                'product_desc' => $request->description,
+                                'product_date' => Carbon::now(),
+                            ]);    
+        }
+
+        
+        return $product;
+    }
+
+    public function defaultPrice(Request $request) {
+        $category = Categories::where('category', $request->category)->get();
+        
+        foreach ($category as $key => $value) {
+            $inventory = Products::where('product_category', $value->id)
+                                   ->update([
+                                       'product_price' => $request->price
+                                   ]);
+            return $inventory;                       
+        }
+    }
 }
