@@ -20,4 +20,9 @@ class Items extends Model
     {
         return $this->belongsTo('App\Transactions', 'transaction_id');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Products', 'product_id');
+    }
 }

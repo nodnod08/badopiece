@@ -435,13 +435,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -462,11 +455,23 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
       itemToEdit: {},
       form: new FormData(),
       file: [],
-      price: 0
+      price: 0,
+      countDress: 0,
+      countPolo: 0,
+      countShort: 0,
+      countShoes: 0,
+      countBags: 0,
+      countJackets: 0
     };
   },
   created: function created() {
     this.getAllItems();
+    this.getDress();
+    this.getPolo();
+    this.getShort();
+    this.getShoes();
+    this.getBags();
+    this.getJackets();
   },
   methods: {
     getAllItems: function () {
@@ -499,29 +504,115 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
 
       return getAllItems;
     }(),
-    setItem: function () {
-      var _setItem = _asyncToGenerator(
+    remove: function () {
+      var _remove = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(data) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+        var _this2 = this;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return data;
+                return swal({
+                  title: "Are you sure?",
+                  text: "You want to delete this item?",
+                  icon: "info",
+                  buttons: true,
+                  dangerMode: true,
+                  closeOnClickOutside: false
+                }).then(function (success) {
+                  if (success) {
+                    axios.post("/inventories/remove", {
+                      id: id
+                    }).then(function (response) {
+                      swal("", "Item has been deleted.", "success"); // console.log(response.data);
+
+                      _this2.getAllItems();
+                    });
+                  }
+                });
 
               case 2:
-                this.itemToEdit = _context2.sent;
-
-              case 3:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee2);
       }));
 
-      function setItem(_x) {
+      function remove(_x) {
+        return _remove.apply(this, arguments);
+      }
+
+      return remove;
+    }(),
+    getDress: function getDress() {
+      var _this3 = this;
+
+      axios.get("/inventories/getDress").then(function (response) {
+        _this3.countDress = response.data;
+      });
+    },
+    getPolo: function getPolo() {
+      var _this4 = this;
+
+      axios.get("/inventories/getShort").then(function (response) {
+        _this4.countPolo = response.data;
+      });
+    },
+    getBags: function getBags() {
+      var _this5 = this;
+
+      axios.get("/inventories/getBags").then(function (response) {
+        _this5.countBags = response.data;
+      });
+    },
+    getShoes: function getShoes() {
+      var _this6 = this;
+
+      axios.get("/inventories/getShoes").then(function (response) {
+        _this6.countShoes = response.data;
+      });
+    },
+    getShort: function getShort() {
+      var _this7 = this;
+
+      axios.get("/inventories/getShort").then(function (response) {
+        _this7.countShort = response.data;
+      });
+    },
+    getJackets: function getJackets() {
+      var _this8 = this;
+
+      axios.get("/inventories/getJackets").then(function (response) {
+        _this8.countJackets = response.data;
+      });
+    },
+    setItem: function () {
+      var _setItem = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(data) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return data;
+
+              case 2:
+                this.itemToEdit = _context3.sent;
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function setItem(_x2) {
         return _setItem.apply(this, arguments);
       }
 
@@ -530,13 +621,13 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
     updateItem: function () {
       var _updateItem = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var _this2 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this9 = this;
 
         var config;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 this.photoError1 = false;
 
@@ -557,17 +648,17 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
                   }
                 };
                 axios.post("/inventories/updateItem", this.form, config).then(function (response) {
-                  _this2.getAllItems();
+                  _this9.getAllItems();
 
                   swal("", "Item successfully added.", "success");
                 });
 
               case 11:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
       function updateItem() {
@@ -579,16 +670,16 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
     setPrice: function () {
       var _setPrice = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(index, id) {
-        var _this3 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(index, id) {
+        var _this10 = this;
 
         var price;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 price = document.getElementById(id).value;
-                _context4.next = 3;
+                _context5.next = 3;
                 return swal({
                   title: "Do you really want to proceed?",
                   text: "All items of " + index + " category will be updated",
@@ -605,20 +696,20 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
                       swal("", "Price for " + index + " category has been updated.", "success");
                       console.log(response.data);
 
-                      _this3.getAllItems();
+                      _this10.getAllItems();
                     });
                   }
                 });
 
               case 3:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }));
 
-      function setPrice(_x2, _x3) {
+      function setPrice(_x3, _x4) {
         return _setPrice.apply(this, arguments);
       }
 
@@ -49517,11 +49608,157 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.countDress).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("Dress Overall")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.countShoes).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("Shoes Overall")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.countBags).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("Bags Overall")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.countShort).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("Shorts Overall")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(Number(_vm.countPolo).toLocaleString()))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("Polos Overall")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "stat-widget-five" }, [
+                _vm._m(6),
+                _vm._v(" "),
+                _c("div", { staticClass: "stat-content" }, [
+                  _c("div", { staticClass: "text-left dib" }, [
+                    _c("div", { staticClass: "stat-text" }, [
+                      _c("span", [
+                        _vm._v(
+                          _vm._s(Number(_vm.countJackets).toLocaleString())
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "stat-heading" }, [
+                      _vm._v("Jackets Overall")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "all-in bg-white" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(2),
+          _vm._m(7),
           _vm._v(" "),
           _c("div", { staticClass: "col-lg-12" }, [
             _c(
@@ -49624,7 +49861,7 @@ var render = function() {
                           _c("div", { staticClass: "row" }, [
                             _c("div", { staticClass: "col-lg-12" }, [
                               _c("table", { staticClass: "table" }, [
-                                _vm._m(3, true),
+                                _vm._m(8, true),
                                 _vm._v(" "),
                                 _c(
                                   "tbody",
@@ -49632,7 +49869,22 @@ var render = function() {
                                   _vm._l(item, function(data, index) {
                                     return _c("tr", { key: index }, [
                                       _c("th", [
-                                        _vm._m(4, true),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-danger btn-sm",
+                                            attrs: { type: "button" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.remove(
+                                                  data.product_id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_c("i", { staticClass: "ti-trash" })]
+                                        ),
                                         _vm._v(" "),
                                         _c(
                                           "button",
@@ -49716,150 +49968,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "stat-widget-five" }, [
-              _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                _c("i", { staticClass: "ti-star" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "stat-content" }, [
-                _c("div", { staticClass: "text-left dib" }, [
-                  _c("div", { staticClass: "stat-text" }, [
-                    _vm._v("\n                    ₱\n                    ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-heading" }, [
-                    _vm._v("Dress Overall")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "stat-widget-five" }, [
-              _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                _c("i", { staticClass: "ti-star" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "stat-content" }, [
-                _c("div", { staticClass: "text-left dib" }, [
-                  _c("div", { staticClass: "stat-text" }, [
-                    _vm._v("\n                    ₱\n                    ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-heading" }, [
-                    _vm._v("Shoes Overall")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "stat-widget-five" }, [
-              _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                _c("i", { staticClass: "ti-star" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "stat-content" }, [
-                _c("div", { staticClass: "text-left dib" }, [
-                  _c("div", { staticClass: "stat-text" }, [
-                    _vm._v("\n                    ₱\n                    ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-heading" }, [
-                    _vm._v("Bags Overall")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "stat-widget-five" }, [
-              _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                _c("i", { staticClass: "ti-star" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "stat-content" }, [
-                _c("div", { staticClass: "text-left dib" }, [
-                  _c("div", { staticClass: "stat-text" }, [
-                    _vm._v("\n                    ₱\n                    ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-heading" }, [
-                    _vm._v("Shorts Overall")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "stat-widget-five" }, [
-              _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                _c("i", { staticClass: "ti-star" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "stat-content" }, [
-                _c("div", { staticClass: "text-left dib" }, [
-                  _c("div", { staticClass: "stat-text" }, [
-                    _vm._v("\n                    ₱\n                    ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-heading" }, [
-                    _vm._v("Polos Overall")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "stat-widget-five" }, [
-              _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
-                _c("i", { staticClass: "ti-star" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "stat-content" }, [
-                _c("div", { staticClass: "text-left dib" }, [
-                  _c("div", { staticClass: "stat-text" }, [
-                    _vm._v("\n                    ₱\n                    ")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "stat-heading" }, [
-                    _vm._v("Jackets Overall")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "ti-star" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "ti-star" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "ti-star" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "ti-star" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "ti-star" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "stat-icon dib flat-color-2" }, [
+      _c("i", { staticClass: "ti-star" })
     ])
   },
   function() {
@@ -49887,23 +50037,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Stocks")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-danger btn-sm",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#item"
-        }
-      },
-      [_c("i", { staticClass: "ti-trash" })]
-    )
   }
 ]
 render._withStripped = true

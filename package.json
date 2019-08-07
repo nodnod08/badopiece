@@ -43,6 +43,7 @@
         "vue-material": "^1.0.0-beta-10.2",
         "vue-slider-component": "^3.0.33",
         "vue-zoom": "^1.1.0",
+        "vuejs-datatable": "^1.7.0",
         "vuejs-datepicker": "^1.6.2",
         "vuejs-dialog": "^1.4.0"
     }

@@ -94,8 +94,7 @@
                 <div class="stat-content">
                   <div class="text-left dib">
                     <div class="stat-text">
-                      &#8369;
-                      <!-- <span>{{ Number(monthPaids).toLocaleString() }}</span> -->
+                      <span>{{ Number(countDress).toLocaleString() }}</span>
                     </div>
                     <div class="stat-heading">Dress Overall</div>
                   </div>
@@ -114,8 +113,7 @@
                 <div class="stat-content">
                   <div class="text-left dib">
                     <div class="stat-text">
-                      &#8369;
-                      <!-- <span>{{ Number(monthPaids).toLocaleString() }}</span> -->
+                      <span>{{ Number(countShoes).toLocaleString() }}</span>
                     </div>
                     <div class="stat-heading">Shoes Overall</div>
                   </div>
@@ -134,8 +132,7 @@
                 <div class="stat-content">
                   <div class="text-left dib">
                     <div class="stat-text">
-                      &#8369;
-                      <!-- <span>{{ Number(monthPaids).toLocaleString() }}</span> -->
+                      <span>{{ Number(countBags).toLocaleString() }}</span>
                     </div>
                     <div class="stat-heading">Bags Overall</div>
                   </div>
@@ -154,8 +151,7 @@
                 <div class="stat-content">
                   <div class="text-left dib">
                     <div class="stat-text">
-                      &#8369;
-                      <!-- <span>{{ Number(monthPaids).toLocaleString() }}</span> -->
+                      <span>{{ Number(countShort).toLocaleString() }}</span>
                     </div>
                     <div class="stat-heading">Shorts Overall</div>
                   </div>
@@ -174,8 +170,7 @@
                 <div class="stat-content">
                   <div class="text-left dib">
                     <div class="stat-text">
-                      &#8369;
-                      <!-- <span>{{ Number(monthPaids).toLocaleString() }}</span> -->
+                      <span>{{ Number(countPolo).toLocaleString() }}</span>
                     </div>
                     <div class="stat-heading">Polos Overall</div>
                   </div>
@@ -194,8 +189,7 @@
                 <div class="stat-content">
                   <div class="text-left dib">
                     <div class="stat-text">
-                      &#8369;
-                      <!-- <span>{{ Number(monthPaids).toLocaleString() }}</span> -->
+                      <span>{{ Number(countJackets).toLocaleString() }}</span>
                     </div>
                     <div class="stat-heading">Jackets Overall</div>
                   </div>
@@ -275,8 +269,7 @@
                                 <button
                                   type="button"
                                   class="btn btn-danger btn-sm"
-                                  data-toggle="modal"
-                                  data-target="#item"
+                                  v-on:click="remove(data.product_id)"
                                 >
                                   <i class="ti-trash"></i>
                                 </button>
@@ -334,17 +327,81 @@ export default {
       itemToEdit: {},
       form: new FormData(),
       file: [],
-      price: 0
+      price: 0,
+      countDress: 0,
+      countPolo: 0,
+      countShort: 0,
+      countShoes: 0,
+      countBags: 0,
+      countJackets: 0
     };
   },
   created() {
     this.getAllItems();
+    this.getDress();
+    this.getPolo();
+    this.getShort();
+    this.getShoes();
+    this.getBags();
+    this.getJackets();
   },
   methods: {
     getAllItems: async function() {
       await axios.get("/inventories/getAllItems").then(response => {
         this.allItems = response.data;
         console.log(response.data);
+      });
+    },
+    remove: async function(id) {
+      await swal({
+        title: "Are you sure?",
+        text: "You want to delete this item?",
+        icon: "info",
+        buttons: true,
+        dangerMode: true,
+        closeOnClickOutside: false
+      }).then(success => {
+        if (success) {
+          axios
+            .post("/inventories/remove", {
+              id: id
+            })
+            .then(response => {
+              swal("", "Item has been deleted.", "success");
+              // console.log(response.data);
+              this.getAllItems();
+            });
+        }
+      });
+    },
+    getDress: function() {
+      axios.get("/inventories/getDress").then(response => {
+        this.countDress = response.data;
+      });
+    },
+    getPolo: function() {
+      axios.get("/inventories/getShort").then(response => {
+        this.countPolo = response.data;
+      });
+    },
+    getBags: function() {
+      axios.get("/inventories/getBags").then(response => {
+        this.countBags = response.data;
+      });
+    },
+    getShoes: function() {
+      axios.get("/inventories/getShoes").then(response => {
+        this.countShoes = response.data;
+      });
+    },
+    getShort: function() {
+      axios.get("/inventories/getShort").then(response => {
+        this.countShort = response.data;
+      });
+    },
+    getJackets: function() {
+      axios.get("/inventories/getJackets").then(response => {
+        this.countJackets = response.data;
       });
     },
     setItem: async function(data) {
