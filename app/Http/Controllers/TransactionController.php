@@ -21,6 +21,12 @@ class TransactionController extends Controller
         return view('transaction')->with('id', $transactionId);
     }
 
+    public function perTransactionView($transactionId) {
+        $id = $transactionId;
+
+        return view('admin.perTransaction')->with('id', $transactionId);
+    }
+
     public function sendTransaction(Request $request) {
         $transaction['email'] = $request->email;
         $transaction['data'] = $request->data;
@@ -61,7 +67,25 @@ class TransactionController extends Controller
         return $transactions;
     }
 
+    public function getOverAllTransactions() {
+        $transactions = Transactions::with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
+                                    ->orderBy('created_at', 'ASC')
+                                    ->paginate(10);
+
+        return $transactions;
+    }
+
     public function getTransaction($transactionId) {
+        $id = $transactionId;
+
+        $transaction = Transactions::where('id', $id)
+                                    ->with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
+                                    ->get();
+
+        return $transaction;                            
+    }
+
+    public function perTransaction($transactionId) {
         $id = $transactionId;
 
         $transaction = Transactions::where('id', $id)

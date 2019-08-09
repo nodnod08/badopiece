@@ -10,6 +10,8 @@
     "/js/billing.js": "/js/billing.js",
     "/js/cart.js": "/js/cart.js",
     "/js/index.js": "/js/index.js",
+    "/js/overall.js": "/js/overall.js",
+    "/js/perTransaction.js": "/js/perTransaction.js",
     "/js/products.js": "/js/products.js",
     "/js/settings.js": "/js/settings.js",
     "/js/signin.js": "/js/signin.js",

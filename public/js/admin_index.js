@@ -244,6 +244,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -343,6 +384,81 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           offsetY: -18,
           offsetX: -5
         }
+      },
+      manifest: {
+        chart: {
+          background: "#fff",
+          height: "400",
+          width: "100%",
+          type: "line",
+          shadow: {
+            enabled: true,
+            color: "#000",
+            top: 18,
+            left: 7,
+            blur: 10,
+            opacity: 1
+          },
+          toolbar: {
+            show: true
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function formatter(val, opts) {
+            return val.toLocaleString();
+          }
+        },
+        stroke: {
+          curve: "smooth"
+        },
+        series: [],
+        title: {
+          text: "Most Purchased Item",
+          align: "left"
+        },
+        grid: {
+          borderColor: "#e7e7e7",
+          row: {
+            colors: ["#f3f3f3", "transparent"],
+            // takes an array which will be repeated on columns
+            opacity: 0.5
+          }
+        },
+        markers: {
+          size: 6
+        },
+        xaxis: {
+          categories: [],
+          title: {
+            text: "Date(s)"
+          }
+        },
+        yaxis: {
+          labels: {
+            formatter: function formatter(value) {
+              return "₱ " + value.toLocaleString();
+            },
+            style: {
+              fontSize: "15px",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              cssClass: "apexcharts-yaxis-label"
+            },
+            title: {
+              text: "Overall Amount"
+            }
+          },
+          title: {
+            text: "Overall Amount"
+          }
+        },
+        legend: {
+          position: "top",
+          horizontalAlign: "right",
+          floating: true,
+          offsetY: -18,
+          offsetX: -5
+        }
       }
     };
   },
@@ -353,6 +469,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.getMonthPaids();
     this.getMonthSales();
     this.getData();
+    this.getItems();
   },
   methods: {
     getYear: function getYear() {
@@ -560,6 +677,119 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getData;
+    }(),
+    getItems: function () {
+      var _getItems = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this5 = this;
+
+        var self, from, to, url, Prices, borderColor, backgroundColor, datas, datasArray;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                self = this;
+                self.datasArray = [];
+                typeof self.year == "undefined" || self.year == "" ? self.year = new Date().getFullYear() : self.year;
+                from = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.dateFrom.date).format("YYYY-MM-DD");
+                to = moment__WEBPACK_IMPORTED_MODULE_2___default()(this.dateTo.date).format("YYYY-MM-DD");
+                url = "/inventories/item/" + self.year + "/" + from + "/" + to;
+                Prices = "";
+                borderColor = "";
+                backgroundColor = "";
+                datas = {};
+                datasArray = [];
+                _context3.next = 13;
+                return axios.get(url).then(function (response) {
+                  console.log(response.data);
+                  var data = response.data;
+                  _this5.Labels = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(data[data.length - 1]);
+                  _this5.manifest = _objectSpread({}, _this5.manifest, {
+                    xaxis: {
+                      categories: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(data[data.length - 1])
+                    }
+                  });
+                  data.splice(data.length - 1, 1);
+                  var datas = {};
+
+                  if (data) {
+                    var datasets = [];
+
+                    var groupName = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(data).groupBy("category").value(); // console.log(groupName);
+
+
+                    var self = _this5;
+
+                    var _arr5 = Object.entries(groupName);
+
+                    for (var _i5 = 0; _i5 < _arr5.length; _i5++) {
+                      var _arr5$_i = _slicedToArray(_arr5[_i5], 2),
+                          key = _arr5$_i[0],
+                          value = _arr5$_i[1];
+
+                      var groupDate = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(value).groupBy("date").map(function (objs, key1) {
+                        return {
+                          category: objs[0].category,
+                          date: objs[0].date,
+                          price: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sumBy(objs, "price")
+                        };
+                      }).value(); // console.log(ind)
+
+
+                      var _arr6 = Object.entries(self.Labels);
+
+                      var _loop2 = function _loop2() {
+                        var _arr6$_i = _slicedToArray(_arr6[_i6], 2),
+                            key2 = _arr6$_i[0],
+                            value2 = _arr6$_i[1];
+
+                        toFind = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.result(lodash__WEBPACK_IMPORTED_MODULE_3___default.a.find(groupDate, function (obj) {
+                          return obj.date === value2;
+                        }), "price"); // console.log(name)
+
+                        if (typeof toFind != "undefined") {
+                          datasets.push(toFind);
+                        } else {
+                          datasets.push("0");
+                        }
+                      };
+
+                      for (var _i6 = 0; _i6 < _arr6.length; _i6++) {
+                        var toFind;
+
+                        _loop2();
+                      }
+
+                      datas = {
+                        name: key,
+                        data: datasets
+                      };
+                      datasArray.push(datas);
+                      datas = {};
+                      datasets = [];
+                    } // datasArray = _.sortBy(datasArray, "name");
+
+
+                    _this5.manifest = _objectSpread({}, _this5.manifest, {
+                      series: datasArray
+                    }); // console.log(datasArray);
+                  }
+                });
+
+              case 13:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function getItems() {
+        return _getItems.apply(this, arguments);
+      }
+
+      return getItems;
     }()
   }
 });
@@ -36202,6 +36432,96 @@ var render = function() {
             })
           ],
           1
+        ),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4" }, [
+          _c("label", { attrs: { for: "" } }, [_vm._v("From:")]),
+          _vm._v(" "),
+          _c(
+            "span",
+            [
+              _c("datepicker", {
+                attrs: {
+                  name: _vm.dateFrom.name,
+                  id: "date_from",
+                  "input-class": _vm.dateFrom.class
+                },
+                model: {
+                  value: _vm.dateFrom.date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.dateFrom, "date", $$v)
+                  },
+                  expression: "dateFrom.date"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4" }, [
+          _c("label", { attrs: { for: "" } }, [_vm._v("To:")]),
+          _vm._v(" "),
+          _c(
+            "span",
+            [
+              _c("datepicker", {
+                attrs: {
+                  name: _vm.dateTo.name,
+                  id: "date_to",
+                  "input-class": _vm.dateTo.class
+                },
+                model: {
+                  value: _vm.dateTo.date,
+                  callback: function($$v) {
+                    _vm.$set(_vm.dateTo, "date", $$v)
+                  },
+                  expression: "dateTo.date"
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-lg-4", staticStyle: { "margin-top": "31px" } },
+          [
+            _c("span", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-sm",
+                  on: {
+                    click: function($event) {
+                      return _vm.getItems()
+                    }
+                  }
+                },
+                [_vm._v("Search")]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-lg-12 mt-4" },
+          [
+            _c("apexchart", {
+              attrs: {
+                width: _vm.manifest.chart.width,
+                height: _vm.manifest.chart.height,
+                type: _vm.manifest.chart.type,
+                options: _vm.manifest,
+                series: _vm.manifest.series
+              }
+            })
+          ],
+          1
         )
       ])
     ])
@@ -36237,7 +36557,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12 mb-4" }, [
-      _c("h4", [_vm._v("Sales Dashboard")])
+      _c("h4", [_c("b", [_vm._v("Sales Dashboard")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 mt-4" }, [
+      _c("h4", [_c("b", [_vm._v("Most Purchased Items")])])
     ])
   }
 ]

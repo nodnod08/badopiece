@@ -110,11 +110,9 @@
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon ti-receipt"></i>Transactions</a>
+                            aria-expanded="false"> <i class="menu-icon ti-receipt"></i>Overall Transactions</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Transaction Statuses</a>
-                            </li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Transaction History</a>
+                            <li><i class="menu-icon fa fa-th"></i><a href="/overall-transactions">Transactions</a>
                             </li>
                         </ul>
                     </li>

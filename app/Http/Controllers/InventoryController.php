@@ -66,16 +66,16 @@ class InventoryController extends Controller
         $datas = [];
         $data = [];
         $data_quantity = [];
-        $inventories = Items::with('product.category')
+        $inventories = Items::join('products', 'items.product_id', '=', 'products.product_id')
+                                ->join('category', 'products.product_category', '=', 'category.id')
                                 ->select(
-                                    'category.*',
-                                    'items.*',
-                                    'products.product_stocks',
+                                    'category.category',
+                                    'items.product_quantity',
+                                    'items.created_at',
                                     'products.product_category',
-                                    'products.product_id',
                                     DB::raw('SUM(items.product_quantity) stocks'),
-                                    DB::raw('DAY(items.created_at) day'),
-                                    'items.created_at'
+                                    DB::raw('SUM(items.product_price) price'),
+                                    DB::raw('DAY(items.created_at) day')
                                     )
                                 ->whereBetween('items.created_at', [$from, $to])
                                 ->orderBy('items.created_at')
@@ -85,7 +85,7 @@ class InventoryController extends Controller
         foreach ($inventories as $key => $value) {
             $datas = [
                 'category' => $value->category,
-                'quantity' => (int)$value->stocks,
+                'price' => (int)$value->price,
                 'date' => ($from == 'not day' && $to == 'not day') ? Carbon::parse($value->created_at)->englishMonth : Carbon::parse($value->created_at)->englishMonth.' '.Carbon::parse($value->created_at)->day.', '.Carbon::parse($value->created_at)->year.' '.Carbon::parse($value->created_at)->englishDayOfWeek,
             ];
             array_push($data, $datas);

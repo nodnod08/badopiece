@@ -107,6 +107,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/sales', function() {
             return view('admin.index');
         })->name('admin_index');
+        Route::get('/overall-transactions', function() {
+            return view('admin.overall');
+        })->name('overall');
         Route::get('/logout', function() {
             Auth::logout();
             return redirect('/portal');
@@ -129,6 +132,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('inventories/getBags', 'InventoryController@getBags');
         Route::get('inventories/getShoes', 'InventoryController@getShoes');
         Route::get('inventories/getJackets', 'InventoryController@getJackets');
+        Route::get('/getOverAllTransactions', 'TransactionController@getOverAllTransactions');
+        Route::get('/perTransactionView/{transactionId}', 'TransactionController@perTransactionView')->name('perTransaction');
+        Route::get('/perTransaction/{transactionId}', 'TransactionController@perTransaction');
         Route::post('inventories/remove', 'InventoryController@remove');
     });
 });
