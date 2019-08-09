@@ -62,6 +62,7 @@ class TransactionController extends Controller
     public function getTransactions() {
         $transactions = Transactions::where('customer_id', Auth::user()->id)
                                     ->with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
+                                    ->orderBy('created_at', 'DESC')
                                     ->paginate(10);
 
         return $transactions;
@@ -69,7 +70,7 @@ class TransactionController extends Controller
 
     public function getOverAllTransactions() {
         $transactions = Transactions::with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
-                                    ->orderBy('created_at', 'ASC')
+                                    ->orderBy('created_at', 'DESC')
                                     ->paginate(10);
 
         return $transactions;

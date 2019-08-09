@@ -177,6 +177,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8421,7 +8427,32 @@ var render = function() {
                                     _vm._v(
                                       "\n                    View Transaction\n                    "
                                     ),
-                                    _c("i", { staticClass: "fas fa-file-alt" })
+                                    _c("i", { staticClass: "ti-file" })
+                                  ]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "/perTransactionView/" + transaction.id
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    class:
+                                      "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                                    attrs: { type: "submit" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                    Update Status\n                    "
+                                    ),
+                                    _c("i", { staticClass: "ti-panel" })
                                   ]
                                 )
                               ]

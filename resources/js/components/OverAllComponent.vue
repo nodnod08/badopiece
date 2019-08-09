@@ -29,7 +29,13 @@
                   <a :href="'/perTransactionView/'+transaction.id">
                     <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
                       View Transaction
-                      <i class="fas fa-file-alt"></i>
+                      <i class="ti-file"></i>
+                    </button>
+                  </a>
+                  <a :href="'/perTransactionView/'+transaction.id">
+                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
+                      Update Status
+                      <i class="ti-panel"></i>
                     </button>
                   </a>
                 </td>

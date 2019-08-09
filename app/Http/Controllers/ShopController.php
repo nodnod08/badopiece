@@ -24,7 +24,9 @@ class ShopController extends Controller
     }
 
     public function getProducts() {
-        $products = Products::where('product_stocks', '!=', 0)->with('category')->paginate(9);
+        $products = Products::where('product_stocks', '!=', 0)
+                            ->orderBy('created_at', 'DESC')
+                            ->with('category')->paginate(9);
 
         return $products;
     }
@@ -34,12 +36,14 @@ class ShopController extends Controller
             $products = Products::whereBetween('product_price',[$from, $to])
                             ->where('product_stocks', '!=', 0)
                             ->with('category')
+                            ->orderBy('created_at', 'DESC')
                             ->paginate(9);
         } else {
             $products = Products::whereBetween('product_price',[$from, $to])
                             ->where('product_category', $category)
                             ->where('product_stocks', '!=', 0)
                             ->with('category')
+                            ->orderBy('created_at', 'DESC')
                             ->paginate(9);
         }
 

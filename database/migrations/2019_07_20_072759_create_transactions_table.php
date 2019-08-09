@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->string('transaction_id');
             $table->string('transaction_type_id');
             $table->string('transaction_status_id');
+            $table->string('transaction_item_status_id');
             $table->string('payment_status_id');
             $table->integer('amount');
             $table->string('customer_id');
