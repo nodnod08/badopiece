@@ -183,6 +183,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -195,6 +204,7 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
       transactions: {},
       loading: false,
       cartCount: "",
+      searchId: "",
       month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     };
   },
@@ -262,6 +272,37 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
       }
 
       return getTransactions;
+    }(),
+    search: function () {
+      var _search = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        var page,
+            _args3 = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                page = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 1;
+                axios.get("/getOverAllTransactions/" + this.searchId + "?page=" + page).then(function (response) {
+                  _this3.transactions = response.data; // console.log(this.transactions);
+                });
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function search() {
+        return _search.apply(this, arguments);
+      }
+
+      return search;
     }()
   }
 });
@@ -8385,6 +8426,33 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "transactions container" }, [
       _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-6" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchId,
+                expression: "searchId"
+              }
+            ],
+            staticClass: "form-control form-control-sm mt-4 mb-3",
+            attrs: { type: "text", placeholder: "Search Transaction ID" },
+            domProps: { value: _vm.searchId },
+            on: {
+              keyup: function($event) {
+                return _vm.search()
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.searchId = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "col-lg-12" },

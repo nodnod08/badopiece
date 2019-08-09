@@ -76,6 +76,15 @@ class TransactionController extends Controller
         return $transactions;
     }
 
+    public function getOverAllTransactionSearch($search) {
+        $transactions = Transactions::with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
+                                    ->where('transaction_id', 'like', '%'.$search.'%')
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(10);
+
+        return $transactions;
+    }
+
     public function getTransaction($transactionId) {
         $id = $transactionId;
 

@@ -8,6 +8,15 @@
     </div>
     <div class="transactions container">
       <div class="row">
+        <div class="col-lg-6">
+          <input
+            type="text"
+            v-on:keyup="search()"
+            v-model="searchId"
+            class="form-control form-control-sm mt-4 mb-3"
+            placeholder="Search Transaction ID"
+          />
+        </div>
         <div class="col-lg-12">
           <table class="table table-hover table-bordered text-center mb-5">
             <thead class="thead-dark">
@@ -79,6 +88,7 @@ export default {
       transactions: {},
       loading: false,
       cartCount: "",
+      searchId: "",
       month: [
         "January",
         "February",
@@ -110,6 +120,14 @@ export default {
         this.transactions = response.data;
         // console.log(this.transactions);
       });
+    },
+    search: async function(page = 1) {
+      axios
+        .get("/getOverAllTransactions/" + this.searchId + "?page=" + page)
+        .then(response => {
+          this.transactions = response.data;
+          // console.log(this.transactions);
+        });
     }
   }
 };
