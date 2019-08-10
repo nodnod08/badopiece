@@ -17,7 +17,7 @@
           </h4>
         </div>
         <div class="col-lg-12 text-center">
-          <img :src="'/storage/img/core-img/status'+realId+'.png'" alt />
+          <img :src="'/storage/img/core-img/status'+transaction[0].item_status.id+'.png'" alt />
         </div>
       </div>
     </div>
@@ -47,8 +47,10 @@ export default {
     };
   },
   async created() {
+    // this.listen();
     this.countCart();
     await this.getTrasaction();
+    await this.startInterval();
   },
   methods: {
     countCart: async function() {
@@ -60,8 +62,18 @@ export default {
     getTrasaction: async function() {
       await axios.get("/getTransactionInfo/" + this.id).then(response => {
         this.transaction = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
+    },
+    listen() {
+      Echo.channel("transaction_31").listen("UpdateStatus", transaction => {
+        alert(transaction);
+      });
+    },
+    startInterval: function() {
+      setInterval(() => {
+        this.getTrasaction();
+      }, 1000);
     }
   }
 };

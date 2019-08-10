@@ -177,6 +177,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
@@ -1670,119 +1672,160 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("form", { attrs: { onsubmit: "false" } }, [
-              _c("div", { staticClass: "text-center" }, [
-                _vm.error
-                  ? _c("small", { staticClass: "error" }, [
-                      _vm._v("Your username or password is incorrect.")
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Username")]),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.attempt($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "text-center" }, [
+                  _vm.error
+                    ? _c("small", { staticClass: "error" }, [
+                        _vm._v("Your username or password is incorrect.")
+                      ])
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.username,
-                      expression: "username"
-                    },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: "'required'"
-                    }
-                  ],
-                  class: _vm.errors.first("username")
-                    ? "is-invalid form-control form-control-sm"
-                    : "form-control form-control-sm",
-                  attrs: {
-                    name: "username",
-                    type: "username",
-                    placeholder: "Username"
-                  },
-                  domProps: { value: _vm.username },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Username")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.username,
+                        expression: "username"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: "'required'"
                       }
-                      _vm.username = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.errors.first("username")
-                  ? _c("small", { staticClass: "invalid-feedback" }, [
-                      _vm._v(_vm._s(_vm.errors.first("username")))
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Password")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
+                    ],
+                    class: _vm.errors.first("username")
+                      ? "is-invalid form-control form-control-sm"
+                      : "form-control form-control-sm",
+                    attrs: {
+                      name: "username",
+                      type: "username",
+                      placeholder: "Username"
                     },
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: "'required'"
-                    }
-                  ],
-                  class: _vm.errors.first("password")
-                    ? "is-invalid form-control form-control-sm"
-                    : "form-control form-control-sm",
-                  attrs: {
-                    name: "password",
-                    type: "password",
-                    placeholder: "Password"
-                  },
-                  domProps: { value: _vm.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    domProps: { value: _vm.username },
+                    on: {
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.attempt()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.username = $event.target.value
                       }
-                      _vm.password = $event.target.value
                     }
-                  }
-                }),
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.first("username")
+                    ? _c("small", { staticClass: "invalid-feedback" }, [
+                        _vm._v(_vm._s(_vm.errors.first("username")))
+                      ])
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
-                _vm.errors.first("password")
-                  ? _c("small", { staticClass: "invalid-feedback" }, [
-                      _vm._v(_vm._s(_vm.errors.first("password")))
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-success btn-flat m-b-30 m-t-30",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.attempt()
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Password")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.password,
+                        expression: "password"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: "'required'"
+                      }
+                    ],
+                    class: _vm.errors.first("password")
+                      ? "is-invalid form-control form-control-sm"
+                      : "form-control form-control-sm",
+                    attrs: {
+                      name: "password",
+                      type: "password",
+                      placeholder: "Password"
+                    },
+                    domProps: { value: _vm.password },
+                    on: {
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.attempt()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.password = $event.target.value
+                      }
                     }
-                  }
-                },
-                [_vm._v("Sign in")]
-              )
-            ])
+                  }),
+                  _vm._v(" "),
+                  _vm.errors.first("password")
+                    ? _c("small", { staticClass: "invalid-feedback" }, [
+                        _vm._v(_vm._s(_vm.errors.first("password")))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success btn-flat m-b-30 m-t-30",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        return _vm.attempt()
+                      }
+                    }
+                  },
+                  [_vm._v("Sign in")]
+                )
+              ]
+            )
           ])
         ])
       ])

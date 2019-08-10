@@ -436,11 +436,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              // this.listen();
               this.countCart();
               _context.next = 3;
               return this.getTrasaction();
 
             case 3:
+              _context.next = 5;
+              return this.startInterval();
+
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -495,8 +500,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.next = 2;
                 return axios.get("/getTransactionInfo/" + this.id).then(function (response) {
-                  _this2.transaction = response.data;
-                  console.log(response.data);
+                  _this2.transaction = response.data; // console.log(response.data);
                 });
 
               case 2:
@@ -512,7 +516,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getTrasaction;
-    }()
+    }(),
+    listen: function listen() {
+      Echo.channel("transaction_31").listen("UpdateStatus", function (transaction) {
+        alert(transaction);
+      });
+    },
+    startInterval: function startInterval() {
+      var _this3 = this;
+
+      setInterval(function () {
+        _this3.getTrasaction();
+      }, 1000);
+    }
   }
 });
 
@@ -7789,7 +7805,10 @@ var render = function() {
           _c("div", { staticClass: "col-lg-12 text-center" }, [
             _c("img", {
               attrs: {
-                src: "/storage/img/core-img/status" + _vm.realId + ".png",
+                src:
+                  "/storage/img/core-img/status" +
+                  _vm.transaction[0].item_status.id +
+                  ".png",
                 alt: ""
               }
             })

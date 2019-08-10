@@ -12,6 +12,7 @@ use App\Transactions;
 use App\Transaction_records;
 use App\Items;
 use App\Shipping_details;
+use App\Events\UpdateStatus;
 
 class TransactionController extends Controller
 {
@@ -124,5 +125,27 @@ class TransactionController extends Controller
                                     ->get();
 
         return $transaction;                            
+    }
+
+    public function updateNow($transactionId, $status) {
+        if($status == 1 || $status == 2) {
+            $st = 1;
+        } else if($status == 3){
+            $st = 2;
+        } else {
+            $st = 3;
+        }
+        $transactionUpdate = Transactions::where('id', $transactionId)
+                                    ->update([
+                                        'transaction_item_status_id' => $status,
+                                        'transaction_status_id' => $st
+                                    ]);
+        $transaction = Transactions::where('id', $transactionId)
+                                    ->orderBy('created_at', 'DESC')
+                                    ->get();
+                                    
+        
+        // event(new UpdateStatus($transaction));
+        return $transactionUpdate;                            
     }
 }

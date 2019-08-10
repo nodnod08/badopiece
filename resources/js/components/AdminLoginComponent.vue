@@ -6,7 +6,7 @@
           <div class="text-center mb-3">
             <img height="100" class="align-content" :src="'storage/img/core-img/logo3.png'" alt />
           </div>
-          <form onsubmit="false">
+          <form v-on:submit.prevent="attempt">
             <div class="text-center">
               <small v-if="error" class="error">Your username or password is incorrect.</small>
             </div>
@@ -17,6 +17,7 @@
                 v-validate="'required'"
                 name="username"
                 type="username"
+                @keyup.enter="attempt()"
                 :class="(errors.first('username')) ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
                 placeholder="Username"
               />
@@ -32,6 +33,7 @@
                 v-validate="'required'"
                 name="password"
                 type="password"
+                @keyup.enter="attempt()"
                 :class="(errors.first('password')) ? 'is-invalid form-control form-control-sm' : 'form-control form-control-sm'"
                 placeholder="Password"
               />
@@ -50,7 +52,7 @@
             </div>
             <button
               v-on:click="attempt()"
-              type="button"
+              type="submit"
               class="btn btn-success btn-flat m-b-30 m-t-30"
             >Sign in</button>
           </form>
