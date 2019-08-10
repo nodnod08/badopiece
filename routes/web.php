@@ -79,12 +79,14 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/errors/{errors}', 'TransactionController@error')->name('error');
     Route::get('/transaction/{transactionId}', 'TransactionController@transaction')->name('transaction');
+    Route::get('/status/{transactionId}', 'TransactionController@status')->name('status');
     Route::get('/transactions', function() {
         return view('transactions');
     })->name('transactions');
     Route::get('/getTransaction/{transactionId}', 'TransactionController@getTransaction')->name('transaction');
     Route::get('/getTransactions', 'TransactionController@getTransactions');
     Route::get('/getTransactions', 'TransactionController@getTransactions');
+    Route::get('/getTransactionInfo/{id}', 'TransactionController@getTransactionInfo');
     Route::get('/settings', function() {
         return view('settings');
     })->name('settings');
@@ -136,6 +138,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/getOverAllTransactions/{search}', 'TransactionController@getOverAllTransactionSearch');
         Route::get('/perTransactionView/{transactionId}', 'TransactionController@perTransactionView')->name('perTransaction');
         Route::get('/perTransaction/{transactionId}', 'TransactionController@perTransaction');
+        Route::get('/view-status/{transactionId}', 'TransactionController@viewStatus')->name('status_portal');
         Route::post('inventories/remove', 'InventoryController@remove');
     });
 });

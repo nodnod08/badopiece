@@ -21,6 +21,18 @@ class TransactionController extends Controller
         return view('transaction')->with('id', $transactionId);
     }
 
+    public function viewStatus($transactionId) {
+        $id = $transactionId;
+
+        return view('admin.status_portal')->with('id', $transactionId);
+    }
+
+    public function status($transactionId) {
+        $id = $transactionId;
+
+        return view('status')->with('id', $transactionId);
+    }
+
     public function perTransactionView($transactionId) {
         $id = $transactionId;
 
@@ -64,6 +76,15 @@ class TransactionController extends Controller
                                     ->with('items', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
                                     ->orderBy('created_at', 'DESC')
                                     ->paginate(10);
+
+        return $transactions;
+    }
+
+    public function getTransactionInfo($id) {
+        $transactions = Transactions::where('id', $id)
+                                    ->with('items', 'item_status', 'shipping', 'customer', 'transaction_type', 'transaction_status', 'payment_status')
+                                    ->orderBy('created_at', 'DESC')
+                                    ->get();
 
         return $transactions;
     }

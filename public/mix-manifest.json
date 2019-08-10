@@ -16,6 +16,8 @@
     "/js/settings.js": "/js/settings.js",
     "/js/signin.js": "/js/signin.js",
     "/js/signup.js": "/js/signup.js",
+    "/js/status.js": "/js/status.js",
+    "/js/status_portal.js": "/js/status_portal.js",
     "/js/transaction.js": "/js/transaction.js",
     "/js/transactions.js": "/js/transactions.js",
     "/js/view.js": "/js/view.js"

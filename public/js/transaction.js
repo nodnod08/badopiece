@@ -8618,7 +8618,11 @@ var render = function() {
                       _vm._m(6, true),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v("₱ " + _vm._s(transaction.amount) + ".00")
+                        _vm._v(
+                          "₱ " +
+                            _vm._s(transaction.amount.toLocaleString()) +
+                            ".00"
+                        )
                       ])
                     ])
                   ],

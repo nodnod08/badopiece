@@ -149,7 +149,7 @@
                 <td>
                   <b>Total Amount</b>
                 </td>
-                <td>&#8369; {{ transaction.amount }}.00</td>
+                <td>&#8369; {{ transaction.amount.toLocaleString() }}.00</td>
               </tr>
             </tbody>
           </table>

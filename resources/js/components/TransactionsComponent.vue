@@ -33,6 +33,12 @@
                       <i class="fas fa-file-alt"></i>
                     </button>
                   </a>
+                  <a :href="'/status/'+transaction.id">
+                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
+                      Transaction Status
+                      <i class="fas fa-hourglass-half"></i>
+                    </button>
+                  </a>
                 </td>
                 <td>{{ transaction.transaction_id }}</td>
                 <td>{{ transaction.transaction_type.transaction_type }}</td>

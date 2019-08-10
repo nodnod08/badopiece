@@ -36,13 +36,13 @@
                 <td>{{ index+1 }}</td>
                 <td>
                   <a :href="'/perTransactionView/'+transaction.id">
-                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
+                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="button">
                       View Transaction
                       <i class="ti-file"></i>
                     </button>
                   </a>
-                  <a :href="'/perTransactionView/'+transaction.id">
-                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
+                  <a :href="'/view-status/'+transaction.id">
+                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="button">
                       Update Status
                       <i class="ti-panel"></i>
                     </button>
