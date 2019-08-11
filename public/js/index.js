@@ -399,6 +399,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
@@ -7851,17 +7853,7 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.auth != "none"
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-light",
-                        attrs: { type: "button" }
-                      },
-                      [
-                        _vm._v("\n              Shop now\n              "),
-                        _c("i", { staticClass: "fas fa-shopping-bag" })
-                      ]
-                    )
+                  ? _c("a", { attrs: { href: "/products" } }, [_vm._m(1)])
                   : _vm._e()
               ])
             ])
@@ -7870,7 +7862,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "jumbotron" }, [
-        _vm._m(1),
+        _vm._m(2),
         _vm._v(" "),
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row text-black text-center" }, [
@@ -7887,7 +7879,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _vm._m(3)
               ])
             ]),
             _vm._v(" "),
@@ -7906,7 +7898,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(3)
+                  _vm._m(4)
                 ])
               ]
             ),
@@ -7926,7 +7918,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _vm._m(4)
+                  _vm._m(5)
                 ])
               ]
             )
@@ -8088,7 +8080,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(5)
+            _vm._m(6)
           ])
         ])
       ]),
@@ -8109,6 +8101,19 @@ var staticRenderFns = [
       [
         _c("i", { staticClass: "fab fa-google-plus-g" }),
         _vm._v(" Sign in with Google\n              ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-outline-light", attrs: { type: "button" } },
+      [
+        _vm._v("\n                Shop now\n                "),
+        _c("i", { staticClass: "fas fa-shopping-bag" })
       ]
     )
   },
@@ -9139,9 +9144,9 @@ var index = new Vue({
 /***/ }),
 
 /***/ "./storage/app/public/img/bg-img/bg-new3-center.jpg":
-/*!**********************************************************!*\
-  !*** ./storage/app/public/img/bg-img/bg-new3-center.jpg ***!
-  \**********************************************************/
+/*!**********************************************************************************!*\
+  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/bg-img/bg-new3-center.jpg ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9150,9 +9155,9 @@ module.exports = "/images/bg-new3-center.jpg?3db64ab9248172bc30f55cd7fb716442";
 /***/ }),
 
 /***/ "./storage/app/public/img/bg-img/bg-new3.jpg":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/bg-img/bg-new3.jpg ***!
-  \***************************************************/
+/*!***************************************************************************!*\
+  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/bg-img/bg-new3.jpg ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9161,9 +9166,9 @@ module.exports = "/images/bg-new3.jpg?a1936626bbdc489fd8a750b0b3f32e23";
 /***/ }),
 
 /***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************/
+/*!***************************************************************************!*\
+  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9178,7 +9183,7 @@ module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\index.js */"./resources/js/index.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\index.js */"./resources/js/index.js");
 
 
 /***/ })

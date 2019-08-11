@@ -178,7 +178,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
@@ -1815,12 +1814,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-success btn-flat m-b-30 m-t-30",
-                    attrs: { type: "submit" },
-                    on: {
-                      click: function($event) {
-                        return _vm.attempt()
-                      }
-                    }
+                    attrs: { type: "submit" }
                   },
                   [_vm._v("Sign in")]
                 )
@@ -2092,7 +2086,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\admin_login.js */"./resources/js/admin_login.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\admin_login.js */"./resources/js/admin_login.js");
 
 
 /***/ })

@@ -28,4 +28,8 @@ class Products extends Model
     {
         return $this->hasMany('App\Items', 'product_id');
     }
+
+    public function feedbacks() {
+        return $this->hasMany('App\Feedbacks', 'product_id');
+    }
 }

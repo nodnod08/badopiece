@@ -7,12 +7,25 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Products;
 use App\Categories;
+use App\Feedbacks;
 use DB;
 
 class ShopController extends Controller
 {
     public function products() {
         return view('shop');
+    }
+
+    public function feedback(Request $request) {
+        $feedback = Feedbacks::create([
+            'transaction_id' => $request->transaction_id,
+            'product_id' => $request->product_id,
+            'name' => $request->name,
+            'feedback' => $request->feedback,
+            'rate' => $request->rating,
+        ]);
+
+        return $feedback;
     }
 
     public function showProducts($id) {
@@ -52,9 +65,20 @@ class ShopController extends Controller
 
     public function getItems($type, $id) {
         $item = Products::where('product_id', $id)->with('category')->get();
+        $feedbacks = Feedbacks::where('product_id', $item[0]->product_id)->get();
 
-        return $item;
+        return [$item, $feedbacks];
     }
+
+    // public function getItems($type, $id) {
+    //     $item = Products::join('feedback', 'products.product_id', '=', 'feedback.item_id')
+    //                     ->join('category', 'products.product_category', '=', 'category.id')
+    //                     ->select('category.*', 'products.*', 'feedback.*')
+    //                     ->where('products.product_id', $id)
+    //                     ->get();
+
+    //     return $item;
+    // }
 
     public function getCategories() {
         $categories = Categories::all();

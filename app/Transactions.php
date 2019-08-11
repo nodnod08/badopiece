@@ -50,4 +50,8 @@ class Transactions extends Model
     {
         return $this->belongsTo('App\PaymentStatuses', 'payment_status_id');
     }
+
+    public function feedback() {
+        return $this->hasMany('App\Feedback', 'transaction_id');
+    }
 }

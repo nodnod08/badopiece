@@ -10151,9 +10151,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "./storage/app/public/img/bg-img/empty.png":
-/*!*************************************************!*\
-  !*** ./storage/app/public/img/bg-img/empty.png ***!
-  \*************************************************/
+/*!*************************************************************************!*\
+  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/bg-img/empty.png ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10162,9 +10162,9 @@ module.exports = "/images/empty.png?2dd047d94b6bf8d783c0392f4fe356d5";
 /***/ }),
 
 /***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************/
+/*!***************************************************************************!*\
+  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10179,7 +10179,7 @@ module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\cart.js */"./resources/js/cart.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

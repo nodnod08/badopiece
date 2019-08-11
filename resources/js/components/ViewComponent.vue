@@ -85,13 +85,23 @@
     <div class="mb-5 review container">
       <h4>Item Reviews</h4>
       <hr />
-      <div class="row">
+      <div v-for="(feedback, index) in feedbacks" v-bind:key="index" class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
           <h6>
-            <b>John Doe</b>
+            <b>{{ feedback.name }}</b>
+            <star-rating
+              v-bind:increment="0.5"
+              v-bind:max-rating="5"
+              inactive-color="#c2c2c2"
+              active-color="#ffe330"
+              v-bind:star-size="15"
+              v-model="feedback.rate"
+              read-only="true"
+              :show-rating="false"
+            ></star-rating>
           </h6>
-          <small>December 25, 2018</small>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, sint aliquam? Mollitia, quia adipisci corrupti harum saepe officiis explicabo deleniti cupiditate est, veniam modi excepturi magni culpa totam, magnam soluta.</p>
+          <small>{{ month[new Date(feedback.created_at).getMonth()] +' '+new Date(feedback.created_at).getDate()+', '+new Date(feedback.created_at).getFullYear() }}</small>
+          <p>{{ feedback.feedback }}</p>
         </div>
       </div>
     </div>
@@ -102,7 +112,8 @@
 <script>
 import vZoom from "vue-zoom";
 import { RadarSpinner } from "epic-spinners";
-
+import StarRating from "vue-star-rating";
+Vue.component("star-rating", StarRating);
 export default {
   props: ["tosearch", "type", "auth"],
   components: {
@@ -112,6 +123,7 @@ export default {
   data() {
     return {
       Items: {},
+      feedbacks: {},
       loading: true,
       cartCount: "",
       month: [
@@ -140,7 +152,9 @@ export default {
 
       var url = "/getItem/" + this.type + "/" + this.tosearch;
       await axios.get(url).then(response => {
-        this.Items = response.data;
+        this.Items = response.data[0];
+        this.feedbacks = response.data[1];
+        // console.log(response.data);
       });
 
       this.loading = false;

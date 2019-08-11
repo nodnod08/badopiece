@@ -25,10 +25,12 @@
                 Register
                 <a href="/signup">here</a> to get updated about new products.
               </p>
-              <button v-if="auth != 'none'" type="button" class="btn btn-outline-light">
-                Shop now
-                <i class="fas fa-shopping-bag"></i>
-              </button>
+              <a v-if="auth != 'none'" href="/products">
+                <button type="button" class="btn btn-outline-light">
+                  Shop now
+                  <i class="fas fa-shopping-bag"></i>
+                </button>
+              </a>
             </div>
           </div>
         </div>

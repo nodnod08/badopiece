@@ -8027,7 +8027,7 @@ var per = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\perTransaction.js */"./resources/js/perTransaction.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\perTransaction.js */"./resources/js/perTransaction.js");
 
 
 /***/ })

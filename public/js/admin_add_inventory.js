@@ -64216,7 +64216,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\admin_add_inventory.js */"./resources/js/admin_add_inventory.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\admin_add_inventory.js */"./resources/js/admin_add_inventory.js");
 
 
 /***/ })

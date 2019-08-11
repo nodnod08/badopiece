@@ -44,6 +44,7 @@
         "vue-filepond": "^5.1.2",
         "vue-material": "^1.0.0-beta-10.2",
         "vue-slider-component": "^3.0.33",
+        "vue-star-rating": "^1.6.1",
         "vue-switches": "^2.0.1",
         "vue-zoom": "^1.1.0",
         "vuejs-datatable": "^1.7.0",

@@ -9,6 +9,68 @@
     </div>
     <div class="transaction container">
       <div v-for="transaction in transactions" v-bind:key="transaction.id" class="row mb-5">
+        <div
+          v-if="ready"
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Feedback Your Items</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-12 mt-3">
+                    <div class="text-left">
+                      <img height="100" :src="'/storage/img/offer-img/'+items.product_photo" alt />
+                    </div>
+                    <p>
+                      <b>{{ items.product_name }}</b>
+                    </p>
+                    <label for>Rate it</label>
+                    <star-rating
+                      v-bind:increment="0.5"
+                      v-bind:max-rating="5"
+                      inactive-color="#c2c2c2"
+                      active-color="#ffe330"
+                      v-bind:star-size="30"
+                      v-model="rating"
+                      :show-rating="false"
+                    ></star-rating>
+                    <label class="mt-3" for>Your feedback</label>
+                    <textarea
+                      v-validate="'required'"
+                      name="Feedback"
+                      v-model="feedback"
+                      class="form-control mb-3"
+                    ></textarea>
+                    <small
+                      class="invalid-feedback"
+                      v-if="errors.first('Feedback')"
+                    >{{ errors.first('Feedback') }}</small>
+                    <button
+                      type="button"
+                      v-on:click="feedbackNow(items.product_id)"
+                      class="btn btn-outline-dark btn-sm my-2 my-sm-0 mb-3"
+                    >Submit</button>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12"></div>
         <div class="col-lg-6 col-md-6">
           <h3>Transaction Summary</h3>
         </div>
@@ -106,6 +168,7 @@
           <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
+                <th scope="col">Feedback</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Product Code</th>
                 <th scope="col">Product Quantity</th>
@@ -114,6 +177,18 @@
             </thead>
             <tbody>
               <tr v-for="(item, index) in transaction.items" v-bind:key="index">
+                <td>
+                  <button
+                    v-on:click="setItem(item)"
+                    type="button"
+                    class="btn btn-outline-dark btn-md my-2 my-sm-0 mb-4"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                  >
+                    Add Feedback To This Item
+                    <i class="fas fa-comments"></i>
+                  </button>
+                </td>
                 <th>{{ item.product_name }}</th>
                 <td>{{ item.product_code }}</td>
                 <td>{{ item.product_quantity }}</td>
@@ -162,7 +237,8 @@
 
 <script>
 import { RadarSpinner } from "epic-spinners";
-
+import StarRating from "vue-star-rating";
+Vue.component("star-rating", StarRating);
 export default {
   props: ["id", "auth", "payment"],
   components: {
@@ -188,7 +264,11 @@ export default {
         "November",
         "December"
       ],
-      base_64: ""
+      base_64: "",
+      items: [],
+      ready: false,
+      rating: 0,
+      feedback: ""
     };
   },
   async created() {
@@ -204,11 +284,39 @@ export default {
         this.cartCount = response.data;
       });
     },
+    feedbackNow: async function(product_id) {
+      console.log(this.transactions[0].customer.name);
+      console.log(product_id);
+      console.log(this.feedback);
+      console.log(this.rating);
+
+      if (this.feedback == null || this.feedback == "") {
+        swal("", "Please make your feedback message.", "error");
+      } else {
+        axios
+          .post("/feedback", {
+            product_id: product_id,
+            name: this.transactions[0].customer.name,
+            feedback: this.feedback,
+            rating: this.rating,
+            transaction_id: this.transactions[0].id
+          })
+          .then(response => {
+            swal("", "Thank you for rating our product.", "success");
+            this.rating = 0;
+            this.feedback = "";
+          });
+      }
+    },
     getTransaction: async function() {
       await axios.get("/getTransaction/" + this.id).then(response => {
         this.transactions = response.data;
-        // console.log(response.data);
+        console.log(response.data);
       });
+    },
+    setItem: async function(item) {
+      this.items = await item;
+      this.ready = true;
     },
     getLogo: async function() {
       await axios.get("/getLogo").then(response => {

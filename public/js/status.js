@@ -8239,9 +8239,9 @@ var status = new Vue({
 /***/ }),
 
 /***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************/
+/*!***************************************************************************!*\
+  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8256,7 +8256,7 @@ module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\status.js */"./resources/js/status.js");
+module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\status.js */"./resources/js/status.js");
 
 
 /***/ })
