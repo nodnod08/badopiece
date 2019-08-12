@@ -9144,9 +9144,9 @@ var index = new Vue({
 /***/ }),
 
 /***/ "./storage/app/public/img/bg-img/bg-new3-center.jpg":
-/*!**********************************************************************************!*\
-  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/bg-img/bg-new3-center.jpg ***!
-  \**********************************************************************************/
+/*!**********************************************************!*\
+  !*** ./storage/app/public/img/bg-img/bg-new3-center.jpg ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9155,9 +9155,9 @@ module.exports = "/images/bg-new3-center.jpg?3db64ab9248172bc30f55cd7fb716442";
 /***/ }),
 
 /***/ "./storage/app/public/img/bg-img/bg-new3.jpg":
-/*!***************************************************************************!*\
-  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/bg-img/bg-new3.jpg ***!
-  \***************************************************************************/
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/bg-img/bg-new3.jpg ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9166,9 +9166,9 @@ module.exports = "/images/bg-new3.jpg?a1936626bbdc489fd8a750b0b3f32e23";
 /***/ }),
 
 /***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************************************!*\
-  !*** C:/xampp/htdocs/badopiece/storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************************************/
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9183,7 +9183,7 @@ module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\index.js */"./resources/js/index.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\index.js */"./resources/js/index.js");
 
 
 /***/ })

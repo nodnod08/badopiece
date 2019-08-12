@@ -8874,7 +8874,7 @@ var overall = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\overall.js */"./resources/js/overall.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\overall.js */"./resources/js/overall.js");
 
 
 /***/ })

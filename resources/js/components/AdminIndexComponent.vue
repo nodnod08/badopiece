@@ -67,7 +67,9 @@
       </div>
       <div class="row">
         <div class="col-lg-12 mb-4">
-          <h4><b>Sales Dashboard</b></h4>
+          <h4>
+            <b>Sales Dashboard</b>
+          </h4>
         </div>
         <div class="col-lg-4">
           <label for>From:</label>
@@ -96,14 +98,44 @@
             <button v-on:click="getData()" class="btn btn-primary btn-sm">Search</button>
           </span>
         </div>
+        <div class="col-lg-12 mt-3">
+          <button type="button" v-on:click="savePrint(1)" class="btn btn-primary btn-sm">
+            Print
+            <i class="ti-printer"></i>
+          </button>
+          <button type="button" v-on:click="saveDocs(1)" class="btn btn-primary btn-sm">
+            Save Docs
+            <i class="ti-files"></i>
+          </button>
+        </div>
         <div class="col-lg-12 mt-4">
           <apexchart
+            ref="demoChart"
             :width="options.chart.width"
             :height="options.chart.height"
             :type="options.chart.type"
             :options="options"
             :series="options.series"
           ></apexchart>
+        </div>
+        <div class="col-lg-12">
+          <table id="htmlTableId1" v-if="ready && Labels.length" class="table table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th>Transaction Status</th>
+                <th v-for="(label, index) in Labels" v-bind:key="index">{{ label }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(data, index) in datasArray2" v-bind:key="index">
+                <td>{{ data.name }}</td>
+                <td
+                  v-for="(data2, index1) in data.data"
+                  v-bind:key="index1"
+                >{{ data2.toLocaleString() }}.00</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-lg-12 mt-4">
           <h4>
@@ -137,14 +169,44 @@
             <button v-on:click="getItems()" class="btn btn-primary btn-sm">Search</button>
           </span>
         </div>
+        <div class="col-lg-12 mt-3">
+          <button type="button" v-on:click="savePrint(2)" class="btn btn-primary btn-sm">
+            Print
+            <i class="ti-printer"></i>
+          </button>
+          <button type="button" v-on:click="saveDocs(2)" class="btn btn-primary btn-sm">
+            Save Docs
+            <i class="ti-files"></i>
+          </button>
+        </div>
         <div class="col-lg-12 mt-4">
           <apexchart
+            ref="demoChart2"
             :width="manifest.chart.width"
             :height="manifest.chart.height"
             :type="manifest.chart.type"
             :options="manifest"
             :series="manifest.series"
           ></apexchart>
+        </div>
+        <div class="col-lg-12">
+          <table id="htmlTableId2" v-if="ready && Labels1.length" class="table table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th>Item Category</th>
+                <th v-for="(label, index) in Labels1" v-bind:key="index">{{ label }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(data, index) in datasArray" v-bind:key="index">
+                <td>{{ data.name }}</td>
+                <td
+                  v-for="(data2, index1) in data.data"
+                  v-bind:key="index1"
+                >{{ data2.toLocaleString() }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -155,6 +217,8 @@
 import DatePicker from "vuejs-datepicker";
 import moment from "moment";
 import _ from "lodash";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default {
   components: {
@@ -162,7 +226,14 @@ export default {
   },
   data() {
     return {
+      ready: false,
+      ready1: false,
+      data: [],
+      datasArray: [],
+      data1: [],
+      datasArray2: [],
       Labels: [],
+      Labels1: [],
       year: "2019",
       dateFrom: {
         date: {},
@@ -180,6 +251,7 @@ export default {
       options: {
         colors: [],
         chart: {
+          id: "salesOverview",
           background: "#fff",
           height: "400",
           width: "100%",
@@ -338,6 +410,60 @@ export default {
     this.getItems();
   },
   methods: {
+    saveDocs: async function(id) {
+      if (id == 1) {
+        this.$refs.demoChart.dataURI().then(uri => {
+          const doc = new jsPDF("landscape", "cm");
+          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.autoTable({
+            html: "#htmlTableId1",
+            headStyles: { fillColor: [64, 64, 64] },
+            margin: { top: 13 }
+          });
+          doc.save("SalesOverview.pdf");
+        });
+      } else {
+        this.$refs.demoChart2.dataURI().then(uri => {
+          const doc = new jsPDF("landscape", "cm");
+          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.autoTable({
+            html: "#htmlTableId2",
+            headStyles: { fillColor: [64, 64, 64] },
+            margin: { top: 13 }
+          });
+          doc.save("MostPurchased.pdf");
+        });
+      }
+    },
+    savePrint: async function(id) {
+      if (id == 1) {
+        this.$refs.demoChart.dataURI().then(uri => {
+          const doc = new jsPDF("landscape", "cm");
+          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.autoTable({
+            html: "#htmlTableId1",
+            headStyles: { fillColor: [64, 64, 64] },
+            margin: { top: 13 }
+          });
+          // doc.save("table.pdf");
+          // doc.autoPrint();
+          window.open(doc.output("bloburl"), "_blank");
+        });
+      } else {
+        this.$refs.demoChart2.dataURI().then(uri => {
+          const doc = new jsPDF("landscape", "cm");
+          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.autoTable({
+            html: "#htmlTableId2",
+            headStyles: { fillColor: [64, 64, 64] },
+            margin: { top: 13 }
+          });
+          // doc.save("table.pdf");
+          // doc.autoPrint();
+          window.open(doc.output("bloburl"), "_blank");
+        });
+      }
+    },
     getYear: function() {
       axios.get("/getYear").then(response => {
         this.yearSales = response.data[0].amount;
@@ -365,7 +491,8 @@ export default {
     },
     getData: async function() {
       var self = this;
-      self.datasArray = [];
+      self.datasArray2 = [];
+      self.Labels = [];
       var from;
       var to;
 
@@ -381,11 +508,11 @@ export default {
       let borderColor = "";
       let backgroundColor = "";
       var datas = {};
-      var datasArray = [];
       await axios.get(url).then(response => {
-        console.log(response.data);
-        let data = response.data;
-        this.Labels = _.sortedUniq(data[data.length - 1]);
+        // console.log(response.data);
+        this.data = response.data;
+        this.Labels = _.sortedUniq(this.data[this.data.length - 1]);
+        // console.log(this.Labels);
         // this.Labels.forEach(function(index, value) {
         //   console.log(index);
         // });
@@ -393,21 +520,21 @@ export default {
           ...this.options,
           ...{
             xaxis: {
-              categories: _.sortedUniq(data[data.length - 1])
+              categories: _.sortedUniq(this.data[this.data.length - 1])
             }
           }
         };
-        data.splice(data.length - 1, 1);
+        this.data.splice(this.data.length - 1, 1);
         if (this.Labels.length == 4) {
         }
         var datas = {};
-        if (data) {
+        if (this.data) {
           var datasets = [];
 
-          var groupName = _.chain(data)
+          var groupName = _.chain(this.data)
             .groupBy("name")
             .value();
-          var paidUnpaid = _.chain(data)
+          var paidUnpaid = _.chain(this.data)
             .groupBy("payment_status")
             .value();
 
@@ -468,7 +595,8 @@ export default {
               name: key,
               data: datasets
             };
-            datasArray.push(datas);
+            self.datasArray2.push(datas);
+            // console.log(self.datasArray);
             datas = {};
             datasets = [];
           }
@@ -476,9 +604,11 @@ export default {
           this.options = {
             ...this.options,
             ...{
-              series: datasArray
+              series: self.datasArray2
             }
           };
+
+          self.ready = true;
           // console.log(datasArray);
         }
       });
@@ -486,6 +616,7 @@ export default {
     getItems: async function() {
       var self = this;
       self.datasArray = [];
+      self.Labels1 = [];
       var from;
       var to;
 
@@ -503,25 +634,25 @@ export default {
       var datas = {};
       var datasArray = [];
       await axios.get(url).then(response => {
-        console.log(response.data);
-        let data = response.data;
-        this.Labels = _.sortedUniq(data[data.length - 1]);
+        // console.log(response.data);
+        this.data1 = response.data;
+        this.Labels1 = _.sortedUniq(this.data1[this.data1.length - 1]);
 
         this.manifest = {
           ...this.manifest,
           ...{
             xaxis: {
-              categories: _.sortedUniq(data[data.length - 1])
+              categories: _.sortedUniq(this.data1[this.data1.length - 1])
             }
           }
         };
-        data.splice(data.length - 1, 1);
+        this.data1.splice(this.data1.length - 1, 1);
 
         var datas = {};
-        if (data) {
+        if (this.data1) {
           var datasets = [];
 
-          var groupName = _.chain(data)
+          var groupName = _.chain(this.data1)
             .groupBy("category")
             .value();
           // console.log(groupName);
@@ -536,7 +667,7 @@ export default {
               }))
               .value();
             // console.log(ind)
-            for (let [key2, value2] of Object.entries(self.Labels)) {
+            for (let [key2, value2] of Object.entries(self.Labels1)) {
               var toFind = _.result(
                 _.find(groupDate, function(obj) {
                   return obj.date === value2;
@@ -555,7 +686,7 @@ export default {
               name: key,
               data: datasets
             };
-            datasArray.push(datas);
+            self.datasArray.push(datas);
             datas = {};
             datasets = [];
           }
@@ -563,9 +694,10 @@ export default {
           this.manifest = {
             ...this.manifest,
             ...{
-              series: datasArray
+              series: self.datasArray
             }
           };
+          self.ready1 = true;
           // console.log(datasArray);
         }
       });

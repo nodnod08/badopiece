@@ -34,14 +34,44 @@
             <button v-on:click="getData()" class="btn btn-primary btn-sm">Search</button>
           </span>
         </div>
+        <div class="col-lg-12 mt-3">
+          <button type="button" v-on:click="savePrint(2)" class="btn btn-primary btn-sm">
+            Print
+            <i class="ti-printer"></i>
+          </button>
+          <button type="button" v-on:click="saveDocs(2)" class="btn btn-primary btn-sm">
+            Save Docs
+            <i class="ti-files"></i>
+          </button>
+        </div>
         <div class="col-lg-12 mt-4">
           <apexchart
+            ref="demoChart2"
             :width="options.chart.width"
             :height="options.chart.height"
             :type="options.chart.type"
             :options="options"
             :series="options.series"
           ></apexchart>
+        </div>
+        <div class="col-lg-12">
+          <table id="htmlTableId2" v-if="ready && Labels.length" class="table table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th>Item Category</th>
+                <th v-for="(label, index) in Labels" v-bind:key="index">{{ label }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(data, index) in datasArray" v-bind:key="index">
+                <td>{{ data.name }}</td>
+                <td
+                  v-for="(data2, index1) in data.data"
+                  v-bind:key="index1"
+                >{{ data2.toLocaleString() }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -52,6 +82,8 @@
 import DatePicker from "vuejs-datepicker";
 import moment from "moment";
 import _ from "lodash";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default {
   components: {
@@ -59,6 +91,9 @@ export default {
   },
   data() {
     return {
+      ready: false,
+      data: [],
+      datasArray: [],
       Labels: [],
       year: "2019",
       dateFrom: {
@@ -154,9 +189,34 @@ export default {
     this.dateFrom.date = this.setDateFrom();
     this.dateTo.date = this.setDateTo();
     this.getData();
-    this.getItems();
   },
   methods: {
+    saveDocs: async function(id) {
+      this.$refs.demoChart2.dataURI().then(uri => {
+        const doc = new jsPDF("landscape", "cm");
+        doc.addImage(uri, "JPEG", 2, 0.5);
+        doc.autoTable({
+          html: "#htmlTableId2",
+          headStyles: { fillColor: [64, 64, 64] },
+          margin: { top: 13 }
+        });
+        doc.save("Inventory.pdf");
+      });
+    },
+    savePrint: async function(id) {
+      this.$refs.demoChart2.dataURI().then(uri => {
+        const doc = new jsPDF("landscape", "cm");
+        doc.addImage(uri, "JPEG", 2, 0.5);
+        doc.autoTable({
+          html: "#htmlTableId2",
+          headStyles: { fillColor: [64, 64, 64] },
+          margin: { top: 13 }
+        });
+        // doc.save("table.pdf");
+        // doc.autoPrint();
+        window.open(doc.output("bloburl"), "_blank");
+      });
+    },
     setDateFrom: function() {
       var now = new Date();
       return now.setDate(now.getDate() - 30);
@@ -167,6 +227,8 @@ export default {
     getData: async function() {
       var self = this;
       self.datasArray = [];
+      self.Labels = [];
+      self.data = [];
       var from;
       var to;
 
@@ -185,24 +247,24 @@ export default {
       var datasArray = [];
       await axios.get(url).then(response => {
         // console.log(response.data);
-        let data = response.data;
-        this.Labels = _.sortedUniq(data[data.length - 1]);
+        this.data = response.data;
+        this.Labels = _.sortedUniq(this.data[this.data.length - 1]);
 
         this.options = {
           ...this.options,
           ...{
             xaxis: {
-              categories: _.sortedUniq(data[data.length - 1])
+              categories: _.sortedUniq(this.data[this.data.length - 1])
             }
           }
         };
-        data.splice(data.length - 1, 1);
+        this.data.splice(this.data.length - 1, 1);
 
         var datas = {};
-        if (data) {
+        if (this.data) {
           var datasets = [];
 
-          var groupName = _.chain(data)
+          var groupName = _.chain(this.data)
             .groupBy("category")
             .value();
           // console.log(groupName);
@@ -236,7 +298,7 @@ export default {
               name: key,
               data: datasets
             };
-            datasArray.push(datas);
+            self.datasArray.push(datas);
             datas = {};
             datasets = [];
           }
@@ -244,10 +306,11 @@ export default {
           this.options = {
             ...this.options,
             ...{
-              series: datasArray
+              series: self.datasArray
             }
           };
           // console.log(datasArray);
+          self.ready = true;
         }
       });
     }

@@ -7831,7 +7831,7 @@ var status_portal = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\badopiece\resources\js\status_portal.js */"./resources/js/status_portal.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\badopiece\resources\js\status_portal.js */"./resources/js/status_portal.js");
 
 
 /***/ })
