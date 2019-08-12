@@ -47,6 +47,8 @@ class AccountController extends Controller
         if($result->success) {
             User::create([
                 'name' => $request->firstname.' '.$request->lastname,
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
                 'username' => $request->username,
                 'user_type' => 'user',
                 'email' => $request->email,
@@ -56,6 +58,21 @@ class AccountController extends Controller
         } else {
             return 'recaptcha-error';
         }
+    }
+
+    protected function addUser(Request $request)
+    {
+        
+            $user = User::create([
+                'name' => 'Administrator',
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'username' => $request->username,
+                'user_type' => 'admin',
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            return $user;
     }
 
     public function updatePassword(Request $request) {

@@ -89,6 +89,7 @@
                   >
                     <i class="fas fa-cart-plus"></i>
                   </button>
+                  <h5></h5>
                 </div>
               </div>
             </div>
@@ -181,6 +182,15 @@ export default {
     this.path_name = window.location.pathname;
   },
   methods: {
+    Diff: function(date1, date2) {
+      dt1 = new Date(date1);
+      dt2 = new Date(date2);
+      return Math.floor(
+        (Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) -
+          Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) /
+          (1000 * 60 * 60 * 24)
+      );
+    },
     filterProducts: async function(page = 1) {
       var url =
         (await "/getProducts/") +
@@ -222,7 +232,7 @@ export default {
         this.productsItem = response.data;
         this.filter = false;
         // this.loading = false;
-        // console.log(response.data);
+        console.log(response.data);
       });
       this.loading = false;
     },

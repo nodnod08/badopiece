@@ -500,6 +500,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -568,6 +569,11 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
     this.path_name = window.location.pathname;
   },
   methods: {
+    Diff: function Diff(date1, date2) {
+      dt1 = new Date(date1);
+      dt2 = new Date(date2);
+      return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
+    },
     filterProducts: function () {
       var _filterProducts = _asyncToGenerator(
       /*#__PURE__*/
@@ -680,7 +686,8 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
                   // this.loading = true;
                   _this3.productsItem = response.data;
                   _this3.filter = false; // this.loading = false;
-                  // console.log(response.data);
+
+                  console.log(response.data);
                 });
 
               case 7:
@@ -10110,7 +10117,9 @@ var render = function() {
                                 }
                               },
                               [_c("i", { staticClass: "fas fa-cart-plus" })]
-                            )
+                            ),
+                            _vm._v(" "),
+                            _c("h5")
                           ]
                         )
                       ])

@@ -62,7 +62,7 @@ export default {
     getTrasaction: async function() {
       await axios.get("/getTransactionInfo/" + this.id).then(response => {
         this.transaction = response.data;
-        // console.log(response.data);
+        console.log(response.data);
       });
     },
     listen() {

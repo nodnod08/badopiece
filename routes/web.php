@@ -117,6 +117,9 @@ Route::group(['middleware' => 'auth'], function () {
             Auth::logout();
             return redirect('/portal');
         });
+        Route::get('/admin-settings', function() {
+            return view('admin.admin_settings');
+        })->name('admin_settings');
         Route::get('monthPaids', 'SalesController@monthPaids');
         Route::get('monthSales', 'SalesController@monthSales');
         Route::get('getYear', 'SalesController@getYear');
@@ -142,5 +145,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/view-status/{transactionId}', 'TransactionController@viewStatus')->name('status_portal');
         Route::get('/updateNow/{transactionId}/{status}', 'TransactionController@updateNow');
         Route::post('inventories/remove', 'InventoryController@remove');
+        Route::post('/admin/updatePassword', 'AccountController@updatePassword');
+        Route::post('/admin/addUser', 'AccountController@addUser');
+        Route::post('/admin/checkEmail', 'AccountController@checkEmail');
     });
 });

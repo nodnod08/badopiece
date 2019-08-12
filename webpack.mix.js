@@ -35,6 +35,7 @@ mix.js(['resources/js/overall.js'], 'public/js/overall.js');
 mix.js(['resources/js/perTransaction.js'], 'public/js/perTransaction.js');
 mix.js(['resources/js/status.js'], 'public/js/status.js');
 mix.js(['resources/js/status_portal.js'], 'public/js/status_portal.js');
+mix.js(['resources/js/admin_settings.js'], 'public/js/admin_settings.js');
 mix.js(
     ['resources/js/admin_add_inventory.js'],
     'public/js/admin_add_inventory.js'

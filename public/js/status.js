@@ -500,7 +500,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.next = 2;
                 return axios.get("/getTransactionInfo/" + this.id).then(function (response) {
-                  _this2.transaction = response.data; // console.log(response.data);
+                  _this2.transaction = response.data;
+                  console.log(response.data);
                 });
 
               case 2:

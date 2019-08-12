@@ -5,6 +5,7 @@
     "/js/admin_inventory.js": "/js/admin_inventory.js",
     "/js/admin_login.js": "/js/admin_login.js",
     "/js/admin_manage.js": "/js/admin_manage.js",
+    "/js/admin_settings.js": "/js/admin_settings.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/billing.js": "/js/billing.js",

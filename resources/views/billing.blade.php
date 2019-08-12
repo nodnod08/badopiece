@@ -72,7 +72,8 @@
                             <label for>First Name</label>
                             @csrf
                             <input name="firstname" id="validationCustom01" type="text"
-                                class="form-control form-control-sm" required />
+                                class="form-control form-control-sm"
+                                value="{{ Auth::check() ? Auth::user()->firstname : '' }}" required />
                             <div class="invalid-feedback">
                                 Please provide a First Name.
                             </div>
@@ -80,7 +81,8 @@
                         <div class="col-lg-6 mb-2">
                             <label for>Last Name</label>
                             <input name="lastname" id="validationCustom02" type="text"
-                                class="form-control form-control-sm" required />
+                                class="form-control form-control-sm"
+                                value="{{ Auth::check() ? Auth::user()->lastname : '' }}" required />
                             <div class="invalid-feedback">
                                 Please provide a Last Name.
                             </div>
