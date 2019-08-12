@@ -8,8 +8,10 @@ use App\Http\Controllers\Controller;
 use Darryldecode\Cart\Cart;
 use App\Transactions;
 use App\Items;
+use App\Products;
 use App\Shipping_details;
 use Illuminate\Support\Str;
+use DB;
 
 class PaymentController extends Controller
 {
@@ -118,6 +120,7 @@ class PaymentController extends Controller
                         'product_quantity' =>$value->quantity,
                         'product_description' => $value->attributes->description,
                     ]);
+                    Products::where('product_id',$value->id)->update(['product_stocks' => DB::raw('product_stocks-'.$value->quantity)]);
                 }
     
                 return redirect('/transaction/'.$transactions->id);
@@ -168,6 +171,7 @@ class PaymentController extends Controller
                     'product_quantity' =>$value->quantity,
                     'product_description' => $value->attributes->description,
                 ]);
+                Products::where('product_id',$value->id)->update(['product_stocks' => DB::raw('product_stocks-'.$value->quantity)]);
             }
 
             return redirect('/transaction/'.$transactions->id);
@@ -208,9 +212,11 @@ class PaymentController extends Controller
                     'product_quantity' =>$value->quantity,
                     'product_description' => $value->attributes->description,
                 ]);
+                Products::where('product_id',$value->id)->update(['product_stocks' => DB::raw('product_stocks-'.$value->quantity)]);
             }
 
             return redirect('/transaction/'.$transactions->id);
         }
+
     }
 }
