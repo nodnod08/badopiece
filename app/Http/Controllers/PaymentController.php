@@ -9,9 +9,12 @@ use Darryldecode\Cart\Cart;
 use App\Transactions;
 use App\Items;
 use App\Products;
+use App\User;
 use App\Shipping_details;
+use App\Notifications\NewTransaction;
 use Illuminate\Support\Str;
 use DB;
+use Illuminate\Support\Facades\Notification;
 
 class PaymentController extends Controller
 {
@@ -123,7 +126,8 @@ class PaymentController extends Controller
                     ]);
                     Products::where('product_id',$value->id)->update(['product_stocks' => DB::raw('product_stocks-'.$value->quantity)]);
                 }
-    
+                $admins = User::where('user_type', 'admin')->get();
+                Notification::send($admins, new NewTransaction($transactions));
                 return redirect('/transaction/'.$transactions->id);
     
             } else {

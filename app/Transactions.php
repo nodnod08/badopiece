@@ -13,7 +13,7 @@ class Transactions extends Model
      * @var array
      */
     protected $fillable = [
-        'transaction_id', 'transaction_type_id', 'transaction_status_id', 'payment_status_id', 'amount', 'customer_id', 'shipping_amount', 'process_authorization_code', 'payment_type'
+        'transaction_id', 'transaction_type_id', 'transaction_status_id', 'transaction_item_status_id', 'payment_status_id', 'amount', 'customer_id', 'shipping_amount', 'process_authorization_code', 'payment_type'
     ];
 
     public function items()
