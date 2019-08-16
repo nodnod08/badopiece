@@ -190,7 +190,11 @@
           ></apexchart>
         </div>
         <div class="col-lg-12">
-          <table id="htmlTableId2" v-if="ready && Labels1.length" class="table table-bordered">
+          <table
+            id="htmlTableId2"
+            v-if="ready && Labels1.length"
+            class="table responsive table-bordered"
+          >
             <thead class="table-dark">
               <tr>
                 <th>Item Category</th>

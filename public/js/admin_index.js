@@ -351,6 +351,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -39096,7 +39100,7 @@ var render = function() {
             ? _c(
                 "table",
                 {
-                  staticClass: "table table-bordered",
+                  staticClass: "table responsive table-bordered",
                   attrs: { id: "htmlTableId2" }
                 },
                 [

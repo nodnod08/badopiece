@@ -6,20 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Support\Carbon;
 
 class NewTransaction extends Notification
 {
     use Queueable;
+    public $transaction;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($transaction)
     {
-        //
+        $this->transaction = $transaction;
     }
 
     /**
@@ -30,7 +32,7 @@ class NewTransaction extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -63,7 +65,16 @@ class NewTransaction extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'createdTime' => Carbon::now()
+            'createdTime' => Carbon::now(),
+            'transaction' => $this->transaction
         ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage ([
+            'createdTime' => Carbon::now(),
+            'transaction' => $this->transaction
+        ]);
     }
 }

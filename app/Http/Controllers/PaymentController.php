@@ -128,6 +128,22 @@ class PaymentController extends Controller
                 }
                 $admins = User::where('user_type', 'admin')->get();
                 Notification::send($admins, new NewTransaction($transactions));
+                $contact = "0".$shipping->phone;
+                $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->id."\n\n";
+                function itexmo($number,$message,$apicode) {
+                        $url = 'https://www.itexmo.com/php_api/api.php';
+                        $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);
+                        $param = array(
+                            'http' => array(
+                                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                                'method'  => 'POST',
+                                'content' => http_build_query($itexmo),
+                            ),
+                        );
+                        $context  = stream_context_create($param);
+                        return file_get_contents($url, false, $context);
+                }
+                $result = itexmo(env('COMPANY_NUMBER'),$message,env('ITEXTMO_API'));
                 return redirect('/transaction/'.$transactions->id);
     
             } else {
@@ -179,7 +195,24 @@ class PaymentController extends Controller
                 ]);
                 Products::where('product_id',$value->id)->update(['product_stocks' => DB::raw('product_stocks-'.$value->quantity)]);
             }
-
+            $admins = User::where('user_type', 'admin')->get();
+            Notification::send($admins, new NewTransaction($transactions));
+            $contact = "0".$shipping->phone;
+            $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->id."\n\n";
+            function itexmo($number,$message,$apicode) {
+                    $url = 'https://www.itexmo.com/php_api/api.php';
+                    $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);
+                    $param = array(
+                        'http' => array(
+                            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                            'method'  => 'POST',
+                            'content' => http_build_query($itexmo),
+                        ),
+                    );
+                    $context  = stream_context_create($param);
+                    return file_get_contents($url, false, $context);
+            }
+            $result = itexmo(env('COMPANY_NUMBER'),$message,env('ITEXTMO_API'));
             return redirect('/transaction/'.$transactions->id);
         } else {
             $transactions = Transactions::create([
@@ -221,7 +254,24 @@ class PaymentController extends Controller
                 ]);
                 Products::where('product_id',$value->id)->update(['product_stocks' => DB::raw('product_stocks-'.$value->quantity)]);
             }
-
+            $admins = User::where('user_type', 'admin')->get();
+            Notification::send($admins, new NewTransaction($transactions));
+            $contact = "0".$shipping->phone;
+            $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->id."\n\n";
+            function itexmo($number,$message,$apicode) {
+                    $url = 'https://www.itexmo.com/php_api/api.php';
+                    $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);
+                    $param = array(
+                        'http' => array(
+                            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                            'method'  => 'POST',
+                            'content' => http_build_query($itexmo),
+                        ),
+                    );
+                    $context  = stream_context_create($param);
+                    return file_get_contents($url, false, $context);
+            }
+            $result = itexmo(env('COMPANY_NUMBER'),$message,env('ITEXTMO_API'));
             return redirect('/transaction/'.$transactions->id);
         }
 

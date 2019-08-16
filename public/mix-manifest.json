@@ -11,6 +11,7 @@
     "/js/billing.js": "/js/billing.js",
     "/js/cart.js": "/js/cart.js",
     "/js/index.js": "/js/index.js",
+    "/js/navbar.js": "/js/navbar.js",
     "/js/overall.js": "/js/overall.js",
     "/js/perTransaction.js": "/js/perTransaction.js",
     "/js/products.js": "/js/products.js",

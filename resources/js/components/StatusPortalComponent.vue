@@ -190,8 +190,8 @@ export default {
                 this.transactions = response.data;
                 this.getTransaction();
                 swal("", "Status has been updated.", "success");
+                console.log(response.data);
               });
-            console.log(response.data);
           }
         });
       }

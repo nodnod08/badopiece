@@ -95,4 +95,8 @@ class AccountController extends Controller
             return 0;
         }
     }
+
+    public function checkNotification() {
+        return Auth::user()->unreadNotifications;
+    }
 }

@@ -142,8 +142,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/getOverAllTransactions/{search}', 'TransactionController@getOverAllTransactionSearch');
         Route::get('/perTransactionView/{transactionId}', 'TransactionController@perTransactionView')->name('perTransaction');
         Route::get('/perTransaction/{transactionId}', 'TransactionController@perTransaction');
+        Route::get('/perTransactionView/{transactionId}/{notificationId}', 'TransactionController@perTransaction_2')->name('perTransaction');
         Route::get('/view-status/{transactionId}', 'TransactionController@viewStatus')->name('status_portal');
         Route::get('/updateNow/{transactionId}/{status}', 'TransactionController@updateNow');
+        Route::get('/checkNotification', 'AccountController@checkNotification');
         Route::post('inventories/remove', 'InventoryController@remove');
         Route::post('/admin/updatePassword', 'AccountController@updatePassword');
         Route::post('/admin/addUser', 'AccountController@addUser');

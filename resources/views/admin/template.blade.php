@@ -74,7 +74,7 @@
     </style>
 </head>
 
-<body class="bg-light">
+<body class="bg-light small-device">
     <!-- Left Panel -->
 
     <!-- /#left-panel -->
@@ -123,6 +123,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/'.Route::currentRouteName().'.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>

@@ -353,8 +353,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         _this2.getTransaction();
 
                         swal("", "Status has been updated.", "success");
+                        console.log(response.data);
                       });
-                      console.log(response.data);
                     }
                   });
                 }
