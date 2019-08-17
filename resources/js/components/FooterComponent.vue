@@ -16,6 +16,9 @@
             <li>
               <i class="fas fa-user"></i> Ms. Jeanne Paquia ( Web Developer of this site )
             </li>
+            <li>
+              <i class="fas fa-user"></i> Ms. Kisha Mae Sidon ( Web Developer of this site )
+            </li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
