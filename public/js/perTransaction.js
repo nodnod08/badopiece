@@ -271,6 +271,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["id", "auth", "payment"],
@@ -7427,7 +7463,7 @@ var render = function() {
             _c(
               "button",
               {
-                class: "btn btn-outline-dark btn-md my-2 my-sm-0",
+                class: "btn btn-outline-dark btn-sm my-2 my-sm-0",
                 on: {
                   click: function($event) {
                     return _vm.download()
@@ -7443,7 +7479,7 @@ var render = function() {
             _c(
               "button",
               {
-                class: "btn btn-outline-dark btn-md my-2 my-sm-0",
+                class: "btn btn-outline-dark btn-sm my-2 my-sm-0",
                 on: {
                   click: function($event) {
                     return _vm.print()
@@ -7457,10 +7493,8 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
           _c("div", { staticClass: "col-lg-12" }, [
-            _c("p", [
+            _c("small", [
               _c("b", [_vm._v("Date:")]),
               _vm._v(
                 "\n          " +
@@ -7475,7 +7509,9 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c("br"),
+            _vm._v(" "),
+            _c("small", [
               _c("b", [_vm._v("Transaction Id:")]),
               _vm._v(
                 "\n          " +
@@ -7484,7 +7520,9 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c("br"),
+            _vm._v(" "),
+            _c("small", [
               _c("b", [_vm._v("Transaction Type:")]),
               _vm._v(
                 "\n          " +
@@ -7493,7 +7531,9 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c("br"),
+            _vm._v(" "),
+            _c("small", [
               _c("b", [_vm._v("Status:")]),
               _vm._v(
                 "\n          " +
@@ -7502,7 +7542,9 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("p", [
+            _c("br"),
+            _vm._v(" "),
+            _c("small", [
               _c("b", [_vm._v("Payment Status:")]),
               _vm._v(
                 "\n          " +
@@ -7511,8 +7553,10 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
             transaction.transaction_type_id == 3
-              ? _c("p", [
+              ? _c("small", [
                   _c("b", [_vm._v("Payment Type:")]),
                   _vm._v(
                     "\n          " +
@@ -7520,7 +7564,9 @@ var render = function() {
                       "\n        "
                   )
                 ])
-              : _vm._e()
+              : _vm._e(),
+            _vm._v(" "),
+            _c("br")
           ]),
           _vm._v(" "),
           _c("br"),
@@ -7528,9 +7574,7 @@ var render = function() {
           transaction.transaction_type_id == 3 ||
           transaction.transaction_type_id == 1
             ? _c("div", { staticClass: "col-lg-12" }, [
-                _c("h4", [_vm._v("Billing Details")]),
-                _vm._v(" "),
-                _c("hr")
+                _c("h4", [_vm._v("Billing Details")])
               ])
             : _vm._e(),
           _vm._v(" "),
@@ -7540,7 +7584,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Recipient Name:")]),
                   _vm._v(
                     "\n          " +
@@ -7550,8 +7594,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _c("br"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Phone:")]),
                   _vm._v(
                     "\n          0" +
@@ -7559,8 +7604,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _c("br"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Email:")]),
                   _vm._v(
                     "\n          " +
@@ -7568,8 +7614,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _c("br"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Address / Shipping Destination:")]),
                   _vm._v(
                     "\n          " +
@@ -7584,14 +7631,15 @@ var render = function() {
                       _vm._s(transaction.shipping.postal) +
                       "\n        "
                   )
-                ])
+                ]),
+                _c("br")
               ])
             : _vm._e(),
           _vm._v(" "),
           transaction.transaction_type_id == 3 ||
           transaction.transaction_type_id == 1
             ? _c("div", { staticClass: "col-lg-12" }, [
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Recipient Name:")]),
                   _vm._v(
                     "\n          " +
@@ -7601,8 +7649,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _c("br"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Phone:")]),
                   _vm._v(
                     "\n          0" +
@@ -7610,8 +7659,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _c("br"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Email:")]),
                   _vm._v(
                     "\n          " +
@@ -7619,8 +7669,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _c("br"),
                 _vm._v(" "),
-                _c("p", [
+                _c("small", [
                   _c("b", [_vm._v("Address / Shipping Destination:")]),
                   _vm._v(
                     "\n          " +
@@ -7635,11 +7686,16 @@ var render = function() {
                       _vm._s(transaction.shipping.postal) +
                       "\n        "
                   )
-                ])
+                ]),
+                _c("br"),
+                _c("br")
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm._m(1, true),
+          _vm._v(" "),
+          _c("br"),
+          _c("br"),
           _vm._v(" "),
           _c("div", { staticClass: "col-lg-12" }, [
             _c("table", { staticClass: "table table-bordered" }, [
@@ -7746,9 +7802,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h4", [_vm._v("Items Ordered")]),
-      _vm._v(" "),
-      _c("hr")
+      _c("h4", [_vm._v("Items Ordered")])
     ])
   },
   function() {

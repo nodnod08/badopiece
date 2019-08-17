@@ -7,41 +7,46 @@
           <h4>Transaction Summary</h4>
         </div>
         <div class="col-lg-6 col-md-6">
-          <button v-on:click="download()" :class="'btn btn-outline-dark btn-md my-2 my-sm-0'">
+          <button v-on:click="download()" :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'">
             Download PDF
             <i class="ti-files"></i>
           </button>
-          <button v-on:click="print()" :class="'btn btn-outline-dark btn-md my-2 my-sm-0'">
+          <button v-on:click="print()" :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'">
             Print Now
             <i class="ti-printer"></i>
           </button>
         </div>
-        <hr />
         <div class="col-lg-12">
-          <p>
+          <small>
             <b>Date:</b>
             {{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}
-          </p>
-          <p>
+          </small>
+          <br />
+          <small>
             <b>Transaction Id:</b>
             {{ transaction.transaction_id }}
-          </p>
-          <p>
+          </small>
+          <br />
+          <small>
             <b>Transaction Type:</b>
             {{ transaction.transaction_type.transaction_type }}
-          </p>
-          <p>
+          </small>
+          <br />
+          <small>
             <b>Status:</b>
             {{ transaction.transaction_status.status }}
-          </p>
-          <p>
+          </small>
+          <br />
+          <small>
             <b>Payment Status:</b>
             {{ transaction.payment_status.status }}
-          </p>
-          <p v-if="transaction.transaction_type_id == 3">
+          </small>
+          <br />
+          <small v-if="transaction.transaction_type_id == 3">
             <b>Payment Type:</b>
             {{ transaction.payment_type }}
-          </p>
+          </small>
+          <br />
         </div>
         <br />
         <div
@@ -49,101 +54,132 @@
           class="col-lg-12"
         >
           <h4>Billing Details</h4>
-          <hr />
         </div>
         <div v-if="transaction.transaction_type_id == 2" class="col-lg-12">
           <h3>Meeting Place Details</h3>
           <hr />
-          <p>
+          <small>
             <b>Recipient Name:</b>
             {{ transaction.shipping.firstname }} {{ transaction.shipping.lastname }}
-          </p>
-          <p>
+          </small><br>
+          <small>
             <b>Phone:</b>
             0{{ transaction.shipping.phone }}
-          </p>
-          <p>
+          </small><br>
+          <small>
             <b>Email:</b>
             {{ transaction.shipping.email }}
-          </p>
-          <p>
+          </small><br>
+          <small>
             <b>Address / Shipping Destination:</b>
             {{ transaction.shipping.street_address }} {{ transaction.shipping.city }} {{ transaction.shipping.state }} {{ transaction.shipping.country }} {{ transaction.shipping.postal }}
-          </p>
+          </small><br>
         </div>
         <div
           v-if="transaction.transaction_type_id == 3 || transaction.transaction_type_id == 1"
           class="col-lg-12"
         >
-          <p>
+          <small>
             <b>Recipient Name:</b>
             {{ transaction.shipping.firstname }} {{ transaction.shipping.lastname }}
-          </p>
-          <p>
+          </small><br>
+          <small>
             <b>Phone:</b>
             0{{ transaction.shipping.phone }}
-          </p>
-          <p>
+          </small><br>
+          <small>
             <b>Email:</b>
             {{ transaction.shipping.email }}
-          </p>
-          <p>
+          </small><br>
+          <small>
             <b>Address / Shipping Destination:</b>
             {{ transaction.shipping.street_address }} {{ transaction.shipping.city }} {{ transaction.shipping.state }} {{ transaction.shipping.country }} {{ transaction.shipping.postal }}
-          </p>
+          </small><br><br>
         </div>
         <div class="col-lg-12">
           <h4>Items Ordered</h4>
-          <hr />
         </div>
+        <br><br>
         <div class="col-lg-12">
           <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
-                <th scope="col"><small>Product Name</small></th>
-                <th scope="col"><small>Product Code</small></th>
-                <th scope="col"><small>Product Quantity</small></th>
-                <th scope="col"><small>Product Price</small></th>
+                <th scope="col">
+                  <small>Product Name</small>
+                </th>
+                <th scope="col">
+                  <small>Product Code</small>
+                </th>
+                <th scope="col">
+                  <small>Product Quantity</small>
+                </th>
+                <th scope="col">
+                  <small>Product Price</small>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in transaction.items" v-bind:key="index">
-                <th><small>{{ item.product_name }}</small></th>
-                <td><small>{{ item.product_code }}</small></td>
-                <td><small>{{ item.product_quantity }}</small></td>
-                <td><small>&#8369; {{ item.product_price }}.00</small></td>
+                <th>
+                  <small>{{ item.product_name }}</small>
+                </th>
+                <td>
+                  <small>{{ item.product_code }}</small>
+                </td>
+                <td>
+                  <small>{{ item.product_quantity }}</small>
+                </td>
+                <td>
+                  <small>&#8369; {{ item.product_price }}.00</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>SubTotal</b></small>
+                  <small>
+                    <b>SubTotal</b>
+                  </small>
                 </td>
-                <td><small>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</small></td>
+                <td>
+                  <small>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>Shipping</b></small>
+                  <small>
+                    <b>Shipping</b>
+                  </small>
                 </td>
-                <td><small>&#8369; {{ transaction.shipping_amount }}.00</small></td>
+                <td>
+                  <small>&#8369; {{ transaction.shipping_amount }}.00</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>VAT %</b></small>
+                  <small>
+                    <b>VAT %</b>
+                  </small>
                 </td>
-                <td><small>0 %</small></td>
+                <td>
+                  <small>0 %</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>Total Amount</b></small>
+                  <small>
+                    <b>Total Amount</b>
+                  </small>
                 </td>
-                <td><small>&#8369; {{ transaction.amount }}.00</small></td>
+                <td>
+                  <small>&#8369; {{ transaction.amount }}.00</small>
+                </td>
               </tr>
             </tbody>
           </table>
