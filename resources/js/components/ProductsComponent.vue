@@ -96,11 +96,13 @@
           </div>
         </div>
         <h6>Showing from {{ this.productsItem.from }} to {{ this.productsItem.to }} of {{ this.productsItem.total }}</h6>
-        <pagination v-if="filter" :data="productsItem" @pagination-change-page="filterProducts">
+        <pagination v-if="filter" :limit="1"
+            :size="'small'" :data="productsItem" @pagination-change-page="filterProducts">
           <span slot="prev-nav">Previous</span>
           <span slot="next-nav">Next</span>
         </pagination>
-        <pagination v-else :data="productsItem" @pagination-change-page="getProducts">
+        <pagination v-else :limit="1"
+            :size="'small'" :data="productsItem" @pagination-change-page="getProducts">
           <span slot="prev-nav">Previous</span>
           <span slot="next-nav">Next</span>
         </pagination>

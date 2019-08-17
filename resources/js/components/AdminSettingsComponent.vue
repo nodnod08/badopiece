@@ -54,7 +54,7 @@
               <button
                 :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'"
                 type="submit"
-                v-on:click="updatePassword"
+                v-on:click="updatePassword()"
               >Update Password</button>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default {
         });
     },
     updatePassword: async function() {
-      this.$validator.validateAll().then(async result => {
+      this.$validator.validateAll(["opassword", "npassword", "cpassword"]).then(async result => {
         if (result) {
           axios
             .post("/admin/updatePassword", {

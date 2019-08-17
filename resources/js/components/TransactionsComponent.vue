@@ -13,50 +13,89 @@
           <table class="table table-hover table-bordered text-center mb-5">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Action</th>
-                <th scope="col">Transaction Id</th>
-                <th scope="col">Transaction Type</th>
-                <th scope="col">Transaction Status</th>
-                <th scope="col">Payment Type</th>
-                <th scope="col">Payment Status</th>
-                <th scope="col">Date Created</th>
+                <th scope="col">
+                  <small>#</small>
+                </th>
+                <th scope="col">
+                  <small>Action</small>
+                </th>
+                <th scope="col">
+                  <small>Transaction Id</small>
+                </th>
+                <th scope="col">
+                  <small>Transaction Type</small>
+                </th>
+                <th scope="col">
+                  <small>Transaction Status</small>
+                </th>
+                <th scope="col">
+                  <small>Payment Type</small>
+                </th>
+                <th scope="col">
+                  <small>Payment Status</small>
+                </th>
+                <th scope="col">
+                  <small>Date Created</small>
+                </th>
               </tr>
             </thead>
             <tbody v-if="transactions.data.length != 0">
               <tr v-for="(transaction, index) in transactions.data" v-bind:key="index">
-                <td>{{ index+1 }}</td>
                 <td>
-                  <a :href="'/transaction/'+transaction.id">
-                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
-                      View Transaction
-                      <i class="fas fa-file-alt"></i>
-                    </button>
-                  </a>
-                  <a :href="'/status/'+transaction.id">
-                    <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
-                      Transaction Status
-                      <i class="fas fa-hourglass-half"></i>
-                    </button>
-                  </a>
+                  <small>{{ index+1 }}</small>
                 </td>
-                <td>{{ transaction.transaction_id }}</td>
-                <td>{{ transaction.transaction_type.transaction_type }}</td>
-                <td>{{ transaction.transaction_status.status }}</td>
-                <td>{{ transaction.payment_type }}</td>
-                <td>{{ transaction.payment_status.status }}</td>
-                <td>{{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}</td>
+                <td>
+                  <small>
+                    <a :href="'/transaction/'+transaction.id">
+                      <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
+                        View Transaction
+                        <i class="fas fa-file-alt"></i>
+                      </button>
+                    </a>
+                    <a :href="'/status/'+transaction.id">
+                      <button :class="'btn btn-outline-dark btn-sm my-2 my-sm-0'" type="submit">
+                        Transaction Status
+                        <i class="fas fa-hourglass-half"></i>
+                      </button>
+                    </a>
+                  </small>
+                </td>
+                <td>
+                  <small>{{ transaction.transaction_id }}</small>
+                </td>
+                <td>
+                  <small>{{ transaction.transaction_type.transaction_type }}</small>
+                </td>
+                <td>
+                  <small>{{ transaction.transaction_status.status }}</small>
+                </td>
+                <td>
+                  <small>{{ transaction.payment_type }}</small>
+                </td>
+                <td>
+                  <small>{{ transaction.payment_status.status }}</small>
+                </td>
+                <td>
+                  <small>{{ month[new Date(transaction.created_at).getMonth()] +' '+new Date(transaction.created_at).getDate()+', '+new Date(transaction.created_at).getFullYear() }}</small>
+                </td>
               </tr>
             </tbody>
             <tbody v-else>
               <tr>
                 <td colspan="8">
-                  <b>No transactions found</b>
+                  <small>
+                    <b>No transactions found</b>
+                  </small>
                 </td>
               </tr>
             </tbody>
           </table>
-          <pagination :data="transactions" @pagination-change-page="getTransactions">
+          <pagination
+            :limit="1"
+            :size="'small'"
+            :data="transactions"
+            @pagination-change-page="getTransactions"
+          >
             <span slot="prev-nav">Previous</span>
             <span slot="next-nav">Next</span>
           </pagination>

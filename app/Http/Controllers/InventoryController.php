@@ -197,27 +197,63 @@ class InventoryController extends Controller
     }
 
     public function getDress() {
-        return Products::where('product_category', 43)->get()->count();
+        $dress = DB::table("products")
+                ->select(DB::raw("SUM(product_stocks) as count"), 'product_category')
+                ->orderBy("created_at")
+                ->where('product_category', 43)
+                ->get();
+
+        return $dress;        
     }
 
     public function getPolo() {
-        return Products::where('product_category', 48)->get()->count();
+        $polo = DB::table("products")
+                ->select(DB::raw("SUM(product_stocks) as count"), 'product_category')
+                ->orderBy("created_at")
+                ->where('product_category', 48)
+                ->get();
+
+        return $polo;   
     }
 
     public function getShort() {
-        return Products::where('product_category', 46)->get()->count();
+        $short = DB::table("products")
+                ->select(DB::raw("SUM(product_stocks) as count"), 'product_category')
+                ->orderBy("created_at")
+                ->where('product_category', 46)
+                ->get();
+
+        return $short;   
     }
 
     public function getShoes() {
-        return Products::where('product_category', 44)->get()->count();
+        $shoes = DB::table("products")
+                ->select(DB::raw("SUM(product_stocks) as count"), 'product_category')
+                ->orderBy("created_at")
+                ->where('product_category', 44)
+                ->get();
+
+        return $shoes;   
     }
 
     public function getJackets() {
-        return Products::where('product_category', 49)->get()->count();
+        $jacket = DB::table("products")
+                ->select(DB::raw("SUM(product_stocks) as count"), 'product_category')
+                ->orderBy("created_at")
+                ->where('product_category', 49)
+                ->get();
+
+        return $jacket;   
     }
 
     public function getBags() {
-        return Products::where('product_category', 45)->get()->count();
+        $bags = DB::table("products")
+                ->select(DB::raw("SUM(product_stocks) as count"), 'product_category')
+                ->orderBy("created_at")
+                ->where('product_category', 45)
+                ->get();
+
+        return $bags;   
     }
 
     public function remove(Request $request) {

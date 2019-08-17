@@ -621,6 +621,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 Vue.component("star-rating", vue_star_rating__WEBPACK_IMPORTED_MODULE_2___default.a);
@@ -8871,39 +8875,49 @@ var render = function() {
                     _vm._l(transaction.items, function(item, index) {
                       return _c("tr", { key: index }, [
                         _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "btn btn-outline-dark btn-md my-2 my-sm-0 mb-4",
-                              attrs: {
-                                type: "button",
-                                "data-toggle": "modal",
-                                "data-target": "#exampleModal"
-                              },
-                              on: {
-                                click: function($event) {
-                                  return _vm.setItem(item)
+                          _c("small", [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-outline-dark btn-sm my-2 my-sm-0 mb-4",
+                                attrs: {
+                                  type: "button",
+                                  "data-toggle": "modal",
+                                  "data-target": "#exampleModal"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.setItem(item)
+                                  }
                                 }
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                  Add Feedback To This Item\n                  "
-                              ),
-                              _c("i", { staticClass: "fas fa-comments" })
-                            ]
-                          )
+                              },
+                              [
+                                _vm._v(
+                                  "\n                  Add Feedback To This Item\n                  "
+                                ),
+                                _c("i", { staticClass: "fas fa-comments" })
+                              ]
+                            )
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("th", [_vm._v(_vm._s(item.product_name))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.product_code))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.product_quantity))]),
+                        _c("th", [
+                          _c("small", [_vm._v(_vm._s(item.product_name))])
+                        ]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v("₱ " + _vm._s(item.product_price) + ".00")
+                          _c("small", [_vm._v(_vm._s(item.product_code))])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("small", [_vm._v(_vm._s(item.product_quantity))])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("small", [
+                            _vm._v("₱ " + _vm._s(item.product_price) + ".00")
+                          ])
                         ])
                       ])
                     }),
@@ -8913,16 +8927,20 @@ var render = function() {
                       _vm._v(" "),
                       _c("td"),
                       _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
                       _vm._m(5, true),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v(
-                          "₱ " +
-                            _vm._s(
-                              transaction.amount - transaction.shipping_amount
-                            ) +
-                            ".00"
-                        )
+                        _c("small", [
+                          _vm._v(
+                            "₱ " +
+                              _vm._s(
+                                transaction.amount - transaction.shipping_amount
+                              ) +
+                              ".00"
+                          )
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -8931,12 +8949,16 @@ var render = function() {
                       _vm._v(" "),
                       _c("td"),
                       _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
                       _vm._m(6, true),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v(
-                          "₱ " + _vm._s(transaction.shipping_amount) + ".00"
-                        )
+                        _c("small", [
+                          _vm._v(
+                            "₱ " + _vm._s(transaction.shipping_amount) + ".00"
+                          )
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -8947,14 +8969,18 @@ var render = function() {
                       _vm._v(" "),
                       _c("td"),
                       _vm._v(" "),
+                      _c("td"),
+                      _vm._v(" "),
                       _vm._m(8, true),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v(
-                          "₱ " +
-                            _vm._s(transaction.amount.toLocaleString()) +
-                            ".00"
-                        )
+                        _c("small", [
+                          _vm._v(
+                            "₱ " +
+                              _vm._s(transaction.amount.toLocaleString()) +
+                              ".00"
+                          )
+                        ])
                       ])
                     ])
                   ],
@@ -9037,15 +9063,25 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "table-dark" }, [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Feedback")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Feedback")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Name")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Product Name")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Code")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Product Code")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Quantity")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Product Quantity")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Product Price")])
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Product Price")])
+        ])
       ])
     ])
   },
@@ -9053,13 +9089,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("b", [_vm._v("SubTotal")])])
+    return _c("td", [_c("small", [_c("b", [_vm._v("SubTotal")])])])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("b", [_vm._v("Shipping")])])
+    return _c("td", [_c("small", [_c("b", [_vm._v("Shipping")])])])
   },
   function() {
     var _vm = this
@@ -9070,16 +9106,18 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("td"),
       _vm._v(" "),
-      _c("td", [_c("b", [_vm._v("VAT %")])]),
+      _c("td"),
       _vm._v(" "),
-      _c("td", [_vm._v("0 %")])
+      _c("td", [_c("small", [_c("b", [_vm._v("VAT %")])])]),
+      _vm._v(" "),
+      _c("td", [_c("small", [_vm._v("0 %")])])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [_c("b", [_vm._v("Total Amount")])])
+    return _c("td", [_c("small", [_c("b", [_vm._v("Total Amount")])])])
   }
 ]
 render._withStripped = true

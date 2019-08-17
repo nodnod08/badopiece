@@ -501,6 +501,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
@@ -10145,7 +10147,7 @@ var render = function() {
               ? _c(
                   "pagination",
                   {
-                    attrs: { data: _vm.productsItem },
+                    attrs: { limit: 1, size: "small", data: _vm.productsItem },
                     on: { "pagination-change-page": _vm.filterProducts }
                   },
                   [
@@ -10165,7 +10167,7 @@ var render = function() {
               : _c(
                   "pagination",
                   {
-                    attrs: { data: _vm.productsItem },
+                    attrs: { limit: 1, size: "small", data: _vm.productsItem },
                     on: { "pagination-change-page": _vm.getProducts }
                   },
                   [

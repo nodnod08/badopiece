@@ -119,20 +119,25 @@
           ></apexchart>
         </div>
         <div class="col-lg-12">
-          <table id="htmlTableId1" v-if="ready && Labels.length" class="table table-bordered">
-            <thead class="table-dark">
+          <table id="htmlTableId1" v-if="ready && Labels.length" class="table table-sm">
+            <thead class="thead-dark">
               <tr>
-                <th>Transaction Status</th>
-                <th v-for="(label, index) in Labels" v-bind:key="index">{{ label }}</th>
+                <th>
+                  <small>Transaction Status</small>
+                </th>
+                <th v-for="(label, index) in Labels" v-bind:key="index">
+                  <small>{{ label }}</small>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(data, index) in datasArray2" v-bind:key="index">
-                <td>{{ data.name }}</td>
-                <td
-                  v-for="(data2, index1) in data.data"
-                  v-bind:key="index1"
-                >{{ data2.toLocaleString() }}.00</td>
+                <td>
+                  <small>{{ data.name }}</small>
+                </td>
+                <td v-for="(data2, index1) in data.data" v-bind:key="index1">
+                  <small>{{ data2.toLocaleString() }}.00</small>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -190,24 +195,25 @@
           ></apexchart>
         </div>
         <div class="col-lg-12">
-          <table
-            id="htmlTableId2"
-            v-if="ready && Labels1.length"
-            class="table responsive table-bordered"
-          >
-            <thead class="table-dark">
+          <table id="htmlTableId2" v-if="ready && Labels1.length" class="table">
+            <thead class="thead-dark">
               <tr>
-                <th>Item Category</th>
-                <th v-for="(label, index) in Labels1" v-bind:key="index">{{ label }}</th>
+                <th>
+                  <small>Item Category</small>
+                </th>
+                <th v-for="(label, index) in Labels1" v-bind:key="index">
+                  <small>{{ label }}</small>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(data, index) in datasArray" v-bind:key="index">
-                <td>{{ data.name }}</td>
-                <td
-                  v-for="(data2, index1) in data.data"
-                  v-bind:key="index1"
-                >{{ data2.toLocaleString() }}</td>
+                <td>
+                  <small>{{ data.name }}</small>
+                </td>
+                <td v-for="(data2, index1) in data.data" v-bind:key="index1">
+                  <small>{{ data2.toLocaleString() }}</small>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -418,7 +424,7 @@ export default {
       if (id == 1) {
         this.$refs.demoChart.dataURI().then(uri => {
           const doc = new jsPDF("landscape", "cm");
-          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.addImage(uri, "JPEG", 0, 0.5);
           doc.autoTable({
             html: "#htmlTableId1",
             headStyles: { fillColor: [64, 64, 64] },
@@ -429,7 +435,7 @@ export default {
       } else {
         this.$refs.demoChart2.dataURI().then(uri => {
           const doc = new jsPDF("landscape", "cm");
-          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.addImage(uri, "JPEG", 0, 0.5);
           doc.autoTable({
             html: "#htmlTableId2",
             headStyles: { fillColor: [64, 64, 64] },
@@ -443,7 +449,7 @@ export default {
       if (id == 1) {
         this.$refs.demoChart.dataURI().then(uri => {
           const doc = new jsPDF("landscape", "cm");
-          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.addImage(uri, "JPEG", 0, 0.5);
           doc.autoTable({
             html: "#htmlTableId1",
             headStyles: { fillColor: [64, 64, 64] },
@@ -456,7 +462,7 @@ export default {
       } else {
         this.$refs.demoChart2.dataURI().then(uri => {
           const doc = new jsPDF("landscape", "cm");
-          doc.addImage(uri, "JPEG", 2, 0.5);
+          doc.addImage(uri, "JPEG", 0, 0.5);
           doc.autoTable({
             html: "#htmlTableId2",
             headStyles: { fillColor: [64, 64, 64] },

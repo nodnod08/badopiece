@@ -451,6 +451,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -9186,102 +9225,125 @@ var render = function() {
                           index
                         ) {
                           return _c("tr", { key: index }, [
-                            _c("td", [_vm._v(_vm._s(index + 1))]),
-                            _vm._v(" "),
                             _c("td", [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    href: "/transaction/" + transaction.id
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      class:
-                                        "btn btn-outline-dark btn-sm my-2 my-sm-0",
-                                      attrs: { type: "submit" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    View Transaction\n                    "
-                                      ),
-                                      _c("i", {
-                                        staticClass: "fas fa-file-alt"
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  attrs: { href: "/status/" + transaction.id }
-                                },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      class:
-                                        "btn btn-outline-dark btn-sm my-2 my-sm-0",
-                                      attrs: { type: "submit" }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                    Transaction Status\n                    "
-                                      ),
-                                      _c("i", {
-                                        staticClass: "fas fa-hourglass-half"
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
+                              _c("small", [_vm._v(_vm._s(index + 1))])
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(_vm._s(transaction.transaction_id))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  transaction.transaction_type.transaction_type
+                              _c("small", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href: "/transaction/" + transaction.id
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        class:
+                                          "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                                        attrs: { type: "submit" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                      View Transaction\n                      "
+                                        ),
+                                        _c("i", {
+                                          staticClass: "fas fa-file-alt"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "/status/" + transaction.id }
+                                  },
+                                  [
+                                    _c(
+                                      "button",
+                                      {
+                                        class:
+                                          "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                                        attrs: { type: "submit" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                      Transaction Status\n                      "
+                                        ),
+                                        _c("i", {
+                                          staticClass: "fas fa-hourglass-half"
+                                        })
+                                      ]
+                                    )
+                                  ]
                                 )
-                              )
+                              ])
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(
-                                _vm._s(transaction.transaction_status.status)
-                              )
+                              _c("small", [
+                                _vm._v(_vm._s(transaction.transaction_id))
+                              ])
                             ]),
                             _vm._v(" "),
                             _c("td", [
-                              _vm._v(_vm._s(transaction.payment_type))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(_vm._s(transaction.payment_status.status))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.month[
-                                    new Date(transaction.created_at).getMonth()
-                                  ] +
-                                    " " +
-                                    new Date(transaction.created_at).getDate() +
-                                    ", " +
-                                    new Date(
-                                      transaction.created_at
-                                    ).getFullYear()
+                              _c("small", [
+                                _vm._v(
+                                  _vm._s(
+                                    transaction.transaction_type
+                                      .transaction_type
+                                  )
                                 )
-                              )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("small", [
+                                _vm._v(
+                                  _vm._s(transaction.transaction_status.status)
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("small", [
+                                _vm._v(_vm._s(transaction.payment_type))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("small", [
+                                _vm._v(
+                                  _vm._s(transaction.payment_status.status)
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("small", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.month[
+                                      new Date(
+                                        transaction.created_at
+                                      ).getMonth()
+                                    ] +
+                                      " " +
+                                      new Date(
+                                        transaction.created_at
+                                      ).getDate() +
+                                      ", " +
+                                      new Date(
+                                        transaction.created_at
+                                      ).getFullYear()
+                                  )
+                                )
+                              ])
                             ])
                           ])
                         }),
@@ -9294,7 +9356,7 @@ var render = function() {
               _c(
                 "pagination",
                 {
-                  attrs: { data: _vm.transactions },
+                  attrs: { limit: 1, size: "small", data: _vm.transactions },
                   on: { "pagination-change-page": _vm.getTransactions }
                 },
                 [
@@ -9329,21 +9391,35 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", { attrs: { scope: "col" } }, [_c("small", [_vm._v("#")])]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Action")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Transaction Id")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Transaction Id")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Transaction Type")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Transaction Type")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Transaction Status")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Transaction Status")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Payment Type")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Payment Type")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Payment Status")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Payment Status")])
+        ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Date Created")])
+        _c("th", { attrs: { scope: "col" } }, [
+          _c("small", [_vm._v("Date Created")])
+        ])
       ])
     ])
   },
@@ -9353,7 +9429,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("td", { attrs: { colspan: "8" } }, [
-        _c("b", [_vm._v("No transactions found")])
+        _c("small", [_c("b", [_vm._v("No transactions found")])])
       ])
     ])
   }

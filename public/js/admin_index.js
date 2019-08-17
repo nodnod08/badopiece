@@ -355,6 +355,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -563,7 +569,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (id == 1) {
                   this.$refs.demoChart.dataURI().then(function (uri) {
                     var doc = new jspdf__WEBPACK_IMPORTED_MODULE_4___default.a("landscape", "cm");
-                    doc.addImage(uri, "JPEG", 2, 0.5);
+                    doc.addImage(uri, "JPEG", 0, 0.5);
                     doc.autoTable({
                       html: "#htmlTableId1",
                       headStyles: {
@@ -578,7 +584,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 } else {
                   this.$refs.demoChart2.dataURI().then(function (uri) {
                     var doc = new jspdf__WEBPACK_IMPORTED_MODULE_4___default.a("landscape", "cm");
-                    doc.addImage(uri, "JPEG", 2, 0.5);
+                    doc.addImage(uri, "JPEG", 0, 0.5);
                     doc.autoTable({
                       html: "#htmlTableId2",
                       headStyles: {
@@ -617,7 +623,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (id == 1) {
                   this.$refs.demoChart.dataURI().then(function (uri) {
                     var doc = new jspdf__WEBPACK_IMPORTED_MODULE_4___default.a("landscape", "cm");
-                    doc.addImage(uri, "JPEG", 2, 0.5);
+                    doc.addImage(uri, "JPEG", 0, 0.5);
                     doc.autoTable({
                       html: "#htmlTableId1",
                       headStyles: {
@@ -634,7 +640,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 } else {
                   this.$refs.demoChart2.dataURI().then(function (uri) {
                     var doc = new jspdf__WEBPACK_IMPORTED_MODULE_4___default.a("landscape", "cm");
-                    doc.addImage(uri, "JPEG", 2, 0.5);
+                    doc.addImage(uri, "JPEG", 0, 0.5);
                     doc.autoTable({
                       html: "#htmlTableId2",
                       headStyles: {
@@ -38923,19 +38929,19 @@ var render = function() {
             ? _c(
                 "table",
                 {
-                  staticClass: "table table-bordered",
+                  staticClass: "table table-sm",
                   attrs: { id: "htmlTableId1" }
                 },
                 [
-                  _c("thead", { staticClass: "table-dark" }, [
+                  _c("thead", { staticClass: "thead-dark" }, [
                     _c(
                       "tr",
                       [
-                        _c("th", [_vm._v("Transaction Status")]),
+                        _vm._m(4),
                         _vm._v(" "),
                         _vm._l(_vm.Labels, function(label, index) {
                           return _c("th", { key: index }, [
-                            _vm._v(_vm._s(label))
+                            _c("small", [_vm._v(_vm._s(label))])
                           ])
                         })
                       ],
@@ -38950,11 +38956,13 @@ var render = function() {
                         "tr",
                         { key: index },
                         [
-                          _c("td", [_vm._v(_vm._s(data.name))]),
+                          _c("td", [_c("small", [_vm._v(_vm._s(data.name))])]),
                           _vm._v(" "),
                           _vm._l(data.data, function(data2, index1) {
                             return _c("td", { key: index1 }, [
-                              _vm._v(_vm._s(data2.toLocaleString()) + ".00")
+                              _c("small", [
+                                _vm._v(_vm._s(data2.toLocaleString()) + ".00")
+                              ])
                             ])
                           })
                         ],
@@ -38968,7 +38976,7 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(5),
         _vm._v(" "),
         _c("div", { staticClass: "col-lg-4" }, [
           _c("label", { attrs: { for: "" } }, [_vm._v("From:")]),
@@ -39099,20 +39107,17 @@ var render = function() {
           _vm.ready && _vm.Labels1.length
             ? _c(
                 "table",
-                {
-                  staticClass: "table responsive table-bordered",
-                  attrs: { id: "htmlTableId2" }
-                },
+                { staticClass: "table", attrs: { id: "htmlTableId2" } },
                 [
-                  _c("thead", { staticClass: "table-dark" }, [
+                  _c("thead", { staticClass: "thead-dark" }, [
                     _c(
                       "tr",
                       [
-                        _c("th", [_vm._v("Item Category")]),
+                        _vm._m(6),
                         _vm._v(" "),
                         _vm._l(_vm.Labels1, function(label, index) {
                           return _c("th", { key: index }, [
-                            _vm._v(_vm._s(label))
+                            _c("small", [_vm._v(_vm._s(label))])
                           ])
                         })
                       ],
@@ -39127,11 +39132,13 @@ var render = function() {
                         "tr",
                         { key: index },
                         [
-                          _c("td", [_vm._v(_vm._s(data.name))]),
+                          _c("td", [_c("small", [_vm._v(_vm._s(data.name))])]),
                           _vm._v(" "),
                           _vm._l(data.data, function(data2, index1) {
                             return _c("td", { key: index1 }, [
-                              _vm._v(_vm._s(data2.toLocaleString()))
+                              _c("small", [
+                                _vm._v(_vm._s(data2.toLocaleString()))
+                              ])
                             ])
                           })
                         ],
@@ -39185,9 +39192,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("th", [_c("small", [_vm._v("Transaction Status")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12 mt-4" }, [
       _c("h4", [_c("b", [_vm._v("Most Purchased Items")])])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [_c("small", [_vm._v("Item Category")])])
   }
 ]
 render._withStripped = true

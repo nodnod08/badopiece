@@ -100,50 +100,50 @@
           <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
-                <th scope="col">Product Name</th>
-                <th scope="col">Product Code</th>
-                <th scope="col">Product Quantity</th>
-                <th scope="col">Product Price</th>
+                <th scope="col"><small>Product Name</small></th>
+                <th scope="col"><small>Product Code</small></th>
+                <th scope="col"><small>Product Quantity</small></th>
+                <th scope="col"><small>Product Price</small></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in transaction.items" v-bind:key="index">
-                <th>{{ item.product_name }}</th>
-                <td>{{ item.product_code }}</td>
-                <td>{{ item.product_quantity }}</td>
-                <td>&#8369; {{ item.product_price }}.00</td>
+                <th><small>{{ item.product_name }}</small></th>
+                <td><small>{{ item.product_code }}</small></td>
+                <td><small>{{ item.product_quantity }}</small></td>
+                <td><small>&#8369; {{ item.product_price }}.00</small></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <b>SubTotal</b>
+                  <small><b>SubTotal</b></small>
                 </td>
-                <td>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</td>
+                <td><small>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</small></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <b>Shipping</b>
+                  <small><b>Shipping</b></small>
                 </td>
-                <td>&#8369; {{ transaction.shipping_amount }}.00</td>
+                <td><small>&#8369; {{ transaction.shipping_amount }}.00</small></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <b>VAT %</b>
+                  <small><b>VAT %</b></small>
                 </td>
-                <td>0 %</td>
+                <td><small>0 %</small></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td>
-                  <b>Total Amount</b>
+                  <small><b>Total Amount</b></small>
                 </td>
-                <td>&#8369; {{ transaction.amount }}.00</td>
+                <td><small>&#8369; {{ transaction.amount }}.00</small></td>
               </tr>
             </tbody>
           </table>

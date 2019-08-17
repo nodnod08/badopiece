@@ -376,32 +376,32 @@ export default {
     },
     getDress: function() {
       axios.get("/inventories/getDress").then(response => {
-        this.countDress = response.data;
+        this.countDress = response.data[0].count;
       });
     },
     getPolo: function() {
       axios.get("/inventories/getShort").then(response => {
-        this.countPolo = response.data;
+        this.countPolo = response.data[0].count;
       });
     },
     getBags: function() {
       axios.get("/inventories/getBags").then(response => {
-        this.countBags = response.data;
+        this.countBags = response.data[0].count;
       });
     },
     getShoes: function() {
       axios.get("/inventories/getShoes").then(response => {
-        this.countShoes = response.data;
+        this.countShoes = response.data[0].count;
       });
     },
     getShort: function() {
       axios.get("/inventories/getShort").then(response => {
-        this.countShort = response.data;
+        this.countShort = response.data[0].count;
       });
     },
     getJackets: function() {
       axios.get("/inventories/getJackets").then(response => {
-        this.countJackets = response.data;
+        this.countJackets = response.data[0].count;
       });
     },
     setItem: async function(data) {

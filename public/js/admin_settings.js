@@ -355,7 +355,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                this.$validator.validateAll().then(
+                this.$validator.validateAll(["opassword", "npassword", "cpassword"]).then(
                 /*#__PURE__*/
                 function () {
                   var _ref = _asyncToGenerator(
@@ -36742,7 +36742,11 @@ var render = function() {
                 {
                   class: "btn btn-outline-dark btn-sm my-2 my-sm-0",
                   attrs: { type: "submit" },
-                  on: { click: _vm.updatePassword }
+                  on: {
+                    click: function($event) {
+                      return _vm.updatePassword()
+                    }
+                  }
                 },
                 [_vm._v("Update Password")]
               )

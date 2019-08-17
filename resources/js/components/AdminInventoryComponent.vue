@@ -55,20 +55,20 @@
           ></apexchart>
         </div>
         <div class="col-lg-12">
-          <table id="htmlTableId2" v-if="ready && Labels.length" class="table table-bordered">
-            <thead class="table-dark">
+          <table id="htmlTableId2" v-if="ready && Labels.length" class="table">
+            <thead class="thead-dark">
               <tr>
-                <th>Item Category</th>
-                <th v-for="(label, index) in Labels" v-bind:key="index">{{ label }}</th>
+                <th><small>Item Category</small></th>
+                <th v-for="(label, index) in Labels" v-bind:key="index"><small>{{ label }}</small></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(data, index) in datasArray" v-bind:key="index">
-                <td>{{ data.name }}</td>
+                <td><small>{{ data.name }}</small></td>
                 <td
                   v-for="(data2, index1) in data.data"
                   v-bind:key="index1"
-                >{{ data2.toLocaleString() }}</td>
+                ><small>{{ data2.toLocaleString() }}</small></td>
               </tr>
             </tbody>
           </table>

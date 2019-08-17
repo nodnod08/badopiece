@@ -16,9 +16,9 @@
     <div class="top-right">
       <div class="header-menu">
         <div class="header-left">
-          <button class="search-trigger">
+          <!-- <button class="search-trigger">
             <i class="fa fa-search"></i>
-          </button>
+          </button>-->
           <div class="form-inline">
             <form class="search-form">
               <input
@@ -42,7 +42,7 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i class="fa fa-bell"></i>
+              <i class="fa fa-globe"></i>
               <span
                 v-if="unreadNotification.length"
                 class="count bg-danger"
@@ -56,7 +56,7 @@
                 class="dropdown-item media"
                 :href="'/perTransactionView/'+notification.data.transaction.id+'/'+notification.id"
               >
-                <i class="fa fa-check"></i>
+                <i class="ti-receipt"></i>
                 <p>
                   New transaction with transaction id of
                   <b>{{ notification.data.transaction.transaction_id }}</b>

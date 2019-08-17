@@ -38384,20 +38384,17 @@ var render = function() {
           _vm.ready && _vm.Labels.length
             ? _c(
                 "table",
-                {
-                  staticClass: "table table-bordered",
-                  attrs: { id: "htmlTableId2" }
-                },
+                { staticClass: "table", attrs: { id: "htmlTableId2" } },
                 [
-                  _c("thead", { staticClass: "table-dark" }, [
+                  _c("thead", { staticClass: "thead-dark" }, [
                     _c(
                       "tr",
                       [
-                        _c("th", [_vm._v("Item Category")]),
+                        _vm._m(1),
                         _vm._v(" "),
                         _vm._l(_vm.Labels, function(label, index) {
                           return _c("th", { key: index }, [
-                            _vm._v(_vm._s(label))
+                            _c("small", [_vm._v(_vm._s(label))])
                           ])
                         })
                       ],
@@ -38412,11 +38409,13 @@ var render = function() {
                         "tr",
                         { key: index },
                         [
-                          _c("td", [_vm._v(_vm._s(data.name))]),
+                          _c("td", [_c("small", [_vm._v(_vm._s(data.name))])]),
                           _vm._v(" "),
                           _vm._l(data.data, function(data2, index1) {
                             return _c("td", { key: index1 }, [
-                              _vm._v(_vm._s(data2.toLocaleString()))
+                              _c("small", [
+                                _vm._v(_vm._s(data2.toLocaleString()))
+                              ])
                             ])
                           })
                         ],
@@ -38441,6 +38440,12 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-12 mb-4" }, [
       _c("h4", [_c("b", [_vm._v("Inventory Dashboard")])])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", [_c("small", [_vm._v("Item Category")])])
   }
 ]
 render._withStripped = true

@@ -1042,8 +1042,6 @@ var render = function() {
         _c("div", { staticClass: "header-left" }, [
           _vm._m(1),
           _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
           _vm.ready
             ? _c("div", { staticClass: "dropdown for-notification" }, [
                 _c(
@@ -1059,7 +1057,7 @@ var render = function() {
                     }
                   },
                   [
-                    _c("i", { staticClass: "fa fa-bell" }),
+                    _c("i", { staticClass: "fa fa-globe" }),
                     _vm._v(" "),
                     _vm.unreadNotification.length
                       ? _c("span", { staticClass: "count bg-danger" }, [
@@ -1102,7 +1100,7 @@ var render = function() {
                           }
                         },
                         [
-                          _c("i", { staticClass: "fa fa-check" }),
+                          _c("i", { staticClass: "ti-receipt" }),
                           _vm._v(" "),
                           _c("p", [
                             _vm._v(
@@ -1149,7 +1147,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(2)
         ])
       ])
     ])
@@ -1162,14 +1160,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("a", { staticClass: "menutoggle", attrs: { id: "menuToggle" } }, [
       _c("i", { staticClass: "fa fa-bars" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "search-trigger" }, [
-      _c("i", { staticClass: "fa fa-search" })
     ])
   },
   function() {

@@ -552,42 +552,42 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_1___default()(filepond_plug
       var _this3 = this;
 
       axios.get("/inventories/getDress").then(function (response) {
-        _this3.countDress = response.data;
+        _this3.countDress = response.data[0].count;
       });
     },
     getPolo: function getPolo() {
       var _this4 = this;
 
       axios.get("/inventories/getShort").then(function (response) {
-        _this4.countPolo = response.data;
+        _this4.countPolo = response.data[0].count;
       });
     },
     getBags: function getBags() {
       var _this5 = this;
 
       axios.get("/inventories/getBags").then(function (response) {
-        _this5.countBags = response.data;
+        _this5.countBags = response.data[0].count;
       });
     },
     getShoes: function getShoes() {
       var _this6 = this;
 
       axios.get("/inventories/getShoes").then(function (response) {
-        _this6.countShoes = response.data;
+        _this6.countShoes = response.data[0].count;
       });
     },
     getShort: function getShort() {
       var _this7 = this;
 
       axios.get("/inventories/getShort").then(function (response) {
-        _this7.countShort = response.data;
+        _this7.countShort = response.data[0].count;
       });
     },
     getJackets: function getJackets() {
       var _this8 = this;
 
       axios.get("/inventories/getJackets").then(function (response) {
-        _this8.countJackets = response.data;
+        _this8.countJackets = response.data[0].count;
       });
     },
     setItem: function () {
