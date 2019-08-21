@@ -22,7 +22,7 @@
                   <div class="col-lg-3">Subtotal</div>
                 </div>
                 <br />
-                <div v-for="cart, index in carts" v-bind:key="index" class="row item-box mb-1">
+                <div v-for="(cart, index) in carts" v-bind:key="index" class="row item-box mb-1">
                   <div class="col-lg-3 col-md-6">
                     <p class="m-title mt-5">Item Photo</p>
                     <img
