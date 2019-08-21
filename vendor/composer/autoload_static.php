@@ -4213,6 +4213,7 @@ class ComposerStaticInitb9f878d9780df82eddcaeb258b43d117
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'categorySeeder' => __DIR__ . '/../..' . '/database/seeds/categorySeeder.php',
         'itemStatusesSeeder' => __DIR__ . '/../..' . '/database/seeds/itemStatusesSeeder.php',
         'paymentStatusesSeeder' => __DIR__ . '/../..' . '/database/seeds/paymentStatusesSeeder.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',

@@ -3799,6 +3799,7 @@ return array(
     'Whoops\\Util\\SystemFacade' => $vendorDir . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
     'Whoops\\Util\\TemplateHelper' => $vendorDir . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
     'XdgBaseDir\\Xdg' => $vendorDir . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+    'categorySeeder' => $baseDir . '/database/seeds/categorySeeder.php',
     'itemStatusesSeeder' => $baseDir . '/database/seeds/itemStatusesSeeder.php',
     'paymentStatusesSeeder' => $baseDir . '/database/seeds/paymentStatusesSeeder.php',
     'phpDocumentor\\Reflection\\DocBlock' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
