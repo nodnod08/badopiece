@@ -628,6 +628,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 Vue.component("star-rating", vue_star_rating__WEBPACK_IMPORTED_MODULE_2___default.a);
@@ -881,97 +917,99 @@ Vue.component("star-rating", vue_star_rating__WEBPACK_IMPORTED_MODULE_2___defaul
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
-                axios.get("/checkNew/" + this.transactions[0].id).then(
-                /*#__PURE__*/
-                function () {
-                  var _ref = _asyncToGenerator(
+                if (true) {
+                  axios.get("/checkNew/" + this.transactions[0].id).then(
                   /*#__PURE__*/
-                  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(response) {
-                    var self, encoded, docDefinition;
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
-                      while (1) {
-                        switch (_context9.prev = _context9.next) {
-                          case 0:
-                            if (!(response.data == "none")) {
-                              _context9.next = 10;
-                              break;
-                            }
+                  function () {
+                    var _ref = _asyncToGenerator(
+                    /*#__PURE__*/
+                    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(response) {
+                      var self, encoded, docDefinition;
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
+                        while (1) {
+                          switch (_context9.prev = _context9.next) {
+                            case 0:
+                              if (!(response.data == "none")) {
+                                _context9.next = 10;
+                                break;
+                              }
 
-                            self = _this5;
-                            encoded = "";
-                            _context9.next = 5;
-                            return _this5.buildPDF();
+                              self = _this5;
+                              encoded = "";
+                              _context9.next = 5;
+                              return _this5.buildPDF();
 
-                          case 5:
-                            docDefinition = _context9.sent;
-                            _context9.next = 8;
-                            return pdfMake.createPdf(docDefinition).getBase64(
-                            /*#__PURE__*/
-                            function () {
-                              var _ref2 = _asyncToGenerator(
+                            case 5:
+                              docDefinition = _context9.sent;
+                              _context9.next = 8;
+                              return pdfMake.createPdf(docDefinition).getBase64(
                               /*#__PURE__*/
-                              _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(encodedString) {
-                                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
-                                  while (1) {
-                                    switch (_context8.prev = _context8.next) {
-                                      case 0:
-                                        _context8.next = 2;
-                                        return encodedString;
+                              function () {
+                                var _ref2 = _asyncToGenerator(
+                                /*#__PURE__*/
+                                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(encodedString) {
+                                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+                                    while (1) {
+                                      switch (_context8.prev = _context8.next) {
+                                        case 0:
+                                          _context8.next = 2;
+                                          return encodedString;
 
-                                      case 2:
-                                        encoded = _context8.sent;
-                                        axios.post("/sendTransaction", {
-                                          data: encoded,
-                                          email: self.transactions[0].customer.email
-                                        }).then(function (response_1) {
-                                          self.loading = false;
-                                          swal({
-                                            title: "Thank you for purchasing Badopiece Collection product(s).",
-                                            text: "We also send the transaction details to your email as PDF. Thank you",
-                                            icon: "success",
-                                            showCancelButton: false,
-                                            showConfirmButton: true,
-                                            dangerMode: false,
-                                            closeOnClickOutside: false
-                                          }).then(function (success) {
-                                            if (success) {
-                                              self.record();
-                                            }
+                                        case 2:
+                                          encoded = _context8.sent;
+                                          axios.post("/sendTransaction", {
+                                            data: encoded,
+                                            email: self.transactions[0].customer.email
+                                          }).then(function (response_1) {
+                                            self.loading = false;
+                                            swal({
+                                              title: "Thank you for purchasing Badopiece Collection product(s).",
+                                              text: "We also send the transaction details to your email as PDF. Thank you",
+                                              icon: "success",
+                                              showCancelButton: false,
+                                              showConfirmButton: true,
+                                              dangerMode: false,
+                                              closeOnClickOutside: false
+                                            }).then(function (success) {
+                                              if (success) {
+                                                self.record();
+                                              }
+                                            });
                                           });
-                                        });
 
-                                      case 4:
-                                      case "end":
-                                        return _context8.stop();
+                                        case 4:
+                                        case "end":
+                                          return _context8.stop();
+                                      }
                                     }
-                                  }
-                                }, _callee8);
-                              }));
+                                  }, _callee8);
+                                }));
 
-                              return function (_x4) {
-                                return _ref2.apply(this, arguments);
-                              };
-                            }());
+                                return function (_x4) {
+                                  return _ref2.apply(this, arguments);
+                                };
+                              }());
 
-                          case 8:
-                            _context9.next = 11;
-                            break;
+                            case 8:
+                              _context9.next = 11;
+                              break;
 
-                          case 10:
-                            _this5.loading = false;
+                            case 10:
+                              _this5.loading = false;
 
-                          case 11:
-                          case "end":
-                            return _context9.stop();
+                            case 11:
+                            case "end":
+                              return _context9.stop();
+                          }
                         }
-                      }
-                    }, _callee9);
-                  }));
+                      }, _callee9);
+                    }));
 
-                  return function (_x3) {
-                    return _ref.apply(this, arguments);
-                  };
-                }());
+                    return function (_x3) {
+                      return _ref.apply(this, arguments);
+                    };
+                  }());
+                }
 
               case 1:
               case "end":
@@ -8904,7 +8942,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                  Add Feedback To This Item\n                  "
+                                  "\n                    Add Feedback To This Item\n                    "
                                 ),
                                 _c("i", { staticClass: "fas fa-comments" })
                               ]

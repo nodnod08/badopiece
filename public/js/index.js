@@ -415,7 +415,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       message: "",
       fullname: "",
       email: "",
-      loading: false,
+      loading: true,
       cartCount: ""
     };
   },
@@ -490,6 +490,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 axios.get("/countCart").then(function (response) {
                   _this2.cartCount = response.data; // console.log(response.data);
+
+                  _this2.loading = false;
+
+                  if (true) {
+                    swal({
+                      title: "FOR EDUCATIONAL PURPOSES ONLY.",
+                      text: "ALL TRANSACTION AND PROCESS OF PAYMENT ARE FAKE. Thank you",
+                      icon: "info",
+                      showCancelButton: false,
+                      showConfirmButton: true,
+                      dangerMode: false,
+                      closeOnClickOutside: false
+                    }).then(function (success) {});
+                  }
                 });
 
               case 1:
@@ -507,9 +521,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return countCart;
     }()
   },
-  created: function created() {
-    this.countCart(); // console.log(this.auth);
-  }
+  created: function () {
+    var _created = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return this.countCart();
+
+            case 2:
+              console.log("true");
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, this);
+    }));
+
+    function created() {
+      return _created.apply(this, arguments);
+    }
+
+    return created;
+  }()
 });
 
 /***/ }),

@@ -168,67 +168,103 @@
           <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
-                <th scope="col"><small>Feedback</small></th>
-                <th scope="col"><small>Product Name</small></th>
-                <th scope="col"><small>Product Code</small></th>
-                <th scope="col"><small>Product Quantity</small></th>
-                <th scope="col"><small>Product Price</small></th>
+                <th scope="col">
+                  <small>Feedback</small>
+                </th>
+                <th scope="col">
+                  <small>Product Name</small>
+                </th>
+                <th scope="col">
+                  <small>Product Code</small>
+                </th>
+                <th scope="col">
+                  <small>Product Quantity</small>
+                </th>
+                <th scope="col">
+                  <small>Product Price</small>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in transaction.items" v-bind:key="index">
                 <td>
-                  <small><button
-                    v-on:click="setItem(item)"
-                    type="button"
-                    class="btn btn-outline-dark btn-sm my-2 my-sm-0 mb-4"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                  >
-                    Add Feedback To This Item
-                    <i class="fas fa-comments"></i>
-                  </button></small>
+                  <small>
+                    <button
+                      v-on:click="setItem(item)"
+                      type="button"
+                      class="btn btn-outline-dark btn-sm my-2 my-sm-0 mb-4"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                    >
+                      Add Feedback To This Item
+                      <i class="fas fa-comments"></i>
+                    </button>
+                  </small>
                 </td>
-                <th><small>{{ item.product_name }}</small></th>
-                <td><small>{{ item.product_code }}</small></td>
-                <td><small>{{ item.product_quantity }}</small></td>
-                <td><small>&#8369; {{ item.product_price }}.00</small></td>
+                <th>
+                  <small>{{ item.product_name }}</small>
+                </th>
+                <td>
+                  <small>{{ item.product_code }}</small>
+                </td>
+                <td>
+                  <small>{{ item.product_quantity }}</small>
+                </td>
+                <td>
+                  <small>&#8369; {{ item.product_price }}.00</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>SubTotal</b></small>
+                  <small>
+                    <b>SubTotal</b>
+                  </small>
                 </td>
-                <td><small>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</small></td>
+                <td>
+                  <small>&#8369; {{ transaction.amount - transaction.shipping_amount }}.00</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>Shipping</b></small>
+                  <small>
+                    <b>Shipping</b>
+                  </small>
                 </td>
-                <td><small>&#8369; {{ transaction.shipping_amount }}.00</small></td>
+                <td>
+                  <small>&#8369; {{ transaction.shipping_amount }}.00</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>VAT %</b></small>
+                  <small>
+                    <b>VAT %</b>
+                  </small>
                 </td>
-                <td><small>0 %</small></td>
+                <td>
+                  <small>0 %</small>
+                </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <small><b>Total Amount</b></small>
+                  <small>
+                    <b>Total Amount</b>
+                  </small>
                 </td>
-                <td><small>&#8369; {{ transaction.amount.toLocaleString() }}.00</small></td>
+                <td>
+                  <small>&#8369; {{ transaction.amount.toLocaleString() }}.00</small>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -333,43 +369,47 @@ export default {
         .then(response => {});
     },
     checkNew: async function() {
-      axios.get("/checkNew/" + this.transactions[0].id).then(async response => {
-        if (response.data == "none") {
-          var self = this;
-          var encoded = "";
-          var docDefinition = await this.buildPDF();
-          await pdfMake
-            .createPdf(docDefinition)
-            .getBase64(async function(encodedString) {
-              encoded = await encodedString;
-              axios
-                .post("/sendTransaction", {
-                  data: encoded,
-                  email: self.transactions[0].customer.email
-                })
-                .then(response_1 => {
-                  self.loading = false;
-                  swal({
-                    title:
-                      "Thank you for purchasing Badopiece Collection product(s).",
-                    text:
-                      "We also send the transaction details to your email as PDF. Thank you",
-                    icon: "success",
-                    showCancelButton: false,
-                    showConfirmButton: true,
-                    dangerMode: false,
-                    closeOnClickOutside: false
-                  }).then(success => {
-                    if (success) {
-                      self.record();
-                    }
-                  });
+      if (process.env.MIX_SEND_EMAIL) {
+        axios
+          .get("/checkNew/" + this.transactions[0].id)
+          .then(async response => {
+            if (response.data == "none") {
+              var self = this;
+              var encoded = "";
+              var docDefinition = await this.buildPDF();
+              await pdfMake
+                .createPdf(docDefinition)
+                .getBase64(async function(encodedString) {
+                  encoded = await encodedString;
+                  axios
+                    .post("/sendTransaction", {
+                      data: encoded,
+                      email: self.transactions[0].customer.email
+                    })
+                    .then(response_1 => {
+                      self.loading = false;
+                      swal({
+                        title:
+                          "Thank you for purchasing Badopiece Collection product(s).",
+                        text:
+                          "We also send the transaction details to your email as PDF. Thank you",
+                        icon: "success",
+                        showCancelButton: false,
+                        showConfirmButton: true,
+                        dangerMode: false,
+                        closeOnClickOutside: false
+                      }).then(success => {
+                        if (success) {
+                          self.record();
+                        }
+                      });
+                    });
                 });
-            });
-        } else {
-          this.loading = false;
-        }
-      });
+            } else {
+              this.loading = false;
+            }
+          });
+      }
     },
     print: async function() {
       pdfMake.createPdf(await this.buildPDF()).print();

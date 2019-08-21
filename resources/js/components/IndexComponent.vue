@@ -193,7 +193,7 @@ export default {
       message: "",
       fullname: "",
       email: "",
-      loading: false,
+      loading: true,
       cartCount: ""
     };
   },
@@ -236,12 +236,24 @@ export default {
       axios.get("/countCart").then(response => {
         this.cartCount = response.data;
         // console.log(response.data);
+        this.loading = false;
+        if (process.env.MIX_ALERT_PURPOSES == "true") {
+          swal({
+            title: "FOR EDUCATIONAL PURPOSES ONLY.",
+            text: "ALL TRANSACTION AND PROCESS OF PAYMENT ARE FAKE. Thank you",
+            icon: "info",
+            showCancelButton: false,
+            showConfirmButton: true,
+            dangerMode: false,
+            closeOnClickOutside: false
+          }).then(success => {});
+        }
       });
     }
   },
-  created() {
-    this.countCart();
-    // console.log(this.auth);
+  async created() {
+    await this.countCart();
+    console.log(process.env.MIX_ALERT_PURPOSES);
   }
 };
 </script>
