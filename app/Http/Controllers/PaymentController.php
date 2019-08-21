@@ -128,8 +128,8 @@ class PaymentController extends Controller
                 }
                 $admins = User::where('user_type', 'admin')->get();
                 Notification::send($admins, new NewTransaction($transactions));
-                $contact = "0".$shipping->phone;
-                $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->id."\n\n";
+                $contact = $shipping->phone;
+                $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->transaction_id."\n\n";
                 function itexmo($number,$message,$apicode) {
                         $url = 'https://www.itexmo.com/php_api/api.php';
                         $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);
@@ -197,8 +197,8 @@ class PaymentController extends Controller
             }
             $admins = User::where('user_type', 'admin')->get();
             Notification::send($admins, new NewTransaction($transactions));
-            $contact = "0".$shipping->phone;
-            $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->id."\n\n";
+            $contact = $shipping->phone;
+            $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->transaction_id."\n\n";
             function itexmo($number,$message,$apicode) {
                     $url = 'https://www.itexmo.com/php_api/api.php';
                     $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);
@@ -256,8 +256,8 @@ class PaymentController extends Controller
             }
             $admins = User::where('user_type', 'admin')->get();
             Notification::send($admins, new NewTransaction($transactions));
-            $contact = "0".$shipping->phone;
-            $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->id."\n\n";
+            $contact = $shipping->phone;
+            $message = "Badopiece Collection\n\nNew Transaction has been made with ID of:\n\n"."Tansaction ID: ".$transactions->transaction_id."\n\n";
             function itexmo($number,$message,$apicode) {
                     $url = 'https://www.itexmo.com/php_api/api.php';
                     $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);

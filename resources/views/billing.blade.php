@@ -25,6 +25,16 @@
     .required-message {
         color: red
     }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
 </style>
 @endsection
 @section('extra-js-link')
@@ -97,9 +107,9 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-2">
-                            <label for>Phone Number</label>
-                            <input name="phone" id="validationCustom04" type="number"
-                                class="form-control form-control-sm" required />
+                            <label for>Phone Number <small>Format is: 09*********</small></label>
+                            <input name="phone" onkeypress="return isNumberKey(event);" id="validationCustom04"
+                                maxlength="11" type="text" class="form-control form-control-sm" required />
                             <div class="invalid-feedback">
                                 Please provide a Phone Number.
                             </div>
@@ -292,6 +302,7 @@
                         if (form.checkValidity() === false) {
                             event.preventDefault();
                             event.stopPropagation();
+                            swal("", "Please complete all the fields.", "error");
                         }
                         form.classList.add('was-validated');
 
@@ -336,6 +347,7 @@
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
+                    swal("", "Please complete all the fields.", "error");
                 } else {
                     swal({
                         title: "Your payment is ready to process.",
@@ -363,6 +375,7 @@
                 if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
+                    swal("", "Please complete all the fields.", "error");
                 } else {
                     swal({
                         title: "Your payment is ready to process.",
@@ -384,5 +397,10 @@
                 form.classList.add('was-validated');
         }, false);
     });
+
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        return !(charCode > 31 && (charCode < 48 || charCode > 57));
+    }
 </script>
 @endsection

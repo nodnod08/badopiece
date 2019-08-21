@@ -362,8 +362,9 @@ Vue.component("pagination", __webpack_require__(/*! laravel-vue-pagination */ ".
 
                 case 2:
                   _this2.carts = _context3.sent;
+                  console.log(response.data);
 
-                case 3:
+                case 4:
                 case "end":
                   return _context3.stop();
               }

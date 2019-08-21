@@ -165,8 +165,8 @@ class TransactionController extends Controller
                                     
         
         // event(new UpdateStatus($transaction));
-        $contact = "0".$transaction[0]->shipping->phone;    
-        $message = "From Badopiece Collection\n\nTransaction ID of ".$transaction[0]->transaction_id." was change the status to ".$statusNow;
+        $contact = $transaction[0]->shipping->phone;    
+        $message = "From Badopiece Collection\n\nTransaction ID of ".$transaction[0]->transaction_id." was change the status to ".$statusNow."\n";
         function itexmo($number,$message,$apicode) {
                 $url = 'https://www.itexmo.com/php_api/api.php';
                 $itexmo = array('1' => $number, '2' => $message, '3' => $apicode);

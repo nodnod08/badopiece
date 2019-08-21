@@ -187,7 +187,7 @@ export default {
     getCartContent: function() {
       axios.get("/getCartContent").then(async response => {
         this.carts = await response.data;
-        // console.log(response.data);
+        console.log(response.data);
       });
     },
     getSubtotal: function() {

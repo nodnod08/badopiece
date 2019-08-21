@@ -643,16 +643,16 @@ export default {
       let backgroundColor = "";
       var datas = {};
       var datasArray = [];
-      await axios.get(url).then(response => {
-        // console.log(response.data);
-        this.data1 = response.data;
-        this.Labels1 = _.sortedUniq(this.data1[this.data1.length - 1]);
+      await axios.get(url).then(async response => {
+        await console.log(response.data);
+        this.data1 = await response.data;
+        this.Labels1 = await _.sortedUniq(this.data1[this.data1.length - 1]);
 
         this.manifest = {
           ...this.manifest,
           ...{
             xaxis: {
-              categories: _.sortedUniq(this.data1[this.data1.length - 1])
+              categories: await _.sortedUniq(this.data1[this.data1.length - 1])
             }
           }
         };

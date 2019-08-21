@@ -103,7 +103,7 @@ class InventoryController extends Controller
 
     public function addItem(Request $request) {
         $filenameWithExtension = $request->image->getClientOriginalName();
-        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+        $filename = preg_replace('/\s+/','',pathinfo($filenameWithExtension, PATHINFO_FILENAME));
         $extension = $request->image->getClientOriginalExtension();
         $filenameToStore = $filename.'_'.time().'.'.$extension;
         $path = $request->image->storeAs('public/img/offer-img', $filenameToStore);
@@ -147,7 +147,7 @@ class InventoryController extends Controller
     public function updateItem(Request $request) {
         if ($request->hasFile('image')) {
             $filenameWithExtension = $request->image->getClientOriginalName();
-            $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+            $filename = preg_replace('/\s+/','',pathinfo($filenameWithExtension, PATHINFO_FILENAME));
             $extension = $request->image->getClientOriginalExtension();
             $filenameToStore = $filename.'_'.time().'.'.$extension;
             $path = $request->image->storeAs('public/img/offer-img', $filenameToStore);

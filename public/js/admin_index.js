@@ -883,13 +883,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getItems: function () {
       var _getItems = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
         var _this5 = this;
 
         var self, from, to, url, Prices, borderColor, backgroundColor, datas, datasArray;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 self = this;
                 self.datasArray = [];
@@ -903,92 +903,127 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 backgroundColor = "";
                 datas = {};
                 datasArray = [];
-                _context5.next = 14;
-                return axios.get(url).then(function (response) {
-                  // console.log(response.data);
-                  _this5.data1 = response.data;
-                  _this5.Labels1 = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(_this5.data1[_this5.data1.length - 1]);
-                  _this5.manifest = _objectSpread({}, _this5.manifest, {
-                    xaxis: {
-                      categories: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(_this5.data1[_this5.data1.length - 1])
-                    }
-                  });
+                _context6.next = 14;
+                return axios.get(url).then(
+                /*#__PURE__*/
+                function () {
+                  var _ref = _asyncToGenerator(
+                  /*#__PURE__*/
+                  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(response) {
+                    var datas, datasets, groupName, self, _arr5, _i5, _arr5$_i, key, value, groupDate, _arr6, _loop2, _i6, toFind;
 
-                  _this5.data1.splice(_this5.data1.length - 1, 1);
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+                      while (1) {
+                        switch (_context5.prev = _context5.next) {
+                          case 0:
+                            _context5.next = 2;
+                            return console.log(response.data);
 
-                  var datas = {};
+                          case 2:
+                            _context5.next = 4;
+                            return response.data;
 
-                  if (_this5.data1) {
-                    var datasets = [];
+                          case 4:
+                            _this5.data1 = _context5.sent;
+                            _context5.next = 7;
+                            return lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(_this5.data1[_this5.data1.length - 1]);
 
-                    var groupName = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(_this5.data1).groupBy("category").value(); // console.log(groupName);
+                          case 7:
+                            _this5.Labels1 = _context5.sent;
+                            _context5.t0 = _objectSpread;
+                            _context5.t1 = {};
+                            _context5.t2 = _this5.manifest;
+                            _context5.next = 13;
+                            return lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sortedUniq(_this5.data1[_this5.data1.length - 1]);
+
+                          case 13:
+                            _context5.t3 = _context5.sent;
+                            _context5.t4 = {
+                              categories: _context5.t3
+                            };
+                            _context5.t5 = {
+                              xaxis: _context5.t4
+                            };
+                            _this5.manifest = (0, _context5.t0)(_context5.t1, _context5.t2, _context5.t5);
+
+                            _this5.data1.splice(_this5.data1.length - 1, 1);
+
+                            datas = {};
+
+                            if (_this5.data1) {
+                              datasets = [];
+                              groupName = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(_this5.data1).groupBy("category").value(); // console.log(groupName);
+
+                              self = _this5;
+                              _arr5 = Object.entries(groupName);
+
+                              for (_i5 = 0; _i5 < _arr5.length; _i5++) {
+                                _arr5$_i = _slicedToArray(_arr5[_i5], 2), key = _arr5$_i[0], value = _arr5$_i[1];
+                                groupDate = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(value).groupBy("date").map(function (objs, key1) {
+                                  return {
+                                    category: objs[0].category,
+                                    date: objs[0].date,
+                                    price: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sumBy(objs, "price")
+                                  };
+                                }).value(); // console.log(ind)
+
+                                _arr6 = Object.entries(self.Labels1);
+
+                                _loop2 = function _loop2() {
+                                  var _arr6$_i = _slicedToArray(_arr6[_i6], 2),
+                                      key2 = _arr6$_i[0],
+                                      value2 = _arr6$_i[1];
+
+                                  toFind = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.result(lodash__WEBPACK_IMPORTED_MODULE_3___default.a.find(groupDate, function (obj) {
+                                    return obj.date === value2;
+                                  }), "price"); // console.log(name)
+
+                                  if (typeof toFind != "undefined") {
+                                    datasets.push(toFind);
+                                  } else {
+                                    datasets.push("0");
+                                  }
+                                };
+
+                                for (_i6 = 0; _i6 < _arr6.length; _i6++) {
+                                  _loop2();
+                                }
+
+                                datas = {
+                                  name: key,
+                                  data: datasets
+                                };
+                                self.datasArray.push(datas);
+                                datas = {};
+                                datasets = [];
+                              } // datasArray = _.sortBy(datasArray, "name");
 
 
-                    var self = _this5;
+                              _this5.manifest = _objectSpread({}, _this5.manifest, {
+                                series: self.datasArray
+                              });
+                              self.ready1 = true; // console.log(datasArray);
+                            }
 
-                    var _arr5 = Object.entries(groupName);
-
-                    for (var _i5 = 0; _i5 < _arr5.length; _i5++) {
-                      var _arr5$_i = _slicedToArray(_arr5[_i5], 2),
-                          key = _arr5$_i[0],
-                          value = _arr5$_i[1];
-
-                      var groupDate = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.chain(value).groupBy("date").map(function (objs, key1) {
-                        return {
-                          category: objs[0].category,
-                          date: objs[0].date,
-                          price: lodash__WEBPACK_IMPORTED_MODULE_3___default.a.sumBy(objs, "price")
-                        };
-                      }).value(); // console.log(ind)
-
-
-                      var _arr6 = Object.entries(self.Labels1);
-
-                      var _loop2 = function _loop2() {
-                        var _arr6$_i = _slicedToArray(_arr6[_i6], 2),
-                            key2 = _arr6$_i[0],
-                            value2 = _arr6$_i[1];
-
-                        toFind = lodash__WEBPACK_IMPORTED_MODULE_3___default.a.result(lodash__WEBPACK_IMPORTED_MODULE_3___default.a.find(groupDate, function (obj) {
-                          return obj.date === value2;
-                        }), "price"); // console.log(name)
-
-                        if (typeof toFind != "undefined") {
-                          datasets.push(toFind);
-                        } else {
-                          datasets.push("0");
+                          case 20:
+                          case "end":
+                            return _context5.stop();
                         }
-                      };
-
-                      for (var _i6 = 0; _i6 < _arr6.length; _i6++) {
-                        var toFind;
-
-                        _loop2();
                       }
+                    }, _callee5);
+                  }));
 
-                      datas = {
-                        name: key,
-                        data: datasets
-                      };
-                      self.datasArray.push(datas);
-                      datas = {};
-                      datasets = [];
-                    } // datasArray = _.sortBy(datasArray, "name");
-
-
-                    _this5.manifest = _objectSpread({}, _this5.manifest, {
-                      series: self.datasArray
-                    });
-                    self.ready1 = true; // console.log(datasArray);
-                  }
-                });
+                  return function (_x3) {
+                    return _ref.apply(this, arguments);
+                  };
+                }());
 
               case 14:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee6, this);
       }));
 
       function getItems() {
