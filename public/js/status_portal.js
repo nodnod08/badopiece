@@ -228,6 +228,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -252,7 +253,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       status1: false,
       status2: false,
       status3: false,
-      status4: false
+      status4: false,
+      status5: false,
+      status6: false,
+      status7: false,
+      status8: false
     };
   },
   created: function () {
@@ -293,11 +298,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.next = 2;
                 return axios.get("/getTransactionInfo/" + this.id).then(function (response) {
+                  console.log(response.data);
                   _this.transactions = response.data;
                   _this.status1 = _this.transactions[0].item_status.id == 1 ? true : false;
                   _this.status2 = _this.transactions[0].item_status.id == 2 ? true : false;
                   _this.status3 = _this.transactions[0].item_status.id == 3 ? true : false;
                   _this.status4 = _this.transactions[0].item_status.id == 4 ? true : false;
+                  _this.status5 = _this.transactions[0].item_status.id == 5 ? true : false;
+                  _this.status6 = _this.transactions[0].item_status.id == 6 ? true : false;
+                  _this.status7 = _this.transactions[0].item_status.id == 7 ? true : false;
+                  _this.status8 = _this.transactions[0].item_status.id == 8 ? true : false;
                 });
 
               case 2:
@@ -333,8 +343,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   check = this.status2;
                 } else if (id == 3) {
                   check = this.status3;
-                } else {
+                } else if (id == 4) {
                   check = this.status4;
+                } else if (id == 5) {
+                  check = this.status5;
+                } else if (id == 6) {
+                  check = this.status6;
+                } else if (id == 7) {
+                  check = this.status7;
+                } else {
+                  check = this.status8;
                 }
 
                 if (check === true) {
@@ -7371,102 +7389,199 @@ var render = function() {
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-lg-12" },
-          [
-            _c("switches", {
-              attrs: {
-                width: "250",
-                label: "Preparing Item",
-                color: "green",
-                "emit-on-mount": false
-              },
-              on: {
-                input: function($event) {
-                  return _vm.updateStatus(1)
-                }
-              },
-              model: {
-                value: _vm.status1,
-                callback: function($$v) {
-                  _vm.status1 = $$v
-                },
-                expression: "status1"
-              }
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("switches", {
-              attrs: {
-                width: "250",
-                label: "Ready For Delivery",
-                color: "green",
-                "emit-on-mount": false
-              },
-              on: {
-                input: function($event) {
-                  return _vm.updateStatus(2)
-                }
-              },
-              model: {
-                value: _vm.status2,
-                callback: function($$v) {
-                  _vm.status2 = $$v
-                },
-                expression: "status2"
-              }
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("switches", {
-              attrs: {
-                width: "250",
-                label: "In Delivery Now",
-                color: "green",
-                "emit-on-mount": false
-              },
-              on: {
-                input: function($event) {
-                  return _vm.updateStatus(3)
-                }
-              },
-              model: {
-                value: _vm.status3,
-                callback: function($$v) {
-                  _vm.status3 = $$v
-                },
-                expression: "status3"
-              }
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("switches", {
-              attrs: {
-                width: "250",
-                label: "Receiving Item",
-                color: "green",
-                "emit-on-mount": false
-              },
-              on: {
-                input: function($event) {
-                  return _vm.updateStatus(4)
-                }
-              },
-              model: {
-                value: _vm.status4,
-                callback: function($$v) {
-                  _vm.status4 = $$v
-                },
-                expression: "status4"
-              }
-            })
-          ],
-          1
-        ),
+        _vm.transactions[0].transaction_type.id != 2
+          ? _c(
+              "div",
+              { staticClass: "col-lg-12" },
+              [
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Preparing Item",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(1)
+                    }
+                  },
+                  model: {
+                    value: _vm.status1,
+                    callback: function($$v) {
+                      _vm.status1 = $$v
+                    },
+                    expression: "status1"
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Ready For Delivery",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(2)
+                    }
+                  },
+                  model: {
+                    value: _vm.status2,
+                    callback: function($$v) {
+                      _vm.status2 = $$v
+                    },
+                    expression: "status2"
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "In Delivery Now",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(3)
+                    }
+                  },
+                  model: {
+                    value: _vm.status3,
+                    callback: function($$v) {
+                      _vm.status3 = $$v
+                    },
+                    expression: "status3"
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Receiving Item",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(4)
+                    }
+                  },
+                  model: {
+                    value: _vm.status4,
+                    callback: function($$v) {
+                      _vm.status4 = $$v
+                    },
+                    expression: "status4"
+                  }
+                })
+              ],
+              1
+            )
+          : _c(
+              "div",
+              { staticClass: "col-lg-12" },
+              [
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Preparing Item",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(5)
+                    }
+                  },
+                  model: {
+                    value: _vm.status5,
+                    callback: function($$v) {
+                      _vm.status5 = $$v
+                    },
+                    expression: "status5"
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Item(s) Ready",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(6)
+                    }
+                  },
+                  model: {
+                    value: _vm.status6,
+                    callback: function($$v) {
+                      _vm.status6 = $$v
+                    },
+                    expression: "status6"
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Ready For Meet Up",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(7)
+                    }
+                  },
+                  model: {
+                    value: _vm.status7,
+                    callback: function($$v) {
+                      _vm.status7 = $$v
+                    },
+                    expression: "status7"
+                  }
+                }),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("switches", {
+                  attrs: {
+                    width: "250",
+                    label: "Receiving Item",
+                    color: "green",
+                    "emit-on-mount": false
+                  },
+                  on: {
+                    input: function($event) {
+                      return _vm.updateStatus(8)
+                    }
+                  },
+                  model: {
+                    value: _vm.status8,
+                    callback: function($$v) {
+                      _vm.status8 = $$v
+                    },
+                    expression: "status8"
+                  }
+                })
+              ],
+              1
+            ),
         _vm._v(" "),
         _c("hr")
       ])

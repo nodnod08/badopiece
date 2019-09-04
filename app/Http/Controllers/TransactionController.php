@@ -137,20 +137,24 @@ class TransactionController extends Controller
     }
 
     public function updateNow($transactionId, $status) {
-        if($status == 1 || $status == 2) {
+        if($status == 1 || $status == 2 || $status == 5 || $status == 6) {
             $st = 1;
-        } else if($status == 3){
+        } else if($status == 3 || $status == 7){
             $st = 2;
         } else {
             $st = 3;
         }
-        if($status == 1) {
+        if($status == 1 || $status == 5) {
             $statusNow = 'PREPARING THE ITEM';
         } else if($status == 2) {
             $statusNow = 'READY FOR DELIVERY';
         } else if($status == 3){
             $statusNow = 'IN DELIVERY';
-        } else {
+        } else if($status == 6) {
+            $statusNow = 'ITEM(S) READY';
+        } else if($status == 7){
+            $statusNow = 'READY FOR MEET UP';
+        } else if($status == 4 || $status == 8){
             $statusNow = 'PICKED UP / RECEIVED';
         }
         $transactionUpdate = Transactions::where('id', $transactionId)
@@ -158,6 +162,12 @@ class TransactionController extends Controller
                                         'transaction_item_status_id' => $status,
                                         'transaction_status_id' => $st
                                     ]);
+        if($status == 4 || $status == 8) {
+            $transactionUpdate = Transactions::where('id', $transactionId)
+                                    ->update([
+                                        'payment_status_id' => 1
+                                    ]);
+        }                            
         $transaction = Transactions::where('id', $transactionId)
                                     ->with('shipping')
                                     ->orderBy('created_at', 'DESC')

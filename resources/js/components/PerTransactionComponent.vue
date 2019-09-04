@@ -85,7 +85,7 @@
           </small><br>
           <small>
             <b>Phone:</b>
-            0{{ transaction.shipping.phone }}
+            {{ transaction.shipping.phone }}
           </small><br>
           <small>
             <b>Email:</b>
@@ -450,7 +450,7 @@ export default {
                 this.transactions[0].shipping.lastname +
                 "\n",
               { text: "Phone: ", bold: true },
-              "0" + this.transactions[0].shipping.phone + "\n",
+              this.transactions[0].shipping.phone + "\n",
               { text: "Email: ", bold: true },
               this.transactions[0].shipping.email + "\n",
               { text: "Address / Shipping Destination: ", bold: true },

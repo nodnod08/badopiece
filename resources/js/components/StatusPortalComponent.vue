@@ -30,43 +30,7 @@
             <b>Status / Update Status</b>
           </h5>
         </div>
-        <div class="col-lg-12">
-          <!-- <toggle-button
-            id="toggle1"
-            :width="200"
-            :height="50"
-            v-on:click="update(1)"
-            :value="(transactions[0].item_status.id == 1) ? true : false"
-            :color="'#ffc400'"
-            :labels="{checked: 'Preparing Item', unchecked: 'Preparing Item'}"
-          />
-          <toggle-button
-            id="toggle2"
-            :width="200"
-            :height="50"
-            v-on:click="update(2)"
-            :value="(transactions[0].item_status.id == 2) ? true : false"
-            :color="'#02f2de'"
-            :labels="{checked: 'Ready For Delivery', unchecked: 'Ready For Delivery'}"
-          />
-          <toggle-button
-            id="toggle3"
-            :width="200"
-            :height="50"
-            v-on:click="update(3)"
-            :value="(transactions[0].item_status.id == 3) ? true : false"
-            :color="'#247bff'"
-            :labels="{checked: 'In Delivery Now', unchecked: 'In Delivery Now'}"
-          />
-          <toggle-button
-            id="toggle4"
-            :width="200"
-            :height="50"
-            v-on:change="update(4)"
-            :value="(transactions[0].item_status.id == 4) ? true : false"
-            :color="'#24ff71'"
-            :labels="{checked: 'Receiving Item', unchecked: 'Receiving Item'}"
-          />-->
+        <div v-if="transactions[0].transaction_type.id != 2" class="col-lg-12">
           <switches
             width="250"
             v-model="status1"
@@ -100,6 +64,43 @@
             label="Receiving Item"
             color="green"
             @input="updateStatus(4)"
+            :emit-on-mount="false"
+          ></switches>
+        </div>
+        <div v-else class="col-lg-12">
+          <switches
+            width="250"
+            v-model="status5"
+            label="Preparing Item"
+            color="green"
+            @input="updateStatus(5)"
+            :emit-on-mount="false"
+          ></switches>
+          <br />
+          <switches
+            width="250"
+            v-model="status6"
+            label="Item(s) Ready"
+            color="green"
+            @input="updateStatus(6)"
+            :emit-on-mount="false"
+          ></switches>
+          <br />
+          <switches
+            width="250"
+            v-model="status7"
+            label="Ready For Meet Up"
+            color="green"
+            @input="updateStatus(7)"
+            :emit-on-mount="false"
+          ></switches>
+          <br />
+          <switches
+            width="250"
+            v-model="status8"
+            label="Receiving Item"
+            color="green"
+            @input="updateStatus(8)"
             :emit-on-mount="false"
           ></switches>
         </div>
@@ -147,7 +148,11 @@ export default {
       status1: false,
       status2: false,
       status3: false,
-      status4: false
+      status4: false,
+      status5: false,
+      status6: false,
+      status7: false,
+      status8: false
     };
   },
   async created() {
@@ -156,11 +161,16 @@ export default {
   methods: {
     getTransaction: async function() {
       await axios.get("/getTransactionInfo/" + this.id).then(response => {
+        console.log(response.data);
         this.transactions = response.data;
         this.status1 = this.transactions[0].item_status.id == 1 ? true : false;
         this.status2 = this.transactions[0].item_status.id == 2 ? true : false;
         this.status3 = this.transactions[0].item_status.id == 3 ? true : false;
         this.status4 = this.transactions[0].item_status.id == 4 ? true : false;
+        this.status5 = this.transactions[0].item_status.id == 5 ? true : false;
+        this.status6 = this.transactions[0].item_status.id == 6 ? true : false;
+        this.status7 = this.transactions[0].item_status.id == 7 ? true : false;
+        this.status8 = this.transactions[0].item_status.id == 8 ? true : false;
       });
     },
     updateStatus: async function(id) {
@@ -171,8 +181,16 @@ export default {
         check = this.status2;
       } else if (id == 3) {
         check = this.status3;
-      } else {
+      } else if (id == 4) {
         check = this.status4;
+      } else if (id == 5) {
+        check = this.status5;
+      } else if (id == 6) {
+        check = this.status6;
+      } else if (id == 7) {
+        check = this.status7;
+      } else {
+        check = this.status8;
       }
       if (check === true) {
         swal({

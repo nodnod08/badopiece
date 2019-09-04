@@ -20,7 +20,7 @@ class CreateShippingDetailsTable extends Migration
             $table->string('lastname');
             $table->string('phone');
             $table->string('email');
-            $table->string('street_address');
+            $table->string('street_address')->nullable(true);
             $table->string('city');
             $table->string('state');
             $table->string('postal');

@@ -16,5 +16,9 @@ class itemStatusesSeeder extends Seeder
         ItemStatuses::create(['status' => 'In transit']);
         ItemStatuses::create(['status' => 'Delivered']);
         ItemStatuses::create(['status' => 'Picked up']);
+        ItemStatuses::create(['status' => 'For process']);
+        ItemStatuses::create(['status' => 'Ready for Meet up']);
+        ItemStatuses::create(['status' => 'Delivered']);
+        ItemStatuses::create(['status' => 'Picked up']);
     }
 }

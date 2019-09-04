@@ -698,7 +698,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }, this.transactions[0].shipping.firstname + " " + this.transactions[0].shipping.lastname + "\n", {
             text: "Phone: ",
             bold: true
-          }, "0" + this.transactions[0].shipping.phone + "\n", {
+          }, this.transactions[0].shipping.phone + "\n", {
             text: "Email: ",
             bold: true
           }, this.transactions[0].shipping.email + "\n", {
@@ -7654,7 +7654,7 @@ var render = function() {
                 _c("small", [
                   _c("b", [_vm._v("Phone:")]),
                   _vm._v(
-                    "\n          0" +
+                    "\n          " +
                       _vm._s(transaction.shipping.phone) +
                       "\n        "
                   )
