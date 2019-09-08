@@ -33,10 +33,14 @@ mix.js(['resources/js/admin_inventory.js'], 'public/js/admin_inventory.js');
 mix.js(['resources/js/admin_manage.js'], 'public/js/admin_manage.js');
 mix.js(['resources/js/overall.js'], 'public/js/overall.js');
 mix.js(['resources/js/perTransaction.js'], 'public/js/perTransaction.js');
+mix.js(['resources/js/perFeedback.js'], 'public/js/perFeedback.js');
+mix.js(['resources/js/perInquiry.js'], 'public/js/perInquiry.js');
 mix.js(['resources/js/status.js'], 'public/js/status.js');
 mix.js(['resources/js/status_portal.js'], 'public/js/status_portal.js');
 mix.js(['resources/js/admin_settings.js'], 'public/js/admin_settings.js');
 mix.js(['resources/js/navbar.js'], 'public/js/navbar.js');
+mix.js(['resources/js/allFeedback.js'], 'public/js/allFeedback.js');
+mix.js(['resources/js/allInquiry.js'], 'public/js/allInquiry.js');
 mix.js(
     ['resources/js/admin_add_inventory.js'],
     'public/js/admin_add_inventory.js'

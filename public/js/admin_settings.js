@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -39803,7 +39803,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 20:
+/***/ 22:
 /*!**********************************************!*\
   !*** multi ./resources/js/admin_settings.js ***!
   \**********************************************/

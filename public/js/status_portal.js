@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -7939,7 +7939,7 @@ var status_portal = new Vue({
 
 /***/ }),
 
-/***/ 19:
+/***/ 21:
 /*!*********************************************!*\
   !*** multi ./resources/js/status_portal.js ***!
   \*********************************************/

@@ -66,7 +66,8 @@ class NewTransaction extends Notification
     {
         return [
             'createdTime' => Carbon::now(),
-            'transaction' => $this->transaction
+            'transaction' => $this->transaction,
+            'type' => 'transaction'
         ];
     }
 
@@ -74,7 +75,8 @@ class NewTransaction extends Notification
     {
         return new BroadcastMessage ([
             'createdTime' => Carbon::now(),
-            'transaction' => $this->transaction
+            'transaction' => $this->transaction,
+            'type' => 'transaction'
         ]);
     }
 }

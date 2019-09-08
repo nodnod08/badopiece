@@ -105,11 +105,25 @@
                             <li><i class="fa fa-dropbox"></i><a href="/admin-manage">Bulk Pricing</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    <li
+                        class="
+                        {{ (Route::currentRouteName() == 'overall') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon ti-receipt"></i>OverAll Transactions</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a href="/overall-transactions">Transactions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li
+                        class="
+                        {{ (Route::currentRouteName() == 'allFeedback' || Route::currentRouteName() == 'allInquiry') ? 'menu-item-has-children dropdown active' : 'menu-item-has-children dropdown' }}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon ti-comment-alt"></i>Feedbacks and Inquiries</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon ti-comments"></i><a href="/all-feedback">Feedbacks</a>
+                            </li>
+                            <li><i class="menu-icon ti-email"></i><a href="/all-inquiry">Inquiries</a>
                             </li>
                         </ul>
                     </li>

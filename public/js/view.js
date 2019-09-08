@@ -18692,7 +18692,7 @@ var render = function() {
                         "inactive-color": "#c2c2c2",
                         "active-color": "#ffe330",
                         "star-size": 15,
-                        "read-only": "true",
+                        "read-only": true,
                         "show-rating": false
                       },
                       model: {

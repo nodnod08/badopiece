@@ -17,6 +17,9 @@ class CreateFeedbackTable extends Migration
             $table->bigIncrements('id');
             $table->string('transaction_id');
             $table->string('product_id');
+            $table->text('item_name');
+            $table->text('item_code');
+            $table->text('item_photo');
             $table->string('rate');
             $table->longText('feedback');
             $table->string('name');

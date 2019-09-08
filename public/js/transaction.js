@@ -753,23 +753,26 @@ Vue.component("star-rating", vue_star_rating__WEBPACK_IMPORTED_MODULE_2___defaul
     feedbackNow: function () {
       var _feedbackNow = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(product_id) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(items) {
         var _this2 = this;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                console.log(this.transactions[0].customer.name);
-                console.log(product_id);
-                console.log(this.feedback);
-                console.log(this.rating);
+                // console.log(this.transactions[0].customer.name);
+                // console.log(items.product_id);
+                console.log(items); // console.log(this.feedback);
+                // console.log(this.rating);
 
                 if (this.feedback == null || this.feedback == "") {
                   swal("", "Please make your feedback message.", "error");
                 } else {
                   axios.post("/feedback", {
-                    product_id: product_id,
+                    product_id: items.product_id,
+                    item_name: items.product_name,
+                    item_code: items.product_code,
+                    item_photo: items.product_photo,
                     name: this.transactions[0].customer.name,
                     feedback: this.feedback,
                     rating: this.rating,
@@ -781,7 +784,7 @@ Vue.component("star-rating", vue_star_rating__WEBPACK_IMPORTED_MODULE_2___defaul
                   });
                 }
 
-              case 5:
+              case 2:
               case "end":
                 return _context3.stop();
             }
@@ -807,8 +810,7 @@ Vue.component("star-rating", vue_star_rating__WEBPACK_IMPORTED_MODULE_2___defaul
               case 0:
                 _context4.next = 2;
                 return axios.get("/getTransaction/" + this.id).then(function (response) {
-                  _this3.transactions = response.data;
-                  console.log(response.data);
+                  _this3.transactions = response.data; // console.log(response.data);
                 });
 
               case 2:
@@ -8669,9 +8671,7 @@ var render = function() {
                                       attrs: { type: "button" },
                                       on: {
                                         click: function($event) {
-                                          return _vm.feedbackNow(
-                                            _vm.items.product_id
-                                          )
+                                          return _vm.feedbackNow(_vm.items)
                                         }
                                       }
                                     },
@@ -8826,7 +8826,7 @@ var render = function() {
                   _c("p", [
                     _c("b", [_vm._v("Phone:")]),
                     _vm._v(
-                      "\n          0" +
+                      "\n          " +
                         _vm._s(transaction.shipping.phone) +
                         "\n        "
                     )
@@ -8877,7 +8877,7 @@ var render = function() {
                   _c("p", [
                     _c("b", [_vm._v("Phone:")]),
                     _vm._v(
-                      "\n          0" +
+                      "\n          " +
                         _vm._s(transaction.shipping.phone) +
                         "\n        "
                     )

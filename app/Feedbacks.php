@@ -13,7 +13,7 @@ class Feedbacks extends Model
      * @var array
      */
     protected $fillable = [
-        'transaction_id', 'product_id', 'rate', 'feedback', 'name'
+        'transaction_id', 'product_id', 'rate', 'item_name', 'item_code', 'item_photo', 'feedback', 'name'
     ];
 
     public function product()

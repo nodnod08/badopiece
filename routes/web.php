@@ -113,6 +113,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/overall-transactions', function() {
             return view('admin.overall');
         })->name('overall');
+        Route::get('/all-feedback', function() {
+            return view('admin.feedbacks');
+        })->name('allFeedback');
+        Route::get('/all-inquiry', function() {
+            return view('admin.inquiries');
+        })->name('allInquiry');
         Route::get('/logout', function() {
             Auth::logout();
             return redirect('/portal');
@@ -150,5 +156,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/admin/updatePassword', 'AccountController@updatePassword');
         Route::post('/admin/addUser', 'AccountController@addUser');
         Route::post('/admin/checkEmail', 'AccountController@checkEmail');
+
+        Route::get('/perFeedback/{feedbackId}', 'TransactionController@perFeedback');
+        Route::get('/perFeedbackView/{feedbackId}', 'TransactionController@perFeedbackView')->name('perFeedback');
+        Route::get('/perFeedbackView/{feedbackId}/{notificationId}', 'TransactionController@perFeedback_2')->name('perFeedback');
+        Route::get('/getFeedbacks', 'TransactionController@getAllFeedbacks');
+        Route::get('/getFeedbacks/{search}', 'TransactionController@getAllFeedbacksSearch');
+        
+        Route::get('/perInquiry/{inquiryId}', 'TransactionController@perInquiry');
+        Route::get('/perInquiryView/{inquiryId}', 'TransactionController@perInquiryView')->name('perInquiry');
+        Route::get('/perInquiryView/{inquiryId}/{notificationId}', 'TransactionController@perInquiry_2')->name('perInquiry');
+        Route::get('/getInquiries', 'TransactionController@getAllInquiries');
+        Route::get('/getInquiries/{search}', 'TransactionController@getAllInquiriesSearch');
     });
 });

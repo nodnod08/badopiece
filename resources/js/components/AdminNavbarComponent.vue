@@ -32,7 +32,72 @@
               </button>
             </form>
           </div>
-
+          <div v-if="ready" class="dropdown for-notification">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="notification"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-envelope-square"></i>
+              <span
+                v-if="unreadNotificationI.length"
+                class="count bg-danger"
+              >{{ unreadNotificationI.length }}</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="notification">
+              <p
+                v-if="unreadNotificationI.length > 1"
+                class="red"
+              >You have {{ unreadNotificationI.length }} inquiries from customers</p>
+              <p v-else class="red">You have {{ unreadNotificationI.length }} inquiry from customer</p>
+              <a
+                v-for="(inquiry, index) in unreadNotificationI"
+                v-bind:key="index"
+                class="dropdown-item media"
+                :href="'/perInquiryView/'+inquiry.data.inquiry.id+'/'+inquiry.id"
+              >
+                <i class="ti-email"></i>
+                <p>
+                  <b>{{ inquiry.data.inquiry.fullname }}</b> inquire at your store
+                </p>
+              </a>
+            </div>
+          </div>
+          <div v-if="ready" class="dropdown for-notification">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="notification"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-comment"></i>
+              <span
+                v-if="unreadNotificationC.length"
+                class="count bg-danger"
+              >{{ unreadNotificationC.length }}</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="notification">
+              <p class="red">You have {{ unreadNotificationC.length }} comment(s) from customer(s)</p>
+              <a
+                v-for="(comment, index) in unreadNotificationC"
+                v-bind:key="index"
+                class="dropdown-item media"
+                :href="'/perFeedbackView/'+comment.data.feedback.id+'/'+comment.id"
+              >
+                <i class="ti-comment"></i>
+                <p>
+                  <b>{{ comment.data.feedback.name }}</b> gives a feedback on item
+                  <b>{{ comment.data.feedback.item_name }}</b>
+                  <b>{{ comment.data.feedback.item_code }}</b>
+                </p>
+              </a>
+            </div>
+          </div>
           <div v-if="ready" class="dropdown for-notification">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -44,14 +109,14 @@
             >
               <i class="fa fa-globe"></i>
               <span
-                v-if="unreadNotification.length"
+                v-if="unreadNotificationT.length"
                 class="count bg-danger"
-              >{{ unreadNotification.length }}</span>
+              >{{ unreadNotificationT.length }}</span>
             </button>
             <div class="dropdown-menu" aria-labelledby="notification">
-              <p class="red">You have {{ unreadNotification.length }} Notification</p>
+              <p class="red">You have {{ unreadNotificationT.length }} Notification</p>
               <a
-                v-for="(notification, index) in unreadNotification"
+                v-for="(notification, index) in unreadNotificationT"
                 v-bind:key="index"
                 class="dropdown-item media"
                 :href="'/perTransactionView/'+notification.data.transaction.id+'/'+notification.id"
@@ -96,11 +161,14 @@
   </header>
 </template>
 <script>
+import _ from "lodash";
 export default {
   props: ["unreads", "id"],
   data() {
     return {
-      unreadNotification: [],
+      unreadNotificationT: [],
+      unreadNotificationC: [],
+      unreadNotificationI: [],
       ready: false
     };
   },
@@ -116,9 +184,53 @@ export default {
   methods: {
     startInterval: function() {
       setInterval(() => {
-        axios.get("/checkNotification").then(response => {
-          this.unreadNotification = response.data;
-          // console.log(response.data);
+        axios.get("/checkNotification").then(async response => {
+          await _.remove(response.data, {
+            data: {
+              type: "feedback"
+            }
+          });
+          await _.remove(response.data, {
+            data: {
+              type: "inquiry"
+            }
+          });
+
+          this.unreadNotificationT = response.data;
+        });
+      }, 1000);
+
+      setInterval(() => {
+        axios.get("/checkNotification").then(async response => {
+          await _.remove(response.data, {
+            data: {
+              type: "transaction"
+            }
+          });
+          await _.remove(response.data, {
+            data: {
+              type: "inquiry"
+            }
+          });
+
+          this.unreadNotificationC = response.data;
+        });
+      }, 1000);
+
+      setInterval(() => {
+        axios.get("/checkNotification").then(async response => {
+          await _.remove(response.data, {
+            data: {
+              type: "transaction"
+            }
+          });
+          await _.remove(response.data, {
+            data: {
+              type: "feedback"
+            }
+          });
+
+          this.unreadNotificationI = response.data;
         });
       }, 1000);
     }

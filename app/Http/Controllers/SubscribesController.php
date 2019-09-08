@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\NewInquiry;
+use Illuminate\Support\Facades\Notification;
 use App\Mail\NewInquire;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Subscribes;
+use App\User;
 
 class SubscribeController extends Controller
 {
@@ -30,10 +33,12 @@ class SubscribeController extends Controller
             $inquire->save();
 
             Mail::send(new NewInquire($inquire));
-
+            $admins = User::where('user_type', 'admin')->get();
+            Notification::send($admins, new NewInquiry($inquire));
             return "ok";
         } else {
             return 'recaptcha-error';
         }
     }
+
 }

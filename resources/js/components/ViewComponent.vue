@@ -96,7 +96,7 @@
               active-color="#ffe330"
               v-bind:star-size="15"
               v-model="feedback.rate"
-              read-only="true"
+              :read-only="true"
               :show-rating="false"
             ></star-rating>
           </h6>

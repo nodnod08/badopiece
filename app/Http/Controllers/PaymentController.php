@@ -271,7 +271,7 @@ class PaymentController extends Controller
                     $context  = stream_context_create($param);
                     return file_get_contents($url, false, $context);
             }
-            $result = itexmo(env('COMPANY_NUMBER'),$message,env('ITEXTMO_API'));
+            // $result = itexmo(env('COMPANY_NUMBER'),$message,env('ITEXTMO_API'));
             return redirect('/transaction/'.$transactions->id);
         }
 

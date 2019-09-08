@@ -7599,7 +7599,7 @@ var render = function() {
                 _c("small", [
                   _c("b", [_vm._v("Phone:")]),
                   _vm._v(
-                    "\n          0" +
+                    "\n          " +
                       _vm._s(transaction.shipping.phone) +
                       "\n        "
                   )

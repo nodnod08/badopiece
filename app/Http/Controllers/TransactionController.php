@@ -9,6 +9,8 @@ use Darryldecode\Cart\Cart;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendTransaction;
 use App\Transactions;
+use App\Subscribes;
+use App\Feedbacks;
 use App\Transaction_records;
 use App\Items;
 use App\Shipping_details;
@@ -129,11 +131,32 @@ class TransactionController extends Controller
         return $transaction;                            
     }
 
+    public function perFeedback($feedbackId) {
+        $id = $feedbackId;
+
+        $feedback = Feedbacks::where('id', $id)->get();
+
+        return $feedback;                            
+    }
+
+    public function perFeedbackView($feedbackId) {
+        $id = $feedbackId;
+
+        return view('admin.perFeedback')->with('id', $feedbackId);
+    }
+
     public function perTransaction_2($transactionId, $notificationId) {
         Notifications::where('notifiable_id', Auth::user()->id)->where('id', $notificationId)->update(['read_at' => Carbon::now()]);
         $id = $transactionId;
 
         return view('admin.perTransaction')->with('id', $transactionId);                     
+    }
+
+    public function perFeedback_2($feedbackId, $notificationId) {
+        Notifications::where('notifiable_id', Auth::user()->id)->where('id', $notificationId)->update(['read_at' => Carbon::now()]);
+        $id = $feedbackId;
+
+        return view('admin.perFeedback')->with('id', $feedbackId);                     
     }
 
     public function updateNow($transactionId, $status) {
@@ -191,5 +214,64 @@ class TransactionController extends Controller
                 return file_get_contents($url, false, $context);
         }
         $result = itexmo($contact,$message,env('ITEXTMO_API'));                        
+    }
+
+    public function getAllFeedbacks() {
+        $feedbacks = Feedbacks::where('id', '!=', null)->orderBy('created_at', 'DESC')->paginate(10);
+
+        return $feedbacks;
+    }
+
+    public function getAllFeedbacksSearch($search) {
+        $feedbacks = Feedbacks::where(function ($query) use($search) {
+                                    $query->where('name','like', '%'.$search.'%')
+                                            ->orWhere('rate','like', '%'.$search.'%')
+                                            ->orWhere('feedback','like', '%'.$search.'%')
+                                            ->orWhere('item_name','like', '%'.$search.'%')
+                                            ->orWhere('item_code','like', '%'.$search.'%');
+                                    })
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(10);
+
+        return $feedbacks;
+    }
+    
+    public function getAllInquiries() {
+        $inquiries = Subscribes::where('id', '!=', null)->orderBy('created_at', 'DESC')->paginate(10);
+
+        return $inquiries;
+    }
+
+    public function getAllInquiriesSearch($search) {
+        $inquiries = Subscribes::where(function ($query) use($search) {
+                                    $query->where('fullname','like', '%'.$search.'%')
+                                            ->orWhere('email','like', '%'.$search.'%')
+                                            ->orWhere('message','like', '%'.$search.'%');
+                                    })
+                                    ->orderBy('created_at', 'DESC')
+                                    ->paginate(10);
+
+        return $inquiries;
+    }
+
+    public function perInquiry_2($InquiryId, $notificationId) {
+        Notifications::where('notifiable_id', Auth::user()->id)->where('id', $notificationId)->update(['read_at' => Carbon::now()]);
+        $id = $InquiryId;
+
+        return view('admin.perInquiry')->with('id', $InquiryId);                     
+    }
+
+    public function perInquiry($inquirykId) {
+        $id = $inquirykId;
+
+        $inquiry = Subscribes::where('id', $id)->get();
+
+        return $inquiry;                            
+    }
+
+    public function perInquiryView($inquiryId) {
+        $id = $inquiryId;
+
+        return view('admin.perInquiry')->with('id', $inquiryId);
     }
 }

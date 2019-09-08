@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewComment;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Http\Request;
 use App\User;
 use App\Products;
@@ -20,10 +22,15 @@ class ShopController extends Controller
         $feedback = Feedbacks::create([
             'transaction_id' => $request->transaction_id,
             'product_id' => $request->product_id,
+            'item_name' => $request->item_name,
+            'item_code' => $request->item_code,
+            'item_photo' => $request->item_photo,
             'name' => $request->name,
             'feedback' => $request->feedback,
             'rate' => $request->rating,
         ]);
+        $admins = User::where('user_type', 'admin')->get();
+        Notification::send($admins, new NewComment($feedback));
 
         return $feedback;
     }

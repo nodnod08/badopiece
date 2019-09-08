@@ -58,7 +58,7 @@
                     >{{ errors.first('Feedback') }}</small>
                     <button
                       type="button"
-                      v-on:click="feedbackNow(items.product_id)"
+                      v-on:click="feedbackNow(items)"
                       class="btn btn-outline-dark btn-sm my-2 my-sm-0 mb-3"
                     >Submit</button>
                   </div>
@@ -128,7 +128,7 @@
           </p>
           <p>
             <b>Phone:</b>
-            0{{ transaction.shipping.phone }}
+            {{ transaction.shipping.phone }}
           </p>
           <p>
             <b>Email:</b>
@@ -149,7 +149,7 @@
           </p>
           <p>
             <b>Phone:</b>
-            0{{ transaction.shipping.phone }}
+            {{ transaction.shipping.phone }}
           </p>
           <p>
             <b>Email:</b>
@@ -324,18 +324,22 @@ export default {
         this.cartCount = response.data;
       });
     },
-    feedbackNow: async function(product_id) {
-      console.log(this.transactions[0].customer.name);
-      console.log(product_id);
-      console.log(this.feedback);
-      console.log(this.rating);
+    feedbackNow: async function(items) {
+      // console.log(this.transactions[0].customer.name);
+      // console.log(items.product_id);
+      console.log(items);
+      // console.log(this.feedback);
+      // console.log(this.rating);
 
       if (this.feedback == null || this.feedback == "") {
         swal("", "Please make your feedback message.", "error");
       } else {
         axios
           .post("/feedback", {
-            product_id: product_id,
+            product_id: items.product_id,
+            item_name: items.product_name,
+            item_code: items.product_code,
+            item_photo: items.product_photo,
             name: this.transactions[0].customer.name,
             feedback: this.feedback,
             rating: this.rating,
@@ -351,7 +355,7 @@ export default {
     getTransaction: async function() {
       await axios.get("/getTransaction/" + this.id).then(response => {
         this.transactions = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       });
     },
     setItem: async function(item) {

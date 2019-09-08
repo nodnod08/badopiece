@@ -64,7 +64,7 @@
           </small><br>
           <small>
             <b>Phone:</b>
-            0{{ transaction.shipping.phone }}
+            {{ transaction.shipping.phone }}
           </small><br>
           <small>
             <b>Email:</b>
