@@ -26,7 +26,9 @@
         </div>
       </div>
       <div class="row mb-3">
-        <div class="col-lg-12">Reply to his/her Message</div>
+        <div class="col-lg-12 mb-3">
+          <h4>Reply to his/her Message</h4>
+        </div>
         <div class="col-lg-12">
           <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
         </div>
@@ -37,8 +39,7 @@
 
 <script>
 import { RadarSpinner } from "epic-spinners";
-import Vue from "vue";
-
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 export default {
   props: ["id", "auth", "payment"],
   components: {
@@ -66,9 +67,9 @@ export default {
       ],
       base_64: "",
       editor: ClassicEditor,
-      editorData: "<p>Content of the editor.</p>",
+      editorData: "<p>Enter message.</p>",
       editorConfig: {
-        // The configuration of the editor.
+        // The configuration of the rich-text editor.
       }
     };
   },

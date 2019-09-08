@@ -49,8 +49,9 @@ import _ from 'lodash';
 Vue.component(_);
 
 import CKEditor from '@ckeditor/ckeditor5-vue';
-Vue.use('ckeditor', CKEditor);
 
+Vue.use(CKEditor);
+// Vue.component('ckeditor', CKEditor);
 // import vueFilePond from 'vue-filepond';
 // Vue.use('file-pond', vueFilePond);
 /**
