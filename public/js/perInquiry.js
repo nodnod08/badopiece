@@ -173,6 +173,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -189,8 +197,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       month: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       base_64: "",
       editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_2___default.a,
-      editorData: "<p>Enter message.</p>",
-      editorConfig: {// The configuration of the rich-text editor.
+      message: "",
+      editorConfig: {
+        toolbar: ["bold", "italic", "link", "undo", "redo"]
       }
     };
   },
@@ -261,8 +270,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.next = 2;
                 return axios.get("/perInquiry/" + this.id).then(function (response) {
-                  _this2.inquiry = response.data;
-                  console.log(response.data);
+                  _this2.inquiry = response.data; // console.log(response.data);
                 });
 
               case 2:
@@ -278,6 +286,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getInquiry;
+    }(),
+    sendMessage: function () {
+      var _sendMessage = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                axios.post("/adminReply", {
+                  message: this.inquiry[0].message,
+                  user_email: this.inquiry[0].email,
+                  user_fullname: this.inquiry[0].fullname,
+                  admin_message: this.message
+                }).then(function (response) {
+                  if (response.data) {
+                    swal("", "Message has been sent", "success");
+                  } else {
+                    swal("", "Something went wrong, please try again", "error");
+                  } // console.log(response.data);
+
+                });
+
+              case 1:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function sendMessage() {
+        return _sendMessage.apply(this, arguments);
+      }
+
+      return sendMessage;
     }()
   }
 });
@@ -676,7 +720,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.transaction {\r\n  font-size: 15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.transaction {\r\n  font-size: 15px;\n}\n.ck-editor .ck-editor__main .ck-content {\r\n  min-height: 160px;\n}\r\n", ""]);
 
 // exports
 
@@ -7050,13 +7094,32 @@ var render = function() {
             _c("ckeditor", {
               attrs: { editor: _vm.editor, config: _vm.editorConfig },
               model: {
-                value: _vm.editorData,
+                value: _vm.message,
                 callback: function($$v) {
-                  _vm.editorData = $$v
+                  _vm.message = $$v
                 },
-                expression: "editorData"
+                expression: "message"
               }
-            })
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                class: "btn btn-outline-dark btn-sm my-2 my-sm-0",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.sendMessage()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "ti-email" }),
+                _vm._v(" Send Message\n        ")
+              ]
+            )
           ],
           1
         )

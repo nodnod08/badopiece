@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AdminMessage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
@@ -98,5 +100,11 @@ class AccountController extends Controller
 
     public function checkNotification() {
         return Auth::user()->unreadNotifications;
+    }
+
+    public function adminReply(Request $request) {
+        Mail::send(new AdminMessage($request));
+
+        return 1;
     }
 }

@@ -168,5 +168,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/perInquiryView/{inquiryId}/{notificationId}', 'TransactionController@perInquiry_2')->name('perInquiry');
         Route::get('/getInquiries', 'TransactionController@getAllInquiries');
         Route::get('/getInquiries/{search}', 'TransactionController@getAllInquiriesSearch');
+        Route::post('/adminReply', 'AccountController@adminReply');
     });
 });
