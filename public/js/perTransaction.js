@@ -307,6 +307,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["id", "auth", "payment"],
@@ -7594,6 +7604,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
@@ -7604,6 +7615,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
@@ -7614,6 +7626,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
@@ -7632,6 +7645,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br")
               ])
             : _vm._e(),
@@ -7649,6 +7663,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
@@ -7659,6 +7674,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
@@ -7669,6 +7685,7 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _c("small", [
@@ -7687,7 +7704,9 @@ var render = function() {
                       "\n        "
                   )
                 ]),
+                _vm._v(" "),
                 _c("br"),
+                _vm._v(" "),
                 _c("br")
               ])
             : _vm._e(),
@@ -7695,6 +7714,7 @@ var render = function() {
           _vm._m(1, true),
           _vm._v(" "),
           _c("br"),
+          _vm._v(" "),
           _c("br"),
           _vm._v(" "),
           _c("div", { staticClass: "col-lg-12" }, [

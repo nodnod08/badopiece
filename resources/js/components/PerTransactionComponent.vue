@@ -61,19 +61,23 @@
           <small>
             <b>Recipient Name:</b>
             {{ transaction.shipping.firstname }} {{ transaction.shipping.lastname }}
-          </small><br>
+          </small>
+          <br />
           <small>
             <b>Phone:</b>
             {{ transaction.shipping.phone }}
-          </small><br>
+          </small>
+          <br />
           <small>
             <b>Email:</b>
             {{ transaction.shipping.email }}
-          </small><br>
+          </small>
+          <br />
           <small>
             <b>Address / Shipping Destination:</b>
             {{ transaction.shipping.street_address }} {{ transaction.shipping.city }} {{ transaction.shipping.state }} {{ transaction.shipping.country }} {{ transaction.shipping.postal }}
-          </small><br>
+          </small>
+          <br />
         </div>
         <div
           v-if="transaction.transaction_type_id == 3 || transaction.transaction_type_id == 1"
@@ -82,24 +86,30 @@
           <small>
             <b>Recipient Name:</b>
             {{ transaction.shipping.firstname }} {{ transaction.shipping.lastname }}
-          </small><br>
+          </small>
+          <br />
           <small>
             <b>Phone:</b>
             {{ transaction.shipping.phone }}
-          </small><br>
+          </small>
+          <br />
           <small>
             <b>Email:</b>
             {{ transaction.shipping.email }}
-          </small><br>
+          </small>
+          <br />
           <small>
             <b>Address / Shipping Destination:</b>
             {{ transaction.shipping.street_address }} {{ transaction.shipping.city }} {{ transaction.shipping.state }} {{ transaction.shipping.country }} {{ transaction.shipping.postal }}
-          </small><br><br>
+          </small>
+          <br />
+          <br />
         </div>
         <div class="col-lg-12">
           <h4>Items Ordered</h4>
         </div>
-        <br><br>
+        <br />
+        <br />
         <div class="col-lg-12">
           <table class="table table-bordered">
             <thead class="table-dark">
