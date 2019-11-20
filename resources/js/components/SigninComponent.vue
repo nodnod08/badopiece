@@ -70,6 +70,12 @@
                           <a :href="'/signup'">click</a> here to create.
                         </p>
                       </div>
+                      <div class="col-lg-12 col-md-12">
+                        <p>
+                          Lost your password? click
+                          <a class="reset_pass" href="/password/reset">here</a>
+                          </p>
+                      </div>
                     </div>
                   </div>
                 </div>

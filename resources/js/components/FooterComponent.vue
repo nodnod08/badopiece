@@ -74,6 +74,13 @@
             </li>
           </ul>
         </div>
+        <div class="alert1">
+          <h4>
+            <b>
+              This is for Educational (Thesis) only. All transactions are FAKE. Thank you.
+            </b>
+          </h4>
+        </div>
       </div>
     </div>
   </div>
@@ -139,6 +146,13 @@ li {
 
 ul.main {
   padding-left: 0;
+}
+
+.alert1 {
+  text-align: center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  color: yellow;
 }
 </style>
 

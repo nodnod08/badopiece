@@ -41,6 +41,8 @@ mix.js(['resources/js/admin_settings.js'], 'public/js/admin_settings.js');
 mix.js(['resources/js/navbar.js'], 'public/js/navbar.js');
 mix.js(['resources/js/allFeedback.js'], 'public/js/allFeedback.js');
 mix.js(['resources/js/allInquiry.js'], 'public/js/allInquiry.js');
+mix.js(['resources/js/forgot.js'], 'public/js/forgot.js');
+mix.js(['resources/js/password.reset.js'], 'public/js/password.reset.js');
 mix.js(
     ['resources/js/admin_add_inventory.js'],
     'public/js/admin_add_inventory.js'

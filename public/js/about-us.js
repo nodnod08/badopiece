@@ -133,24 +133,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["auth"],
   data: function data() {
@@ -204,6 +186,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -495,7 +484,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\n.alert1 {\r\n  text-align: center;\r\n  margin-left: 50%;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\r\n  color: yellow;\n}\r\n", ""]);
 
 // exports
 
@@ -1980,90 +1969,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "about row" }, [
-        _c("div", { staticClass: "CP col-lg-12 col-md-12 col-sm-12" }, [
-          _c("h4", [_vm._v("Company Profile")]),
+        _c("div", { staticClass: "V col-lg-12 col-md-12 col-sm-12" }, [
+          _c("h4", [_vm._v("Badopiece Collection")]),
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              '\n          Bado came from the Bicolano word which means "clothes". Badopiece collection is an online selling store of clothes.\n  We started selling only a ready-to-wear or RTWs clothes but in all good as new condition. Costumers can purchased bulk order and be a reseller of fashion clothes in different design and style that is in every now and then and never been fade when it comes to fashion for a more category to avail. You can now purchased trendy and brand new product and design of bags,dresses,shoes, fashion items like accessories and beauty products that will your fashion wear.\n        '
             )
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "M col-lg-6 col-md-6 col-sm-12" }, [
-          _c("h4", [_vm._v("MISSION")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "V col-lg-6 col-md-6 col-sm-12" }, [
-          _c("h4", [_vm._v("VISION")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish."
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "FS col-lg-12" }, [
-          _c("h4", [_vm._v("Facilities and Safety on Work Place")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "1. Take care in using facilities and equipment. It is in good form to handle them with care and use them solely on their purpose."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "2. Only use equipments that you already know how to use. Do not handle it until such time the teacher gives instructions on how to operate the said equipment. You could break the equipment or cause harm to yourself or others."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("3. Be Alert and Aware.")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "4. In performing exercises and movement in general, practice good form first. Doing exercises in improper form deficit it's benefits."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "5. Bring back all equipment in place after use. This is to prevent having them misplaced, stolen or become unnecessary clutters in the repair area than can cause accidents."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "6. Do not monopolize the equipments. Allow everyone a fair use of the facilities. Presence of mind could help avoid accidents."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "7. Return the equipment properly or leave the venue clean. Do not leave or pass on equipments that is in complete disarray or dirty."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "8. Check Yourself - practice proper hygiene and care. Take a bath or a deodorant if needed. Do not force yourself to engage in work if you are feeling sick."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "9. Do not loiter around the repair area or hang on the equipment doing nothing."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("10. Be nice, as a general rule!")])
         ])
       ])
     ])
@@ -2135,7 +2048,9 @@ var render = function() {
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
       ])
     ])
   ])
@@ -2212,6 +2127,20 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert1" }, [
+      _c("h4", [
+        _c("b", [
+          _vm._v(
+            "\n            This is for Educational (Thesis) only. All transactions are FAKE. Thank you.\n          "
+          )
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -2246,10 +2175,7 @@ var render = function() {
           _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
             _c("img", {
               staticClass: "brand-logo",
-              attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./storage/app/public/img/core-img/LOGO3.png"),
-                alt: ""
-              }
+              attrs: { src: "/storage/img/core-img/LOGO3.png", alt: "" }
             })
           ]),
           _vm._v(" "),
@@ -2893,17 +2819,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 

@@ -1665,7 +1665,7 @@ var render = function() {
                 staticClass: "align-content",
                 attrs: {
                   height: "100",
-                  src: "storage/img/core-img/logo3.png",
+                  src: "/storage/img/core-img/LOGO3.png",
                   alt: ""
                 }
               })

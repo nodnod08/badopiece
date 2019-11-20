@@ -4,7 +4,7 @@
       <div class="login-content">
         <div class="login-form">
           <div class="text-center mb-3">
-            <img height="100" class="align-content" :src="'storage/img/core-img/logo3.png'" alt />
+            <img height="100" class="align-content" :src="'/storage/img/core-img/LOGO3.png'" alt />
           </div>
           <form v-on:submit.prevent="attempt">
             <div class="text-center">

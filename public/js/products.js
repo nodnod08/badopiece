@@ -188,6 +188,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -811,7 +818,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, "/* component style */\n.vue-slider-disabled .vue-slider-process {\n    background-color: #a7a7a7;\n}\n.vue-slider-disabled .vue-slider-dot-handle {\n    border-color: #a7a7a7;\n}\n.vue-slider-disabled .vue-slider-mark-step-active {\n    box-shadow: 0 0 0 2px #a7a7a7;\n}\n\n/* rail style */\n.vue-slider-rail {\n    background-color: whitesmoke;\n    border-radius: 15px;\n    transition: background-color 0.3s;\n}\n.vue-slider:hover .vue-slider-rail {\n    background-color: #e1e1e1;\n}\n\n/* process style */\n.vue-slider-process {\n    background-color: #404040;\n    border-radius: 15px;\n    transition: background-color 0.3s;\n}\n.vue-slider:hover .vue-slider-process {\n    background-color: #404040;\n}\n\n/* mark style */\n.vue-slider-mark-step {\n    width: 100%;\n    height: 100%;\n    border-radius: 50%;\n    box-shadow: 0 0 0 2px #e8e8e8;\n    background-color: #fff;\n}\n.vue-slider-mark-step-active {\n    box-shadow: 0 0 0 2px #404040;\n}\n.vue-slider:hover .vue-slider-mark-step-active {\n    box-shadow: 0 0 0 2px #404040;\n}\n\n.vue-slider-mark-label {\n    font-size: 12px;\n    white-space: nowrap;\n}\n/* dot style */\n.vue-slider-dot-handle {\n    cursor: pointer;\n    width: 100%;\n    height: 100%;\n    border-radius: 50%;\n    background-color: #fff;\n    border: 2px solid #404040;\n    box-sizing: border-box;\n    transition: box-shadow 0.3s, border-color 0.3s;\n}\n.vue-slider:hover .vue-slider-dot-handle {\n    border-color: #404040;\n}\n\n.vue-slider-dot-handle-focus {\n    border-color: #404040;\n    box-shadow: 0 0 0 5px rgba(54, 171, 255, 0.2);\n}\n.vue-slider:hover .vue-slider-dot-handle-focus {\n    border-color: #404040;\n}\n\n.vue-slider-dot-handle:hover {\n    border-color: #404040;\n}\n.vue-slider:hover .vue-slider-dot-handle:hover {\n    border-color: #404040;\n}\n\n.vue-slider-dot-handle-disabled {\n    cursor: not-allowed;\n    border-color: #ddd !important;\n}\n\n.vue-slider-dot-tooltip {\n    opacity: 0;\n    visibility: hidden;\n    transition: all 0.3s;\n}\n.vue-slider-dot-tooltip-inner {\n    font-size: 14px;\n    white-space: nowrap;\n    padding: 6px 8px;\n    color: #fff;\n    border-radius: 5px;\n    border-color: rgba(0, 0, 0, 0.75);\n    background-color: rgba(0, 0, 0, 0.75);\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n    -webkit-transform: scale(0.9);\n            transform: scale(0.9);\n    transition: -webkit-transform 0.3s;\n    transition: transform 0.3s;\n    transition: transform 0.3s, -webkit-transform 0.3s;\n}\n.vue-slider-dot-tooltip-inner::after {\n    content: '';\n    position: absolute;\n}\n.vue-slider-dot-tooltip-inner-top::after {\n    top: 100%;\n    left: 50%;\n    -webkit-transform: translate(-50%, 0);\n            transform: translate(-50%, 0);\n    height: 0;\n    width: 0;\n    border-color: transparent;\n    border-style: solid;\n    border-width: 5px;\n    border-top-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-bottom::after {\n    bottom: 100%;\n    left: 50%;\n    -webkit-transform: translate(-50%, 0);\n            transform: translate(-50%, 0);\n    height: 0;\n    width: 0;\n    border-color: transparent;\n    border-style: solid;\n    border-width: 5px;\n    border-bottom-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-left::after {\n    left: 100%;\n    top: 50%;\n    -webkit-transform: translate(0, -50%);\n            transform: translate(0, -50%);\n    height: 0;\n    width: 0;\n    border-color: transparent;\n    border-style: solid;\n    border-width: 5px;\n    border-left-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-right::after {\n    right: 100%;\n    top: 50%;\n    -webkit-transform: translate(0, -50%);\n            transform: translate(0, -50%);\n    height: 0;\n    width: 0;\n    border-color: transparent;\n    border-style: solid;\n    border-width: 5px;\n    border-right-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-top {\n    -webkit-transform-origin: 50% 100%;\n            transform-origin: 50% 100%;\n}\n.vue-slider-dot-tooltip-inner-bottom {\n    -webkit-transform-origin: 50% 0;\n            transform-origin: 50% 0;\n}\n.vue-slider-dot-tooltip-inner-left {\n    -webkit-transform-origin: 100% 50%;\n            transform-origin: 100% 50%;\n}\n.vue-slider-dot-tooltip-inner-right {\n    -webkit-transform-origin: 0% 50%;\n            transform-origin: 0% 50%;\n}\n\n.vue-slider-dot:hover .vue-slider-dot-tooltip,\n.vue-slider-dot-tooltip-show {\n    opacity: 1;\n    visibility: visible;\n}\n.vue-slider-dot:hover .vue-slider-dot-tooltip .vue-slider-dot-tooltip-inner,\n.vue-slider-dot-tooltip-show .vue-slider-dot-tooltip-inner {\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n", ""]);
+exports.push([module.i, "/* component style */\n.vue-slider-disabled .vue-slider-process {\n  background-color: #a7a7a7;\n}\n.vue-slider-disabled .vue-slider-dot-handle {\n  border-color: #a7a7a7;\n}\n.vue-slider-disabled .vue-slider-mark-step-active {\n  box-shadow: 0 0 0 2px #a7a7a7;\n}\n\n/* rail style */\n.vue-slider-rail {\n  background-color: whitesmoke;\n  border-radius: 15px;\n  transition: background-color 0.3s;\n}\n.vue-slider:hover .vue-slider-rail {\n  background-color: #e1e1e1;\n}\n\n/* process style */\n.vue-slider-process {\n  background-color: #9cd5ff;\n  border-radius: 15px;\n  transition: background-color 0.3s;\n}\n.vue-slider:hover .vue-slider-process {\n  background-color: #69c0ff;\n}\n\n/* mark style */\n.vue-slider-mark-step {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  box-shadow: 0 0 0 2px #e8e8e8;\n  background-color: #fff;\n}\n.vue-slider-mark-step-active {\n  box-shadow: 0 0 0 2px #9cd5ff;\n}\n.vue-slider:hover .vue-slider-mark-step-active {\n  box-shadow: 0 0 0 2px #69c0ff;\n}\n\n.vue-slider-mark-label {\n  font-size: 12px;\n  white-space: nowrap;\n}\n/* dot style */\n.vue-slider-dot-handle {\n  cursor: pointer;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  background-color: #fff;\n  border: 2px solid #9cd5ff;\n  box-sizing: border-box;\n  transition: box-shadow 0.3s, border-color 0.3s;\n}\n.vue-slider:hover .vue-slider-dot-handle {\n  border-color: #69c0ff;\n}\n\n.vue-slider-dot-handle-focus {\n  border-color: #36abff;\n  box-shadow: 0 0 0 5px rgba(54, 171, 255, 0.2);\n}\n.vue-slider:hover .vue-slider-dot-handle-focus {\n  border-color: #36abff;\n}\n\n.vue-slider-dot-handle:hover {\n  border-color: #36abff;\n}\n.vue-slider:hover .vue-slider-dot-handle:hover {\n  border-color: #36abff;\n}\n\n.vue-slider-dot-handle-disabled {\n  cursor: not-allowed;\n  border-color: #ddd !important;\n}\n\n.vue-slider-dot-tooltip {\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s;\n}\n.vue-slider-dot-tooltip-inner {\n  font-size: 14px;\n  white-space: nowrap;\n  padding: 6px 8px;\n  color: #fff;\n  border-radius: 5px;\n  border-color: rgba(0, 0, 0, 0.75);\n  background-color: rgba(0, 0, 0, 0.75);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  transition: -webkit-transform 0.3s;\n  transition: transform 0.3s;\n  transition: transform 0.3s, -webkit-transform 0.3s;\n}\n.vue-slider-dot-tooltip-inner::after {\n  content: \"\";\n  position: absolute;\n}\n.vue-slider-dot-tooltip-inner-top::after {\n  top: 100%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  height: 0;\n  width: 0;\n  border-color: transparent;\n  border-style: solid;\n  border-width: 5px;\n  border-top-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-bottom::after {\n  bottom: 100%;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  height: 0;\n  width: 0;\n  border-color: transparent;\n  border-style: solid;\n  border-width: 5px;\n  border-bottom-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-left::after {\n  left: 100%;\n  top: 50%;\n  -webkit-transform: translate(0, -50%);\n          transform: translate(0, -50%);\n  height: 0;\n  width: 0;\n  border-color: transparent;\n  border-style: solid;\n  border-width: 5px;\n  border-left-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-right::after {\n  right: 100%;\n  top: 50%;\n  -webkit-transform: translate(0, -50%);\n          transform: translate(0, -50%);\n  height: 0;\n  width: 0;\n  border-color: transparent;\n  border-style: solid;\n  border-width: 5px;\n  border-right-color: inherit;\n}\n.vue-slider-dot-tooltip-inner-top {\n  -webkit-transform-origin: 50% 100%;\n          transform-origin: 50% 100%;\n}\n.vue-slider-dot-tooltip-inner-bottom {\n  -webkit-transform-origin: 50% 0;\n          transform-origin: 50% 0;\n}\n.vue-slider-dot-tooltip-inner-left {\n  -webkit-transform-origin: 100% 50%;\n          transform-origin: 100% 50%;\n}\n.vue-slider-dot-tooltip-inner-right {\n  -webkit-transform-origin: 0% 50%;\n          transform-origin: 0% 50%;\n}\n\n.vue-slider-dot:hover .vue-slider-dot-tooltip, .vue-slider-dot-tooltip-show {\n  opacity: 1;\n  visibility: visible;\n}\n.vue-slider-dot:hover .vue-slider-dot-tooltip .vue-slider-dot-tooltip-inner, .vue-slider-dot-tooltip-show .vue-slider-dot-tooltip-inner {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n", ""]);
 
 // exports
 
@@ -1229,7 +1236,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\n.alert1 {\r\n  text-align: center;\r\n  margin-left: 50%;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\r\n  color: yellow;\n}\r\n", ""]);
 
 // exports
 
@@ -9541,7 +9548,9 @@ var render = function() {
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
       ])
     ])
   ])
@@ -9618,6 +9627,20 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert1" }, [
+      _c("h4", [
+        _c("b", [
+          _vm._v(
+            "\n            This is for Educational (Thesis) only. All transactions are FAKE. Thank you.\n          "
+          )
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -9652,10 +9675,7 @@ var render = function() {
           _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
             _c("img", {
               staticClass: "brand-logo",
-              attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./storage/app/public/img/core-img/LOGO3.png"),
-                alt: ""
-              }
+              attrs: { src: "/storage/img/core-img/LOGO3.png", alt: "" }
             })
           ]),
           _vm._v(" "),
@@ -22763,17 +22783,6 @@ Vue.component('footer-component', __webpack_require__(/*! ./components/FooterCom
 var printers = new Vue({
   el: '#products'
 });
-
-/***/ }),
-
-/***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 

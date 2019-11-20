@@ -84,6 +84,21 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col l12 m12 s12">
+                <ul class="collapsible">
+                    <li>
+                      <div class="collapsible-header"><b>Badopiece Collection</b></div>
+                      <div class="collapsible-body">
+                        <p>
+                        Bado came from the Bicolano word which means "clothes". Badopiece collection is an online selling store of clothes.
+    We started selling only a ready-to-wear or RTWs clothes but in all good as new condition. Costumers can purchased bulk order and be a reseller of fashion clothes in different design and style that is in every now and then and never been fade when it comes to fashion for a more category to avail. You can now purchased trendy and brand new product and design of bags,dresses,shoes, fashion items like accessories and beauty products that will your fashion wear.
+                        </p>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <br><br>
     </div>
 @endsection --}}

@@ -3,7 +3,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" :href="'/'">
-          <img class="brand-logo" src="../../../public/storage/img/core-img/LOGO3.png" alt />
+          <img class="brand-logo" :src="'/storage/img/core-img/LOGO3.png'" alt />
         </a>
         <button
           class="navbar-toggler"

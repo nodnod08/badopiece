@@ -157,10 +157,10 @@
                                 Please provide a Postal Code.
                             </div>
                         </div>
-                        <div class="col-lg-12 mb-2">
+                        <!-- <div class="col-lg-12 mb-2">
                             <label for>Tell something about your order. (optional)</label>
                             <textarea class="form-control" name="message"></textarea>
-                        </div>
+                        </div> -->
                     </div>
                     @if(!Auth::check())
                     <div class="row mt-4 mb-5">
@@ -240,17 +240,17 @@
                 <h5>
                     <b>Choose a way to pay</b> <small class="required-message"></small>
                 </h5>
-                <div id="dropin-container"></div>
-                <br>
-                <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay now
-                    <i class="fas fa-money-check"></i></button>
+                <!-- <div id="dropin-container"></div> -->
+                <!-- <br> -->
+                <!-- <button id="submit-button" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay now
+                    <i class="fas fa-money-check"></i></button> -->
             </div>
             <div class="col-lg-12 mt-5">
-                <h5>
+                <!-- <h5>
                     <b>Other payment method</b> <small class="required-message"></small>
-                </h5>
+                </h5> -->
                 <div id="dropin-container"></div>
-                <br>
+                <!-- <br> -->
                 <button id="MeetUP" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Pay on meet up
                     <i class="far fa-handshake"></i></button>
                 <button id="COD" class="btn btn-outline-dark btn-sm my-2 my-sm-0">Cash on Delivery
@@ -282,61 +282,61 @@
 @endsection
 @section('extra-js')
 <script>
-    braintree.dropin.create({
-        authorization: 'sandbox_9q2whtnv_btsn82cvs6kmgrxb',
-        container: '#dropin-container',
-        paypal: {
-            flow: 'vault',
-            amount: '10.00',
-            currency: 'USD'
-        }
-    }, function (err, instance) {
-        (function() {
-            'use strict';
-                var forms = document.getElementsByClassName('needs-validation');
-                var form1 = document.getElementById("submit-button");
-                var toSubmit = document.querySelector("#checkoutForm");
+    // braintree.dropin.create({
+    //     authorization: 'sandbox_9q2whtnv_btsn82cvs6kmgrxb',
+    //     container: '#dropin-container',
+    //     paypal: {
+    //         flow: 'vault',
+    //         amount: '10.00',
+    //         currency: 'USD'
+    //     }
+    // }, function (err, instance) {
+    //     (function() {
+    //         'use strict';
+    //             var forms = document.getElementsByClassName('needs-validation');
+    //             var form1 = document.getElementById("submit-button");
+    //             var toSubmit = document.querySelector("#checkoutForm");
                 
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                    form1.addEventListener('click', function(event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                            swal("", "Please complete all the fields.", "error");
-                        }
-                        form.classList.add('was-validated');
+    //             var validation = Array.prototype.filter.call(forms, function(form) {
+    //                 form1.addEventListener('click', function(event) {
+    //                     if (form.checkValidity() === false) {
+    //                         event.preventDefault();
+    //                         event.stopPropagation();
+    //                         swal("", "Please complete all the fields.", "error");
+    //                     }
+    //                     form.classList.add('was-validated');
 
-                            instance.requestPaymentMethod(function (err, payload) {
-                                // console.log(payload)
-                                if(typeof payload != 'undefined' && form.checkValidity() !== false) {                     
-                                    setTimeout(function() {
-                                        swal({
-                                            title: "Your payment is ready to process.",
-                                            text: "Are you sure, your order and other details are correct?",
-                                            icon: "info",
-                                            buttons: true,
-                                            dangerMode: true,
-                                            closeOnClickOutside: false
-                                        })
-                                        .then((willDelete) => {
-                                            if (willDelete) {
-                                                document.querySelector("#payment_method_nonce").value = payload.nonce;
-                                                document.querySelector("#type").value = payload.type;
-                                                document.querySelector("#transaction_type").value = '3';
-                                                toSubmit.submit();
-                                            } else {
+    //                         instance.requestPaymentMethod(function (err, payload) {
+    //                             // console.log(payload)
+    //                             if(typeof payload != 'undefined' && form.checkValidity() !== false) {                     
+    //                                 setTimeout(function() {
+    //                                     swal({
+    //                                         title: "Your payment is ready to process.",
+    //                                         text: "Are you sure, your order and other details are correct?",
+    //                                         icon: "info",
+    //                                         buttons: true,
+    //                                         dangerMode: true,
+    //                                         closeOnClickOutside: false
+    //                                     })
+    //                                     .then((willDelete) => {
+    //                                         if (willDelete) {
+    //                                             document.querySelector("#payment_method_nonce").value = payload.nonce;
+    //                                             document.querySelector("#type").value = payload.type;
+    //                                             document.querySelector("#transaction_type").value = '3';
+    //                                             toSubmit.submit();
+    //                                         } else {
                                                 
-                                            }
-                                        });
-                                    },1250)
-                                } else {
+    //                                         }
+    //                                     });
+    //                                 },1250)
+    //                             } else {
 
-                                }
-                            });
-                    }, false);
-                });
-        })();
-    });
+    //                             }
+    //                         });
+    //                 }, false);
+    //             });
+    //     })();
+    // });
     var meetUP = document.getElementById("MeetUP"); 
     var COD = document.getElementById("COD"); 
     var forms = document.getElementsByClassName('needs-validation');

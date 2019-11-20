@@ -188,6 +188,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -379,7 +386,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.footer {\r\n  padding-top: 20px;\r\n  background: #404040;\r\n  color: #ffffff;\n}\nli {\r\n  list-style: none;\n}\n.footer h5 {\r\n  margin-bottom: 10px;\n}\n.fb-page,\r\n.fa-instagram {\r\n  color: #fff;\n}\n.payment {\r\n  background: #fff;\r\n  padding: 2%;\n}\n@media (max-width: 480px) {\n.payment-photo {\r\n    height: 50px;\r\n    width: 300px;\n}\n}\n@media (max-width: 390px) {\n.payment-photo {\r\n    height: 40px;\r\n    width: 250px;\n}\n}\n@media (max-width: 350px) {\n.payment-photo {\r\n    height: 35px;\r\n    width: 200px;\n}\n}\nul.main {\r\n  padding-left: 0;\n}\n.alert1 {\r\n  text-align: center;\r\n  margin-left: 50%;\r\n  -webkit-transform: translateX(-50%);\r\n          transform: translateX(-50%);\r\n  color: yellow;\n}\r\n", ""]);
 
 // exports
 
@@ -1858,7 +1865,9 @@ var render = function() {
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
       ])
     ])
   ])
@@ -1935,6 +1944,20 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert1" }, [
+      _c("h4", [
+        _c("b", [
+          _vm._v(
+            "\n            This is for Educational (Thesis) only. All transactions are FAKE. Thank you.\n          "
+          )
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -1969,10 +1992,7 @@ var render = function() {
           _c("a", { staticClass: "navbar-brand", attrs: { href: "/" } }, [
             _c("img", {
               staticClass: "brand-logo",
-              attrs: {
-                src: __webpack_require__(/*! ../../../public/storage/img/core-img/LOGO3.png */ "./storage/app/public/img/core-img/LOGO3.png"),
-                alt: ""
-              }
+              attrs: { src: "/storage/img/core-img/LOGO3.png", alt: "" }
             })
           ]),
           _vm._v(" "),
@@ -2531,17 +2551,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NavbarComponent_vue_vue_type_template_id_485090b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./storage/app/public/img/core-img/LOGO3.png":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/core-img/LOGO3.png ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/LOGO3.png?df3960dabbdb41dcf0217e625066c8a6";
 
 /***/ }),
 

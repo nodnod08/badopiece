@@ -45,7 +45,7 @@
                       class="form-control form-control-sm col-lg-12"
                       :id="'itemCount'+cart.id"
                     >
-                      <option v-for="n in cart.attributes.stocks" v-bind:key="n" :value="n">{{ n }}</option>
+                      <option v-for="n in Number(cart.attributes.stocks)" v-bind:key="n" :value="n">{{ n }}</option>
                     </select>
                     <button
                       v-on:click="update(cart.id)"
